@@ -11,6 +11,11 @@
 		CDC064BC2BA31F8200E24F70 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC064BB2BA31F8200E24F70 /* ContentView.swift */; };
 		CDC064BE2BA31F8300E24F70 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDC064BD2BA31F8300E24F70 /* Assets.xcassets */; };
 		CDC064C12BA31F8300E24F70 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDC064C02BA31F8300E24F70 /* Preview Assets.xcassets */; };
+		CDC064CC2BA3288900E24F70 /* MateMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC064CB2BA3288900E24F70 /* MateMain.swift */; };
+		CDC064CE2BA3289200E24F70 /* RecruitmentMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC064CD2BA3289200E24F70 /* RecruitmentMain.swift */; };
+		CDC064D02BA3289700E24F70 /* CommunityMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC064CF2BA3289700E24F70 /* CommunityMain.swift */; };
+		CDC064D22BA3289E00E24F70 /* MyPageMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC064D12BA3289E00E24F70 /* MyPageMain.swift */; };
+		CDC064D52BA32A2B00E24F70 /* Color + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC064D42BA32A2B00E24F70 /* Color + Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +24,11 @@
 		CDC064BB2BA31F8200E24F70 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		CDC064BD2BA31F8300E24F70 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CDC064C02BA31F8300E24F70 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		CDC064CB2BA3288900E24F70 /* MateMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MateMain.swift; sourceTree = "<group>"; };
+		CDC064CD2BA3289200E24F70 /* RecruitmentMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecruitmentMain.swift; sourceTree = "<group>"; };
+		CDC064CF2BA3289700E24F70 /* CommunityMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityMain.swift; sourceTree = "<group>"; };
+		CDC064D12BA3289E00E24F70 /* MyPageMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageMain.swift; sourceTree = "<group>"; };
+		CDC064D42BA32A2B00E24F70 /* Color + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color + Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +61,11 @@
 		CDC064B82BA31F8200E24F70 /* ZANI */ = {
 			isa = PBXGroup;
 			children = (
+				CDC064D32BA32A1E00E24F70 /* Util */,
+				CDC064CA2BA3281D00E24F70 /* Mate */,
+				CDC064C92BA3281C00E24F70 /* Recruitment */,
+				CDC064C82BA3281A00E24F70 /* Community */,
+				CDC064C72BA3281800E24F70 /* MyPage */,
 				CDC064B92BA31F8200E24F70 /* ZANIApp.swift */,
 				CDC064BB2BA31F8200E24F70 /* ContentView.swift */,
 				CDC064BD2BA31F8300E24F70 /* Assets.xcassets */,
@@ -65,6 +80,46 @@
 				CDC064C02BA31F8300E24F70 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		CDC064C72BA3281800E24F70 /* MyPage */ = {
+			isa = PBXGroup;
+			children = (
+				CDC064D12BA3289E00E24F70 /* MyPageMain.swift */,
+			);
+			path = MyPage;
+			sourceTree = "<group>";
+		};
+		CDC064C82BA3281A00E24F70 /* Community */ = {
+			isa = PBXGroup;
+			children = (
+				CDC064CF2BA3289700E24F70 /* CommunityMain.swift */,
+			);
+			path = Community;
+			sourceTree = "<group>";
+		};
+		CDC064C92BA3281C00E24F70 /* Recruitment */ = {
+			isa = PBXGroup;
+			children = (
+				CDC064CD2BA3289200E24F70 /* RecruitmentMain.swift */,
+			);
+			path = Recruitment;
+			sourceTree = "<group>";
+		};
+		CDC064CA2BA3281D00E24F70 /* Mate */ = {
+			isa = PBXGroup;
+			children = (
+				CDC064CB2BA3288900E24F70 /* MateMain.swift */,
+			);
+			path = Mate;
+			sourceTree = "<group>";
+		};
+		CDC064D32BA32A1E00E24F70 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				CDC064D42BA32A2B00E24F70 /* Color + Extension.swift */,
+			);
+			path = Util;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,7 +193,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				CDC064BC2BA31F8200E24F70 /* ContentView.swift in Sources */,
+				CDC064D52BA32A2B00E24F70 /* Color + Extension.swift in Sources */,
+				CDC064CC2BA3288900E24F70 /* MateMain.swift in Sources */,
 				CDC064BA2BA31F8200E24F70 /* ZANIApp.swift in Sources */,
+				CDC064D22BA3289E00E24F70 /* MyPageMain.swift in Sources */,
+				CDC064CE2BA3289200E24F70 /* RecruitmentMain.swift in Sources */,
+				CDC064D02BA3289700E24F70 /* CommunityMain.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
