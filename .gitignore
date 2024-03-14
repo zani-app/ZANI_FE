@@ -55,22 +55,5 @@ DerivedData/
 *.xcodeproj/*
 !*.xcodeproj/project.pbxproj
 !*.xcodeproj/xcshareddata/
-!*.xcworkspace/contents.xcworkspacedata
-/*.gcno
+/*.Genoa
 
-### Projects ###
-*.xcodeproj
-*.xcworkspace
-
-
-### Privacy ###
-APIKeys*.swift
-
-### Tuist derived files ###
-graph.dot
-Derived/
-
-### Tuist managed dependencies ###
-Tuist/Dependencies
-Tuist/Signing
-Tuist/master.key
