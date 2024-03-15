@@ -32,6 +32,7 @@
 		CDC064F82BA46A6400E24F70 /* Pretendard-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = CDC064EF2BA46A6400E24F70 /* Pretendard-Black.otf */; };
 		CDC064F92BA46A6400E24F70 /* Pretendard-ExtraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = CDC064F02BA46A6400E24F70 /* Pretendard-ExtraLight.otf */; };
 		CDC064FC2BA46B7700E24F70 /* Font + Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC064FB2BA46B7700E24F70 /* Font + Utils.swift */; };
+		CDC064FE2BA4795600E24F70 /* View + Placeholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC064FD2BA4795600E24F70 /* View + Placeholder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +63,7 @@
 		CDC064F02BA46A6400E24F70 /* Pretendard-ExtraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Pretendard-ExtraLight.otf"; path = "../../../../Downloads/Pretendard-1/public/static/Pretendard-ExtraLight.otf"; sourceTree = "<group>"; };
 		CDC064FA2BA46ACA00E24F70 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		CDC064FB2BA46B7700E24F70 /* Font + Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font + Utils.swift"; sourceTree = "<group>"; };
+		CDC064FD2BA4795600E24F70 /* View + Placeholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View + Placeholder.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +166,7 @@
 			children = (
 				CDC064D42BA32A2B00E24F70 /* Color + Extension.swift */,
 				CDC064FB2BA46B7700E24F70 /* Font + Utils.swift */,
+				CDC064FD2BA4795600E24F70 /* View + Placeholder.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -290,6 +293,7 @@
 				CDC064DF2BA3892D00E24F70 /* ZaniMainButton.swift in Sources */,
 				CDC064DD2BA387E900E24F70 /* ZaniTextField.swift in Sources */,
 				CDC064D52BA32A2B00E24F70 /* Color + Extension.swift in Sources */,
+				CDC064FE2BA4795600E24F70 /* View + Placeholder.swift in Sources */,
 				CDC064CC2BA3288900E24F70 /* MateMain.swift in Sources */,
 				CDC064BA2BA31F8200E24F70 /* ZANIApp.swift in Sources */,
 				CDC064DB2BA37F0700E24F70 /* CreateTeamView.swift in Sources */,
