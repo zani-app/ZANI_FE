@@ -16,6 +16,22 @@
 		CDC064D02BA3289700E24F70 /* CommunityMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC064CF2BA3289700E24F70 /* CommunityMain.swift */; };
 		CDC064D22BA3289E00E24F70 /* MyPageMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC064D12BA3289E00E24F70 /* MyPageMain.swift */; };
 		CDC064D52BA32A2B00E24F70 /* Color + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC064D42BA32A2B00E24F70 /* Color + Extension.swift */; };
+		CDC064D92BA37D9A00E24F70 /* ZaniCapsuleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC064D82BA37D9A00E24F70 /* ZaniCapsuleButton.swift */; };
+		CDC064DB2BA37F0700E24F70 /* CreateTeamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC064DA2BA37F0700E24F70 /* CreateTeamView.swift */; };
+		CDC064DD2BA387E900E24F70 /* ZaniTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC064DC2BA387E900E24F70 /* ZaniTextField.swift */; };
+		CDC064DF2BA3892D00E24F70 /* ZaniMainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC064DE2BA3892D00E24F70 /* ZaniMainButton.swift */; };
+		CDC064E12BA38B1900E24F70 /* ZaniNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC064E02BA38B1900E24F70 /* ZaniNavigationBar.swift */; };
+		CDC064E62BA38F9B00E24F70 /* RecruitmentPageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC064E52BA38F9B00E24F70 /* RecruitmentPageManager.swift */; };
+		CDC064F12BA46A6400E24F70 /* Pretendard-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = CDC064E82BA46A6400E24F70 /* Pretendard-Light.otf */; };
+		CDC064F22BA46A6400E24F70 /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = CDC064E92BA46A6400E24F70 /* Pretendard-Regular.otf */; };
+		CDC064F32BA46A6400E24F70 /* Pretendard-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = CDC064EA2BA46A6400E24F70 /* Pretendard-ExtraBold.otf */; };
+		CDC064F42BA46A6400E24F70 /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = CDC064EB2BA46A6400E24F70 /* Pretendard-SemiBold.otf */; };
+		CDC064F52BA46A6400E24F70 /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = CDC064EC2BA46A6400E24F70 /* Pretendard-Bold.otf */; };
+		CDC064F62BA46A6400E24F70 /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = CDC064ED2BA46A6400E24F70 /* Pretendard-Medium.otf */; };
+		CDC064F72BA46A6400E24F70 /* Pretendard-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = CDC064EE2BA46A6400E24F70 /* Pretendard-Thin.otf */; };
+		CDC064F82BA46A6400E24F70 /* Pretendard-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = CDC064EF2BA46A6400E24F70 /* Pretendard-Black.otf */; };
+		CDC064F92BA46A6400E24F70 /* Pretendard-ExtraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = CDC064F02BA46A6400E24F70 /* Pretendard-ExtraLight.otf */; };
+		CDC064FC2BA46B7700E24F70 /* Font + Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC064FB2BA46B7700E24F70 /* Font + Utils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +45,23 @@
 		CDC064CF2BA3289700E24F70 /* CommunityMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityMain.swift; sourceTree = "<group>"; };
 		CDC064D12BA3289E00E24F70 /* MyPageMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageMain.swift; sourceTree = "<group>"; };
 		CDC064D42BA32A2B00E24F70 /* Color + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color + Extension.swift"; sourceTree = "<group>"; };
+		CDC064D82BA37D9A00E24F70 /* ZaniCapsuleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZaniCapsuleButton.swift; sourceTree = "<group>"; };
+		CDC064DA2BA37F0700E24F70 /* CreateTeamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTeamView.swift; sourceTree = "<group>"; };
+		CDC064DC2BA387E900E24F70 /* ZaniTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZaniTextField.swift; sourceTree = "<group>"; };
+		CDC064DE2BA3892D00E24F70 /* ZaniMainButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZaniMainButton.swift; sourceTree = "<group>"; };
+		CDC064E02BA38B1900E24F70 /* ZaniNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZaniNavigationBar.swift; sourceTree = "<group>"; };
+		CDC064E52BA38F9B00E24F70 /* RecruitmentPageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecruitmentPageManager.swift; sourceTree = "<group>"; };
+		CDC064E82BA46A6400E24F70 /* Pretendard-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Pretendard-Light.otf"; path = "../../../../Downloads/Pretendard-1/public/static/Pretendard-Light.otf"; sourceTree = "<group>"; };
+		CDC064E92BA46A6400E24F70 /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Pretendard-Regular.otf"; path = "../../../../Downloads/Pretendard-1/public/static/Pretendard-Regular.otf"; sourceTree = "<group>"; };
+		CDC064EA2BA46A6400E24F70 /* Pretendard-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Pretendard-ExtraBold.otf"; path = "../../../../Downloads/Pretendard-1/public/static/Pretendard-ExtraBold.otf"; sourceTree = "<group>"; };
+		CDC064EB2BA46A6400E24F70 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Pretendard-SemiBold.otf"; path = "../../../../Downloads/Pretendard-1/public/static/Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
+		CDC064EC2BA46A6400E24F70 /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Pretendard-Bold.otf"; path = "../../../../Downloads/Pretendard-1/public/static/Pretendard-Bold.otf"; sourceTree = "<group>"; };
+		CDC064ED2BA46A6400E24F70 /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Pretendard-Medium.otf"; path = "../../../../Downloads/Pretendard-1/public/static/Pretendard-Medium.otf"; sourceTree = "<group>"; };
+		CDC064EE2BA46A6400E24F70 /* Pretendard-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Pretendard-Thin.otf"; path = "../../../../Downloads/Pretendard-1/public/static/Pretendard-Thin.otf"; sourceTree = "<group>"; };
+		CDC064EF2BA46A6400E24F70 /* Pretendard-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Pretendard-Black.otf"; path = "../../../../Downloads/Pretendard-1/public/static/Pretendard-Black.otf"; sourceTree = "<group>"; };
+		CDC064F02BA46A6400E24F70 /* Pretendard-ExtraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Pretendard-ExtraLight.otf"; path = "../../../../Downloads/Pretendard-1/public/static/Pretendard-ExtraLight.otf"; sourceTree = "<group>"; };
+		CDC064FA2BA46ACA00E24F70 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		CDC064FB2BA46B7700E24F70 /* Font + Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font + Utils.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +94,8 @@
 		CDC064B82BA31F8200E24F70 /* ZANI */ = {
 			isa = PBXGroup;
 			children = (
+				CDC064FA2BA46ACA00E24F70 /* Info.plist */,
+				CDC064E72BA46A4800E24F70 /* Fonts */,
 				CDC064D32BA32A1E00E24F70 /* Util */,
 				CDC064CA2BA3281D00E24F70 /* Mate */,
 				CDC064C92BA3281C00E24F70 /* Recruitment */,
@@ -101,7 +136,8 @@
 		CDC064C92BA3281C00E24F70 /* Recruitment */ = {
 			isa = PBXGroup;
 			children = (
-				CDC064CD2BA3289200E24F70 /* RecruitmentMain.swift */,
+				CDC064E42BA38F8100E24F70 /* View */,
+				CDC064E52BA38F9B00E24F70 /* RecruitmentPageManager.swift */,
 			);
 			path = Recruitment;
 			sourceTree = "<group>";
@@ -117,9 +153,55 @@
 		CDC064D32BA32A1E00E24F70 /* Util */ = {
 			isa = PBXGroup;
 			children = (
-				CDC064D42BA32A2B00E24F70 /* Color + Extension.swift */,
+				CDC064E32BA38C1D00E24F70 /* ZaniKit */,
+				CDC064E22BA38C1400E24F70 /* Extension */,
 			);
 			path = Util;
+			sourceTree = "<group>";
+		};
+		CDC064E22BA38C1400E24F70 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				CDC064D42BA32A2B00E24F70 /* Color + Extension.swift */,
+				CDC064FB2BA46B7700E24F70 /* Font + Utils.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		CDC064E32BA38C1D00E24F70 /* ZaniKit */ = {
+			isa = PBXGroup;
+			children = (
+				CDC064D82BA37D9A00E24F70 /* ZaniCapsuleButton.swift */,
+				CDC064DC2BA387E900E24F70 /* ZaniTextField.swift */,
+				CDC064DE2BA3892D00E24F70 /* ZaniMainButton.swift */,
+				CDC064E02BA38B1900E24F70 /* ZaniNavigationBar.swift */,
+			);
+			path = ZaniKit;
+			sourceTree = "<group>";
+		};
+		CDC064E42BA38F8100E24F70 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CDC064CD2BA3289200E24F70 /* RecruitmentMain.swift */,
+				CDC064DA2BA37F0700E24F70 /* CreateTeamView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CDC064E72BA46A4800E24F70 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				CDC064EF2BA46A6400E24F70 /* Pretendard-Black.otf */,
+				CDC064EC2BA46A6400E24F70 /* Pretendard-Bold.otf */,
+				CDC064EA2BA46A6400E24F70 /* Pretendard-ExtraBold.otf */,
+				CDC064F02BA46A6400E24F70 /* Pretendard-ExtraLight.otf */,
+				CDC064E82BA46A6400E24F70 /* Pretendard-Light.otf */,
+				CDC064ED2BA46A6400E24F70 /* Pretendard-Medium.otf */,
+				CDC064E92BA46A6400E24F70 /* Pretendard-Regular.otf */,
+				CDC064EB2BA46A6400E24F70 /* Pretendard-SemiBold.otf */,
+				CDC064EE2BA46A6400E24F70 /* Pretendard-Thin.otf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -181,7 +263,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				CDC064C12BA31F8300E24F70 /* Preview Assets.xcassets in Resources */,
+				CDC064F22BA46A6400E24F70 /* Pretendard-Regular.otf in Resources */,
+				CDC064F52BA46A6400E24F70 /* Pretendard-Bold.otf in Resources */,
+				CDC064F72BA46A6400E24F70 /* Pretendard-Thin.otf in Resources */,
+				CDC064F82BA46A6400E24F70 /* Pretendard-Black.otf in Resources */,
+				CDC064F62BA46A6400E24F70 /* Pretendard-Medium.otf in Resources */,
+				CDC064F32BA46A6400E24F70 /* Pretendard-ExtraBold.otf in Resources */,
+				CDC064F42BA46A6400E24F70 /* Pretendard-SemiBold.otf in Resources */,
 				CDC064BE2BA31F8300E24F70 /* Assets.xcassets in Resources */,
+				CDC064F12BA46A6400E24F70 /* Pretendard-Light.otf in Resources */,
+				CDC064F92BA46A6400E24F70 /* Pretendard-ExtraLight.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -192,11 +283,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDC064FC2BA46B7700E24F70 /* Font + Utils.swift in Sources */,
 				CDC064BC2BA31F8200E24F70 /* ContentView.swift in Sources */,
+				CDC064E62BA38F9B00E24F70 /* RecruitmentPageManager.swift in Sources */,
+				CDC064E12BA38B1900E24F70 /* ZaniNavigationBar.swift in Sources */,
+				CDC064DF2BA3892D00E24F70 /* ZaniMainButton.swift in Sources */,
+				CDC064DD2BA387E900E24F70 /* ZaniTextField.swift in Sources */,
 				CDC064D52BA32A2B00E24F70 /* Color + Extension.swift in Sources */,
 				CDC064CC2BA3288900E24F70 /* MateMain.swift in Sources */,
 				CDC064BA2BA31F8200E24F70 /* ZANIApp.swift in Sources */,
+				CDC064DB2BA37F0700E24F70 /* CreateTeamView.swift in Sources */,
 				CDC064D22BA3289E00E24F70 /* MyPageMain.swift in Sources */,
+				CDC064D92BA37D9A00E24F70 /* ZaniCapsuleButton.swift in Sources */,
 				CDC064CE2BA3289200E24F70 /* RecruitmentMain.swift in Sources */,
 				CDC064D02BA3289700E24F70 /* CommunityMain.swift in Sources */,
 			);
@@ -335,6 +433,7 @@
 				DEVELOPMENT_TEAM = N8RU5UJH68;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ZANI/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -364,6 +463,7 @@
 				DEVELOPMENT_TEAM = N8RU5UJH68;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ZANI/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
