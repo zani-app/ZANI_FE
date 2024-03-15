@@ -44,9 +44,8 @@ struct MateMain: View {
                 
                 VStack(spacing: 10) {
                     ForEach(0 ... 2, id: \.self) { listing in
-                        Rectangle()
+                        MateBestTips()
                             .frame(height: 121)
-                            .clipShape(RoundedRectangle(cornerRadius: 20))
                     }
                 }
                 .padding(.top, 10)
