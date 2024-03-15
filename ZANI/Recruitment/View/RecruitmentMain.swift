@@ -35,6 +35,9 @@ extension RecruitmentMain {
     case .createTeam:
       CreateTeamView()
       
+    case let .category(category):
+      SectionListView(section: category)
+      
     default:
       RecruitmentMain()
     }

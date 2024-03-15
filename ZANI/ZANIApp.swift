@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct ZANIApp: App {
+  @StateObject private var recruitmentPageManager = RecruitmentPageManager()
+  
   var body: some Scene {
     WindowGroup {
       ContentView()
+        .environmentObject(recruitmentPageManager)
     }
   }
 }

@@ -7,25 +7,6 @@
 
 import SwiftUI
 
-public enum CreateTeamSection: CaseIterable {
-  case category
-  case peopleCount
-  case nightTime
-  
-  public var title: String {
-    switch self {
-    case .category:
-      return "카테고리"
-      
-    case .peopleCount:
-      return "모집 인원"
-      
-    case .nightTime:
-      return "밤샘시간"
-    }
-  }
-}
-
 public struct CreateTeamView: View {
   @EnvironmentObject private var recruitmentPageManager: RecruitmentPageManager
   
@@ -135,7 +116,7 @@ extension CreateTeamView {
             .fill(Color(red: 35/255, green: 35/255, blue: 63/255))
         )
         .onTapGesture {
-          
+          recruitmentPageManager.push(.category(section))
         }
       }
     }

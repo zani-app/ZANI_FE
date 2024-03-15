@@ -7,13 +7,11 @@
 
 import SwiftUI
 
-enum RecruitmentPageState {
+public enum RecruitmentPageState: Hashable {
   case main
-  case filter
   case createTeam
-  case category
-  case peopleCount
-  case nightTime
+  case filter
+  case category(CreateTeamSection)
 }
 
 final class RecruitmentPageManager: ObservableObject {
