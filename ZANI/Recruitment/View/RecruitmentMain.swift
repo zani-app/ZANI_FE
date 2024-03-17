@@ -38,6 +38,9 @@ extension RecruitmentMain {
     case let .category(category):
       SectionListView(section: category)
       
+    case .filter:
+      FilterView()
+      
     default:
       RecruitmentMain()
     }
@@ -78,23 +81,23 @@ extension RecruitmentMain {
           title: "목표",
           isValid: false,
           trailingIcon: Image("chevronDown"),
-          action: { }
+          action: { recruitmentPageManager.push(.filter) }
         )
         ZaniCapsuleButton(
           title: "유형",
           isValid: false,
           trailingIcon: Image("chevronDown"),
-          action: { }
+          action: { recruitmentPageManager.push(.filter) }
         )
         ZaniCapsuleButton(
           title: "빈 자리",
           isValid: false,
-          action: { }
+          action: { recruitmentPageManager.push(.filter) }
         )
         ZaniCapsuleButton(
           title: "공개방",
           isValid: false,
-          action: { }
+          action: { recruitmentPageManager.push(.filter) }
         )
       }
       .padding(1)
