@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		012D46212BA3FA2800E05BC7 /* MateIntroduce.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012D46202BA3FA2800E05BC7 /* MateIntroduce.swift */; };
+		012D46232BA4019A00E05BC7 /* MateRecommend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012D46222BA4019A00E05BC7 /* MateRecommend.swift */; };
+		012D46252BA40DA300E05BC7 /* MateBestTips.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012D46242BA40DA300E05BC7 /* MateBestTips.swift */; };
 		CDC064BA2BA31F8200E24F70 /* ZANIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC064B92BA31F8200E24F70 /* ZANIApp.swift */; };
 		CDC064BC2BA31F8200E24F70 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC064BB2BA31F8200E24F70 /* ContentView.swift */; };
 		CDC064BE2BA31F8300E24F70 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDC064BD2BA31F8300E24F70 /* Assets.xcassets */; };
@@ -39,6 +42,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		012D46202BA3FA2800E05BC7 /* MateIntroduce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MateIntroduce.swift; sourceTree = "<group>"; };
+		012D46222BA4019A00E05BC7 /* MateRecommend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MateRecommend.swift; sourceTree = "<group>"; };
+		012D46242BA40DA300E05BC7 /* MateBestTips.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MateBestTips.swift; sourceTree = "<group>"; };
 		CDC064B62BA31F8200E24F70 /* ZANI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZANI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDC064B92BA31F8200E24F70 /* ZANIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZANIApp.swift; sourceTree = "<group>"; };
 		CDC064BB2BA31F8200E24F70 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -83,6 +89,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		012D46262BA4697700E05BC7 /* MateMain */ = {
+			isa = PBXGroup;
+			children = (
+				CDC064CB2BA3288900E24F70 /* MateMain.swift */,
+				012D46202BA3FA2800E05BC7 /* MateIntroduce.swift */,
+				012D46222BA4019A00E05BC7 /* MateRecommend.swift */,
+				012D46242BA40DA300E05BC7 /* MateBestTips.swift */,
+			);
+			path = MateMain;
+			sourceTree = "<group>";
+		};
+		012D46282BA4698900E05BC7 /* MateAllNight */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MateAllNight;
+			sourceTree = "<group>";
+		};
 		CDC064AD2BA31F8200E24F70 = {
 			isa = PBXGroup;
 			children = (
@@ -153,7 +177,8 @@
 		CDC064CA2BA3281D00E24F70 /* Mate */ = {
 			isa = PBXGroup;
 			children = (
-				CDC064CB2BA3288900E24F70 /* MateMain.swift */,
+				012D46262BA4697700E05BC7 /* MateMain */,
+				012D46282BA4698900E05BC7 /* MateAllNight */,
 			);
 			path = Mate;
 			sourceTree = "<group>";
@@ -313,9 +338,12 @@
 				CDC064D52BA32A2B00E24F70 /* Color + Extension.swift in Sources */,
 				CDC064FE2BA4795600E24F70 /* View + Placeholder.swift in Sources */,
 				CDC065032BA4C98100E24F70 /* CreateTeamSection.swift in Sources */,
+				012D46212BA3FA2800E05BC7 /* MateIntroduce.swift in Sources */,
 				CDC064CC2BA3288900E24F70 /* MateMain.swift in Sources */,
+				012D46232BA4019A00E05BC7 /* MateRecommend.swift in Sources */,
 				CDC064BA2BA31F8200E24F70 /* ZANIApp.swift in Sources */,
 				CDC064DB2BA37F0700E24F70 /* CreateTeamView.swift in Sources */,
+				012D46252BA40DA300E05BC7 /* MateBestTips.swift in Sources */,
 				CDC064D22BA3289E00E24F70 /* MyPageMain.swift in Sources */,
 				CDC065002BA4809000E24F70 /* SectionListView.swift in Sources */,
 				CDC064D92BA37D9A00E24F70 /* ZaniCapsuleButton.swift in Sources */,
