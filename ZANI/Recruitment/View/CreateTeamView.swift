@@ -64,8 +64,7 @@ extension CreateTeamView {
   private func bottomButton() -> some View {
     ZaniMainButton(
       title: "팀 생성하기",
-      titleColor: Color.zaniMain1,
-      backgroundColor: Color.zaniMain2,
+      isValid: true,
       action: {
         
       }
@@ -78,7 +77,7 @@ extension CreateTeamView {
   private func teamNameSection() -> some View {
     ZaniTextField(
       placeholderText: "팀 이름을 입력해주세요",
-      isPlaceholderBold: true,
+      placeholderTextStyle: .title2,
       keyboardType: .default,
       maximumInputCount: 10,
       inputText: $teamName
@@ -141,6 +140,7 @@ extension CreateTeamView {
       if isSecretRoom {
         ZaniTextField(
           placeholderText: "비밀번호 입력 (숫자 4자리 구성)",
+          placeholderTextStyle: .body1,
           keyboardType: .numberPad,
           maximumInputCount: 4,
           inputText: $password
@@ -154,6 +154,7 @@ extension CreateTeamView {
   private func teamIntroduceSection() -> some View {
     ZaniTextField(
       placeholderText: "팀을 소개할 문구를 작성해주세요. (구체적인 모집 대상, 목표 등)",
+      placeholderTextStyle: .body1,
       keyboardType: .default,
       maximumInputCount: 50,
       lineLimit: 6,
