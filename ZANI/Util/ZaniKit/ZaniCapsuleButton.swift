@@ -38,17 +38,19 @@ public struct ZaniCapsuleButton: View {
       HStack(alignment: .center, spacing: 0) {
         if let leadingIcon = leadingIcon {
           leadingIcon
+            .renderingMode(.template)
             .padding(.trailing, 8)
         }
         
         Text(title)
-          .foregroundStyle(isValid ? Color.zaniMain2 : .white)
         
         if let trailingIcon = trailingIcon {
           trailingIcon
+            .renderingMode(.template)
             .padding(.leading, 4)
         }
       }
+      .foregroundStyle(isValid ? Color.zaniMain2 : .white)
       .padding(.vertical, 6)
       .padding(.horizontal, horizontalPadding)
       .zaniFont(.body2)

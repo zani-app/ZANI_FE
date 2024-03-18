@@ -9,7 +9,10 @@ import SwiftUI
 
 public struct ZaniTextField: View {
   public let placeholderText: String
-  public let isPlaceholderBold: Bool
+  public let placeholderTextStyle: ZaniFontType
+  public let placeHolderColor: Color
+  public let textColor: Color
+  public let backgroundColor: Color
   public let keyboardType: UIKeyboardType
   public let maximumInputCount: Int
   public let lineLimit: Int
@@ -18,14 +21,20 @@ public struct ZaniTextField: View {
   
   public init(
     placeholderText: String,
-    isPlaceholderBold: Bool = false,
+    placeholderTextStyle: ZaniFontType,
+    placeHolderColor: Color = Color.zaniMain6,
+    textColor: Color = .white,
+    backgroundColor: Color = Color(red: 35/255, green: 35/255, blue: 63/255),
     keyboardType: UIKeyboardType,
     maximumInputCount: Int,
     lineLimit: Int = 1,
     inputText: Binding<String>
   ) {
     self.placeholderText = placeholderText
-    self.isPlaceholderBold = isPlaceholderBold
+    self.placeholderTextStyle = placeholderTextStyle
+    self.placeHolderColor = placeHolderColor
+    self.textColor = textColor
+    self.backgroundColor = backgroundColor
     self.keyboardType = keyboardType
     self.maximumInputCount = maximumInputCount
     self.lineLimit = lineLimit
@@ -36,12 +45,12 @@ public struct ZaniTextField: View {
     TextField("", text: $inputText, axis: .vertical)
       .placeholder(when: inputText.isEmpty, placeholder: {
         Text(placeholderText)
-          .zaniFont(isPlaceholderBold ? .title2 : .body1)
-          .foregroundStyle(Color.zaniMain6)
+          .zaniFont(placeholderTextStyle)
+          .foregroundStyle(placeHolderColor)
       })
-      .zaniFont(isPlaceholderBold ? .title2 : .body1)
+      .zaniFont(placeholderTextStyle)
       .tint(Color.zaniMain1)
-      .foregroundColor(.white)
+      .foregroundColor(textColor)
       .lineLimit(lineLimit, reservesSpace: true)
       .autocorrectionDisabled()
       .textInputAutocapitalization(.never)
@@ -53,7 +62,7 @@ public struct ZaniTextField: View {
       .padding(.horizontal, 16)
       .background(
         RoundedRectangle(cornerRadius: 10.0)
-          .fill(Color(red: 35/255, green: 35/255, blue: 63/255))
+          .fill(backgroundColor)
       )
   }
 }
@@ -61,6 +70,7 @@ public struct ZaniTextField: View {
 #Preview {
   ZaniTextField(
     placeholderText: "test",
+    placeholderTextStyle: .body1,
     keyboardType: .default,
     maximumInputCount: 3,
     inputText: .constant("test")
