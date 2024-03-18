@@ -52,13 +52,14 @@ struct MateMain: View {
                     .background(Color.zaniMain1)
                 }
                 .background(Color.zaniMain1)
+                .padding(.leading, 20)
+                .padding(.trailing, 20)
                 
             }
             .background(Color.zaniMain1)
             
         }
-        .padding(.leading, 20)
-        .padding(.trailing, 20)
+        
         .background(Color.zaniMain1)
     }
     
