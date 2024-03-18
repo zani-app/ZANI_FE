@@ -9,14 +9,14 @@ import SwiftUI
 
 public struct ZaniMainButton: View {
   public var title: String
-  public var titleColor: Color
-  public var backgroundColor: Color
+  public var isValid: Bool
+  public var verticalPadding: CGFloat
   public var action: () -> Void
   
-  public init(title: String, titleColor: Color, backgroundColor: Color, action: @escaping () -> Void) {
+  public init(title: String, isValid: Bool, verticalPadding: CGFloat = 12, action: @escaping () -> Void) {
     self.title = title
-    self.titleColor = titleColor
-    self.backgroundColor = backgroundColor
+    self.isValid = isValid
+    self.verticalPadding = verticalPadding
     self.action = action
   }
   
@@ -26,16 +26,22 @@ public struct ZaniMainButton: View {
     }, label: {
       Text(title)
         .zaniFont(.title2)
-        .foregroundStyle(titleColor)
-        .padding(.vertical, 14)
+        .foregroundStyle(Color.zaniMain1)
+        .padding(.vertical, verticalPadding)
         .frame(maxWidth: .infinity)
         .background(
           RoundedRectangle(cornerRadius: 10.0)
-            .fill(backgroundColor)
+            .fill(isValid ? Color.zaniMain2 : Color.zaniMain6)
         )
     })
+    .disabled(!isValid)
   }
 }
 #Preview {
-  ZaniMainButton(title: "test", titleColor: .main1, backgroundColor: .main2, action: {})
+  ZaniMainButton(
+    title: "test",
+    isValid: false,
+    verticalPadding: 12,
+    action: {}
+  )
 }
