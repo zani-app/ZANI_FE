@@ -10,12 +10,17 @@ import SwiftUI
 public struct RecruitmentMain: View {
   @EnvironmentObject private var recruitmentPageManager: RecruitmentPageManager
   
+  @State private var isSearching: Bool = false
+  @State private var userSearchText: String = ""
+  
   public var body: some View {
     NavigationStack(path: $recruitmentPageManager.route) {
       VStack(spacing: 0) {
         title()
         
         filterList()
+        
+        searchBar()
         
         teamList()
       }
@@ -71,12 +76,28 @@ extension RecruitmentMain {
   private func filterList() -> some View {
     ScrollView(.horizontal, showsIndicators: false) {
       HStack(spacing: 6) {
-        ZaniCapsuleButton(
-          title: "검색",
-          isValid: false,
-          trailingIcon: Image("searchIcon"),
-          action: { }
-        )
+        Button(action: {
+          withAnimation {
+            self.isSearching.toggle()
+          }
+        }, label: {
+          HStack(alignment: .center, spacing: 0) {
+            Text("검색")
+            
+            Image("searchIcon")
+              .renderingMode(.template)
+              .padding(.leading, 4)
+          }
+          .foregroundStyle(self.isSearching ? Color.zaniMain1 : .white)
+          .padding(.vertical, 6)
+          .padding(.horizontal, 12)
+          .zaniFont(.body2)
+          .background(
+            Capsule()
+              .stroke(self.isSearching ? Color.zaniMain2 : .white)
+              .fill(self.isSearching ? Color.zaniMain2 : .clear)
+          )
+        })
         ZaniCapsuleButton(
           title: "목표",
           isValid: false,
@@ -105,6 +126,23 @@ extension RecruitmentMain {
     }
     .padding(.horizontal, 20)
     .padding(.bottom, 12)
+  }
+  
+  @ViewBuilder
+  private func searchBar() -> some View {
+    if self.isSearching {
+      ZaniTextField(
+        placeholderText: "방 검색하기",
+        placeholderTextStyle: .body2,
+        placeHolderColor: Color.zaniMain1,
+        textColor: .black,
+        backgroundColor: Color(red: 1, green: 234/255, blue: 184/255),
+        keyboardType: .default,
+        maximumInputCount: 20,
+        inputText: $userSearchText
+      )
+      .padding(.horizontal, 20)
+    }
   }
   
   @ViewBuilder
