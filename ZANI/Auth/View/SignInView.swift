@@ -14,6 +14,8 @@ public struct SignInView: View {
   
   @State private var emailInput: String = ""
   @State private var passwordInput: String = ""
+  @State private var validationEmail: Bool = false
+  @State private var validationPassword: Bool = false
   
   public var body: some View {
     VStack(spacing: 0) {
@@ -23,33 +25,37 @@ public struct SignInView: View {
       )
       .padding(.bottom, 20)
       
-      VStack(spacing: 21) {
-        AuthTextField(
-          fieldType: .email,
-          maximumInputCount: 30,
-          isValid: false,
-          isVerified: false,
-          focusState: $focusState,
-          inputText: $emailInput
-        )
-        
-        AuthTextField(
-          fieldType: .password,
-          maximumInputCount: 30,
-          isValid: false,
-          isVerified: false,
-          focusState: $focusState,
-          inputText: $passwordInput
-        )
+      ScrollView(showsIndicators: false) {
+        VStack(spacing: 21) {
+          AuthTextField(
+            fieldType: .email,
+            textFormatValidation: AuthTextFieldType.email.validationFunction,
+            maximumInputCount: AuthTextFieldType.email.maximumInput,
+            isVerified: $validationEmail,
+            focusState: $focusState,
+            inputText: $emailInput
+          )
+          
+          AuthTextField(
+            fieldType: .password,
+            textFormatValidation: AuthTextFieldType.password.validationFunction,
+            maximumInputCount: AuthTextFieldType.password.maximumInput,
+            isVerified: $validationPassword,
+            focusState: $focusState,
+            inputText: $passwordInput
+          )
+        }
+        .padding(.horizontal, 20)
+        .padding(.bottom, 100)
       }
-      .padding(.horizontal, 20)
+      .scrollDisabled(true)
       
       ZaniMainButton(
         title: "로그인하기",
-        isValid: true,
+        isValid: validationEmail && validationPassword,
         action: { authPageManager.push(.afterAuth) }
       )
-      .padding(.top, 106)
+      .padding(.vertical, 8)
       .padding(.horizontal, 20)
       
       Spacer()
@@ -59,6 +65,9 @@ public struct SignInView: View {
     .background(
       Color.main1
     )
+    .onTapGesture {
+      focusState = nil
+    }
   }
 }
 

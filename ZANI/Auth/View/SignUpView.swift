@@ -67,21 +67,20 @@ extension SignUpView {
       if !pageState.textfieldTypes.isEmpty {
         AuthTextField(
           fieldType: pageState.textfieldTypes[0],
-          maximumInputCount: 30,
-          isValid: false,
-          isVerified: false,
+          textFormatValidation: pageState.textfieldTypes[0].validationFunction,
+          maximumInputCount: pageState.textfieldTypes[0].maximumInput,
+          isVerified: $validation1,
           focusState: $focusState,
           inputText: $inputText1
         )
       }
       
-      // TODO: 비밀번호 확인 open 조건 추가
-      if pageState.textfieldTypes.count > 1 {
+      if pageState.textfieldTypes.count > 1 && validation1 {
         AuthTextField(
           fieldType: pageState.textfieldTypes[1],
-          maximumInputCount: 30,
-          isValid: false,
-          isVerified: false,
+          textFormatValidation: { $0 == self.inputText1 }, 
+          maximumInputCount: pageState.textfieldTypes[1].maximumInput,
+          isVerified: $validation2,
           focusState: $focusState,
           inputText: $inputText2
         )
@@ -95,7 +94,7 @@ extension SignUpView {
   private func bottomButton() -> some View {
     ZaniMainButton(
       title: "다음",
-      isValid: true,
+      isValid: pageState.textfieldTypes.count == 1 ? validation1 : validation1 && validation2,
       action: {
         switch self.pageState {
         case .signUpEmail:
@@ -120,3 +119,4 @@ extension SignUpView {
   SignUpView(pageState: .signUpEmail)
     .environmentObject(AuthPageManager())
 }
+

@@ -25,9 +25,6 @@ public struct RecruitmentMain: View {
         teamList()
       }
       .background(Color.main1)
-      .navigationDestination(for: RecruitmentPageState.self) { pageState in
-        recruitmentPageDestination(pageState)
-      }
     }
   }
 }
@@ -95,7 +92,7 @@ extension RecruitmentMain {
           .background(
             Capsule()
               .stroke(self.isSearching ? Color.zaniMain2 : .white)
-              .fill(self.isSearching ? Color.zaniMain2 : .clear)
+              .foregroundStyle(self.isSearching ? Color.zaniMain2 : .clear)
           )
         })
         ZaniCapsuleButton(

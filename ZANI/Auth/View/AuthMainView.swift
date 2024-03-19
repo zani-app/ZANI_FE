@@ -9,6 +9,7 @@ import SwiftUI
 
 public struct AuthMainView: View {
   @EnvironmentObject private var authPageManager: AuthPageManager
+  @EnvironmentObject private var recruitmentPageManager: RecruitmentPageManager
   
   public var body: some View {
     NavigationStack(path: $authPageManager.route) {
@@ -47,8 +48,8 @@ extension AuthMainView {
     case .afterAuth:
       ContentView()
       
-    default:
-      RecruitmentMain()
+    case .main:
+      AuthMainView()
     }
   }
   
