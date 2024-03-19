@@ -8,22 +8,49 @@
 import SwiftUI
 
 public struct AuthMainView: View {
+  @EnvironmentObject private var authPageManager: AuthPageManager
+  
   public var body: some View {
-    VStack(spacing: 0) {
-      title()
-      
-      Spacer()
-      
-      loginButton()
+    NavigationStack(path: $authPageManager.route) {
+      VStack(spacing: 0) {
+        title()
+        
+        Spacer()
+        
+        loginButton()
+      }
+      .padding(.horizontal, 20)
+      .navigationDestination(for: AuthPageState.self) { pageState in
+        authPageDestination(pageState)
+      }
+      .background(
+        Color.main1
+      )
     }
-    .padding(.horizontal, 20)
-    .background(
-      Color.main1
-    )
   }
 }
 
 extension AuthMainView {
+  
+  @ViewBuilder
+  private func authPageDestination(_ type: AuthPageState) -> some View {
+    switch type {
+    case .signUpEmail, .signUpPassword, .nickname:
+      SignUpView(pageState: type)
+      
+    case .done:
+      SignUpDoneView()
+      
+    case .loginEmail:
+      SignInView()
+      
+    case .afterAuth:
+      ContentView()
+      
+    default:
+      RecruitmentMain()
+    }
+  }
   
   @ViewBuilder
   private func title() -> some View {
@@ -31,6 +58,7 @@ extension AuthMainView {
       Text("로그인/회원가입")
         .zaniFont(.head2)
         .foregroundStyle(.white)
+      
       Text("밤샘메이트들과 함께하는\n밤샘 서비스, 자니")
         .zaniFont(.title2)
         .multilineTextAlignment(.center).foregroundStyle(Color.main6)
@@ -44,13 +72,16 @@ extension AuthMainView {
       VStack(spacing: 16) {
         signInButton(type: .kakao, action: { })
         signInButton(type: .apple, action: { })
-        signInButton(type: .email, action: { })
+        signInButton(type: .email, action: { authPageManager.push(.loginEmail) })
       }
       
       Text("이메일로 회원가입")
         .zaniFont(.body1)
         .foregroundStyle(Color.main6)
         .padding(.bottom, 87)
+        .onTapGesture {
+          authPageManager.push(.signUpEmail)
+        }
     }
   }
   
@@ -83,4 +114,5 @@ extension AuthMainView {
 
 #Preview {
   AuthMainView()
+    .environmentObject(AuthPageManager())
 }
