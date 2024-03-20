@@ -23,6 +23,7 @@
 		CD25EBEC2BAB02C200A36B3A /* ChangeNicknameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD25EBEB2BAB02C200A36B3A /* ChangeNicknameView.swift */; };
 		CD25EBEE2BAB051400A36B3A /* MyPagePageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD25EBED2BAB051400A36B3A /* MyPagePageManager.swift */; };
 		CD25EBF02BAB08AB00A36B3A /* MateListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD25EBEF2BAB08AB00A36B3A /* MateListView.swift */; };
+		CD25EBF22BAB0F2600A36B3A /* MateDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD25EBF12BAB0F2600A36B3A /* MateDetailView.swift */; };
 		CDC064BA2BA31F8200E24F70 /* ZANIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC064B92BA31F8200E24F70 /* ZANIApp.swift */; };
 		CDC064BC2BA31F8200E24F70 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC064BB2BA31F8200E24F70 /* ContentView.swift */; };
 		CDC064BE2BA31F8300E24F70 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDC064BD2BA31F8300E24F70 /* Assets.xcassets */; };
@@ -71,6 +72,7 @@
 		CD25EBEB2BAB02C200A36B3A /* ChangeNicknameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeNicknameView.swift; sourceTree = "<group>"; };
 		CD25EBED2BAB051400A36B3A /* MyPagePageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPagePageManager.swift; sourceTree = "<group>"; };
 		CD25EBEF2BAB08AB00A36B3A /* MateListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MateListView.swift; sourceTree = "<group>"; };
+		CD25EBF12BAB0F2600A36B3A /* MateDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MateDetailView.swift; sourceTree = "<group>"; };
 		CDC064B62BA31F8200E24F70 /* ZANI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZANI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDC064B92BA31F8200E24F70 /* ZANIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZANIApp.swift; sourceTree = "<group>"; };
 		CDC064BB2BA31F8200E24F70 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -222,6 +224,7 @@
 				CD25EBEB2BAB02C200A36B3A /* ChangeNicknameView.swift */,
 				CD25EBED2BAB051400A36B3A /* MyPagePageManager.swift */,
 				CD25EBEF2BAB08AB00A36B3A /* MateListView.swift */,
+				CD25EBF12BAB0F2600A36B3A /* MateDetailView.swift */,
 			);
 			path = MyPage;
 			sourceTree = "<group>";
@@ -402,6 +405,7 @@
 				CD25EBF02BAB08AB00A36B3A /* MateListView.swift in Sources */,
 				CD25EBE32BA97ECE00A36B3A /* SignUpDoneView.swift in Sources */,
 				CDC064FC2BA46B7700E24F70 /* Font + Utils.swift in Sources */,
+				CD25EBF22BAB0F2600A36B3A /* MateDetailView.swift in Sources */,
 				CD25EBEE2BAB051400A36B3A /* MyPagePageManager.swift in Sources */,
 				CD25EBEA2BAAD8C400A36B3A /* MyPageCalendarView.swift in Sources */,
 				CDC064BC2BA31F8200E24F70 /* ContentView.swift in Sources */,

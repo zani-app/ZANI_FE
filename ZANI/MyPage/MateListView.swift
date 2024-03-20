@@ -23,10 +23,12 @@ public struct MateListView: View {
           mateBox(name: "사용자 이름", badge: "잠만보")
         }
         .padding(.horizontal, 20)
+        .padding(.bottom, 80)
       }
       .padding(.top, 25)
     }
     .navigationBarBackButtonHidden()
+    .ignoresSafeArea(edges: .bottom)
     .background(
       Color.main1
     )
@@ -62,6 +64,12 @@ extension MateListView {
       Spacer()
     }
     .frame(height: 44)
+    .background(
+      Color.main1
+    )
+    .onTapGesture {
+      myPagePageManager.push(.mateDetail)
+    }
   }
 }
 

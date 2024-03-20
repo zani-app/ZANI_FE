@@ -48,6 +48,9 @@ extension MyPageMain {
     case .mateList:
       MateListView()
       
+    case .mateDetail:
+      MateDetailView()
+      
     default:
       RecruitmentMain()
     }
