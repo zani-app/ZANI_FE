@@ -19,6 +19,7 @@
 		CD25EBE12BA9760700A36B3A /* AuthTextFieldType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD25EBE02BA9760700A36B3A /* AuthTextFieldType.swift */; };
 		CD25EBE32BA97ECE00A36B3A /* SignUpDoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD25EBE22BA97ECE00A36B3A /* SignUpDoneView.swift */; };
 		CD25EBE72BA9807A00A36B3A /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD25EBE62BA9807A00A36B3A /* SignInView.swift */; };
+		CD25EBEA2BAAD8C400A36B3A /* MyPageCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD25EBE92BAAD8C400A36B3A /* MyPageCalendarView.swift */; };
 		CDC064BA2BA31F8200E24F70 /* ZANIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC064B92BA31F8200E24F70 /* ZANIApp.swift */; };
 		CDC064BC2BA31F8200E24F70 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC064BB2BA31F8200E24F70 /* ContentView.swift */; };
 		CDC064BE2BA31F8300E24F70 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDC064BD2BA31F8300E24F70 /* Assets.xcassets */; };
@@ -63,6 +64,7 @@
 		CD25EBE02BA9760700A36B3A /* AuthTextFieldType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthTextFieldType.swift; sourceTree = "<group>"; };
 		CD25EBE22BA97ECE00A36B3A /* SignUpDoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpDoneView.swift; sourceTree = "<group>"; };
 		CD25EBE62BA9807A00A36B3A /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		CD25EBE92BAAD8C400A36B3A /* MyPageCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageCalendarView.swift; sourceTree = "<group>"; };
 		CDC064B62BA31F8200E24F70 /* ZANI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZANI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDC064B92BA31F8200E24F70 /* ZANIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZANIApp.swift; sourceTree = "<group>"; };
 		CDC064BB2BA31F8200E24F70 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -156,6 +158,13 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		CD25EBE82BAAD82900A36B3A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		CDC064AD2BA31F8200E24F70 = {
 			isa = PBXGroup;
 			children = (
@@ -201,7 +210,9 @@
 		CDC064C72BA3281800E24F70 /* MyPage */ = {
 			isa = PBXGroup;
 			children = (
+				CD25EBE82BAAD82900A36B3A /* Model */,
 				CDC064D12BA3289E00E24F70 /* MyPageMain.swift */,
+				CD25EBE92BAAD8C400A36B3A /* MyPageCalendarView.swift */,
 			);
 			path = MyPage;
 			sourceTree = "<group>";
@@ -381,6 +392,7 @@
 			files = (
 				CD25EBE32BA97ECE00A36B3A /* SignUpDoneView.swift in Sources */,
 				CDC064FC2BA46B7700E24F70 /* Font + Utils.swift in Sources */,
+				CD25EBEA2BAAD8C400A36B3A /* MyPageCalendarView.swift in Sources */,
 				CDC064BC2BA31F8200E24F70 /* ContentView.swift in Sources */,
 				CD25EBD92BA958E600A36B3A /* LoginType.swift in Sources */,
 				CDC064E62BA38F9B00E24F70 /* RecruitmentPageManager.swift in Sources */,

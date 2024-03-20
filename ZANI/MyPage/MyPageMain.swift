@@ -73,6 +73,8 @@ extension MyPageMain {
         .lineSpacing(4)
         .foregroundStyle(.white)
       
+      MyPageCalendarView()
+      
       HStack(spacing: 8) {
         Image("moon1")
           .resizable()
@@ -84,6 +86,7 @@ extension MyPageMain {
         
         Spacer()
       }
+      .padding(.horizontal, 16)
     }
     .padding(.horizontal, 20)
   }
