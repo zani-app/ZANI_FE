@@ -19,6 +19,7 @@ final class RecruitmentPageManager: ObservableObject {
   
   func push(_ page: RecruitmentPageState) {
     route.append(page)
+    print("recruit!")
   }
   
   func pop() {

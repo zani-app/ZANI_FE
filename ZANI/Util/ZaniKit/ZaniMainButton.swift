@@ -13,7 +13,7 @@ public struct ZaniMainButton: View {
   public var verticalPadding: CGFloat
   public var action: () -> Void
   
-  public init(title: String, isValid: Bool, verticalPadding: CGFloat = 12, action: @escaping () -> Void) {
+  public init(title: String, isValid: Bool, verticalPadding: CGFloat = 14, action: @escaping () -> Void) {
     self.title = title
     self.isValid = isValid
     self.verticalPadding = verticalPadding

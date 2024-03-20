@@ -11,6 +11,14 @@
 		012D46232BA4019A00E05BC7 /* MateRecommend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012D46222BA4019A00E05BC7 /* MateRecommend.swift */; };
 		012D46252BA40DA300E05BC7 /* MateBestTips.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012D46242BA40DA300E05BC7 /* MateBestTips.swift */; };
 		CD25EBD22BA8A70300A36B3A /* FilterCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD25EBD12BA8A70300A36B3A /* FilterCategory.swift */; };
+		CD25EBD52BA951B500A36B3A /* AuthMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD25EBD42BA951B500A36B3A /* AuthMainView.swift */; };
+		CD25EBD92BA958E600A36B3A /* LoginType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD25EBD82BA958E600A36B3A /* LoginType.swift */; };
+		CD25EBDB2BA959FC00A36B3A /* AuthTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD25EBDA2BA959FC00A36B3A /* AuthTextField.swift */; };
+		CD25EBDD2BA96D0900A36B3A /* AuthPageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD25EBDC2BA96D0900A36B3A /* AuthPageManager.swift */; };
+		CD25EBDF2BA96DAC00A36B3A /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD25EBDE2BA96DAC00A36B3A /* SignUpView.swift */; };
+		CD25EBE12BA9760700A36B3A /* AuthTextFieldType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD25EBE02BA9760700A36B3A /* AuthTextFieldType.swift */; };
+		CD25EBE32BA97ECE00A36B3A /* SignUpDoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD25EBE22BA97ECE00A36B3A /* SignUpDoneView.swift */; };
+		CD25EBE72BA9807A00A36B3A /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD25EBE62BA9807A00A36B3A /* SignInView.swift */; };
 		CDC064BA2BA31F8200E24F70 /* ZANIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC064B92BA31F8200E24F70 /* ZANIApp.swift */; };
 		CDC064BC2BA31F8200E24F70 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC064BB2BA31F8200E24F70 /* ContentView.swift */; };
 		CDC064BE2BA31F8300E24F70 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDC064BD2BA31F8300E24F70 /* Assets.xcassets */; };
@@ -47,6 +55,14 @@
 		012D46222BA4019A00E05BC7 /* MateRecommend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MateRecommend.swift; sourceTree = "<group>"; };
 		012D46242BA40DA300E05BC7 /* MateBestTips.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MateBestTips.swift; sourceTree = "<group>"; };
 		CD25EBD12BA8A70300A36B3A /* FilterCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCategory.swift; sourceTree = "<group>"; };
+		CD25EBD42BA951B500A36B3A /* AuthMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthMainView.swift; sourceTree = "<group>"; };
+		CD25EBD82BA958E600A36B3A /* LoginType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginType.swift; sourceTree = "<group>"; };
+		CD25EBDA2BA959FC00A36B3A /* AuthTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthTextField.swift; sourceTree = "<group>"; };
+		CD25EBDC2BA96D0900A36B3A /* AuthPageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPageManager.swift; sourceTree = "<group>"; };
+		CD25EBDE2BA96DAC00A36B3A /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		CD25EBE02BA9760700A36B3A /* AuthTextFieldType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthTextFieldType.swift; sourceTree = "<group>"; };
+		CD25EBE22BA97ECE00A36B3A /* SignUpDoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpDoneView.swift; sourceTree = "<group>"; };
+		CD25EBE62BA9807A00A36B3A /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		CDC064B62BA31F8200E24F70 /* ZANI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZANI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDC064B92BA31F8200E24F70 /* ZANIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZANIApp.swift; sourceTree = "<group>"; };
 		CDC064BB2BA31F8200E24F70 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -109,6 +125,37 @@
 			path = MateAllNight;
 			sourceTree = "<group>";
 		};
+		CD25EBD32BA9515A00A36B3A /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				CD25EBD72BA958D300A36B3A /* View */,
+				CD25EBD62BA958D000A36B3A /* Model */,
+				CD25EBDC2BA96D0900A36B3A /* AuthPageManager.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		CD25EBD62BA958D000A36B3A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CD25EBD82BA958E600A36B3A /* LoginType.swift */,
+				CD25EBE02BA9760700A36B3A /* AuthTextFieldType.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CD25EBD72BA958D300A36B3A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CD25EBD42BA951B500A36B3A /* AuthMainView.swift */,
+				CD25EBDA2BA959FC00A36B3A /* AuthTextField.swift */,
+				CD25EBDE2BA96DAC00A36B3A /* SignUpView.swift */,
+				CD25EBE22BA97ECE00A36B3A /* SignUpDoneView.swift */,
+				CD25EBE62BA9807A00A36B3A /* SignInView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		CDC064AD2BA31F8200E24F70 = {
 			isa = PBXGroup;
 			children = (
@@ -128,6 +175,7 @@
 		CDC064B82BA31F8200E24F70 /* ZANI */ = {
 			isa = PBXGroup;
 			children = (
+				CD25EBD32BA9515A00A36B3A /* Auth */,
 				CDC064FA2BA46ACA00E24F70 /* Info.plist */,
 				CDC064D32BA32A1E00E24F70 /* Util */,
 				CDC064CA2BA3281D00E24F70 /* Mate */,
@@ -331,13 +379,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD25EBE32BA97ECE00A36B3A /* SignUpDoneView.swift in Sources */,
 				CDC064FC2BA46B7700E24F70 /* Font + Utils.swift in Sources */,
 				CDC064BC2BA31F8200E24F70 /* ContentView.swift in Sources */,
+				CD25EBD92BA958E600A36B3A /* LoginType.swift in Sources */,
 				CDC064E62BA38F9B00E24F70 /* RecruitmentPageManager.swift in Sources */,
+				CD25EBD52BA951B500A36B3A /* AuthMainView.swift in Sources */,
 				CDC064E12BA38B1900E24F70 /* ZaniNavigationBar.swift in Sources */,
+				CD25EBDF2BA96DAC00A36B3A /* SignUpView.swift in Sources */,
+				CD25EBDB2BA959FC00A36B3A /* AuthTextField.swift in Sources */,
 				CDC065172BA4CB2A00E24F70 /* FilterView.swift in Sources */,
 				CDC064DF2BA3892D00E24F70 /* ZaniMainButton.swift in Sources */,
 				CDC064DD2BA387E900E24F70 /* ZaniTextField.swift in Sources */,
+				CD25EBDD2BA96D0900A36B3A /* AuthPageManager.swift in Sources */,
 				CDC064D52BA32A2B00E24F70 /* Color + Extension.swift in Sources */,
 				CDC064FE2BA4795600E24F70 /* View + Placeholder.swift in Sources */,
 				CDC065032BA4C98100E24F70 /* CreateTeamSection.swift in Sources */,
@@ -349,10 +403,12 @@
 				CDC064DB2BA37F0700E24F70 /* CreateTeamView.swift in Sources */,
 				012D46252BA40DA300E05BC7 /* MateBestTips.swift in Sources */,
 				CDC064D22BA3289E00E24F70 /* MyPageMain.swift in Sources */,
+				CD25EBE72BA9807A00A36B3A /* SignInView.swift in Sources */,
 				CDC065002BA4809000E24F70 /* SectionListView.swift in Sources */,
 				CDC064D92BA37D9A00E24F70 /* ZaniCapsuleButton.swift in Sources */,
 				CDC064CE2BA3289200E24F70 /* RecruitmentMain.swift in Sources */,
 				CDC064D02BA3289700E24F70 /* CommunityMain.swift in Sources */,
+				CD25EBE12BA9760700A36B3A /* AuthTextFieldType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -495,6 +551,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -525,6 +582,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
