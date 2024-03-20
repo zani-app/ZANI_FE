@@ -140,9 +140,9 @@
 		CD25EBD32BA9515A00A36B3A /* Auth */ = {
 			isa = PBXGroup;
 			children = (
+				CD25EBF82BAB198800A36B3A /* ViewModel */,
 				CD25EBD72BA958D300A36B3A /* View */,
 				CD25EBD62BA958D000A36B3A /* Model */,
-				CD25EBDC2BA96D0900A36B3A /* AuthPageManager.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -174,6 +174,42 @@
 				CD25EBF32BAB166100A36B3A /* MoonLevel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		CD25EBF52BAB193500A36B3A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CDC064D12BA3289E00E24F70 /* MyPageMain.swift */,
+				CD25EBE92BAAD8C400A36B3A /* MyPageCalendarView.swift */,
+				CD25EBEB2BAB02C200A36B3A /* ChangeNicknameView.swift */,
+				CD25EBEF2BAB08AB00A36B3A /* MateListView.swift */,
+				CD25EBF12BAB0F2600A36B3A /* MateDetailView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CD25EBF62BAB197600A36B3A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				CD25EBED2BAB051400A36B3A /* MyPagePageManager.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		CD25EBF72BAB197E00A36B3A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				CDC064E52BA38F9B00E24F70 /* RecruitmentPageManager.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		CD25EBF82BAB198800A36B3A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				CD25EBDC2BA96D0900A36B3A /* AuthPageManager.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		CDC064AD2BA31F8200E24F70 = {
@@ -221,13 +257,9 @@
 		CDC064C72BA3281800E24F70 /* MyPage */ = {
 			isa = PBXGroup;
 			children = (
+				CD25EBF62BAB197600A36B3A /* ViewModel */,
+				CD25EBF52BAB193500A36B3A /* View */,
 				CD25EBE82BAAD82900A36B3A /* Model */,
-				CDC064D12BA3289E00E24F70 /* MyPageMain.swift */,
-				CD25EBE92BAAD8C400A36B3A /* MyPageCalendarView.swift */,
-				CD25EBEB2BAB02C200A36B3A /* ChangeNicknameView.swift */,
-				CD25EBED2BAB051400A36B3A /* MyPagePageManager.swift */,
-				CD25EBEF2BAB08AB00A36B3A /* MateListView.swift */,
-				CD25EBF12BAB0F2600A36B3A /* MateDetailView.swift */,
 			);
 			path = MyPage;
 			sourceTree = "<group>";
@@ -243,9 +275,9 @@
 		CDC064C92BA3281C00E24F70 /* Recruitment */ = {
 			isa = PBXGroup;
 			children = (
+				CD25EBF72BAB197E00A36B3A /* ViewModel */,
 				CDC065012BA4C97900E24F70 /* Model */,
 				CDC064E42BA38F8100E24F70 /* View */,
-				CDC064E52BA38F9B00E24F70 /* RecruitmentPageManager.swift */,
 			);
 			path = Recruitment;
 			sourceTree = "<group>";
