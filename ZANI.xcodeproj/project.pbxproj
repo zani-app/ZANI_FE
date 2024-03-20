@@ -24,6 +24,7 @@
 		CD25EBEE2BAB051400A36B3A /* MyPagePageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD25EBED2BAB051400A36B3A /* MyPagePageManager.swift */; };
 		CD25EBF02BAB08AB00A36B3A /* MateListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD25EBEF2BAB08AB00A36B3A /* MateListView.swift */; };
 		CD25EBF22BAB0F2600A36B3A /* MateDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD25EBF12BAB0F2600A36B3A /* MateDetailView.swift */; };
+		CD25EBF42BAB166100A36B3A /* MoonLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD25EBF32BAB166100A36B3A /* MoonLevel.swift */; };
 		CDC064BA2BA31F8200E24F70 /* ZANIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC064B92BA31F8200E24F70 /* ZANIApp.swift */; };
 		CDC064BC2BA31F8200E24F70 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC064BB2BA31F8200E24F70 /* ContentView.swift */; };
 		CDC064BE2BA31F8300E24F70 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDC064BD2BA31F8300E24F70 /* Assets.xcassets */; };
@@ -73,6 +74,7 @@
 		CD25EBED2BAB051400A36B3A /* MyPagePageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPagePageManager.swift; sourceTree = "<group>"; };
 		CD25EBEF2BAB08AB00A36B3A /* MateListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MateListView.swift; sourceTree = "<group>"; };
 		CD25EBF12BAB0F2600A36B3A /* MateDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MateDetailView.swift; sourceTree = "<group>"; };
+		CD25EBF32BAB166100A36B3A /* MoonLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoonLevel.swift; sourceTree = "<group>"; };
 		CDC064B62BA31F8200E24F70 /* ZANI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZANI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDC064B92BA31F8200E24F70 /* ZANIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZANIApp.swift; sourceTree = "<group>"; };
 		CDC064BB2BA31F8200E24F70 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 		CD25EBE82BAAD82900A36B3A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				CD25EBF32BAB166100A36B3A /* MoonLevel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -417,6 +420,7 @@
 				CD25EBDB2BA959FC00A36B3A /* AuthTextField.swift in Sources */,
 				CDC065172BA4CB2A00E24F70 /* FilterView.swift in Sources */,
 				CDC064DF2BA3892D00E24F70 /* ZaniMainButton.swift in Sources */,
+				CD25EBF42BAB166100A36B3A /* MoonLevel.swift in Sources */,
 				CDC064DD2BA387E900E24F70 /* ZaniTextField.swift in Sources */,
 				CD25EBDD2BA96D0900A36B3A /* AuthPageManager.swift in Sources */,
 				CDC064D52BA32A2B00E24F70 /* Color + Extension.swift in Sources */,

@@ -102,24 +102,25 @@ extension MyPageMain {
   private func calendarSection() -> some View {
     VStack(alignment: .leading, spacing: 15) {
       Text("나의 밤샘 달력")
-        .font(.custom("Pretendard-Bold", size: 20))
-        .lineSpacing(4)
+        .zaniFont(.title1)
         .foregroundStyle(.white)
       
       MyPageCalendarView()
       
       HStack(spacing: 8) {
-        Image("moon1")
-          .resizable()
-          .frame(width: 14, height: 14)
-        
-        Text("1~2시간")
-          .zaniFont(.body1)
-          .foregroundStyle(.white)
-        
-        Spacer()
+        ForEach(MoonLevel.allCases, id: \.self) { level in
+          HStack(spacing: 8) {
+            level.moonImage
+              .resizable()
+              .frame(width: 14, height: 14)
+            
+            Text(level.description)
+              .zaniFont(.body2)
+              .foregroundStyle(.white)
+          }
+        }
       }
-      .padding(.horizontal, 16)
+      .padding(.horizontal, 14)
     }
     .padding(.horizontal, 20)
   }
@@ -128,8 +129,7 @@ extension MyPageMain {
   private func staticticSection() -> some View {
     VStack(alignment: .leading, spacing: 15) {
       Text("내 밤샘 기록 통계")
-        .font(.custom("Pretendard-Bold", size: 20))
-        .lineSpacing(4)
+        .zaniFont(.title1)
         .foregroundStyle(.white)
       
       VStack(alignment: .leading, spacing: 24) {
@@ -153,8 +153,7 @@ extension MyPageMain {
           Spacer()
         }
       }
-      .font(.custom("Pretendard-Bold", size: 20))
-      .lineSpacing(4)
+      .zaniFont(.title1)
       .padding(.leading, 20)
       .padding(.top, 27)
       .padding(.bottom, 35)
@@ -174,16 +173,14 @@ extension MyPageMain {
         Text("내가 획득한 칭호")
         Image(systemName: "chevron.right")
       }
-      .font(.custom("Pretendard-Bold", size: 20))
-      .lineSpacing(4)
+      .zaniFont(.title1)
       .foregroundStyle(.white)
       .padding(.horizontal, 20)
       
       ScrollView(.horizontal, showsIndicators: false) {
         HStack(spacing: 14) {
           Text("잠만보")
-            .font(.custom("Pretendard-Bold", size: 20))
-            .lineSpacing(4)
+            .zaniFont(.title1)
             .foregroundStyle(.white)
             .padding(.top, 159)
             .padding(.bottom, 24)
@@ -194,8 +191,7 @@ extension MyPageMain {
             )
           
           Text("잠만보")
-            .font(.custom("Pretendard-Bold", size: 20))
-            .lineSpacing(4)
+            .zaniFont(.title1)
             .foregroundStyle(.white)
             .padding(.top, 159)
             .padding(.bottom, 24)
@@ -206,8 +202,7 @@ extension MyPageMain {
             )
           
           Text("잠만보")
-            .font(.custom("Pretendard-Bold", size: 20))
-            .lineSpacing(4)
+            .zaniFont(.title1)
             .foregroundStyle(.white)
             .padding(.top, 159)
             .padding(.bottom, 24)
@@ -220,6 +215,7 @@ extension MyPageMain {
         .padding(.horizontal, 20)
       }
     }
+    .padding(.bottom, 40)
   }
 }
 
