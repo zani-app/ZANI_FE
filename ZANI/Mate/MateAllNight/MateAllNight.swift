@@ -118,8 +118,7 @@ struct MateAllNight: View {
                             .cornerRadius(10)
                             
                             // 타임라인 버튼
-                            Button(action: {
-                            }) {
+                            NavigationLink(destination: TimeLine()) {
                                 VStack(alignment: .leading,spacing: 8) {
                                     HStack {
                                         Image("TimeLine")
@@ -157,7 +156,7 @@ struct MateAllNight: View {
                                         .foregroundColor(Color.zaniMain2)
                                         .fontWeight(.bold)
                                         .font(.system(size: 18))
-                                        .padding(.leading, 16)
+                                        .padding(.leading, 18)
                                         .padding(.top, 16)
                                     Spacer()
                                 }
@@ -172,7 +171,21 @@ struct MateAllNight: View {
                                         .foregroundColor(Color.yellow)
                                 }
                                 .padding(.horizontal,20)
-                                .padding(.top, 16)
+                                .padding(.top, 10)
+                                
+                                HStack {
+                                    Text("0%")
+                                        .foregroundColor(Color.white)
+                                        .fontWeight(.bold)
+                                        .font(.system(size: 18))
+                                        .padding(.leading, 18)
+                                    Spacer()
+                                    Text("100%")
+                                        .foregroundColor(Color.white)
+                                        .fontWeight(.bold)
+                                        .font(.system(size: 18))
+                                        .padding(.trailing, 18)
+                                }
                             }
                         }
                         
