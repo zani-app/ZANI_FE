@@ -10,9 +10,9 @@ import SwiftUI
 public enum MyPagePageState {
   case main
   case changeNickname
+  case mateList
   case mateDetail
   case timeLine
-  case followerDetail
 }
 
 final class MyPagePageManager: ObservableObject {

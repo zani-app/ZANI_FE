@@ -24,6 +24,9 @@ public struct RecruitmentMain: View {
         
         teamList()
       }
+      .navigationDestination(for: RecruitmentPageState.self) { pageState in
+        recruitmentPageDestination(pageState)
+      }
       .background(Color.main1)
     }
   }

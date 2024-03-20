@@ -45,6 +45,9 @@ extension MyPageMain {
     case .changeNickname:
       ChangeNicknameView(userName: "test")
       
+    case .mateList:
+      MateListView()
+      
     default:
       RecruitmentMain()
     }
@@ -72,6 +75,12 @@ extension MyPageMain {
             .bold()
         }
         .zaniFont(.body1)
+        .background(
+          Color.main1
+        )
+        .onTapGesture {
+          myPagePageManager.push(.mateList)
+        }
         .foregroundStyle(.white)
       }
       
