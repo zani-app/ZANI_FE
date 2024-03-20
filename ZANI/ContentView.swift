@@ -10,7 +10,8 @@ import SwiftUI
 public struct ContentView: View {
   @EnvironmentObject private var recruitmentPageManager: RecruitmentPageManager
   @EnvironmentObject private var authPageManager: AuthPageManager
-
+  @EnvironmentObject private var myPagePageManager: MyPagePageManager
+  
   public var body: some View {
     TabView(
       content: {
@@ -36,4 +37,5 @@ public struct ContentView: View {
   ContentView()
     .environmentObject(RecruitmentPageManager())
     .environmentObject(AuthPageManager())
+    .environmentObject(MyPagePageManager())
 }

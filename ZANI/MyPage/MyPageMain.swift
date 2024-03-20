@@ -8,29 +8,47 @@
 import SwiftUI
 
 public struct MyPageMain: View {
+  @EnvironmentObject private var myPagePageManager: MyPagePageManager
+  
   public var body: some View {
-    ScrollView(.vertical, showsIndicators: false) {
-      VStack(spacing: 60) {
-        profileSection()
-        calendarSection()
-        staticticSection()
-        badgeSection()
+    NavigationStack(path: $myPagePageManager.route) {
+      ScrollView(.vertical, showsIndicators: false) {
+        VStack(spacing: 60) {
+          profileSection()
+          calendarSection()
+          staticticSection()
+          badgeSection()
+        }
       }
-    }
-    .background(
-      LinearGradient(
-        colors: [
-          .main1,
-          .main4
-        ],
-        startPoint: .top,
-        endPoint: .bottom
+      .navigationDestination(for: MyPagePageState.self) { pageState in
+        myPagePageDestination(pageState)
+      }
+      .background(
+        LinearGradient(
+          colors: [
+            .main1,
+            .main4
+          ],
+          startPoint: .top,
+          endPoint: .bottom
+        )
       )
-    )
+    }
   }
 }
 
 extension MyPageMain {
+  
+  @ViewBuilder
+  private func myPagePageDestination(_ type: MyPagePageState) -> some View {
+    switch type {
+    case .changeNickname:
+      ChangeNicknameView(userName: "test")
+      
+    default:
+      RecruitmentMain()
+    }
+  }
   
   @ViewBuilder
   private func profileSection() -> some View {
@@ -60,6 +78,9 @@ extension MyPageMain {
       Spacer()
       
       Image("pencilIcon")
+        .onTapGesture {
+          myPagePageManager.push(.changeNickname)
+        }
     }
     .padding(.top, 33)
     .padding(.horizontal, 20)
@@ -192,4 +213,5 @@ extension MyPageMain {
 
 #Preview {
   MyPageMain()
+    .environmentObject(MyPagePageManager())
 }
