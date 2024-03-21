@@ -44,12 +44,15 @@ extension MyPageMain {
     switch type {
     case .changeNickname:
       ChangeNicknameView(userName: "test")
+        .toolbar(.hidden, for: .tabBar)
       
     case .mateList:
       MateListView()
+        .toolbar(.hidden, for: .tabBar)
       
     case .mateDetail:
       MateDetailView()
+        .toolbar(.hidden, for: .tabBar)
       
     default:
       RecruitmentMain()
