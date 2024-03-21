@@ -15,7 +15,7 @@ struct MateIntroduce: View {
                 .edgesIgnoringSafeArea(.all)
             
             // 이미지 추가
-            Image("your_image_name")
+            Image("CloudMain")
                 .resizable()
                 .aspectRatio(contentMode: .fill)
                 .frame(width: 200, height: 200)
@@ -38,9 +38,7 @@ struct MateIntroduce: View {
                     
                     Spacer()
                     
-                    Button(action: {
-                        // 버튼 동작 구현
-                    }) {
+                    NavigationLink(destination: MateAllNight().navigationBarBackButtonHidden()) {
                         Text("밤샘 참여하기")
                             .font(.system(size: 14))
                             .foregroundColor(.black)

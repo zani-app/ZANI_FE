@@ -14,7 +14,7 @@ struct MateMain: View {
                 VStack(spacing: 0) {
                     MateIntroduce()
                         .frame(height: 234)
-                        .clipShape(RoundedRectangle(cornerRadius: 10))
+                        .clipShape(RoundedRectangle(cornerRadius: 20))
                     
                         .padding(.top, 41)
                         .background(Color.zaniMain1)
@@ -52,13 +52,14 @@ struct MateMain: View {
                     .background(Color.zaniMain1)
                 }
                 .background(Color.zaniMain1)
+                .padding(.leading, 20)
+                .padding(.trailing, 20)
                 
             }
             .background(Color.zaniMain1)
             
         }
-        .padding(.leading, 20)
-        .padding(.trailing, 20)
+        
         .background(Color.zaniMain1)
     }
     
