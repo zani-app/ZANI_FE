@@ -166,7 +166,8 @@
 			children = (
 			);
 			path = Chatting;
-        };
+			sourceTree = "<unknown>";
+		};
 		CD25EBD32BA9515A00A36B3A /* Auth */ = {
 			isa = PBXGroup;
 			children = (
