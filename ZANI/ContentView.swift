@@ -13,23 +13,63 @@ public struct ContentView: View {
   @EnvironmentObject private var myPagePageManager: MyPagePageManager
   
   public var body: some View {
-    TabView(
-      content: {
-        MateMain()
-          .tabItem { Text("밤샘메이트") }.tag(1)
-        
-        RecruitmentMain()
-          .tabItem { Text("모집페이지") }.tag(2)
-        
-        CommunityMain()
-          .tabItem { Text("커뮤니티") }.tag(3)
-        
-        MyPageMain()
-          .tabItem { Text("마이페이지") }.tag(4)
-        
+    NavigationView {
+      TabView {
+        Group {
+          MateMain()
+            .tabItem {
+              Label(
+                title: { Text("밤샘메이트") },
+                icon: {
+                  Image("MateIcon")
+                    .renderingMode(.template)
+                }
+              )
+            }
+            .tag(1)
+          
+          RecruitmentMain()
+            .tabItem {
+              Label(
+                title: { Text("모집페이지") },
+                icon: {
+                  Image("MateIcon")
+                    .renderingMode(.template)
+                }
+              )
+            }
+            .tag(2)
+          
+          CommunityMain()
+            .tabItem {
+              Label(
+                title: { Text("커뮤니티") },
+                icon: {
+                  Image("CommunityIcon")
+                    .renderingMode(.template)
+                }
+              )
+            }
+            .tag(3)
+          
+          MyPageMain()
+            .tabItem {
+              Label(
+                title: { Text("마이페이지")
+                },
+                icon: {
+                  Image("MyPageIcon")
+                    .renderingMode(.template)
+                }
+              )
+            }
+            .tag(4)
+        }
+        .toolbarBackground(.main4, for: .tabBar)
       }
-    )
-    .navigationBarBackButtonHidden()
+      .tint(.white)
+      .navigationBarBackButtonHidden()
+    }
   }
 }
 
