@@ -39,12 +39,15 @@ extension RecruitmentMain {
     switch type {
     case .createTeam:
       CreateTeamView()
+        .toolbar(.hidden, for: .tabBar)
       
     case let .category(category):
       SectionListView(section: category)
+        .toolbar(.hidden, for: .tabBar)
       
     case .filter:
       FilterView()
+        .toolbar(.hidden, for: .tabBar)
       
     default:
       RecruitmentMain()
@@ -98,6 +101,7 @@ extension RecruitmentMain {
               .foregroundStyle(self.isSearching ? Color.zaniMain2 : .clear)
           )
         })
+        
         ZaniCapsuleButton(
           title: "목표",
           isValid: false,
