@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import KakaoSDKCommon
+import KakaoSDKAuth
 
 @main
 struct ZANIApp: App {
@@ -13,12 +15,16 @@ struct ZANIApp: App {
   @StateObject private var recruitmentPageManager = RecruitmentPageManager()
   @StateObject private var myPagePageManager = MyPagePageManager()
   
+  @UIApplicationDelegateAdaptor var appDelegate: AppDelegate
+
   var body: some Scene {
     WindowGroup {
-      ContentView()
+//      ContentView()
+//        .environmentObject(recruitmentPageManager)
+//        .environmentObject(myPagePageManager)
+      
+      AuthMainView()
         .environmentObject(authPageManager)
-        .environmentObject(recruitmentPageManager)
-        .environmentObject(myPagePageManager)
     }
   }
 }
