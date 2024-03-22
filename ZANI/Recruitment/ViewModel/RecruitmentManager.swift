@@ -19,11 +19,14 @@ final class RecruitmentManager: ObservableObject {
   @Published var page: Int = 0
   @Published var size: Int = 10
   
+  @Published var teamList: [Team]? = nil
+  
   func requestTeamList() {
     TeamService.shared.requestTeamList(keyword: keyword, category: category, isEmpty: isEmpty, isPublic: isPublic, page: page, size: size) { response in
       switch(response) {
       case .success(let data):
         if let data = data as? TeamListDTO {
+          self.teamList = data.teams
           print(data.teams)
         }
         

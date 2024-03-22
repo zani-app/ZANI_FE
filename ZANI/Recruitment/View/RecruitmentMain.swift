@@ -156,32 +156,39 @@ extension RecruitmentMain {
   
   @ViewBuilder
   private func teamList() -> some View {
-    ScrollView {
-      VStack(spacing: 10) {
-        teamDisplayCapsule()
-        teamDisplayCapsule()
-        teamDisplayCapsule()
-        teamDisplayCapsule()
-        teamDisplayCapsule()
-        teamDisplayCapsule()
+    
+    if let teamList = recruitmentManager.teamList {
+      ScrollView {
+        VStack(spacing: 10) {
+          ForEach(teamList, id: \.id) { teamData in
+            teamDisplayCapsule(teamData: teamData)
+          }
+        }
+        .padding(.horizontal, 20)
       }
-      .padding(.horizontal, 20)
+      .padding(.top, 12)
+    } else {
+      ProgressView()
     }
-    .padding(.top, 12)
   }
   
   @ViewBuilder
-  private func teamDisplayCapsule() -> some View {
+  private func teamDisplayCapsule(teamData: Team) -> some View {
     VStack(alignment: .leading, spacing: 33) {
-      VStack(spacing: 9) {
-        HStack {
+      VStack(alignment: .leading, spacing: 10) {
+        HStack(spacing: 4) {
           Text("모집 제목")
-            .zaniFont(.title2)
+          
+          if teamData.isSecret {
+            Image("lockIcon")
+          }
         }
+        .zaniFont(.title2)
         .foregroundStyle(.white)
         
-        Text("소개글~~")
+        Text(teamData.description)
           .zaniFont(.body2)
+          .lineLimit(1)
           .foregroundStyle(.white)
       }
       
@@ -190,26 +197,23 @@ extension RecruitmentMain {
           Text("밤샘시간")
             .zaniFont(.body2).bold()
           
-          
-          Text("12시간")
+          Text("\(teamData.targetTime)시간")
             .zaniFont(.body2)
         }
         
         HStack(spacing: 5){
-          Text("밤샘시간")
+          Text("카테고리")
             .zaniFont(.body2).bold()
           
-          
-          Text("12시간")
+          Text(teamData.category)
             .zaniFont(.body2)
         }
         
         HStack(spacing: 5){
-          Text("밤샘시간")
+          Text("인원")
             .zaniFont(.body2).bold()
           
-          
-          Text("12시간")
+          Text("\(teamData.currentNum) / \(teamData.maxNum)")
             .zaniFont(.body2)
         }
         
@@ -222,8 +226,8 @@ extension RecruitmentMain {
     .padding(.top, 12)
     .padding(.bottom, 14)
     .background(
-      RoundedRectangle(cornerRadius: 10)
-        .fill(Color(red: 35/255, green: 35/255, blue: 63/255))
+      RoundedRectangle(cornerRadius: 20)
+        .fill(Color.main7)
     )
   }
 }

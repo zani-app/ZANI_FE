@@ -7,12 +7,12 @@
 
 import Foundation
 
-public struct TeamListDTO: Codable {
+public struct TeamListDTO: Codable, Hashable {
   let teams: [Team]
   let hasNext: Bool
 }
 
-public struct Team: Codable {
+public struct Team: Codable, Hashable {
   let id: Int
   let title: String
   let maxNum: Int
