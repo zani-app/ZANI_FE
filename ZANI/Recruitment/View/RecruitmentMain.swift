@@ -10,6 +10,8 @@ import SwiftUI
 public struct RecruitmentMain: View {
   @EnvironmentObject private var recruitmentPageManager: RecruitmentPageManager
   
+  @StateObject var recruitmentManager: RecruitmentManager = RecruitmentManager()
+  
   @State private var isSearching: Bool = false
   @State private var userSearchText: String = ""
   
@@ -23,6 +25,9 @@ public struct RecruitmentMain: View {
         searchBar()
         
         teamList()
+      }
+      .onAppear {
+        recruitmentManager.requestTeamList()
       }
       .navigationDestination(for: RecruitmentPageState.self) { pageState in
         recruitmentPageDestination(pageState)
