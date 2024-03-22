@@ -13,16 +13,24 @@ public struct RecruitmentMain: View {
   
   @State private var isSearching: Bool = false
   
+  @State private var selectedTeam: Team? = nil
+  
   public var body: some View {
     NavigationStack(path: $recruitmentPageManager.route) {
-      VStack(spacing: 0) {
-        title()
+      ZStack {
+        VStack(spacing: 0) {
+          title()
+          
+          filterList()
+          
+          searchBar()
+          
+          teamList()
+        }
         
-        filterList()
-        
-        searchBar()
-        
-        teamList()
+        if let selectedTeam = selectedTeam {
+          TeamDetailView(teamInfo: $selectedTeam)
+        }
       }
       .onAppear {
         recruitmentManager.requestTeamList()
@@ -170,6 +178,9 @@ extension RecruitmentMain {
         VStack(spacing: 10) {
           ForEach(teamList, id: \.id) { teamData in
             teamDisplayCapsule(teamData: teamData)
+              .onTapGesture {
+                self.selectedTeam = teamData
+              }
           }
         }
         .padding(.horizontal, 20)
