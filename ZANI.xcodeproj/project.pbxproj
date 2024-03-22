@@ -13,6 +13,12 @@
 		012D462A2BA470A200E05BC7 /* MateRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012D46292BA470A200E05BC7 /* MateRoom.swift */; };
 		012D462E2BA97A4C00E05BC7 /* TimeLineSub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012D462D2BA97A4C00E05BC7 /* TimeLineSub.swift */; };
 		012D46302BA9DD1700E05BC7 /* TimeLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012D462F2BA9DD1700E05BC7 /* TimeLine.swift */; };
+		0154490F2BADA0C4007AA69D /* CountText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0154490E2BADA0C4007AA69D /* CountText.swift */; };
+		015449112BADA168007AA69D /* StartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015449102BADA168007AA69D /* StartButton.swift */; };
+		015449132BADA1AF007AA69D /* TwoButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015449122BADA1AF007AA69D /* TwoButtons.swift */; };
+		015449152BADA210007AA69D /* Gauge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015449142BADA210007AA69D /* Gauge.swift */; };
+		015449172BADA29E007AA69D /* BottomMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015449162BADA29E007AA69D /* BottomMessage.swift */; };
+		015449192BADA426007AA69D /* NavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015449182BADA426007AA69D /* NavBar.swift */; };
 		CD25EBD22BA8A70300A36B3A /* FilterCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD25EBD12BA8A70300A36B3A /* FilterCategory.swift */; };
 		CD25EBD52BA951B500A36B3A /* AuthMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD25EBD42BA951B500A36B3A /* AuthMainView.swift */; };
 		CD25EBD92BA958E600A36B3A /* LoginType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD25EBD82BA958E600A36B3A /* LoginType.swift */; };
@@ -69,6 +75,12 @@
 		012D46292BA470A200E05BC7 /* MateRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MateRoom.swift; sourceTree = "<group>"; };
 		012D462D2BA97A4C00E05BC7 /* TimeLineSub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeLineSub.swift; sourceTree = "<group>"; };
 		012D462F2BA9DD1700E05BC7 /* TimeLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeLine.swift; sourceTree = "<group>"; };
+		0154490E2BADA0C4007AA69D /* CountText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountText.swift; sourceTree = "<group>"; };
+		015449102BADA168007AA69D /* StartButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartButton.swift; sourceTree = "<group>"; };
+		015449122BADA1AF007AA69D /* TwoButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoButtons.swift; sourceTree = "<group>"; };
+		015449142BADA210007AA69D /* Gauge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gauge.swift; sourceTree = "<group>"; };
+		015449162BADA29E007AA69D /* BottomMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomMessage.swift; sourceTree = "<group>"; };
+		015449182BADA426007AA69D /* NavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavBar.swift; sourceTree = "<group>"; };
 		CD25EBD12BA8A70300A36B3A /* FilterCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCategory.swift; sourceTree = "<group>"; };
 		CD25EBD42BA951B500A36B3A /* AuthMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthMainView.swift; sourceTree = "<group>"; };
 		CD25EBD82BA958E600A36B3A /* LoginType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginType.swift; sourceTree = "<group>"; };
@@ -172,6 +184,12 @@
 			isa = PBXGroup;
 			children = (
 				012D46292BA470A200E05BC7 /* MateRoom.swift */,
+				0154490E2BADA0C4007AA69D /* CountText.swift */,
+				015449102BADA168007AA69D /* StartButton.swift */,
+				015449122BADA1AF007AA69D /* TwoButtons.swift */,
+				015449142BADA210007AA69D /* Gauge.swift */,
+				015449162BADA29E007AA69D /* BottomMessage.swift */,
+				015449182BADA426007AA69D /* NavBar.swift */,
 			);
 			path = MateRoom;
 			sourceTree = "<group>";
@@ -514,6 +532,7 @@
 				CD25EBF22BAB0F2600A36B3A /* MateDetailView.swift in Sources */,
 				CD25EBEE2BAB051400A36B3A /* MyPagePageManager.swift in Sources */,
 				CD25EBEA2BAAD8C400A36B3A /* MyPageCalendarView.swift in Sources */,
+				015449112BADA168007AA69D /* StartButton.swift in Sources */,
 				CDC064BC2BA31F8200E24F70 /* ContentView.swift in Sources */,
 				012D46302BA9DD1700E05BC7 /* TimeLine.swift in Sources */,
 				CD25EBD92BA958E600A36B3A /* LoginType.swift in Sources */,
@@ -522,6 +541,7 @@
 				CDC064E12BA38B1900E24F70 /* ZaniNavigationBar.swift in Sources */,
 				CD25EBDF2BA96DAC00A36B3A /* SignUpView.swift in Sources */,
 				CD25EBDB2BA959FC00A36B3A /* AuthTextField.swift in Sources */,
+				015449132BADA1AF007AA69D /* TwoButtons.swift in Sources */,
 				CDC065172BA4CB2A00E24F70 /* FilterView.swift in Sources */,
 				CDC064DF2BA3892D00E24F70 /* ZaniMainButton.swift in Sources */,
 				CD25EBF42BAB166100A36B3A /* MoonLevel.swift in Sources */,
@@ -531,11 +551,13 @@
 				CDC064FE2BA4795600E24F70 /* View + Placeholder.swift in Sources */,
 				CD25EC022BAC4ECA00A36B3A /* TargetType.swift in Sources */,
 				CDC065032BA4C98100E24F70 /* CreateTeamSection.swift in Sources */,
+				0154490F2BADA0C4007AA69D /* CountText.swift in Sources */,
 				012D46212BA3FA2800E05BC7 /* MateIntroduce.swift in Sources */,
 				012D462A2BA470A200E05BC7 /* MateRoom.swift in Sources */,
 				012D462E2BA97A4C00E05BC7 /* TimeLineSub.swift in Sources */,
 				CDC064CC2BA3288900E24F70 /* MateMain.swift in Sources */,
 				012D46232BA4019A00E05BC7 /* MateRecommend.swift in Sources */,
+				015449192BADA426007AA69D /* NavBar.swift in Sources */,
 				CD25EBD22BA8A70300A36B3A /* FilterCategory.swift in Sources */,
 				CDC064BA2BA31F8200E24F70 /* ZANIApp.swift in Sources */,
 				CDC064DB2BA37F0700E24F70 /* CreateTeamView.swift in Sources */,
@@ -544,10 +566,12 @@
 				CD25EBE72BA9807A00A36B3A /* SignInView.swift in Sources */,
 				CD25EBEC2BAB02C200A36B3A /* ChangeNicknameView.swift in Sources */,
 				CDC065002BA4809000E24F70 /* SectionListView.swift in Sources */,
+				015449152BADA210007AA69D /* Gauge.swift in Sources */,
 				CDC064D92BA37D9A00E24F70 /* ZaniCapsuleButton.swift in Sources */,
 				CDC064CE2BA3289200E24F70 /* RecruitmentMain.swift in Sources */,
 				CDC064D02BA3289700E24F70 /* CommunityMain.swift in Sources */,
 				CD25EBE12BA9760700A36B3A /* AuthTextFieldType.swift in Sources */,
+				015449172BADA29E007AA69D /* BottomMessage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
