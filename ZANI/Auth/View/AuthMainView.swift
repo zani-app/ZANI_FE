@@ -11,6 +11,8 @@ public struct AuthMainView: View {
   @EnvironmentObject private var authPageManager: AuthPageManager
   @EnvironmentObject private var recruitmentPageManager: RecruitmentPageManager
   
+  @StateObject var loginManager: LoginManager = LoginManager()
+  
   public var body: some View {
     NavigationStack(path: $authPageManager.route) {
       VStack(spacing: 0) {
@@ -20,6 +22,11 @@ public struct AuthMainView: View {
         
         loginButton()
       }
+      .onChange(of: loginManager.loginType, perform: { value in
+        if value != nil {
+          authPageManager.push(.nickname)
+        }
+      })
       .padding(.horizontal, 20)
       .navigationDestination(for: AuthPageState.self) { pageState in
         authPageDestination(pageState)
@@ -71,7 +78,12 @@ extension AuthMainView {
   private func loginButton() -> some View {
     VStack(spacing: 29) {
       VStack(spacing: 16) {
-        signInButton(type: .kakao, action: { })
+        signInButton(
+          type: .kakao,
+          action: {
+            loginManager.handleKakaoLogin()
+          }
+        )
         signInButton(type: .apple, action: { })
         signInButton(type: .email, action: { authPageManager.push(.loginEmail) })
       }
@@ -88,7 +100,7 @@ extension AuthMainView {
   
   @ViewBuilder
   private func signInButton(
-    type: LoginType,
+    type: AuthProvider,
     action: @escaping () -> Void
   ) -> some View {
     Text(type.buttonTitle)
