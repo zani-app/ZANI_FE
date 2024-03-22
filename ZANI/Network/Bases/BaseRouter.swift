@@ -8,7 +8,7 @@
 import Foundation
 import Alamofire
 
-protocol BaseRouter: URLRequestConvertible {
+public protocol BaseRouter: URLRequestConvertible {
   var baseURL: String { get }
   var method: HTTPMethod { get }
   var path: String { get }
@@ -16,11 +16,10 @@ protocol BaseRouter: URLRequestConvertible {
   var header: HeaderType { get }
 }
 
-enum HeaderType {
+public enum HeaderType {
   case plain
   case withToken
 }
-
 
 extension BaseRouter {
   
@@ -68,23 +67,18 @@ extension BaseRouter {
     
     switch parameters {
       
-    case .query(let query):
-      let params = query?.toDictionary() ?? [:]
-      let queryParams = params.map { URLQueryItem(name: $0.key, value: "\($0.value)") }
-      var components = URLComponents(string: url.appendingPathComponent(path).absoluteString)
-      components?.queryItems = queryParams
-      request.url = components?.url
+    case .query(let query, let parameterEncoding):
+      request = try parameterEncoding.encode(request, with: query)
       
-    case .body(let body):
-      let params = body?.toDictionary() ?? [:]
-      request.httpBody = try JSONSerialization.data(withJSONObject: params, options: [])
+    case .requestBody(let body, let parameterEncoding):
+      request = try parameterEncoding.encode(request, with: body)
+      
+    case .queryBody(let query, let body, let parameterEncoding, let bodyEncoding):
+      request = try parameterEncoding.encode(request, with: query)
+      request = try bodyEncoding.encode(request, with: body)
       
     case .requestPlain:
       break
-      
-    case .requestParameters(let requestParams):
-      let params = requestParams
-      request.httpBody = try JSONSerialization.data(withJSONObject: params, options: [])
     }
     
     return request
@@ -99,11 +93,11 @@ extension BaseRouter {
 }
 
 // MARK: ParameterType
-enum RequestParams {
-  case query(_ parameter: Codable?)
-  case body(_ parameter: Codable?)
+public enum RequestParams {
+  case queryBody(_ query: [String: Any], _ body: [String: Any], parameterEncoding: ParameterEncoding = URLEncoding(), bodyEncoding: ParameterEncoding = JSONEncoding.default)
+  case query(_ query: [String: Any], parameterEncoding: ParameterEncoding = URLEncoding())
+  case requestBody(_ body: [String: Any], bodyEncoding: ParameterEncoding = JSONEncoding.default)
   case requestPlain
-  case requestParameters(_ parameter: [String : Any])
 }
 
 // MARK: toDictionary

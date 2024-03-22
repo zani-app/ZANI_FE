@@ -35,13 +35,13 @@ extension AuthRouter: BaseRouter {
         "serialId": id,
         "provider": provider.pathName
       ]
-      return .requestParameters(body)
+      return .requestBody(body, bodyEncoding: JSONEncoding.default)
     }
   }
   
   var header: HeaderType {
     switch self {
-    case .requestSocialSignUp(id: let id, provider: let provider):
+    case .requestSocialSignUp:
       return .plain
     }
   }

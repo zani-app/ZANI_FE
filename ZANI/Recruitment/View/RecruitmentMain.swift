@@ -9,21 +9,36 @@ import SwiftUI
 
 public struct RecruitmentMain: View {
   @EnvironmentObject private var recruitmentPageManager: RecruitmentPageManager
+  @EnvironmentObject private var recruitmentManager: RecruitmentManager
   
   @State private var isSearching: Bool = false
-  @State private var userSearchText: String = ""
+  
+  @State private var selectedTeam: Team? = nil
   
   public var body: some View {
     NavigationStack(path: $recruitmentPageManager.route) {
-      VStack(spacing: 0) {
-        title()
+      ZStack {
+        VStack(spacing: 0) {
+          title()
+          
+          filterList()
+          
+          searchBar()
+          
+          teamList()
+        }
         
-        filterList()
-        
-        searchBar()
-        
-        teamList()
+        if let selectedTeam = selectedTeam {
+          TeamDetailView(teamInfo: $selectedTeam)
+        }
       }
+      .onAppear {
+        recruitmentManager.requestTeamList()
+        recruitmentManager.keyword = ""
+      }
+      .onChange(of: recruitmentManager.keyword, perform: { newValue in
+        recruitmentManager.requestTeamList()
+      })
       .navigationDestination(for: RecruitmentPageState.self) { pageState in
         recruitmentPageDestination(pageState)
       }
@@ -46,8 +61,12 @@ extension RecruitmentMain {
         .toolbar(.hidden, for: .tabBar)
       
     case .filter:
-      FilterView()
-        .toolbar(.hidden, for: .tabBar)
+      FilterView(
+        categoryBuffer: recruitmentManager.category,
+        isPublicBuffer: recruitmentManager.isPublic,
+        isEmptyBuffer: recruitmentManager.isEmpty
+      )
+      .toolbar(.hidden, for: .tabBar)
       
     default:
       RecruitmentMain()
@@ -68,7 +87,10 @@ extension RecruitmentMain {
         isValid: true,
         leadingIcon: Image("plusIcon"),
         horizontalPadding: 8,
-        action: { recruitmentPageManager.push(.createTeam) }
+        action: {
+          recruitmentPageManager.push(.createTeam)
+          recruitmentManager.deInitCreateTeamData()
+        }
       )
     }
     .padding(.top, 17)
@@ -97,8 +119,11 @@ extension RecruitmentMain {
           .zaniFont(.body2)
           .background(
             Capsule()
-              .stroke(self.isSearching ? Color.zaniMain2 : .white)
-              .foregroundStyle(self.isSearching ? Color.zaniMain2 : .clear)
+              .fill(self.isSearching ? Color.zaniMain2 : .clear)
+              .overlay(
+                Capsule()
+                  .stroke(self.isSearching ? Color.zaniMain2 : .white)
+              )
           )
         })
         
@@ -110,18 +135,18 @@ extension RecruitmentMain {
         )
         ZaniCapsuleButton(
           title: "유형",
-          isValid: false,
+          isValid: !recruitmentManager.category.isEmpty,
           trailingIcon: Image("chevronDown"),
           action: { recruitmentPageManager.push(.filter) }
         )
         ZaniCapsuleButton(
           title: "빈 자리",
-          isValid: false,
+          isValid: recruitmentManager.isEmpty,
           action: { recruitmentPageManager.push(.filter) }
         )
         ZaniCapsuleButton(
           title: "공개방",
-          isValid: false,
+          isValid: recruitmentManager.isPublic,
           action: { recruitmentPageManager.push(.filter) }
         )
       }
@@ -143,7 +168,7 @@ extension RecruitmentMain {
         backgroundColor: Color(red: 1, green: 234/255, blue: 184/255),
         keyboardType: .default,
         maximumInputCount: 20,
-        inputText: $userSearchText
+        inputText: $recruitmentManager.keyword
       )
       .padding(.horizontal, 20)
     }
@@ -151,32 +176,46 @@ extension RecruitmentMain {
   
   @ViewBuilder
   private func teamList() -> some View {
-    ScrollView {
-      VStack(spacing: 10) {
-        teamDisplayCapsule()
-        teamDisplayCapsule()
-        teamDisplayCapsule()
-        teamDisplayCapsule()
-        teamDisplayCapsule()
-        teamDisplayCapsule()
+    
+    if let teamList = recruitmentManager.teamList {
+      ScrollView {
+        VStack(spacing: 10) {
+          ForEach(teamList, id: \.id) { teamData in
+            teamDisplayCapsule(teamData: teamData)
+              .onTapGesture {
+                self.selectedTeam = teamData
+              }
+          }
+        }
+        .padding(.horizontal, 20)
       }
-      .padding(.horizontal, 20)
+      .padding(.top, 12)
+    } else {
+      Spacer()
+      
+      ProgressView()
+      
+      Spacer()
     }
-    .padding(.top, 12)
   }
   
   @ViewBuilder
-  private func teamDisplayCapsule() -> some View {
+  private func teamDisplayCapsule(teamData: Team) -> some View {
     VStack(alignment: .leading, spacing: 33) {
-      VStack(spacing: 9) {
-        HStack {
+      VStack(alignment: .leading, spacing: 10) {
+        HStack(spacing: 4) {
           Text("모집 제목")
-            .zaniFont(.title2)
+          
+          if teamData.isSecret {
+            Image("lockIcon")
+          }
         }
+        .zaniFont(.title2)
         .foregroundStyle(.white)
         
-        Text("소개글~~")
+        Text(teamData.description)
           .zaniFont(.body2)
+          .lineLimit(1)
           .foregroundStyle(.white)
       }
       
@@ -185,26 +224,23 @@ extension RecruitmentMain {
           Text("밤샘시간")
             .zaniFont(.body2).bold()
           
-          
-          Text("12시간")
+          Text("\(teamData.targetTime)시간")
             .zaniFont(.body2)
         }
         
         HStack(spacing: 5){
-          Text("밤샘시간")
+          Text("카테고리")
             .zaniFont(.body2).bold()
           
-          
-          Text("12시간")
+          Text(teamData.category)
             .zaniFont(.body2)
         }
         
         HStack(spacing: 5){
-          Text("밤샘시간")
+          Text("인원")
             .zaniFont(.body2).bold()
           
-          
-          Text("12시간")
+          Text("\(teamData.currentNum) / \(teamData.maxNum)")
             .zaniFont(.body2)
         }
         
@@ -217,8 +253,8 @@ extension RecruitmentMain {
     .padding(.top, 12)
     .padding(.bottom, 14)
     .background(
-      RoundedRectangle(cornerRadius: 10)
-        .fill(Color(red: 35/255, green: 35/255, blue: 63/255))
+      RoundedRectangle(cornerRadius: 20)
+        .fill(Color.main7)
     )
   }
 }
@@ -226,4 +262,5 @@ extension RecruitmentMain {
 #Preview {
   RecruitmentMain()
     .environmentObject(RecruitmentPageManager())
+    .environmentObject(RecruitmentManager())
 }
