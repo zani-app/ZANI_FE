@@ -46,7 +46,7 @@ final class RecruitmentManager: ObservableObject {
     }
   }
   
-  func requestCreateTeam() {    
+  func requestCreateTeam() {
     TeamService.shared.requestCreateTeam(title: teamName, maxNum: maxNum!, targetTime: targetTime!, password: password, category: teamCategory, description: teamDescription, secret: isSecretRoom) { response in
       switch(response) {
       case .success(let data):

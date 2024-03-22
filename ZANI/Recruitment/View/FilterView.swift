@@ -9,9 +9,23 @@ import SwiftUI
 
 public struct FilterView: View {
   @EnvironmentObject private var recruitmentPageManager: RecruitmentPageManager
+  @EnvironmentObject private var recruitmentManager: RecruitmentManager
   
   @State private var startTime: Int = 2
   @State private var endTime: Int = 12
+  
+  @State private var startTimeBuffer: Int = 2
+  @State private var endTimeBuffer: Int = 12
+  
+  @State private var categoryBuffer: String
+  @State private var isPublicBuffer: Bool
+  @State private var isEmptyBuffer: Bool
+  
+  public init(categoryBuffer: String, isPublicBuffer: Bool, isEmptyBuffer: Bool) {
+    self.categoryBuffer = categoryBuffer
+    self.isPublicBuffer = isPublicBuffer
+    self.isEmptyBuffer = isEmptyBuffer
+  }
   
   public var body: some View {
     VStack(spacing: 0) {
@@ -53,13 +67,22 @@ extension FilterView {
         .zaniFont(.title2)
         .foregroundStyle(.white)
       
-      Text("\(startTime.description)시간 ~ \(endTime.description)시간")
+      Text("\(startTimeBuffer.description)시간 ~ \(endTimeBuffer.description)시간")
         .zaniFont(.title1)
         .foregroundStyle(.white)
       
       ZStack(alignment: .leading) {
         Rectangle()
           .frame(height: 5)
+          .foregroundStyle(.white)
+          .padding(.horizontal, 9)
+        
+        Rectangle()
+          .frame(
+            width: CGFloat((endTimeBuffer - startTimeBuffer)) * (UIScreen.main.bounds.width - 58) / CGFloat(10),
+            height: 5
+          )
+          .offset(x: CGFloat(startTimeBuffer - 2) * (UIScreen.main.bounds.width - 58) / CGFloat(10))
           .foregroundStyle(.main2)
           .padding(.horizontal, 9)
         
@@ -71,20 +94,28 @@ extension FilterView {
               .stroke(Color.zaniMain2, lineWidth: 6)
               .frame(width: 18, height: 18)
           )
-          .offset(x: CGFloat(startTime - 2)/CGFloat(10) * (UIScreen.main.bounds.width - 58))
+          .offset(x: CGFloat(startTimeBuffer - 2) * ((UIScreen.main.bounds.width - 58) / CGFloat(10)))
           .gesture(
-            DragGesture(minimumDistance: 0)
+            DragGesture(minimumDistance: ((UIScreen.main.bounds.width - 58) / CGFloat(10)))
               .onChanged { value in
-                print(value.translation.width, "!!!")
-                
                 if value.translation.width > 0 {
-                  let nextCoordinateValue = min(endTime - 1, startTime + Int(value.translation.width) * 10 /  Int(UIScreen.main.bounds.width - 58))
-                  startTime = nextCoordinateValue
+                  let nextCoordinateValue = min(
+                    endTimeBuffer - 1,
+                    startTime + Int(round(value.translation.width / (UIScreen.main.bounds.width - 58) * 10))
+                  )
+                  
+                  startTimeBuffer = nextCoordinateValue
                 } else {
-                  let nextCoordinateValue = max(2, startTime + Int(value.translation.width))
-                  startTime = nextCoordinateValue
+                  let nextCoordinateValue = max(
+                    2,
+                    startTime + Int(round(value.translation.width / (UIScreen.main.bounds.width - 58) * 10))
+                  )
+                  startTimeBuffer = nextCoordinateValue
                 }
               }
+              .onEnded({ value in
+                startTime = startTimeBuffer
+              })
           )
         
         Circle()
@@ -95,21 +126,29 @@ extension FilterView {
               .stroke(Color.zaniMain2, lineWidth: 6)
               .frame(width: 18, height: 18)
           )
-          .offset(x: CGFloat(endTime - 2)/CGFloat(10) * (UIScreen.main.bounds.width - 58))
+          .offset(x: CGFloat(endTimeBuffer - 2)/CGFloat(10) * (UIScreen.main.bounds.width - 58))
           .gesture(
-            DragGesture(minimumDistance: 0)
+            DragGesture(minimumDistance: ((UIScreen.main.bounds.width - 58) / CGFloat(10)))
               .onChanged { value in
-                //                  print(value.translation.width, "!!!")
-                //
-                //                  if value.translation.width > 0 {
-                //                    let nextCoordinateValue = max(12, endTime + Int(value.translation.width))
-                //                    endTime = nextCoordinateValue
-                //                  } else {
-                //                    let nextCoordinateValue = min(startTime + 1, endTime + Int(value.translation.width) * 10 /  Int(UIScreen.main.bounds.width - 58))
-                //                    endTime = nextCoordinateValue
-                //
-                //                  }
+                if value.translation.width > 0 {
+                  let nextCoordinateValue = min(
+                    12,
+                    endTime + Int(round(value.translation.width / (UIScreen.main.bounds.width - 58) * 10))
+                  )
+                  
+                  endTimeBuffer = nextCoordinateValue
+                } else {
+                  let nextCoordinateValue = max(
+                    startTimeBuffer + 1,
+                    endTime + Int(round(value.translation.width / (UIScreen.main.bounds.width - 58) * 10))
+                  )
+                  
+                  endTimeBuffer = nextCoordinateValue
+                }
               }
+              .onEnded({ value in
+                endTime = endTimeBuffer
+              })
           )
       }
       .frame(maxWidth: .infinity)
@@ -133,8 +172,23 @@ extension FilterView {
           ForEach(type.filterList, id: \.self) { filter in
             ZaniCapsuleButton(
               title: filter,
-              isValid: false,
-              action: { }
+              isValid:
+                type == .roomType ? self.categoryBuffer == filter : type == .isEmptySeat ? self.isEmptyBuffer : self.isPublicBuffer
+              ,
+              action: {
+                switch type {
+                case .roomType:
+                  if self.categoryBuffer == filter {
+                    self.categoryBuffer = ""
+                  } else {
+                    self.categoryBuffer = filter
+                  }
+                case .isEmptySeat:
+                  self.isEmptyBuffer.toggle()
+                case .isOpenRoom:
+                  self.isPublicBuffer.toggle()
+                }
+              }
             )
           }
           
@@ -150,7 +204,13 @@ extension FilterView {
   private func bottomButton() -> some View {
     HStack(spacing: 9) {
       Button(action: {
-        
+        self.categoryBuffer = ""
+        self.isEmptyBuffer = false
+        self.isPublicBuffer = true
+        self.startTime = 2
+        self.endTime = 12
+        self.startTimeBuffer = 2
+        self.endTimeBuffer = 12
       }, label: {
         HStack(spacing: 6) {
           Image("initArrow")
@@ -170,7 +230,12 @@ extension FilterView {
         title: "적용하기",
         isValid: true,
         verticalPadding: 10,
-        action: { }
+        action: { 
+          recruitmentManager.category = self.categoryBuffer
+          recruitmentManager.isEmpty = self.isEmptyBuffer
+          recruitmentManager.isPublic = self.isPublicBuffer
+          recruitmentPageManager.pop()
+        }
       )
     }
     .padding(.horizontal, 20)
@@ -186,6 +251,7 @@ extension FilterView {
 }
 
 #Preview {
-  FilterView()
+  FilterView(categoryBuffer: "test", isPublicBuffer: false, isEmptyBuffer: false)
     .environmentObject(RecruitmentPageManager())
+    .environmentObject(RecruitmentManager())
 }

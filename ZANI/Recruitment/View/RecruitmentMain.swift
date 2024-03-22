@@ -61,8 +61,12 @@ extension RecruitmentMain {
         .toolbar(.hidden, for: .tabBar)
       
     case .filter:
-      FilterView()
-        .toolbar(.hidden, for: .tabBar)
+      FilterView(
+        categoryBuffer: recruitmentManager.category,
+        isPublicBuffer: recruitmentManager.isPublic,
+        isEmptyBuffer: recruitmentManager.isEmpty
+      )
+      .toolbar(.hidden, for: .tabBar)
       
     default:
       RecruitmentMain()
@@ -131,18 +135,18 @@ extension RecruitmentMain {
         )
         ZaniCapsuleButton(
           title: "유형",
-          isValid: false,
+          isValid: !recruitmentManager.category.isEmpty,
           trailingIcon: Image("chevronDown"),
           action: { recruitmentPageManager.push(.filter) }
         )
         ZaniCapsuleButton(
           title: "빈 자리",
-          isValid: false,
+          isValid: recruitmentManager.isEmpty,
           action: { recruitmentPageManager.push(.filter) }
         )
         ZaniCapsuleButton(
           title: "공개방",
-          isValid: false,
+          isValid: recruitmentManager.isPublic,
           action: { recruitmentPageManager.push(.filter) }
         )
       }
