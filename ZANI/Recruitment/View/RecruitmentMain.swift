@@ -12,7 +12,6 @@ public struct RecruitmentMain: View {
   @EnvironmentObject private var recruitmentManager: RecruitmentManager
   
   @State private var isSearching: Bool = false
-  @State private var userSearchText: String = ""
   
   public var body: some View {
     NavigationStack(path: $recruitmentPageManager.route) {
@@ -27,7 +26,11 @@ public struct RecruitmentMain: View {
       }
       .onAppear {
         recruitmentManager.requestTeamList()
+        recruitmentManager.keyword = ""
       }
+      .onChange(of: recruitmentManager.keyword, perform: { newValue in
+        recruitmentManager.requestTeamList()
+      })
       .navigationDestination(for: RecruitmentPageState.self) { pageState in
         recruitmentPageDestination(pageState)
       }
@@ -104,8 +107,11 @@ extension RecruitmentMain {
           .zaniFont(.body2)
           .background(
             Capsule()
-              .stroke(self.isSearching ? Color.zaniMain2 : .white)
-              .foregroundStyle(self.isSearching ? Color.zaniMain2 : .clear)
+              .fill(self.isSearching ? Color.zaniMain2 : .clear)
+              .overlay(
+                Capsule()
+                  .stroke(self.isSearching ? Color.zaniMain2 : .white)
+              )
           )
         })
         
@@ -150,7 +156,7 @@ extension RecruitmentMain {
         backgroundColor: Color(red: 1, green: 234/255, blue: 184/255),
         keyboardType: .default,
         maximumInputCount: 20,
-        inputText: $userSearchText
+        inputText: $recruitmentManager.keyword
       )
       .padding(.horizontal, 20)
     }
@@ -170,7 +176,11 @@ extension RecruitmentMain {
       }
       .padding(.top, 12)
     } else {
+      Spacer()
+      
       ProgressView()
+      
+      Spacer()
     }
   }
   
