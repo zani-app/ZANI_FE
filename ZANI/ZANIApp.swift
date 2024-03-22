@@ -16,15 +16,23 @@ struct ZANIApp: App {
   @StateObject private var myPagePageManager = MyPagePageManager()
   
   @UIApplicationDelegateAdaptor var appDelegate: AppDelegate
+  
+  @State private var showAuth: Bool = true
 
   var body: some Scene {
     WindowGroup {
-//      ContentView()
-//        .environmentObject(recruitmentPageManager)
-//        .environmentObject(myPagePageManager)
-      
-      AuthMainView()
-        .environmentObject(authPageManager)
+      ContentView()
+        .environmentObject(recruitmentPageManager)
+        .environmentObject(myPagePageManager)
+        .fullScreenCover(isPresented: $showAuth) {
+          AuthMainView()
+            .environmentObject(authPageManager)
+        }
+        .onChange(of: authPageManager.isDone) { newValue in
+          if newValue {
+            self.showAuth = false
+          }
+        }
     }
   }
 }

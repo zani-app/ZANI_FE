@@ -14,7 +14,6 @@ public enum AuthPageState: Hashable {
   case signUpPassword
   case nickname
   case done
-  case afterAuth
   
   public var mainTitle: String {
     switch self {
@@ -50,6 +49,7 @@ public enum AuthPageState: Hashable {
 
 final class AuthPageManager: ObservableObject {
   @Published public var route: [AuthPageState] = []
+  @Published public var isDone: Bool = false
   
   func push(_ page: AuthPageState) {
     route.append(page)
