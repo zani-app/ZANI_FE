@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct MateAllNight: View {
+struct MateRoom: View {
     @Environment(\.dismiss) var dismiss
     
     var body: some View {
@@ -205,5 +205,5 @@ struct MateAllNight: View {
 }
 
 #Preview {
-    MateAllNight()
+    MateRoom()
 }

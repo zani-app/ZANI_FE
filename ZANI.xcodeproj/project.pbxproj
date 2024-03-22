@@ -10,7 +10,7 @@
 		012D46212BA3FA2800E05BC7 /* MateIntroduce.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012D46202BA3FA2800E05BC7 /* MateIntroduce.swift */; };
 		012D46232BA4019A00E05BC7 /* MateRecommend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012D46222BA4019A00E05BC7 /* MateRecommend.swift */; };
 		012D46252BA40DA300E05BC7 /* MateBestTips.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012D46242BA40DA300E05BC7 /* MateBestTips.swift */; };
-		012D462A2BA470A200E05BC7 /* MateAllNight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012D46292BA470A200E05BC7 /* MateAllNight.swift */; };
+		012D462A2BA470A200E05BC7 /* MateRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012D46292BA470A200E05BC7 /* MateRoom.swift */; };
 		012D462E2BA97A4C00E05BC7 /* TimeLineSub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012D462D2BA97A4C00E05BC7 /* TimeLineSub.swift */; };
 		012D46302BA9DD1700E05BC7 /* TimeLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012D462F2BA9DD1700E05BC7 /* TimeLine.swift */; };
 		CD25EBD22BA8A70300A36B3A /* FilterCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD25EBD12BA8A70300A36B3A /* FilterCategory.swift */; };
@@ -66,7 +66,7 @@
 		012D46202BA3FA2800E05BC7 /* MateIntroduce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MateIntroduce.swift; sourceTree = "<group>"; };
 		012D46222BA4019A00E05BC7 /* MateRecommend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MateRecommend.swift; sourceTree = "<group>"; };
 		012D46242BA40DA300E05BC7 /* MateBestTips.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MateBestTips.swift; sourceTree = "<group>"; };
-		012D46292BA470A200E05BC7 /* MateAllNight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MateAllNight.swift; sourceTree = "<group>"; };
+		012D46292BA470A200E05BC7 /* MateRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MateRoom.swift; sourceTree = "<group>"; };
 		012D462D2BA97A4C00E05BC7 /* TimeLineSub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeLineSub.swift; sourceTree = "<group>"; };
 		012D462F2BA9DD1700E05BC7 /* TimeLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeLine.swift; sourceTree = "<group>"; };
 		CD25EBD12BA8A70300A36B3A /* FilterCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCategory.swift; sourceTree = "<group>"; };
@@ -145,7 +145,7 @@
 		012D46282BA4698900E05BC7 /* MateAllNight */ = {
 			isa = PBXGroup;
 			children = (
-				012D46292BA470A200E05BC7 /* MateAllNight.swift */,
+				015449052BAD5080007AA69D /* MateRoom */,
 				012D462C2BA979E700E05BC7 /* Chatting */,
 				012D462B2BA979B800E05BC7 /* TimeLine */,
 			);
@@ -166,7 +166,16 @@
 			children = (
 			);
 			path = Chatting;
-        };
+			sourceTree = "<unknown>";
+		};
+		015449052BAD5080007AA69D /* MateRoom */ = {
+			isa = PBXGroup;
+			children = (
+				012D46292BA470A200E05BC7 /* MateRoom.swift */,
+			);
+			path = MateRoom;
+			sourceTree = "<group>";
+		};
 		CD25EBD32BA9515A00A36B3A /* Auth */ = {
 			isa = PBXGroup;
 			children = (
@@ -523,7 +532,7 @@
 				CD25EC022BAC4ECA00A36B3A /* TargetType.swift in Sources */,
 				CDC065032BA4C98100E24F70 /* CreateTeamSection.swift in Sources */,
 				012D46212BA3FA2800E05BC7 /* MateIntroduce.swift in Sources */,
-				012D462A2BA470A200E05BC7 /* MateAllNight.swift in Sources */,
+				012D462A2BA470A200E05BC7 /* MateRoom.swift in Sources */,
 				012D462E2BA97A4C00E05BC7 /* TimeLineSub.swift in Sources */,
 				CDC064CC2BA3288900E24F70 /* MateMain.swift in Sources */,
 				012D46232BA4019A00E05BC7 /* MateRecommend.swift in Sources */,
