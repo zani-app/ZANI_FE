@@ -25,9 +25,6 @@ public struct CreateTeamView: View {
     .background(
       Color.zaniMain1
     )
-    .onAppear {
-      recruitmentManager.allocCreateTeamData()
-    }
   }
 }
 
@@ -70,7 +67,9 @@ extension CreateTeamView {
       (!recruitmentManager.isSecretRoom || !recruitmentManager.password.isEmpty)
       ,
       action: {
-        
+        recruitmentManager.requestCreateTeam()
+        recruitmentManager.deInitCreateTeamData()
+        recruitmentPageManager.pop()
       }
     )
     .padding(.horizontal, 20)

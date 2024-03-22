@@ -10,7 +10,7 @@ import Alamofire
 
 enum TeamRouter {
   case requestTeamList(keyword: String, category: String, isEmpty: Bool, isPublic: Bool, page: Int, size: Int)
-  case createTeam(title: String, maxNum: String, targetTime: Int, password: String, category: String, description: String, secret: Bool)
+  case requestCreateTeam(title: String, maxNum: Int, targetTime: Int, password: String, category: String, description: String, secret: Bool)
 }
 
 extension TeamRouter: BaseRouter { 
@@ -19,7 +19,7 @@ extension TeamRouter: BaseRouter {
     switch self {
     case .requestTeamList:
       return "/api/v1/team"
-    case .createTeam:
+    case .requestCreateTeam:
       return "/api/v1/team"
     }
   }
@@ -28,7 +28,7 @@ extension TeamRouter: BaseRouter {
     switch self {
     case .requestTeamList:
       return .get
-    case .createTeam:
+    case .requestCreateTeam:
       return .post
     }
   }
@@ -60,7 +60,7 @@ extension TeamRouter: BaseRouter {
       
       return .requestBody(body, bodyEncoding: URLEncoding.queryString)
       
-    case let .createTeam(title, maxNum, targetTime, password, category, description, secret):
+    case let .requestCreateTeam(title, maxNum, targetTime, password, category, description, secret):
       let body: [String: Any] = [
         "title": title,
         "maxNum": maxNum,
@@ -70,13 +70,13 @@ extension TeamRouter: BaseRouter {
         "description": description,
         "secret": secret
       ]
-      return .requestBody(body, bodyEncoding: URLEncoding.httpBody)
+      return .requestBody(body, bodyEncoding: JSONEncoding.default)
     }
   }
   
   var header: HeaderType {
     switch self {
-    case .requestTeamList, .createTeam:
+    case .requestTeamList, .requestCreateTeam:
       return .withToken
     }
   }

@@ -67,7 +67,6 @@
 		CD6AAE542BAD866400862A46 /* TeamService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6AAE532BAD866400862A46 /* TeamService.swift */; };
 		CD6AAE572BAD885700862A46 /* TeamListDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6AAE562BAD885700862A46 /* TeamListDTO.swift */; };
 		CD6AAE592BAD88FB00862A46 /* RecruitmentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6AAE582BAD88FB00862A46 /* RecruitmentManager.swift */; };
-		CD6AAE5D2BADA86600862A46 /* RequestCreateTeamDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6AAE5C2BADA86600862A46 /* RequestCreateTeamDTO.swift */; };
 		CDC064BA2BA31F8200E24F70 /* ZANIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC064B92BA31F8200E24F70 /* ZANIApp.swift */; };
 		CDC064BC2BA31F8200E24F70 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC064BB2BA31F8200E24F70 /* ContentView.swift */; };
 		CDC064BE2BA31F8300E24F70 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDC064BD2BA31F8300E24F70 /* Assets.xcassets */; };
@@ -141,7 +140,6 @@
 		CD6AAE532BAD866400862A46 /* TeamService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamService.swift; sourceTree = "<group>"; };
 		CD6AAE562BAD885700862A46 /* TeamListDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamListDTO.swift; sourceTree = "<group>"; };
 		CD6AAE582BAD88FB00862A46 /* RecruitmentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecruitmentManager.swift; sourceTree = "<group>"; };
-		CD6AAE5C2BADA86600862A46 /* RequestCreateTeamDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestCreateTeamDTO.swift; sourceTree = "<group>"; };
 		CDC064B62BA31F8200E24F70 /* ZANI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZANI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDC064B92BA31F8200E24F70 /* ZANIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZANIApp.swift; sourceTree = "<group>"; };
 		CDC064BB2BA31F8200E24F70 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -359,7 +357,6 @@
 			isa = PBXGroup;
 			children = (
 				CD6AAE562BAD885700862A46 /* TeamListDTO.swift */,
-				CD6AAE5C2BADA86600862A46 /* RequestCreateTeamDTO.swift */,
 			);
 			path = DTO;
 			sourceTree = "<group>";
@@ -626,7 +623,6 @@
 				CD25EBD92BA958E600A36B3A /* LoginType.swift in Sources */,
 				CDC064E62BA38F9B00E24F70 /* RecruitmentPageManager.swift in Sources */,
 				CD6AAE2D2BAD206000862A46 /* BaseURL.swift in Sources */,
-				CD6AAE5D2BADA86600862A46 /* RequestCreateTeamDTO.swift in Sources */,
 				CD25EBD52BA951B500A36B3A /* AuthMainView.swift in Sources */,
 				CDC064E12BA38B1900E24F70 /* ZaniNavigationBar.swift in Sources */,
 				CD25EBDF2BA96DAC00A36B3A /* SignUpView.swift in Sources */,

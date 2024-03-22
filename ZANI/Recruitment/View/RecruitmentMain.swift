@@ -72,7 +72,10 @@ extension RecruitmentMain {
         isValid: true,
         leadingIcon: Image("plusIcon"),
         horizontalPadding: 8,
-        action: { recruitmentPageManager.push(.createTeam) }
+        action: {
+          recruitmentPageManager.push(.createTeam)
+          recruitmentManager.deInitCreateTeamData()
+        }
       )
     }
     .padding(.top, 17)

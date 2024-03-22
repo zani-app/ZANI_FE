@@ -19,6 +19,9 @@ final class RecruitmentManager: ObservableObject {
   @Published var page: Int = 0
   @Published var size: Int = 10
   
+  @Published var teamList: [Team]? = nil
+  
+  
   /// for create Room
   @Published var teamName: String = ""
   @Published var teamCategory: String = ""
@@ -27,8 +30,6 @@ final class RecruitmentManager: ObservableObject {
   @Published var teamDescription: String = ""
   @Published var isSecretRoom: Bool = false
   @Published var password: String = ""
-  
-  @Published var teamList: [Team]? = nil
   
   func requestTeamList() {
     TeamService.shared.requestTeamList(keyword: keyword, category: category, isEmpty: isEmpty, isPublic: isPublic, page: page, size: size) { response in
@@ -45,11 +46,28 @@ final class RecruitmentManager: ObservableObject {
     }
   }
   
-  func allocCreateTeamData() {
-   
+  func requestCreateTeam() {    
+    TeamService.shared.requestCreateTeam(title: teamName, maxNum: maxNum!, targetTime: targetTime!, password: password, category: teamCategory, description: teamDescription, secret: isSecretRoom) { response in
+      switch(response) {
+      case .success(let data):
+        if let data = data as? Team {
+          print("success")
+        }
+        
+      default:
+        print("failCreateRoom")
+      }
+    }
   }
   
+  
   func deInitCreateTeamData() {
-    
+    self.teamName = ""
+    self.teamCategory = ""
+    self.maxNum = nil
+    self.targetTime = nil
+    self.teamDescription = ""
+    self.isSecretRoom = false
+    self.password = ""
   }
 }
