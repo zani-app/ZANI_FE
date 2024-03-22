@@ -9,12 +9,7 @@ import SwiftUI
 
 public struct CreateTeamView: View {
   @EnvironmentObject private var recruitmentPageManager: RecruitmentPageManager
-  
-  @State private var teamName: String = ""
-  @State private var teamDescription: String = ""
-  @State private var password: String = ""
-  
-  @State private var isSecretRoom: Bool = false
+  @EnvironmentObject private var recruitmentManager: RecruitmentManager
   
   public var body: some View {
     VStack(spacing: 0) {
@@ -30,6 +25,9 @@ public struct CreateTeamView: View {
     .background(
       Color.zaniMain1
     )
+    .onAppear {
+      recruitmentManager.allocCreateTeamData()
+    }
   }
 }
 
@@ -64,7 +62,13 @@ extension CreateTeamView {
   private func bottomButton() -> some View {
     ZaniMainButton(
       title: "팀 생성하기",
-      isValid: true,
+      isValid: !recruitmentManager.teamName.isEmpty &&
+      !recruitmentManager.teamCategory.isEmpty &&
+      recruitmentManager.maxNum != nil &&
+      recruitmentManager.targetTime != nil &&
+      !recruitmentManager.teamDescription.isEmpty &&
+      (!recruitmentManager.isSecretRoom || !recruitmentManager.password.isEmpty)
+      ,
       action: {
         
       }
@@ -80,7 +84,7 @@ extension CreateTeamView {
       placeholderTextStyle: .title2,
       keyboardType: .default,
       maximumInputCount: 10,
-      inputText: $teamName
+      inputText: $recruitmentManager.teamName
     )
     .padding(.horizontal, 20)
   }
@@ -88,44 +92,49 @@ extension CreateTeamView {
   @ViewBuilder
   private func sectionList() -> some View {
     VStack(spacing: 14) {
-      ForEach(CreateTeamSection.allCases, id: \.title) { section in
-        HStack {
-          Text(section.title)
-            .foregroundStyle(.white)
-          
-          Spacer()
-          
-          HStack(spacing: 4) {
-            Text("\(section.title)을 선택해주세요")
-            
-            Image(systemName: "chevron.right")
-              .resizable()
-              .frame(width: 4, height: 8)
-              .padding(.horizontal, 6)
-              .padding(.vertical, 4)
-          }
-          .foregroundStyle(Color.zaniMain6)
-        }
-        .zaniFont(.body1)
-        .padding(.vertical, 14)
-        .padding(.leading, 16)
-        .padding(.trailing, 14)
-        .background(
-          RoundedRectangle(cornerRadius: 10.0)
-            .fill(Color(red: 35/255, green: 35/255, blue: 63/255))
-        )
-        .onTapGesture {
-          recruitmentPageManager.push(.category(section))
-        }
-      }
+      sectionBox(section: .category, data: recruitmentManager.teamCategory)
+      sectionBox(section: .peopleCount, data: recruitmentManager.maxNum?.description ?? "")
+      sectionBox(section: .nightTime, data: recruitmentManager.targetTime?.description ?? "")
     }
     .padding(.horizontal, 20)
   }
   
   @ViewBuilder
+  private func sectionBox(section: CreateTeamSection, data: String) -> some View {
+    HStack {
+      Text(section.title)
+        .foregroundStyle(.white)
+      
+      Spacer()
+      
+      HStack(spacing: 4) {
+        Text("\(data.isEmpty ? "\(section.title)\(section == .category ? "를" : "을") 선택해주세요" : data + section.countUnit)")
+        
+        Image(systemName: "chevron.right")
+          .resizable()
+          .frame(width: 4, height: 8)
+          .padding(.horizontal, 6)
+          .padding(.vertical, 4)
+      }
+      .foregroundStyle(Color.zaniMain6)
+    }
+    .zaniFont(.body1)
+    .padding(.vertical, 14)
+    .padding(.leading, 16)
+    .padding(.trailing, 14)
+    .background(
+      RoundedRectangle(cornerRadius: 10.0)
+        .fill(Color(red: 35/255, green: 35/255, blue: 63/255))
+    )
+    .onTapGesture {
+      recruitmentPageManager.push(.category(section))
+    }
+  }
+  
+  @ViewBuilder
   private func secretRoomOption() -> some View {
     VStack(spacing: 7) {
-      Toggle(isOn: $isSecretRoom, label: {
+      Toggle(isOn: $recruitmentManager.isSecretRoom, label: {
         Text("비밀방 여부")
           .foregroundStyle(.white)
       })
@@ -137,13 +146,13 @@ extension CreateTeamView {
           .fill(Color(red: 35/255, green: 35/255, blue: 63/255))
       )
       
-      if isSecretRoom {
+      if recruitmentManager.isSecretRoom {
         ZaniTextField(
           placeholderText: "비밀번호 입력 (숫자 4자리 구성)",
           placeholderTextStyle: .body1,
           keyboardType: .numberPad,
           maximumInputCount: 4,
-          inputText: $password
+          inputText: $recruitmentManager.password
         )
       }
     }
@@ -158,15 +167,15 @@ extension CreateTeamView {
       keyboardType: .default,
       maximumInputCount: 50,
       lineLimit: 6,
-      inputText: $teamDescription
+      inputText: $recruitmentManager.teamDescription
     )
     .padding(.horizontal, 20)
     .padding(.bottom, 40)
   }
 }
 
-
 #Preview {
   CreateTeamView()
     .environmentObject(RecruitmentPageManager())
+    .environmentObject(RecruitmentManager())
 }

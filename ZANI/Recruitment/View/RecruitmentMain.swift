@@ -9,8 +9,7 @@ import SwiftUI
 
 public struct RecruitmentMain: View {
   @EnvironmentObject private var recruitmentPageManager: RecruitmentPageManager
-  
-  @StateObject var recruitmentManager: RecruitmentManager = RecruitmentManager()
+  @EnvironmentObject private var recruitmentManager: RecruitmentManager
   
   @State private var isSearching: Bool = false
   @State private var userSearchText: String = ""
@@ -235,4 +234,5 @@ extension RecruitmentMain {
 #Preview {
   RecruitmentMain()
     .environmentObject(RecruitmentPageManager())
+    .environmentObject(RecruitmentManager())
 }

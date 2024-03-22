@@ -19,6 +19,15 @@ final class RecruitmentManager: ObservableObject {
   @Published var page: Int = 0
   @Published var size: Int = 10
   
+  /// for create Room
+  @Published var teamName: String = ""
+  @Published var teamCategory: String = ""
+  @Published var maxNum: Int? = nil
+  @Published var targetTime: Int? = nil
+  @Published var teamDescription: String = ""
+  @Published var isSecretRoom: Bool = false
+  @Published var password: String = ""
+  
   @Published var teamList: [Team]? = nil
   
   func requestTeamList() {
@@ -34,5 +43,13 @@ final class RecruitmentManager: ObservableObject {
         print("ErrorFetchTeamList")
       }
     }
+  }
+  
+  func allocCreateTeamData() {
+   
+  }
+  
+  func deInitCreateTeamData() {
+    
   }
 }
