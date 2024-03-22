@@ -55,7 +55,7 @@ extension SignUpDoneView {
     ZaniMainButton(
       title: "다음",
       isValid: true,
-      action: { authPageManager.push(.afterAuth) }
+      action: { authPageManager.isDone = true }
     )
     .padding(.vertical, 8)
   }

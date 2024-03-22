@@ -53,7 +53,7 @@ public struct SignInView: View {
       ZaniMainButton(
         title: "로그인하기",
         isValid: validationEmail && validationPassword,
-        action: { authPageManager.push(.afterAuth) }
+        action: {  }
       )
       .padding(.vertical, 8)
       .padding(.horizontal, 20)

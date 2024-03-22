@@ -9,7 +9,6 @@ import SwiftUI
 
 public struct AuthMainView: View {
   @EnvironmentObject private var authPageManager: AuthPageManager
-  @EnvironmentObject private var recruitmentPageManager: RecruitmentPageManager
   
   @StateObject var loginManager: LoginManager = LoginManager()
   
@@ -51,9 +50,6 @@ extension AuthMainView {
       
     case .loginEmail:
       SignInView()
-      
-    case .afterAuth:
-      ContentView()
       
     case .main:
       AuthMainView()
