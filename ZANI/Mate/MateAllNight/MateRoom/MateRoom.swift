@@ -10,6 +10,7 @@ import SwiftUI
 struct MateRoom: View {
     @Environment(\.dismiss) var dismiss
     
+    
     var body: some View {
         ZStack {
             
@@ -66,7 +67,7 @@ extension MateRoom {
     
     @ViewBuilder
     private func navigationBar() -> some View {
-        NavBar(title: "")
+        NavBar(title: "", leftAction: { })
     }
 }
 

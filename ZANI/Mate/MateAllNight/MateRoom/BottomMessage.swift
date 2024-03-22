@@ -13,10 +13,11 @@ struct BottomMessage: View {
             Spacer()
             ZStack {
                 Rectangle()
-                    .fill(.brown)
+                    .fill(Color.zaniMain4)
                     .frame(width: 160, height: 35)
                 .clipShape(RoundedCorner(radius: 20, corners: [.topLeft, .bottomLeft, .bottomRight]))
                 Text("자니...? 진짜 자니?")
+                    .foregroundStyle(.white)
             }
             Image("moon4")
                 .padding(.trailing, 20)
