@@ -7,10 +7,21 @@
 
 import SwiftUI
 
-public enum LoginType: CaseIterable {
+public enum AuthProvider: CaseIterable {
   case kakao
   case apple
   case email
+  
+  public var pathName: String {
+    switch self {
+    case .kakao:
+      return "KAKAO"
+    case .apple:
+      return "APPLE"
+    case .email:
+      return "EMAIL"
+    }
+  }
   
   public var loginIcon: Image? {
     switch self {

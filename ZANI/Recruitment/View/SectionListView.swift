@@ -10,6 +10,7 @@ import SwiftUI
 
 public struct SectionListView: View {
   @EnvironmentObject private var recruitmentPageManager: RecruitmentPageManager
+  @EnvironmentObject private var recruitmentManager: RecruitmentManager
   
   public var section: CreateTeamSection
   
@@ -20,23 +21,57 @@ public struct SectionListView: View {
   public var body: some View {
     VStack(spacing: 0) {
       navigationBar()
-    
+      
       VStack(spacing: 0) {
         ForEach(section.selectOptions.indices) { index in
           VStack(alignment: .leading, spacing: 0) {
-            Text(section.selectOptions[index] + section.countUnit)
-              .zaniFont(.body1)
-              .foregroundStyle(.white)              
-              .padding(.vertical, 16)
+            HStack {
+              Text(section.selectOptions[index] + section.countUnit)
+                .zaniFont(.body1)
+                .foregroundStyle(.white)
+                .padding(.vertical, 16)
+              
+              Spacer()
+              
+              switch self.section {
+              case .category:
+                if recruitmentManager.teamCategory == section.selectOptions[index] {
+                  Image("textfieldCheck")
+                }
+              case .peopleCount:
+                if recruitmentManager.maxNum == Int(section.selectOptions[index]) {
+                  Image("textfieldCheck")
+                }
+                
+              case .nightTime:
+                if recruitmentManager.targetTime == Int(section.selectOptions[index]) {
+                  Image("textfieldCheck")
+                }
+              }
+            }
+            .padding(.trailing, 4)
             
             Divider()
               .frame(height: 1)
               .overlay(Color.white.opacity(0.3))
               .opacity(index < section.selectOptions.count - 1 ? 1 : 0)
           }
+          .background(
+            Color(red: 35/255, green: 35/255, blue: 63/255)
+          )
+          .onTapGesture {
+            switch self.section {
+            case .category:
+              recruitmentManager.teamCategory = section.selectOptions[index]
+            case .peopleCount:
+              recruitmentManager.maxNum = Int(section.selectOptions[index])
+            case .nightTime:
+              recruitmentManager.targetTime = Int(section.selectOptions[index])
+            }
+          }
         }
-        .padding(.horizontal, 12)
       }
+      .padding(.horizontal, 12)
       .background(
         RoundedRectangle(cornerRadius: 10)
           .foregroundStyle(Color(red: 35/255, green: 35/255, blue: 63/255))
@@ -68,4 +103,5 @@ extension SectionListView {
 #Preview {
   SectionListView(section: .peopleCount)
     .environmentObject(RecruitmentPageManager())
+    .environmentObject(RecruitmentManager())
 }

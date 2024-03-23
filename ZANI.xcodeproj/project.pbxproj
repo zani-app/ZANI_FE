@@ -34,9 +34,6 @@
 		CD25EBF02BAB08AB00A36B3A /* MateListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD25EBEF2BAB08AB00A36B3A /* MateListView.swift */; };
 		CD25EBF22BAB0F2600A36B3A /* MateDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD25EBF12BAB0F2600A36B3A /* MateDetailView.swift */; };
 		CD25EBF42BAB166100A36B3A /* MoonLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD25EBF32BAB166100A36B3A /* MoonLevel.swift */; };
-		CD25EBFB2BAC4E8000A36B3A /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = CD25EBFA2BAC4E8000A36B3A /* Alamofire */; };
-		CD25EBFD2BAC4E8000A36B3A /* AlamofireDynamic in Frameworks */ = {isa = PBXBuildFile; productRef = CD25EBFC2BAC4E8000A36B3A /* AlamofireDynamic */; };
-		CD25EC022BAC4ECA00A36B3A /* TargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD25EC012BAC4ECA00A36B3A /* TargetType.swift */; };
 		CD25EC0C2BAC6D1500A36B3A /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = CD25EC032BAC6D1400A36B3A /* Pretendard-Regular.otf */; };
 		CD25EC0D2BAC6D1500A36B3A /* Pretendard-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = CD25EC042BAC6D1400A36B3A /* Pretendard-ExtraBold.otf */; };
 		CD25EC0E2BAC6D1500A36B3A /* Pretendard-ExtraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = CD25EC052BAC6D1400A36B3A /* Pretendard-ExtraLight.otf */; };
@@ -46,6 +43,37 @@
 		CD25EC122BAC6D1500A36B3A /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = CD25EC092BAC6D1500A36B3A /* Pretendard-SemiBold.otf */; };
 		CD25EC132BAC6D1500A36B3A /* Pretendard-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = CD25EC0A2BAC6D1500A36B3A /* Pretendard-Thin.otf */; };
 		CD25EC142BAC6D1500A36B3A /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = CD25EC0B2BAC6D1500A36B3A /* Pretendard-Bold.otf */; };
+		CD25EC172BAC993600A36B3A /* KakaoSDK in Frameworks */ = {isa = PBXBuildFile; productRef = CD25EC162BAC993600A36B3A /* KakaoSDK */; };
+		CD25EC192BAC993600A36B3A /* KakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = CD25EC182BAC993600A36B3A /* KakaoSDKAuth */; };
+		CD25EC1B2BAC993600A36B3A /* KakaoSDKCert in Frameworks */ = {isa = PBXBuildFile; productRef = CD25EC1A2BAC993600A36B3A /* KakaoSDKCert */; };
+		CD25EC1D2BAC993600A36B3A /* KakaoSDKCertCore in Frameworks */ = {isa = PBXBuildFile; productRef = CD25EC1C2BAC993600A36B3A /* KakaoSDKCertCore */; };
+		CD25EC1F2BAC993600A36B3A /* KakaoSDKCommon in Frameworks */ = {isa = PBXBuildFile; productRef = CD25EC1E2BAC993600A36B3A /* KakaoSDKCommon */; };
+		CD25EC212BAC993600A36B3A /* KakaoSDKFriend in Frameworks */ = {isa = PBXBuildFile; productRef = CD25EC202BAC993600A36B3A /* KakaoSDKFriend */; };
+		CD25EC232BAC993600A36B3A /* KakaoSDKFriendCore in Frameworks */ = {isa = PBXBuildFile; productRef = CD25EC222BAC993600A36B3A /* KakaoSDKFriendCore */; };
+		CD25EC252BAC993600A36B3A /* KakaoSDKNavi in Frameworks */ = {isa = PBXBuildFile; productRef = CD25EC242BAC993600A36B3A /* KakaoSDKNavi */; };
+		CD25EC272BAC993600A36B3A /* KakaoSDKShare in Frameworks */ = {isa = PBXBuildFile; productRef = CD25EC262BAC993600A36B3A /* KakaoSDKShare */; };
+		CD25EC292BAC993600A36B3A /* KakaoSDKTalk in Frameworks */ = {isa = PBXBuildFile; productRef = CD25EC282BAC993600A36B3A /* KakaoSDKTalk */; };
+		CD25EC2B2BAC993600A36B3A /* KakaoSDKTemplate in Frameworks */ = {isa = PBXBuildFile; productRef = CD25EC2A2BAC993600A36B3A /* KakaoSDKTemplate */; };
+		CD25EC2D2BAC993600A36B3A /* KakaoSDKUser in Frameworks */ = {isa = PBXBuildFile; productRef = CD25EC2C2BAC993600A36B3A /* KakaoSDKUser */; };
+		CD25EC302BAC9CD900A36B3A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD25EC2F2BAC9CD900A36B3A /* AppDelegate.swift */; };
+		CD25EC322BAC9E0000A36B3A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD25EC312BAC9E0000A36B3A /* SceneDelegate.swift */; };
+		CD25EC342BACA05100A36B3A /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD25EC332BACA05100A36B3A /* LoginManager.swift */; };
+		CD6AAE2D2BAD206000862A46 /* BaseURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6AAE2C2BAD206000862A46 /* BaseURL.swift */; };
+		CD6AAE3C2BAD338A00862A46 /* GeneralResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6AAE3B2BAD338A00862A46 /* GeneralResponse.swift */; };
+		CD6AAE3E2BAD33CE00862A46 /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6AAE3D2BAD33CE00862A46 /* NetworkResult.swift */; };
+		CD6AAE402BAD33EC00862A46 /* SignUpDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6AAE3F2BAD33EC00862A46 /* SignUpDTO.swift */; };
+		CD6AAE432BAD59D300862A46 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6AAE422BAD59D300862A46 /* UserService.swift */; };
+		CD6AAE452BAD5D2100862A46 /* UserInfoDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6AAE442BAD5D2100862A46 /* UserInfoDTO.swift */; };
+		CD6AAE472BAD73FB00862A46 /* BaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6AAE462BAD73FA00862A46 /* BaseRouter.swift */; };
+		CD6AAE492BAD74B100862A46 /* AuthRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6AAE482BAD74B100862A46 /* AuthRouter.swift */; };
+		CD6AAE4B2BAD74DD00862A46 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6AAE4A2BAD74DD00862A46 /* AuthService.swift */; };
+		CD6AAE4D2BAD7A2100862A46 /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6AAE4C2BAD7A2100862A46 /* BaseService.swift */; };
+		CD6AAE4F2BAD7BFB00862A46 /* UserRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6AAE4E2BAD7BFB00862A46 /* UserRouter.swift */; };
+		CD6AAE522BAD865C00862A46 /* TeamRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6AAE512BAD865C00862A46 /* TeamRouter.swift */; };
+		CD6AAE542BAD866400862A46 /* TeamService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6AAE532BAD866400862A46 /* TeamService.swift */; };
+		CD6AAE572BAD885700862A46 /* TeamListDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6AAE562BAD885700862A46 /* TeamListDTO.swift */; };
+		CD6AAE592BAD88FB00862A46 /* RecruitmentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6AAE582BAD88FB00862A46 /* RecruitmentManager.swift */; };
+		CD6AAE5F2BADC93700862A46 /* TeamDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6AAE5E2BADC93700862A46 /* TeamDetailView.swift */; };
 		CDC064BA2BA31F8200E24F70 /* ZANIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC064B92BA31F8200E24F70 /* ZANIApp.swift */; };
 		CDC064BC2BA31F8200E24F70 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC064BB2BA31F8200E24F70 /* ContentView.swift */; };
 		CDC064BE2BA31F8300E24F70 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDC064BD2BA31F8300E24F70 /* Assets.xcassets */; };
@@ -66,6 +94,7 @@
 		CDC065002BA4809000E24F70 /* SectionListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC064FF2BA4809000E24F70 /* SectionListView.swift */; };
 		CDC065032BA4C98100E24F70 /* CreateTeamSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC065022BA4C98100E24F70 /* CreateTeamSection.swift */; };
 		CDC065172BA4CB2A00E24F70 /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC065162BA4CB2A00E24F70 /* FilterView.swift */; };
+		CDD706FF2BACAA3A00AEC4B8 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = CDD706FE2BACAA3A00AEC4B8 /* Alamofire */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -96,7 +125,6 @@
 		CD25EBEF2BAB08AB00A36B3A /* MateListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MateListView.swift; sourceTree = "<group>"; };
 		CD25EBF12BAB0F2600A36B3A /* MateDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MateDetailView.swift; sourceTree = "<group>"; };
 		CD25EBF32BAB166100A36B3A /* MoonLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoonLevel.swift; sourceTree = "<group>"; };
-		CD25EC012BAC4ECA00A36B3A /* TargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetType.swift; sourceTree = "<group>"; };
 		CD25EC032BAC6D1400A36B3A /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
 		CD25EC042BAC6D1400A36B3A /* Pretendard-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraBold.otf"; sourceTree = "<group>"; };
 		CD25EC052BAC6D1400A36B3A /* Pretendard-ExtraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraLight.otf"; sourceTree = "<group>"; };
@@ -106,6 +134,26 @@
 		CD25EC092BAC6D1500A36B3A /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
 		CD25EC0A2BAC6D1500A36B3A /* Pretendard-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Thin.otf"; sourceTree = "<group>"; };
 		CD25EC0B2BAC6D1500A36B3A /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
+		CD25EC2E2BAC9A6C00A36B3A /* AccessKeys.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = AccessKeys.xcconfig; sourceTree = "<group>"; };
+		CD25EC2F2BAC9CD900A36B3A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		CD25EC312BAC9E0000A36B3A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		CD25EC332BACA05100A36B3A /* LoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginManager.swift; sourceTree = "<group>"; };
+		CD6AAE2C2BAD206000862A46 /* BaseURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseURL.swift; sourceTree = "<group>"; };
+		CD6AAE3B2BAD338A00862A46 /* GeneralResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralResponse.swift; sourceTree = "<group>"; };
+		CD6AAE3D2BAD33CE00862A46 /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
+		CD6AAE3F2BAD33EC00862A46 /* SignUpDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpDTO.swift; sourceTree = "<group>"; };
+		CD6AAE422BAD59D300862A46 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		CD6AAE442BAD5D2100862A46 /* UserInfoDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoDTO.swift; sourceTree = "<group>"; };
+		CD6AAE462BAD73FA00862A46 /* BaseRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRouter.swift; sourceTree = "<group>"; };
+		CD6AAE482BAD74B100862A46 /* AuthRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRouter.swift; sourceTree = "<group>"; };
+		CD6AAE4A2BAD74DD00862A46 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		CD6AAE4C2BAD7A2100862A46 /* BaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
+		CD6AAE4E2BAD7BFB00862A46 /* UserRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRouter.swift; sourceTree = "<group>"; };
+		CD6AAE512BAD865C00862A46 /* TeamRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamRouter.swift; sourceTree = "<group>"; };
+		CD6AAE532BAD866400862A46 /* TeamService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamService.swift; sourceTree = "<group>"; };
+		CD6AAE562BAD885700862A46 /* TeamListDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamListDTO.swift; sourceTree = "<group>"; };
+		CD6AAE582BAD88FB00862A46 /* RecruitmentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecruitmentManager.swift; sourceTree = "<group>"; };
+		CD6AAE5E2BADC93700862A46 /* TeamDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamDetailView.swift; sourceTree = "<group>"; };
 		CDC064B62BA31F8200E24F70 /* ZANI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZANI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDC064B92BA31F8200E24F70 /* ZANIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZANIApp.swift; sourceTree = "<group>"; };
 		CDC064BB2BA31F8200E24F70 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -135,8 +183,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CD25EBFB2BAC4E8000A36B3A /* Alamofire in Frameworks */,
-				CD25EBFD2BAC4E8000A36B3A /* AlamofireDynamic in Frameworks */,
+				CD25EC1F2BAC993600A36B3A /* KakaoSDKCommon in Frameworks */,
+				CD25EC232BAC993600A36B3A /* KakaoSDKFriendCore in Frameworks */,
+				CD25EC1D2BAC993600A36B3A /* KakaoSDKCertCore in Frameworks */,
+				CD25EC272BAC993600A36B3A /* KakaoSDKShare in Frameworks */,
+				CD25EC172BAC993600A36B3A /* KakaoSDK in Frameworks */,
+				CD25EC192BAC993600A36B3A /* KakaoSDKAuth in Frameworks */,
+				CD25EC252BAC993600A36B3A /* KakaoSDKNavi in Frameworks */,
+				CD25EC292BAC993600A36B3A /* KakaoSDKTalk in Frameworks */,
+				CD25EC2D2BAC993600A36B3A /* KakaoSDKUser in Frameworks */,
+				CD25EC1B2BAC993600A36B3A /* KakaoSDKCert in Frameworks */,
+				CD25EC2B2BAC993600A36B3A /* KakaoSDKTemplate in Frameworks */,
+				CD25EC212BAC993600A36B3A /* KakaoSDKFriend in Frameworks */,
+				CDD706FF2BACAA3A00AEC4B8 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -197,6 +256,7 @@
 		CD25EBD32BA9515A00A36B3A /* Auth */ = {
 			isa = PBXGroup;
 			children = (
+				CD6AAE382BAD335700862A46 /* Service */,
 				CD25EBF82BAB198800A36B3A /* ViewModel */,
 				CD25EBD72BA958D300A36B3A /* View */,
 				CD25EBD62BA958D000A36B3A /* Model */,
@@ -207,6 +267,7 @@
 		CD25EBD62BA958D000A36B3A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				CD6AAE412BAD34A100862A46 /* DTO */,
 				CD25EBD82BA958E600A36B3A /* LoginType.swift */,
 				CD25EBE02BA9760700A36B3A /* AuthTextFieldType.swift */,
 			);
@@ -257,6 +318,7 @@
 			isa = PBXGroup;
 			children = (
 				CDC064E52BA38F9B00E24F70 /* RecruitmentPageManager.swift */,
+				CD6AAE582BAD88FB00862A46 /* RecruitmentManager.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -265,6 +327,7 @@
 			isa = PBXGroup;
 			children = (
 				CD25EBDC2BA96D0900A36B3A /* AuthPageManager.swift */,
+				CD25EC332BACA05100A36B3A /* LoginManager.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -272,7 +335,6 @@
 		CD25EBFE2BAC4EAC00A36B3A /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				CD25EC002BAC4EB700A36B3A /* APIs */,
 				CD25EBFF2BAC4EB200A36B3A /* Bases */,
 			);
 			path = Network;
@@ -281,16 +343,50 @@
 		CD25EBFF2BAC4EB200A36B3A /* Bases */ = {
 			isa = PBXGroup;
 			children = (
-				CD25EC012BAC4ECA00A36B3A /* TargetType.swift */,
+				CD6AAE2C2BAD206000862A46 /* BaseURL.swift */,
+				CD6AAE3B2BAD338A00862A46 /* GeneralResponse.swift */,
+				CD6AAE3D2BAD33CE00862A46 /* NetworkResult.swift */,
+				CD6AAE462BAD73FA00862A46 /* BaseRouter.swift */,
+				CD6AAE4C2BAD7A2100862A46 /* BaseService.swift */,
 			);
 			path = Bases;
 			sourceTree = "<group>";
 		};
-		CD25EC002BAC4EB700A36B3A /* APIs */ = {
+		CD6AAE382BAD335700862A46 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				CD6AAE482BAD74B100862A46 /* AuthRouter.swift */,
+				CD6AAE4A2BAD74DD00862A46 /* AuthService.swift */,
+				CD6AAE4E2BAD7BFB00862A46 /* UserRouter.swift */,
+				CD6AAE422BAD59D300862A46 /* UserService.swift */,
 			);
-			path = APIs;
+			path = Service;
+			sourceTree = "<group>";
+		};
+		CD6AAE412BAD34A100862A46 /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				CD6AAE3F2BAD33EC00862A46 /* SignUpDTO.swift */,
+				CD6AAE442BAD5D2100862A46 /* UserInfoDTO.swift */,
+			);
+			path = DTO;
+			sourceTree = "<group>";
+		};
+		CD6AAE502BAD865100862A46 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				CD6AAE512BAD865C00862A46 /* TeamRouter.swift */,
+				CD6AAE532BAD866400862A46 /* TeamService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		CD6AAE552BAD884A00862A46 /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				CD6AAE562BAD885700862A46 /* TeamListDTO.swift */,
+			);
+			path = DTO;
 			sourceTree = "<group>";
 		};
 		CDC064AD2BA31F8200E24F70 = {
@@ -325,6 +421,9 @@
 				CDC064BB2BA31F8200E24F70 /* ContentView.swift */,
 				CDC064BD2BA31F8300E24F70 /* Assets.xcassets */,
 				CDC064BF2BA31F8300E24F70 /* Preview Content */,
+				CD25EC2E2BAC9A6C00A36B3A /* AccessKeys.xcconfig */,
+				CD25EC2F2BAC9CD900A36B3A /* AppDelegate.swift */,
+				CD25EC312BAC9E0000A36B3A /* SceneDelegate.swift */,
 			);
 			path = ZANI;
 			sourceTree = "<group>";
@@ -358,6 +457,7 @@
 		CDC064C92BA3281C00E24F70 /* Recruitment */ = {
 			isa = PBXGroup;
 			children = (
+				CD6AAE502BAD865100862A46 /* Service */,
 				CD25EBF72BAB197E00A36B3A /* ViewModel */,
 				CDC065012BA4C97900E24F70 /* Model */,
 				CDC064E42BA38F8100E24F70 /* View */,
@@ -411,6 +511,7 @@
 				CDC064DA2BA37F0700E24F70 /* CreateTeamView.swift */,
 				CDC064FF2BA4809000E24F70 /* SectionListView.swift */,
 				CDC065162BA4CB2A00E24F70 /* FilterView.swift */,
+				CD6AAE5E2BADC93700862A46 /* TeamDetailView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -434,6 +535,7 @@
 		CDC065012BA4C97900E24F70 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				CD6AAE552BAD884A00862A46 /* DTO */,
 				CDC065022BA4C98100E24F70 /* CreateTeamSection.swift */,
 				CD25EBD12BA8A70300A36B3A /* FilterCategory.swift */,
 			);
@@ -457,8 +559,19 @@
 			);
 			name = ZANI;
 			packageProductDependencies = (
-				CD25EBFA2BAC4E8000A36B3A /* Alamofire */,
-				CD25EBFC2BAC4E8000A36B3A /* AlamofireDynamic */,
+				CD25EC162BAC993600A36B3A /* KakaoSDK */,
+				CD25EC182BAC993600A36B3A /* KakaoSDKAuth */,
+				CD25EC1A2BAC993600A36B3A /* KakaoSDKCert */,
+				CD25EC1C2BAC993600A36B3A /* KakaoSDKCertCore */,
+				CD25EC1E2BAC993600A36B3A /* KakaoSDKCommon */,
+				CD25EC202BAC993600A36B3A /* KakaoSDKFriend */,
+				CD25EC222BAC993600A36B3A /* KakaoSDKFriendCore */,
+				CD25EC242BAC993600A36B3A /* KakaoSDKNavi */,
+				CD25EC262BAC993600A36B3A /* KakaoSDKShare */,
+				CD25EC282BAC993600A36B3A /* KakaoSDKTalk */,
+				CD25EC2A2BAC993600A36B3A /* KakaoSDKTemplate */,
+				CD25EC2C2BAC993600A36B3A /* KakaoSDKUser */,
+				CDD706FE2BACAA3A00AEC4B8 /* Alamofire */,
 			);
 			productName = ZANI;
 			productReference = CDC064B62BA31F8200E24F70 /* ZANI.app */;
@@ -489,7 +602,8 @@
 			);
 			mainGroup = CDC064AD2BA31F8200E24F70;
 			packageReferences = (
-				CD25EBF92BAC4E8000A36B3A /* XCRemoteSwiftPackageReference "Alamofire" */,
+				CD25EC152BAC993600A36B3A /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
+				CDD706FD2BACAA3A00AEC4B8 /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = CDC064B72BA31F8200E24F70 /* Products */;
 			projectDirPath = "";
@@ -528,30 +642,39 @@
 			files = (
 				CD25EBF02BAB08AB00A36B3A /* MateListView.swift in Sources */,
 				CD25EBE32BA97ECE00A36B3A /* SignUpDoneView.swift in Sources */,
+				CD6AAE472BAD73FB00862A46 /* BaseRouter.swift in Sources */,
 				CDC064FC2BA46B7700E24F70 /* Font + Utils.swift in Sources */,
 				CD25EBF22BAB0F2600A36B3A /* MateDetailView.swift in Sources */,
 				CD25EBEE2BAB051400A36B3A /* MyPagePageManager.swift in Sources */,
+				CD6AAE5F2BADC93700862A46 /* TeamDetailView.swift in Sources */,
 				CD25EBEA2BAAD8C400A36B3A /* MyPageCalendarView.swift in Sources */,
 				015449112BADA168007AA69D /* StartButton.swift in Sources */,
 				CDC064BC2BA31F8200E24F70 /* ContentView.swift in Sources */,
 				012D46302BA9DD1700E05BC7 /* TimeLine.swift in Sources */,
 				CD25EBD92BA958E600A36B3A /* LoginType.swift in Sources */,
 				CDC064E62BA38F9B00E24F70 /* RecruitmentPageManager.swift in Sources */,
+				CD6AAE2D2BAD206000862A46 /* BaseURL.swift in Sources */,
 				CD25EBD52BA951B500A36B3A /* AuthMainView.swift in Sources */,
 				CDC064E12BA38B1900E24F70 /* ZaniNavigationBar.swift in Sources */,
 				CD25EBDF2BA96DAC00A36B3A /* SignUpView.swift in Sources */,
 				CD25EBDB2BA959FC00A36B3A /* AuthTextField.swift in Sources */,
 				015449132BADA1AF007AA69D /* TwoButtons.swift in Sources */,
 				CDC065172BA4CB2A00E24F70 /* FilterView.swift in Sources */,
+				CD6AAE542BAD866400862A46 /* TeamService.swift in Sources */,
 				CDC064DF2BA3892D00E24F70 /* ZaniMainButton.swift in Sources */,
 				CD25EBF42BAB166100A36B3A /* MoonLevel.swift in Sources */,
+				CD6AAE4B2BAD74DD00862A46 /* AuthService.swift in Sources */,
+				CD6AAE4D2BAD7A2100862A46 /* BaseService.swift in Sources */,
+				CD6AAE522BAD865C00862A46 /* TeamRouter.swift in Sources */,
 				CDC064DD2BA387E900E24F70 /* ZaniTextField.swift in Sources */,
 				CD25EBDD2BA96D0900A36B3A /* AuthPageManager.swift in Sources */,
+				CD6AAE592BAD88FB00862A46 /* RecruitmentManager.swift in Sources */,
 				CDC064D52BA32A2B00E24F70 /* Color + Extension.swift in Sources */,
 				CDC064FE2BA4795600E24F70 /* View + Placeholder.swift in Sources */,
-				CD25EC022BAC4ECA00A36B3A /* TargetType.swift in Sources */,
 				CDC065032BA4C98100E24F70 /* CreateTeamSection.swift in Sources */,
 				0154490F2BADA0C4007AA69D /* CountText.swift in Sources */,
+				CD6AAE3E2BAD33CE00862A46 /* NetworkResult.swift in Sources */,
+				CD6AAE452BAD5D2100862A46 /* UserInfoDTO.swift in Sources */,
 				012D46212BA3FA2800E05BC7 /* MateIntroduce.swift in Sources */,
 				012D462A2BA470A200E05BC7 /* MateRoom.swift in Sources */,
 				012D462E2BA97A4C00E05BC7 /* TimeLineSub.swift in Sources */,
@@ -559,15 +682,24 @@
 				012D46232BA4019A00E05BC7 /* MateRecommend.swift in Sources */,
 				015449192BADA426007AA69D /* NavBar.swift in Sources */,
 				CD25EBD22BA8A70300A36B3A /* FilterCategory.swift in Sources */,
+				CD25EC322BAC9E0000A36B3A /* SceneDelegate.swift in Sources */,
 				CDC064BA2BA31F8200E24F70 /* ZANIApp.swift in Sources */,
+				CD6AAE402BAD33EC00862A46 /* SignUpDTO.swift in Sources */,
 				CDC064DB2BA37F0700E24F70 /* CreateTeamView.swift in Sources */,
 				012D46252BA40DA300E05BC7 /* MateBestTips.swift in Sources */,
 				CDC064D22BA3289E00E24F70 /* MyPageMain.swift in Sources */,
+				CD6AAE4F2BAD7BFB00862A46 /* UserRouter.swift in Sources */,
 				CD25EBE72BA9807A00A36B3A /* SignInView.swift in Sources */,
+				CD6AAE492BAD74B100862A46 /* AuthRouter.swift in Sources */,
 				CD25EBEC2BAB02C200A36B3A /* ChangeNicknameView.swift in Sources */,
+				CD6AAE572BAD885700862A46 /* TeamListDTO.swift in Sources */,
 				CDC065002BA4809000E24F70 /* SectionListView.swift in Sources */,
 				015449152BADA210007AA69D /* Gauge.swift in Sources */,
+				CD25EC302BAC9CD900A36B3A /* AppDelegate.swift in Sources */,
+				CD25EC342BACA05100A36B3A /* LoginManager.swift in Sources */,
+				CD6AAE3C2BAD338A00862A46 /* GeneralResponse.swift in Sources */,
 				CDC064D92BA37D9A00E24F70 /* ZaniCapsuleButton.swift in Sources */,
+				CD6AAE432BAD59D300862A46 /* UserService.swift in Sources */,
 				CDC064CE2BA3289200E24F70 /* RecruitmentMain.swift in Sources */,
 				CDC064D02BA3289700E24F70 /* CommunityMain.swift in Sources */,
 				CD25EBE12BA9760700A36B3A /* AuthTextFieldType.swift in Sources */,
@@ -580,6 +712,7 @@
 /* Begin XCBuildConfiguration section */
 		CDC064C22BA31F8300E24F70 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CD25EC2E2BAC9A6C00A36B3A /* AccessKeys.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -630,7 +763,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -643,6 +776,7 @@
 		};
 		CDC064C32BA31F8300E24F70 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CD25EC2E2BAC9A6C00A36B3A /* AccessKeys.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -687,7 +821,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -699,6 +833,7 @@
 		};
 		CDC064C52BA31F8300E24F70 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CD25EC2E2BAC9A6C00A36B3A /* AccessKeys.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -730,6 +865,7 @@
 		};
 		CDC064C62BA31F8300E24F70 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CD25EC2E2BAC9A6C00A36B3A /* AccessKeys.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -783,7 +919,15 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		CD25EBF92BAC4E8000A36B3A /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+		CD25EC152BAC993600A36B3A /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kakao/kakao-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.21.1;
+			};
+		};
+		CDD706FD2BACAA3A00AEC4B8 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
 			requirement = {
@@ -794,15 +938,70 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		CD25EBFA2BAC4E8000A36B3A /* Alamofire */ = {
+		CD25EC162BAC993600A36B3A /* KakaoSDK */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = CD25EBF92BAC4E8000A36B3A /* XCRemoteSwiftPackageReference "Alamofire" */;
-			productName = Alamofire;
+			package = CD25EC152BAC993600A36B3A /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDK;
 		};
-		CD25EBFC2BAC4E8000A36B3A /* AlamofireDynamic */ = {
+		CD25EC182BAC993600A36B3A /* KakaoSDKAuth */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = CD25EBF92BAC4E8000A36B3A /* XCRemoteSwiftPackageReference "Alamofire" */;
-			productName = AlamofireDynamic;
+			package = CD25EC152BAC993600A36B3A /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKAuth;
+		};
+		CD25EC1A2BAC993600A36B3A /* KakaoSDKCert */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CD25EC152BAC993600A36B3A /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKCert;
+		};
+		CD25EC1C2BAC993600A36B3A /* KakaoSDKCertCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CD25EC152BAC993600A36B3A /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKCertCore;
+		};
+		CD25EC1E2BAC993600A36B3A /* KakaoSDKCommon */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CD25EC152BAC993600A36B3A /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKCommon;
+		};
+		CD25EC202BAC993600A36B3A /* KakaoSDKFriend */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CD25EC152BAC993600A36B3A /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKFriend;
+		};
+		CD25EC222BAC993600A36B3A /* KakaoSDKFriendCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CD25EC152BAC993600A36B3A /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKFriendCore;
+		};
+		CD25EC242BAC993600A36B3A /* KakaoSDKNavi */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CD25EC152BAC993600A36B3A /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKNavi;
+		};
+		CD25EC262BAC993600A36B3A /* KakaoSDKShare */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CD25EC152BAC993600A36B3A /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKShare;
+		};
+		CD25EC282BAC993600A36B3A /* KakaoSDKTalk */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CD25EC152BAC993600A36B3A /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKTalk;
+		};
+		CD25EC2A2BAC993600A36B3A /* KakaoSDKTemplate */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CD25EC152BAC993600A36B3A /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKTemplate;
+		};
+		CD25EC2C2BAC993600A36B3A /* KakaoSDKUser */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CD25EC152BAC993600A36B3A /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKUser;
+		};
+		CDD706FE2BACAA3A00AEC4B8 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CDD706FD2BACAA3A00AEC4B8 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
