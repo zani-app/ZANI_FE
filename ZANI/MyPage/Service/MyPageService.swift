@@ -8,6 +8,7 @@
 
 import Foundation
 import Alamofire
+import UIKit
 
 final class MyPageService: BaseService {
   static let shared = MyPageService()

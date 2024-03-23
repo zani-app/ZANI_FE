@@ -17,6 +17,8 @@ struct ZANIApp: App {
   @StateObject private var myPagePageManager = MyPagePageManager()
   @StateObject private var myPageManager = MyPageManager()
   
+  @ObservedObject var stomp = StompClientManager()
+  
   @UIApplicationDelegateAdaptor var appDelegate: AppDelegate
   
   @State private var showAuth: Bool = true
@@ -28,15 +30,19 @@ struct ZANIApp: App {
         .environmentObject(recruitmentManager)
         .environmentObject(myPagePageManager)
         .environmentObject(myPageManager)
-        .fullScreenCover(isPresented: $showAuth) {
-          AuthMainView()
-            .environmentObject(authPageManager)
+        .onAppear {
+          stomp.setupWebSocket()
+          stomp.sendMessage()
         }
-        .onChange(of: authPageManager.isDone) { newValue in
-          if newValue {
-            self.showAuth = false
-          }
-        }
+//        .fullScreenCover(isPresented: $showAuth) {
+//          AuthMainView()
+//            .environmentObject(authPageManager)
+//        }
+//        .onChange(of: authPageManager.isDone) { newValue in
+//          if newValue {
+//            self.showAuth = false
+//          }
+//        }
     }
   }
 }

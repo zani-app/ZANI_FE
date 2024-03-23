@@ -36,6 +36,7 @@ public struct MyPageMain: View {
       )
     }
     .onAppear {
+      myPageManager.requestPatch()
       myPageManager.calendarDate = .now
       myPageManager.requestUserDetail()
       myPageManager.requestNightSummary()

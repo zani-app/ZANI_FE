@@ -9,6 +9,7 @@ import Combine
 import Foundation
 import KakaoSDKUser
 import Alamofire
+import UIKit
 
 final class MyPageManager: ObservableObject {
   
@@ -32,6 +33,28 @@ final class MyPageManager: ObservableObject {
         print("data fetch Error")
       }
     }
+  }
+  
+  /// 유저 정보 업데이트
+  func requestUpdateUserProfile() {
+    //    MyPageService.shared.updateUserInfo(nickname: "test", image: UIImage()) { response in
+    //      switch(response) {
+    //      case .success(let data):
+    //        print("nice!")
+    //
+    //      default:
+    //        print("data fetch Error")
+    //      }
+    //    }
+    
+    let param: Parameters = [
+      "message":
+        [ "nickname": "test" ]
+    ]
+    
+    let imageData = UIImage().pngData()!
+    
+    
   }
   
   /// 팔로우 리스트 출력
@@ -66,6 +89,22 @@ final class MyPageManager: ObservableObject {
       }
     }
   }
+  
+  /// 닉네임 검증
+  func checkNicnameValidation(nickname: String) {
+      MyPageService.shared.checkNicknameDuplicate(nickname: nickname) { response in
+      switch(response) {
+      case .success(let data):
+        if let data = data as? Bool {
+          print(data, "data")
+        }
+        
+      default:
+        print("data fetch Error")
+      }
+    }
+  }
+  
   
   func checkCalendarValidation() -> Bool {
     let nowData = getMonthYear(date: .now)
@@ -118,5 +157,36 @@ final class MyPageManager: ObservableObject {
       }
     }
     return nil
+  }
+  
+  // **절대 건드리지 말 것! **
+  func requestPatch(nickname: String, image: UIImage) {
+    let URL = "https://dongkyeom.com/api/v1/user"
+    
+    var header : HTTPHeaders = [
+      "Content-Type" : "multipart/form-data",
+    ]
+    
+    if let accessToken = UserDefaults.standard.string(forKey: "accessToken") {
+      header["Authorization"] = "Bearer \(accessToken)"
+    }
+  
+    let parameters: [String : Any] = [
+      "nickname": nickname
+    ]
+    
+    AF.upload(multipartFormData: { multipartFormData in
+      for (key, value) in parameters {
+        multipartFormData.append("\(value)".data(using: .utf8)!, withName: key)
+      }
+      
+      if let image = image.pngData() {
+        multipartFormData.append(image, withName: "file", fileName: "\(image).png", mimeType: "image/png")
+      }
+    }, to: URL, usingThreshold: UInt64.init(), method: .patch, headers: header).response { response in
+      guard let statusCode = response.response?.statusCode,
+            statusCode == 200
+      else { return }
+    }
   }
 }
