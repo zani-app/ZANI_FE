@@ -19,6 +19,7 @@
 		015449152BADA210007AA69D /* Gauge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015449142BADA210007AA69D /* Gauge.swift */; };
 		015449172BADA29E007AA69D /* BottomMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015449162BADA29E007AA69D /* BottomMessage.swift */; };
 		015449192BADA426007AA69D /* NavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015449182BADA426007AA69D /* NavBar.swift */; };
+		01B243AA2BAEC3CA00E30AE7 /* MateMainPageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B243A92BAEC3CA00E30AE7 /* MateMainPageManager.swift */; };
 		CD25EBD22BA8A70300A36B3A /* FilterCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD25EBD12BA8A70300A36B3A /* FilterCategory.swift */; };
 		CD25EBD52BA951B500A36B3A /* AuthMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD25EBD42BA951B500A36B3A /* AuthMainView.swift */; };
 		CD25EBD92BA958E600A36B3A /* LoginType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD25EBD82BA958E600A36B3A /* LoginType.swift */; };
@@ -110,6 +111,7 @@
 		015449142BADA210007AA69D /* Gauge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gauge.swift; sourceTree = "<group>"; };
 		015449162BADA29E007AA69D /* BottomMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomMessage.swift; sourceTree = "<group>"; };
 		015449182BADA426007AA69D /* NavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavBar.swift; sourceTree = "<group>"; };
+		01B243A92BAEC3CA00E30AE7 /* MateMainPageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MateMainPageManager.swift; sourceTree = "<group>"; };
 		CD25EBD12BA8A70300A36B3A /* FilterCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCategory.swift; sourceTree = "<group>"; };
 		CD25EBD42BA951B500A36B3A /* AuthMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthMainView.swift; sourceTree = "<group>"; };
 		CD25EBD82BA958E600A36B3A /* LoginType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginType.swift; sourceTree = "<group>"; };
@@ -205,10 +207,8 @@
 		012D46262BA4697700E05BC7 /* MateMain */ = {
 			isa = PBXGroup;
 			children = (
-				CDC064CB2BA3288900E24F70 /* MateMain.swift */,
-				012D46202BA3FA2800E05BC7 /* MateIntroduce.swift */,
-				012D46222BA4019A00E05BC7 /* MateRecommend.swift */,
-				012D46242BA40DA300E05BC7 /* MateBestTips.swift */,
+				01B243A62BAEBDCA00E30AE7 /* ViewModel */,
+				01B243A42BAEBD9400E30AE7 /* View */,
 			);
 			path = MateMain;
 			sourceTree = "<group>";
@@ -242,6 +242,15 @@
 		015449052BAD5080007AA69D /* MateRoom */ = {
 			isa = PBXGroup;
 			children = (
+				01B243A52BAEBDA900E30AE7 /* ViewModel */,
+				01B243A32BAEBD7D00E30AE7 /* View */,
+			);
+			path = MateRoom;
+			sourceTree = "<group>";
+		};
+		01B243A32BAEBD7D00E30AE7 /* View */ = {
+			isa = PBXGroup;
+			children = (
 				012D46292BA470A200E05BC7 /* MateRoom.swift */,
 				0154490E2BADA0C4007AA69D /* CountText.swift */,
 				015449102BADA168007AA69D /* StartButton.swift */,
@@ -250,7 +259,33 @@
 				015449162BADA29E007AA69D /* BottomMessage.swift */,
 				015449182BADA426007AA69D /* NavBar.swift */,
 			);
-			path = MateRoom;
+			path = View;
+			sourceTree = "<group>";
+		};
+		01B243A42BAEBD9400E30AE7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CDC064CB2BA3288900E24F70 /* MateMain.swift */,
+				012D46202BA3FA2800E05BC7 /* MateIntroduce.swift */,
+				012D46222BA4019A00E05BC7 /* MateRecommend.swift */,
+				012D46242BA40DA300E05BC7 /* MateBestTips.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		01B243A52BAEBDA900E30AE7 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		01B243A62BAEBDCA00E30AE7 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				01B243A92BAEC3CA00E30AE7 /* MateMainPageManager.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		CD25EBD32BA9515A00A36B3A /* Auth */ = {
@@ -682,6 +717,7 @@
 				012D46232BA4019A00E05BC7 /* MateRecommend.swift in Sources */,
 				015449192BADA426007AA69D /* NavBar.swift in Sources */,
 				CD25EBD22BA8A70300A36B3A /* FilterCategory.swift in Sources */,
+				01B243AA2BAEC3CA00E30AE7 /* MateMainPageManager.swift in Sources */,
 				CD25EC322BAC9E0000A36B3A /* SceneDelegate.swift in Sources */,
 				CDC064BA2BA31F8200E24F70 /* ZANIApp.swift in Sources */,
 				CD6AAE402BAD33EC00862A46 /* SignUpDTO.swift in Sources */,

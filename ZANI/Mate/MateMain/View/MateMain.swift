@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct MateMain: View {
+    @EnvironmentObject private var mateMainPageManager: MateMainPageManager
+    
     var body: some View {
-        NavigationStack {
+        NavigationStack(path: $mateMainPageManager.route) {
             ScrollView(showsIndicators: false) {
                 VStack(spacing: 0) {
                     MateIntroduce()
@@ -57,6 +59,9 @@ struct MateMain: View {
                 
             }
             .background(Color.zaniMain1)
+            .navigationDestination(for: MateMainPageState.self) { pageState in
+                mateMainPageDestination(pageState)
+            }
             
         }
         
@@ -65,6 +70,30 @@ struct MateMain: View {
     
 }
 
+extension MateMain {
+    
+    @ViewBuilder
+    private func mateMainPageDestination(_ type: MateMainPageState) -> some View {
+        switch type {
+        case .mateRoom:
+            MateRoom()
+                .toolbar(.hidden, for: .tabBar)
+            
+        case .chatting:
+            MateListView()
+                .toolbar(.hidden, for: .tabBar)
+            
+        case .timeLine:
+            TimeLine()
+                .toolbar(.hidden, for: .tabBar)
+            
+        default:
+            RecruitmentMain()
+        }
+    }
+}
+
 #Preview {
     MateMain()
+        .environmentObject(MateMainPageManager())
 }
