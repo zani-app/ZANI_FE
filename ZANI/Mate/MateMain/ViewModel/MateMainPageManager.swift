@@ -12,6 +12,7 @@ public enum MateMainPageState {
   case mateRoom
   case chatting
   case timeLine
+  case mission
 }
 
 final class MateMainPageManager: ObservableObject {
