@@ -15,7 +15,7 @@ final class RecruitmentManager: ObservableObject {
   @Published var keyword: String = ""
   @Published var category: String = ""
   @Published var isEmpty: Bool = false
-  @Published var isPublic: Bool = true
+  @Published var isSecret: Bool = false
   @Published var page: Int = 0
   @Published var size: Int = 10
   
@@ -32,7 +32,7 @@ final class RecruitmentManager: ObservableObject {
   @Published var password: String = ""
   
   func requestTeamList() {
-    TeamService.shared.requestTeamList(keyword: keyword, category: category, isEmpty: isEmpty, isPublic: isPublic, page: page, size: size) { response in
+    TeamService.shared.requestTeamList(keyword: keyword, category: category, isEmpty: isEmpty, isSecret: isSecret, page: page, size: size) { response in
       switch(response) {
       case .success(let data):
         if let data = data as? TeamListDTO {

@@ -10,7 +10,7 @@ import Foundation
 public enum FilterCategory: CaseIterable {
   case roomType
   case isEmptySeat
-  case isOpenRoom
+  case isSecretRoom
   
   public var title: String {
     switch self {
@@ -18,8 +18,8 @@ public enum FilterCategory: CaseIterable {
       return "유형"
     case .isEmptySeat:
       return "빈 자리 유무"
-    case .isOpenRoom:
-      return "공개방 유무"
+    case .isSecretRoom:
+      return "비공개방 유무"
     }
   }
   
@@ -29,8 +29,8 @@ public enum FilterCategory: CaseIterable {
       return ["시험대비", "프로젝트", "과제"]
     case .isEmptySeat:
       return ["빈자리 있음"]
-    case .isOpenRoom:
-      return ["공개방"]
+    case .isSecretRoom:
+      return ["비공개방"]
     }
   }
 }

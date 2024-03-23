@@ -63,7 +63,7 @@ extension RecruitmentMain {
     case .filter:
       FilterView(
         categoryBuffer: recruitmentManager.category,
-        isPublicBuffer: recruitmentManager.isPublic,
+        isSecretBuffer: recruitmentManager.isSecret,
         isEmptyBuffer: recruitmentManager.isEmpty
       )
       .toolbar(.hidden, for: .tabBar)
@@ -145,8 +145,8 @@ extension RecruitmentMain {
           action: { recruitmentPageManager.push(.filter) }
         )
         ZaniCapsuleButton(
-          title: "공개방",
-          isValid: recruitmentManager.isPublic,
+          title: "비공개방",
+          isValid: recruitmentManager.isSecret,
           action: { recruitmentPageManager.push(.filter) }
         )
       }
