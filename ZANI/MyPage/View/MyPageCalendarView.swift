@@ -29,6 +29,9 @@ public struct MyPageCalendarView: View {
         .frame(height: 375)
     )
     .frame(height: 375)
+    .onAppear {
+      myPageManager.calendarDate = .now
+    }
     .onChange(of: myPageManager.calendarDate, perform: { value in
       myPageManager.requestNightSummary()
     })
@@ -86,53 +89,67 @@ extension MyPageCalendarView {
       .padding(.horizontal, 34)
       .padding(.bottom, 4)
       
-      LazyVGrid(
-        columns: Array(repeating: GridItem(spacing: 6), count: 7), spacing: 4
-      ) {
-        ForEach(0 ..< daysInMonth + firstWeekday, id: \.self) { index in
-          if index < firstWeekday {
-            Rectangle()
-              .frame(width: 40, height: 40)
-              .opacity(0)
-          } else {
-            let day = index - firstWeekday + 1
-            
-            dateView(day: day, isNight: true)
+      if let nightSummary = myPageManager.allNightSummary {
+        LazyVGrid(
+          columns: Array(repeating: GridItem(spacing: 6), count: 7), spacing: 4
+        ) {
+          ForEach(0 ..< daysInMonth + firstWeekday, id: \.self) { index in
+            if index < firstWeekday {
+              Rectangle()
+                .frame(width: 40, height: 40)
+                .opacity(0)
+            } else {
+              let day = index - firstWeekday + 1
+              let nightRecordsIdx = myPageManager.findIndexMatchingNightRecords(data: nightSummary.allNightersRecords, targetDate: day)
+              
+              if let nightRecordsIdx = nightRecordsIdx {
+                dateView(day: day, nightData: nightSummary.allNightersRecords[nightRecordsIdx])
+              } else {
+                dateView(day: day, nightData: nil)
+              }
+            }
           }
         }
+        .padding(.horizontal, 18)
+      } else {
+        ProgressView()
+          .frame(maxWidth: .infinity, maxHeight: .infinity)
       }
-      .padding(.horizontal, 18)
     }
   }
   
-  public func dateView(day: Int, isNight: Bool) -> some View {
+  public func dateView(day: Int, nightData: NightRecordDTO?) -> some View {
     ZStack(alignment: .center) {
       Rectangle()
         .frame(width: 40, height: 40)
         .opacity(0)
       
-      if day < 7 {
-        Image("moon1")
-          .resizable()
-          .frame(width: 40, height: 40)
-      } else if day < 14 {
-        Image("moon2")
-          .resizable()
-          .frame(width: 40, height: 40)
-      } else if day < 21 {
-        Image("moon3")
-          .resizable()
-          .frame(width: 40, height: 40)
-      } else {
-        Image("moon4")
-          .resizable()
-          .frame(width: 40, height: 40)
+      if let nightData = nightData {
+        let time: Int = nightData.duration / 3600
+        
+        if time < 3 {
+          Image("moon1")
+            .resizable()
+            .frame(width: 40, height: 40)
+        } else if time < 6 {
+          Image("moon2")
+            .resizable()
+            .frame(width: 40, height: 40)
+        } else if time < 10 {
+          Image("moon3")
+            .resizable()
+            .frame(width: 40, height: 40)
+        } else {
+          Image("moon4")
+            .resizable()
+            .frame(width: 40, height: 40)
+        }
       }
-      
+    
       Text(String(day))
         .font(.custom("Pretendard-Regular", size: 20))
         .lineSpacing(5)
-        .foregroundStyle(isNight ? .black : .white)
+        .foregroundStyle(nightData != nil ? .black : .white)
     }
   }
 }

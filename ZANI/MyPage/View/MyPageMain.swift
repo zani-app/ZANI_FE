@@ -36,6 +36,7 @@ public struct MyPageMain: View {
       )
     }
     .onAppear {
+      myPageManager.calendarDate = .now
       myPageManager.requestUserDetail()
       myPageManager.requestNightSummary()
     }
@@ -157,7 +158,8 @@ extension MyPageMain {
             if let allNightSummary = myPageManager.allNightSummary {
               Text("\(allNightSummary.totalAllNighters)회")
             } else {
-              Text("정보를 불러오지 못했습니다.")
+              ProgressView()
+                .frame(maxWidth: .infinity)
             }
           }
           .foregroundStyle(.main2)
@@ -182,7 +184,8 @@ extension MyPageMain {
                 )
               )
             } else {
-              Text("정보를 불러오지 못했습니다.")
+              ProgressView()         
+                .frame(maxWidth: .infinity)
             }
           }
           .foregroundStyle(.main2)

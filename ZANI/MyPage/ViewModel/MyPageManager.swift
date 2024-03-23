@@ -51,15 +51,14 @@ final class MyPageManager: ObservableObject {
   
   /// 달력 및 밤샘 이력 조회
   func requestNightSummary() {
-    let year = self.getMonthYear(date: self.calendarDate)[0]
-    let month = self.getMonthYear(date: self.calendarDate)[1]
+    let summaryDate = self.getMonthYear(date: self.calendarDate)
     
-    AllNightersService.shared.requestSummary(year: year, month: month) { response in
+    AllNightersService.shared.requestSummary(year: summaryDate[0], month: summaryDate[1]) { response in
       switch(response) {
       case .success(let data):
         if let data = data as? AllNightSummaryDTO {
           self.allNightSummary = data
-          print(data)
+          print(data, "data")
         }
         
       default:
@@ -96,5 +95,28 @@ final class MyPageManager: ObservableObject {
     let minutes = (seconds % 3600) / 60
     let seconds = (seconds % 3600) % 60
     return (hours, minutes, seconds)
+  }
+  
+  func fetchNightDate(data: [NightRecordDTO]) -> [(teamId: Int, endDate: Int, duration: Int)] {
+    var tempArray: [(teamId: Int, endDate: Int, duration: Int)] = []
+    
+    for data in data {
+      let historyTeamId = data.historyTeamId
+      let endData = data.endAt[3]
+      let duration = data.duration / 3600
+      
+      tempArray.append((historyTeamId, endData, duration))
+    }
+    
+    return tempArray
+  }
+  
+  func findIndexMatchingNightRecords(data: [NightRecordDTO], targetDate: Int) -> Int? {
+    for (index, record) in data.enumerated() {
+      if record.endAt[2] == targetDate {
+        return index
+      }
+    }
+    return nil
   }
 }
