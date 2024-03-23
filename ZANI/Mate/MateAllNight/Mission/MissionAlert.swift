@@ -25,9 +25,9 @@ struct MissionAlert: View {
                     .font(.title)
                     .fontWeight(.bold)
                 
-                Image("Multiply")
+                Image("Mission")
                     .padding(.top, 5)
-                Text("구구단 미션")
+                Text("상상력 질문 미션")
                     .foregroundColor(.white)
                     .fontWeight(.bold)
                     .font(.title3)

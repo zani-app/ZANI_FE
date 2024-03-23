@@ -11,6 +11,8 @@ struct MateRoom: View {
     @Environment(\.dismiss) var dismiss
     @EnvironmentObject private var mateMainPageManager: MateMainPageManager
     
+    @State private var showAlert = false
+    
     var body: some View {
         ZStack {
             
@@ -61,11 +63,22 @@ struct MateRoom: View {
                 
             }
             
-//            CardView()
-            MissionAlert()
+            //            CardView()
+            if showAlert {
+                MissionAlert()
+            }
             
         }
         .navigationBarBackButtonHidden()
+        .onAppear {
+            // Show MissionAlert after 5 seconds
+            DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+                self.showAlert = true
+                DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+                    self.showAlert = false
+                }
+            }
+        }
     }
 }
 

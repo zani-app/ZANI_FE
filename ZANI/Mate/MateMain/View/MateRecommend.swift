@@ -8,11 +8,19 @@
 
 import SwiftUI
 
+import SwiftUI
+
 struct MateRecommend: View {
+    let title: String
+    let introduction: String
+    let nightTime: String
+    let type: String
+    let numberOfPeople: String
+    
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
-                Text("모집제목")
+                Text(title)
                     .foregroundColor(Color.white)
                     .padding(.top, 12)
                     .padding(.leading, 16)
@@ -23,8 +31,9 @@ struct MateRecommend: View {
             }
             
             HStack {
-                Text("소개글이 대략 2줄정도만 보이도록?")
+                Text(introduction)
                     .foregroundColor(Color.white)
+                    .lineLimit(2) // Limit to 2 lines
                     .padding(.leading, 16)
                     .font(.system(size: 14))
                     .fontWeight(.light)
@@ -42,7 +51,7 @@ struct MateRecommend: View {
                     .font(.system(size: 14))
                     .fontWeight(.light)
                 
-                Text("12시간")
+                Text(nightTime)
                     .foregroundColor(Color.white)
                     .padding(.leading, 1)
                     .font(.system(size: 14))
@@ -55,7 +64,7 @@ struct MateRecommend: View {
                     .font(.system(size: 14))
                     .fontWeight(.light)
                 
-                Text("시험공부")
+                Text(type)
                     .foregroundColor(Color.white)
                     .padding(.leading, 1)
                     .font(.system(size: 14))
@@ -68,7 +77,7 @@ struct MateRecommend: View {
                     .font(.system(size: 14))
                     .fontWeight(.light)
                 
-                Text("4/4")
+                Text(numberOfPeople)
                     .foregroundColor(Color.white)
                     .padding(.leading, 3)
                     .font(.system(size: 14))
@@ -78,9 +87,10 @@ struct MateRecommend: View {
         }
         .frame(height: 121)
         .background(Color.zaniMain4)
+        .cornerRadius(20)
     }
 }
 
 #Preview {
-    MateRecommend()
+    MateRecommend(title: "모집제목", introduction: "소개글이 대략 2줄정도만 보이도록?", nightTime: "12시간", type: "시험공부", numberOfPeople: "4/4")
 }

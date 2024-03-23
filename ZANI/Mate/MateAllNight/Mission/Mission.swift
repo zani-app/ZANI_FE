@@ -10,6 +10,7 @@ import SwiftUI
 struct Mission: View {
     @EnvironmentObject private var mateMainPageManager: MateMainPageManager
     @State private var textFieldText = "" // Text field input text
+    @State private var showAlert = false
     var body: some View {
         
         
@@ -33,6 +34,7 @@ struct Mission: View {
                     .padding(.top, 150)
                 
                 Button(action: {
+                    showAlert = true
                 }) {
                     Text("제출하기")
                     
@@ -50,6 +52,9 @@ struct Mission: View {
         }
         .background(Color.zaniMain1)
         .navigationBarBackButtonHidden()
+        .alert(isPresented: $showAlert) {
+                    Alert(title: Text("제출되었습니다."), dismissButton: .default(Text("확인")))
+                }
     }
 }
 

@@ -8,14 +8,18 @@
 import SwiftUI
 
 struct StartButton: View {
+    @State private var isClicked = false // State variable to track button click
+    
     var body: some View {
         Button(action: {
+            // Toggle the state when button is clicked
+            self.isClicked.toggle()
         }) {
             Text("밤샘 시작하기")
                 .frame(maxWidth: .infinity)
                 .foregroundColor(.black)
                 .padding()
-                .background(Color.zaniMain2)
+                .background(isClicked ? Color.gray : Color.zaniMain2) // Change background color based on state
                 .cornerRadius(20)
                 .fontWeight(.bold)
         }
