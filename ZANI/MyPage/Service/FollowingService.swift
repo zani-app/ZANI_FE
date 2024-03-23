@@ -19,7 +19,7 @@ extension FollowingService {
   /// 유저 정보 조회
   func requestFollowList(completion: @escaping (NetworkResult<Any>) -> Void) {
     AFManager.request(
-      MyPageRouter.requestUserInfo
+      FollowingRouter.requestFollowList
     ).responseData { response in
       switch response.result {
       case .success:

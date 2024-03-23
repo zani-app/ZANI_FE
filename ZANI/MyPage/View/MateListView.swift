@@ -15,18 +15,21 @@ public struct MateListView: View {
     VStack(spacing: 0) {
       navigationBar()
       
-      ScrollView {
-        VStack(spacing: 24) {
-          mateBox(name: "사용자 이름", badge: "잠만보")
-          mateBox(name: "사용자 이름", badge: "잠만보")
-          mateBox(name: "사용자 이름", badge: "잠만보")
-          mateBox(name: "사용자 이름", badge: "잠만보")
-          mateBox(name: "사용자 이름", badge: "잠만보")
+      if let followList = myPageManager.followList {
+        ScrollView {
+          VStack(spacing: 24) {
+            ForEach(followList, id: \.self) { follow in
+              mateBox(userInfo: follow)
+            }
+          }
+          .padding(.horizontal, 20)
+          .padding(.bottom, 80)
         }
-        .padding(.horizontal, 20)
-        .padding(.bottom, 80)
+        .padding(.top, 25)
+      } else {
+        ProgressView()
+          .frame(maxWidth: .infinity, maxHeight: .infinity)
       }
-      .padding(.top, 25)
     }
     .navigationBarBackButtonHidden()
     .ignoresSafeArea(edges: .bottom)
@@ -47,22 +50,24 @@ extension MateListView {
   }
   
   @ViewBuilder
-  private func mateBox(name: String, badge: String) -> some View {
+  private func mateBox(userInfo: FollowDTO) -> some View {
     HStack(spacing: 12) {
       Image("profileIcon")
         .resizable()
         .frame(width: 40, height: 40)
       
       VStack(alignment: .leading, spacing: 0) {
-        Text(name)
+        Text(userInfo.nickname)
           .zaniFont(.body1)
           .foregroundStyle(.white)
         
         Spacer()
         
-        Text(badge)
-          .zaniFont(.body2)
-          .foregroundStyle(.green)
+        if let title = userInfo.title {
+          Text(title)
+            .zaniFont(.body2)
+            .foregroundStyle(.green)
+        }
       }
       
       Spacer()

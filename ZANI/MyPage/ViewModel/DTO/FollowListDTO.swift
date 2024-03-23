@@ -10,5 +10,5 @@ import Foundation
 public struct FollowDTO: Codable, Hashable {
   let userId: Int
   let nickname: String
-  let title: String
+  let title: String?
 }
