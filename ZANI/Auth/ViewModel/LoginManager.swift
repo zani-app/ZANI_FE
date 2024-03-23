@@ -49,12 +49,13 @@ final class LoginManager: ObservableObject {
       }
       else {
         if let user = user {
-          
+
           AuthService.shared.requestSocialSignUp(id: String(user.id ?? 0), provider: loginPath) { response in
             switch(response) {
             case .success(let data):
               if let data = data as? SignUpDTO {
                 UserDefaults.standard.set(data.accessToken, forKey: "accessToken")
+                print(data.accessToken, "hear~")
                 self.loginType = loginPath
                 self.getUserDetail()
               }
