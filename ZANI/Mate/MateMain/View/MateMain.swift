@@ -87,6 +87,10 @@ extension MateMain {
             TimeLine()
                 .toolbar(.hidden, for: .tabBar)
             
+        case .mission:
+            Mission()
+                .toolbar(.hidden, for: .tabBar)
+            
         default:
             RecruitmentMain()
         }

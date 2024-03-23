@@ -50,14 +50,19 @@ struct MateRoom: View {
                         Spacer()
                     }
                     
+                    
+                    Spacer()
+                    
+                    
                 }
                 .edgesIgnoringSafeArea(.bottom)
                 
                 
+                
             }
             
-            Spacer()
-            
+//            CardView()
+            MissionAlert()
             
         }
         .navigationBarBackButtonHidden()
