@@ -15,13 +15,13 @@ final class TeamService: BaseService {
 }
 
 extension TeamService {
-  func requestTeamList(keyword: String, category: String, isEmpty: Bool, isPublic: Bool, page: Int, size: Int, completion: @escaping (NetworkResult<Any>) -> Void) {
+  func requestTeamList(keyword: String, category: String, isEmpty: Bool, isSecret: Bool, page: Int, size: Int, completion: @escaping (NetworkResult<Any>) -> Void) {
     AFManager.request(
       TeamRouter.requestTeamList(
         keyword: keyword,
         category: category,
         isEmpty: isEmpty,
-        isPublic: isPublic,
+        isSecret: isSecret,
         page: page,
         size: size
       )

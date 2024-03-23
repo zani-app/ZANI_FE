@@ -21,6 +21,9 @@ public struct AuthMainView: View {
         
         loginButton()
       }
+      .onAppear {
+        loginManager.loginType = nil
+      }
       .onChange(of: loginManager.loginType, perform: { value in
         if value != nil {
           authPageManager.push(.nickname)

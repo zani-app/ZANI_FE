@@ -15,6 +15,8 @@ struct ZANIApp: App {
   @StateObject private var recruitmentPageManager = RecruitmentPageManager()
   @StateObject private var recruitmentManager = RecruitmentManager()
   @StateObject private var myPagePageManager = MyPagePageManager()
+  @StateObject private var myPageManager = MyPageManager()
+  @StateObject private var stompManager = StompClient()
   @StateObject private var mateMainPageManager = MateMainPageManager()
   
   @UIApplicationDelegateAdaptor var appDelegate: AppDelegate
@@ -27,6 +29,11 @@ struct ZANIApp: App {
         .environmentObject(recruitmentPageManager)
         .environmentObject(recruitmentManager)
         .environmentObject(myPagePageManager)
+        .environmentObject(myPageManager)
+        .environmentObject(stompManager)
+        .onAppear {
+          stompManager.connectStomp()
+        }
         .environmentObject(mateMainPageManager)
 //        .fullScreenCover(isPresented: $showAuth) {
 //          AuthMainView()

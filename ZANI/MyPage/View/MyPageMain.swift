@@ -9,6 +9,8 @@ import SwiftUI
 
 public struct MyPageMain: View {
   @EnvironmentObject private var myPagePageManager: MyPagePageManager
+  @EnvironmentObject private var myPageManager: MyPageManager
+  @EnvironmentObject private var stompManager: StompClient
   
   public var body: some View {
     NavigationStack(path: $myPagePageManager.route) {
@@ -34,6 +36,15 @@ public struct MyPageMain: View {
         )
       )
     }
+    .onAppear {
+      // myPageManager.requestPatch()
+      
+      stompManager.sendMessage(to: "/app/chat/message/8", with: "test")
+      
+//      myPageManager.calendarDate = .now
+//      myPageManager.requestUserDetail()
+//      myPageManager.requestNightSummary()
+    }
   }
 }
 
@@ -43,8 +54,10 @@ extension MyPageMain {
   private func myPagePageDestination(_ type: MyPagePageState) -> some View {
     switch type {
     case .changeNickname:
-      ChangeNicknameView(userName: "test")
-        .toolbar(.hidden, for: .tabBar)
+      if let userInfo = myPageManager.userInfo {
+        ChangeNicknameView(userName: userInfo.nickname)
+          .toolbar(.hidden, for: .tabBar)
+      }
       
     case .mateList:
       MateListView()
@@ -61,44 +74,50 @@ extension MyPageMain {
   
   @ViewBuilder
   private func profileSection() -> some View {
-    HStack(spacing: 10) {
-      Image("profileIcon")
-      
-      VStack(alignment: .leading, spacing: 10) {
-        HStack(spacing: 7) {
-          Text("유저 이름")
-            .zaniFont(.body1)
-            .bold()
-            .foregroundStyle(.white)
+    if let userInfo = myPageManager.userInfo {
+      HStack(spacing: 10) {
+        Image("profileIcon")
+        
+        VStack(alignment: .leading, spacing: 10) {
+          HStack(spacing: 7) {
+            Text(userInfo.nickname)
+              .zaniFont(.body1)
+              .bold()
+              .foregroundStyle(.white)
+            
+            Text("칭호 이름")
+              .foregroundStyle(.white)
+          }
           
-          Text("칭호 이름")
-            .foregroundStyle(.white)
+          HStack(spacing: 12) {
+            Text("나의 메이트 보기")
+            Image(systemName: "chevron.right")
+              .bold()
+          }
+          .zaniFont(.body1)
+          .background(
+            Color.main1
+          )
+          .onTapGesture {
+            myPagePageManager.push(.mateList)
+          }
+          .foregroundStyle(.white)
         }
         
-        HStack(spacing: 12) {
-          Text("나의 메이트 보기")
-          Image(systemName: "chevron.right")
-            .bold()
-        }
-        .zaniFont(.body1)
-        .background(
-          Color.main1
-        )
-        .onTapGesture {
-          myPagePageManager.push(.mateList)
-        }
-        .foregroundStyle(.white)
+        Spacer()
+        
+        Image("pencilIcon")
+          .onTapGesture {
+            myPagePageManager.push(.changeNickname)
+          }
       }
-      
-      Spacer()
-      
-      Image("pencilIcon")
-        .onTapGesture {
-          myPagePageManager.push(.changeNickname)
-        }
+      .padding(.top, 33)
+      .padding(.horizontal, 20)
+    } else {
+      ProgressView()
+        .padding(.top, 33)
+        .padding(.horizontal, 20)
     }
-    .padding(.top, 33)
-    .padding(.horizontal, 20)
   }
   
   @ViewBuilder
@@ -140,8 +159,15 @@ extension MyPageMain {
           Text("밤샘 횟수")
             .foregroundStyle(.white)
           
-          Text("8회")
-            .foregroundStyle(.main2)
+          Group {
+            if let allNightSummary = myPageManager.allNightSummary {
+              Text("\(allNightSummary.totalAllNighters)회")
+            } else {
+              ProgressView()
+                .frame(maxWidth: .infinity)
+            }
+          }
+          .foregroundStyle(.main2)
           
           Spacer()
         }
@@ -150,8 +176,24 @@ extension MyPageMain {
           Text("밤샘 누적 시간")
             .foregroundStyle(.white)
           
-          Text("56:07:07")
-            .foregroundStyle(.main2)
+          Group {
+            if let allNightSummary = myPageManager.allNightSummary {
+              let convertedValue = myPageManager.convertSecondsToHoursMinutesSeconds(seconds: allNightSummary.totalDuration)
+              
+              Text(
+                String(
+                  format: "%02d : %02d : %02d",
+                  convertedValue.hours,
+                  convertedValue.minutes,
+                  convertedValue.seconds
+                )
+              )
+            } else {
+              ProgressView()         
+                .frame(maxWidth: .infinity)
+            }
+          }
+          .foregroundStyle(.main2)
           
           Spacer()
         }
@@ -225,4 +267,5 @@ extension MyPageMain {
 #Preview {
   MyPageMain()
     .environmentObject(MyPagePageManager())
+    .environmentObject(MyPageManager())
 }

@@ -8,8 +8,9 @@
 import SwiftUI
 
 public struct MyPageCalendarView: View {
-  @State var date: Date = .now
-  @State var offset: CGSize = CGSize()
+  @EnvironmentObject private var myPageManager: MyPageManager
+  
+  @State private var offset: CGSize = CGSize()
   
   let days: [String] = ["일", "월", "화", "수", "목", "금", "토"]
   
@@ -28,6 +29,12 @@ public struct MyPageCalendarView: View {
         .frame(height: 375)
     )
     .frame(height: 375)
+    .onAppear {
+      myPageManager.calendarDate = .now
+    }
+    .onChange(of: myPageManager.calendarDate, perform: { value in
+      myPageManager.requestNightSummary()
+    })
   }
 }
 
@@ -41,13 +48,18 @@ extension MyPageCalendarView {
             moveMonth(offset: -1)
           }
         
-        Text(calendarTitleFormat(date: date))
+        Text(calendarTitleFormat(date: myPageManager.calendarDate))
         
         Image(systemName: "chevron.right")
           .frame(width: 24, height: 24)
           .onTapGesture {
-            moveMonth(offset: 1)
+            if myPageManager.checkCalendarValidation() {
+              moveMonth(offset: 1)
+            }
           }
+          .foregroundStyle(
+            myPageManager.checkCalendarValidation() ? .white : .main6
+          )
       }
       .font(.custom("Pretendard-Bold", size: 18))
       .lineSpacing(2)
@@ -57,8 +69,8 @@ extension MyPageCalendarView {
   }
   
   private func calendarContents() -> some View {
-    let daysInMonth: Int = numberOfDays(in: date)
-    let firstWeekday: Int = firstWeekdayOfMonth(in: date) - 1
+    let daysInMonth: Int = numberOfDays(in: myPageManager.calendarDate)
+    let firstWeekday: Int = firstWeekdayOfMonth(in: myPageManager.calendarDate) - 1
     
     return VStack(spacing: 0) {
       HStack(spacing: 0) {
@@ -77,63 +89,77 @@ extension MyPageCalendarView {
       .padding(.horizontal, 34)
       .padding(.bottom, 4)
       
-      LazyVGrid(
-        columns: Array(repeating: GridItem(spacing: 6), count: 7), spacing: 4
-      ) {
-        ForEach(0 ..< daysInMonth + firstWeekday, id: \.self) { index in
-          if index < firstWeekday {
-            Rectangle()
-              .frame(width: 40, height: 40)
-              .opacity(0)
-          } else {
-            let day = index - firstWeekday + 1
-            
-            dateView(day: day, isNight: true)
+      if let nightSummary = myPageManager.allNightSummary {
+        LazyVGrid(
+          columns: Array(repeating: GridItem(spacing: 6), count: 7), spacing: 4
+        ) {
+          ForEach(0 ..< daysInMonth + firstWeekday, id: \.self) { index in
+            if index < firstWeekday {
+              Rectangle()
+                .frame(width: 40, height: 40)
+                .opacity(0)
+            } else {
+              let day = index - firstWeekday + 1
+              let nightRecordsIdx = myPageManager.findIndexMatchingNightRecords(data: nightSummary.allNightersRecords, targetDate: day)
+              
+              if let nightRecordsIdx = nightRecordsIdx {
+                dateView(day: day, nightData: nightSummary.allNightersRecords[nightRecordsIdx])
+              } else {
+                dateView(day: day, nightData: nil)
+              }
+            }
           }
         }
+        .padding(.horizontal, 18)
+      } else {
+        ProgressView()
+          .frame(maxWidth: .infinity, maxHeight: .infinity)
       }
-      .padding(.horizontal, 18)
     }
   }
   
-  public func dateView(day: Int, isNight: Bool) -> some View {
+  public func dateView(day: Int, nightData: NightRecordDTO?) -> some View {
     ZStack(alignment: .center) {
       Rectangle()
         .frame(width: 40, height: 40)
         .opacity(0)
       
-      if day < 7 {
-        Image("moon1")
-          .resizable()
-          .frame(width: 40, height: 40)
-      } else if day < 14 {
-        Image("moon2")
-          .resizable()
-          .frame(width: 40, height: 40)
-      } else if day < 21 {
-        Image("moon3")
-          .resizable()
-          .frame(width: 40, height: 40)
-      } else {
-        Image("moon4")
-          .resizable()
-          .frame(width: 40, height: 40)
+      if let nightData = nightData {
+        let time: Int = nightData.duration / 3600
+        
+        if time < 3 {
+          Image("moon1")
+            .resizable()
+            .frame(width: 40, height: 40)
+        } else if time < 6 {
+          Image("moon2")
+            .resizable()
+            .frame(width: 40, height: 40)
+        } else if time < 10 {
+          Image("moon3")
+            .resizable()
+            .frame(width: 40, height: 40)
+        } else {
+          Image("moon4")
+            .resizable()
+            .frame(width: 40, height: 40)
+        }
       }
-      
+    
       Text(String(day))
         .font(.custom("Pretendard-Regular", size: 20))
         .lineSpacing(5)
-        .foregroundStyle(isNight ? .black : .white)
+        .foregroundStyle(nightData != nil ? .black : .white)
     }
   }
 }
 
 extension MyPageCalendarView {
-
+  
   private func startOfMonth() -> Date {
     let components = Calendar.current.dateComponents(
       [.year, .month],
-      from: date
+      from: myPageManager.calendarDate
     )
     
     return Calendar.current.date(from: components)!
@@ -152,8 +178,8 @@ extension MyPageCalendarView {
   
   private func moveMonth(offset: Int) {
     let calendar = Calendar.current
-    if let newMonth = calendar.date(byAdding: .month, value: offset, to: date) {
-      self.date = newMonth
+    if let newMonth = calendar.date(byAdding: .month, value: offset, to: myPageManager.calendarDate) {
+      self.myPageManager.calendarDate = newMonth
     }
   }
   
@@ -167,4 +193,5 @@ extension MyPageCalendarView {
 
 #Preview {
   MyPageCalendarView()
+    .environmentObject(MyPageManager())
 }

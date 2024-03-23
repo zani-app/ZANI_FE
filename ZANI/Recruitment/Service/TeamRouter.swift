@@ -9,7 +9,7 @@ import Foundation
 import Alamofire
 
 enum TeamRouter {
-  case requestTeamList(keyword: String, category: String, isEmpty: Bool, isPublic: Bool, page: Int, size: Int)
+  case requestTeamList(keyword: String, category: String, isEmpty: Bool, isSecret: Bool, page: Int, size: Int)
   case requestCreateTeam(title: String, maxNum: Int, targetTime: Int, password: String, category: String, description: String, secret: Bool)
 }
 
@@ -35,8 +35,7 @@ extension TeamRouter: BaseRouter {
   
   var parameters: RequestParams {
     switch self {
-    case let .requestTeamList(keyword, category, isEmpty, isPublic, page, size):
-      
+    case let .requestTeamList(keyword, category, isEmpty, isSecret, page, size):
       var body: [String: Any] = [
         "page": page,
         "size": size
@@ -54,8 +53,8 @@ extension TeamRouter: BaseRouter {
         body["isEmpty"] = isEmpty
       }
       
-      if !isPublic {
-        body["isPublic"] = isPublic
+      if isSecret {
+        body["isSecret"] = isSecret
       }
       
       return .requestBody(body, bodyEncoding: URLEncoding.queryString)

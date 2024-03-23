@@ -18,12 +18,12 @@ public struct FilterView: View {
   @State private var endTimeBuffer: Int = 12
   
   @State private var categoryBuffer: String
-  @State private var isPublicBuffer: Bool
+  @State private var isSecretBuffer: Bool
   @State private var isEmptyBuffer: Bool
   
-  public init(categoryBuffer: String, isPublicBuffer: Bool, isEmptyBuffer: Bool) {
+  public init(categoryBuffer: String, isSecretBuffer: Bool, isEmptyBuffer: Bool) {
     self.categoryBuffer = categoryBuffer
-    self.isPublicBuffer = isPublicBuffer
+    self.isSecretBuffer = isSecretBuffer
     self.isEmptyBuffer = isEmptyBuffer
   }
   
@@ -173,7 +173,7 @@ extension FilterView {
             ZaniCapsuleButton(
               title: filter,
               isValid:
-                type == .roomType ? self.categoryBuffer == filter : type == .isEmptySeat ? self.isEmptyBuffer : self.isPublicBuffer
+                type == .roomType ? self.categoryBuffer == filter : type == .isEmptySeat ? self.isEmptyBuffer : self.isSecretBuffer
               ,
               action: {
                 switch type {
@@ -185,8 +185,8 @@ extension FilterView {
                   }
                 case .isEmptySeat:
                   self.isEmptyBuffer.toggle()
-                case .isOpenRoom:
-                  self.isPublicBuffer.toggle()
+                case .isSecretRoom:
+                  self.isSecretBuffer.toggle()
                 }
               }
             )
@@ -206,7 +206,7 @@ extension FilterView {
       Button(action: {
         self.categoryBuffer = ""
         self.isEmptyBuffer = false
-        self.isPublicBuffer = true
+        self.isSecretBuffer = false
         self.startTime = 2
         self.endTime = 12
         self.startTimeBuffer = 2
@@ -233,7 +233,7 @@ extension FilterView {
         action: { 
           recruitmentManager.category = self.categoryBuffer
           recruitmentManager.isEmpty = self.isEmptyBuffer
-          recruitmentManager.isPublic = self.isPublicBuffer
+          recruitmentManager.isSecret = self.isSecretBuffer
           recruitmentPageManager.pop()
         }
       )
@@ -251,7 +251,7 @@ extension FilterView {
 }
 
 #Preview {
-  FilterView(categoryBuffer: "test", isPublicBuffer: false, isEmptyBuffer: false)
+  FilterView(categoryBuffer: "test", isSecretBuffer: false, isEmptyBuffer: false)
     .environmentObject(RecruitmentPageManager())
     .environmentObject(RecruitmentManager())
 }
