@@ -38,7 +38,7 @@ struct MateIntroduce: View {
                     
                     Spacer()
                     
-                    NavigationLink(destination: MateAllNight().navigationBarBackButtonHidden()) {
+                    NavigationLink(destination: MateRoom().navigationBarBackButtonHidden()) {
                         Text("밤샘 참여하기")
                             .font(.system(size: 14))
                             .foregroundColor(.black)
