@@ -32,6 +32,19 @@ struct Mission: View {
                     .padding(.horizontal, 30)
                     .padding(.top, 150)
                 
+                Button(action: {
+                }) {
+                    Text("제출하기")
+                    
+                        .foregroundColor(.black)
+                        .padding(.horizontal,50)
+                        .frame(height: 50)
+                        .background(Color.zaniMain2)
+                        .cornerRadius(15)
+                        .fontWeight(.bold)
+                        .font(.title3)
+                }
+                .padding(.top, 120)
             }
             
         }
