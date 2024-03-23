@@ -46,8 +46,11 @@ extension MyPageCalendarView {
         Image(systemName: "chevron.right")
           .frame(width: 24, height: 24)
           .onTapGesture {
-            moveMonth(offset: 1)
+            if getMonth(date: .now) > getMonth(date: self.date) {
+              moveMonth(offset: 1)
+            }
           }
+          .foregroundStyle(getMonth(date: .now) > getMonth(date: self.date) ? .white : Color.main6)
       }
       .font(.custom("Pretendard-Bold", size: 18))
       .lineSpacing(2)
@@ -129,7 +132,7 @@ extension MyPageCalendarView {
 }
 
 extension MyPageCalendarView {
-
+  
   private func startOfMonth() -> Date {
     let components = Calendar.current.dateComponents(
       [.year, .month],
@@ -162,6 +165,12 @@ extension MyPageCalendarView {
     dateFormatter.dateFormat = "yyyy년  M월"
     
     return dateFormatter.string(from: date)
+  }
+  
+  func getMonth(date: Date) -> Int {
+    let calendar = Calendar.current
+    let month = calendar.component(.month, from: date)
+    return month
   }
 }
 
