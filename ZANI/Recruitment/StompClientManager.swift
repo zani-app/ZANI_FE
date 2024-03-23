@@ -4,8 +4,6 @@ import SwiftUI
 
 class StompClient: ObservableObject, WebSocketDelegate {
   
-  static let shared = StompClient()
-  
   var socket: WebSocket!
   
   let serverURL = URL(string: "wss://dongkyeom.com/ws-connection")!
@@ -26,34 +24,29 @@ class StompClient: ObservableObject, WebSocketDelegate {
       print("WebSocket is connected")
       // 연결 성공 후 CONNECT 프레임 전송
       connectStomp()
+      
     case .text(let string):
       if string.contains("CONNECTED") {
         print("STOMP Connected")
         // CONNECTED 프레임 수신 후 구독 시작
-        
         subscribe(to: "/subscribe/team/8")
-         
-        sendMessage(
-          to: "/app/chat/message/8",
-          with: "test"
-        )
-//        let messageData: [String: Any] = [
-//          "type": "messageType",
-//          "content": "test",
-//          "sendTime": "2024-03-17T12:34:56.789Z",
-//          "sender": "test"
-//        ]
-//        
-//        if let jsonDAta = try? JSONSerialization.data(withJSONObject: messageData, options: []) {
-//          if let jsonString = String(data: jsonDAta, encoding: .utf8) {
-//            sendMessage(
-//              to: "/app/chat/message/8",
-//              with: jsonString
-//            )
-//            print("here!")
-//          }
-//        }
+        
       } else {
+        print(string)
+        
+        guard let data = string.data(using: .utf8) else {
+          print("Failed to convert JSON string to data")
+          return
+        }
+        
+        do {
+          let decoder = JSONDecoder()
+          let chgat = try? decoder.decode(Chat.self, from: data)
+          print(chgat?.sendTime, "NIlnl")
+        } catch {
+          print("Error decoding JSON: \(error.localizedDescription)")
+        }
+        
         handleReceivedText(string)
       }
       
@@ -72,13 +65,18 @@ class StompClient: ObservableObject, WebSocketDelegate {
     socket.write(string: subscribeFrame)
   }
   
-  func sendMessage(to destination: String, with body: String) {
+  func sendMessage(from nickname: String, to destination: String, with body: String) {
+    let dateFormatter = ISO8601DateFormatter()
+    dateFormatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds, .withTimeZone]
+    
+    let now = Date()
+    let dateString = dateFormatter.string(from: now)
     
     let messageData: [String: Any] = [
       "type": "messageType",
       "content": body,
-      "sendTime": "2024-03-17T12:34:56.789Z",
-      "sender": "test"
+      "sendTime": dateString,
+      "sender": nickname
     ]
     
     if let jsonDAta = try? JSONSerialization.data(withJSONObject: messageData, options: []) {
@@ -93,28 +91,6 @@ class StompClient: ObservableObject, WebSocketDelegate {
   func handleReceivedText(_ text: String) {
     DispatchQueue.main.async {
       self.receivedMessages.append(text)
-    }
-  }
-}
-
-// SwiftUI View
-struct ChatView: View {
-  @ObservedObject var stompClient = StompClient()
-  
-  var body: some View {
-    VStack {
-      List(stompClient.receivedMessages, id: \.self) { message in
-        Text(message)
-      }
-      
-      Button("Connect and Subscribe") {
-        stompClient.connectStomp()
-        stompClient.subscribe(to: "/topic/chat")
-      }
-      
-      Button("Send Message") {
-        stompClient.sendMessage(to: "/topic/chat", with: "Hello, STOMP!")
-      }
     }
   }
 }

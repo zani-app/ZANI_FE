@@ -18,6 +18,7 @@ struct ZANIApp: App {
   @StateObject private var myPageManager = MyPageManager()
   @StateObject private var stompManager = StompClient()
   @StateObject private var mateMainPageManager = MateMainPageManager()
+  @StateObject private var chattingManager = ChattingManager()
   
   @UIApplicationDelegateAdaptor var appDelegate: AppDelegate
   
@@ -31,10 +32,8 @@ struct ZANIApp: App {
         .environmentObject(myPagePageManager)
         .environmentObject(myPageManager)
         .environmentObject(stompManager)
-        .onAppear {
-          stompManager.connectStomp()
-        }
         .environmentObject(mateMainPageManager)
+        .environmentObject(chattingManager)
 //        .fullScreenCover(isPresented: $showAuth) {
 //          AuthMainView()
 //            .environmentObject(authPageManager)

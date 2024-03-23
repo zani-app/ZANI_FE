@@ -80,7 +80,7 @@ extension MateMain {
                 .toolbar(.hidden, for: .tabBar)
             
         case .chatting:
-            MateListView()
+            ChattingMain()
                 .toolbar(.hidden, for: .tabBar)
             
         case .timeLine:

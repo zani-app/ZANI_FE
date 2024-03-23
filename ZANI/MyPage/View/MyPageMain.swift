@@ -39,11 +39,9 @@ public struct MyPageMain: View {
     .onAppear {
       // myPageManager.requestPatch()
       
-      stompManager.sendMessage(to: "/app/chat/message/8", with: "test")
-      
-//      myPageManager.calendarDate = .now
-//      myPageManager.requestUserDetail()
-//      myPageManager.requestNightSummary()
+      myPageManager.calendarDate = .now
+      myPageManager.requestUserDetail()
+      myPageManager.requestNightSummary()
     }
   }
 }
