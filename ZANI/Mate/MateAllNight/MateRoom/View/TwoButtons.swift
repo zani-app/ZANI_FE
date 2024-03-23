@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct TwoButtons: View {
+    
+    @EnvironmentObject private var mateMainPageManager: MateMainPageManager
     var body: some View {
         HStack(alignment: .center, spacing: 17) {
             
@@ -39,30 +41,30 @@ struct TwoButtons: View {
             .cornerRadius(10)
             
             // 타임라인 버튼
-            NavigationLink(destination: TimeLine()) {
-                VStack(alignment: .leading) {
-                    HStack {
-                        Image("TimeLine")
-                            .padding(.leading, 20)
-                        
-                        Image("NextButton")
-                            .padding(.leading, 50)
-                            .padding(.trailing, 16)
-                    }
-                    .padding(.top, 12)
+            VStack(alignment: .leading) {
+                HStack {
+                    Image("TimeLine")
+                        .padding(.leading, 20)
                     
-                    HStack {
-                        Text("타임라인")
-                            .padding(.leading, 20)
-                            .padding(.bottom,12)
-                            .font(.title2)
-                            .foregroundColor(.white)
-                    }
+                    Image("NextButton")
+                        .padding(.leading, 50)
+                        .padding(.trailing, 16)
                 }
+                .padding(.top, 12)
                 
+                HStack {
+                    Text("타임라인")
+                        .padding(.leading, 20)
+                        .padding(.bottom,12)
+                        .font(.title2)
+                        .foregroundColor(.white)
+                }
             }
             .background(LinearGradient(colors: [Color(red: 202/255, green: 160/255, blue: 243/255), Color(red: 153/255, green: 49/255, blue: 255/255)], startPoint: .top, endPoint: .bottom))
             .cornerRadius(10)
+            .onTapGesture {
+                mateMainPageManager.push(.timeLine)
+            }
         }
     }
 }

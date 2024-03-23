@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct MateIntroduce: View {
+    
+    @EnvironmentObject private var mateMainPageManager: MateMainPageManager
     var body: some View {
         ZStack {
             // 배경색 설정
@@ -38,15 +40,16 @@ struct MateIntroduce: View {
                     
                     Spacer()
                     
-                    NavigationLink(destination: MateRoom().navigationBarBackButtonHidden()) {
-                        Text("밤샘 참여하기")
-                            .font(.system(size: 14))
-                            .foregroundColor(.black)
-                            .padding(.horizontal, 15)
-                            .padding(.vertical, 9)
-                            .background(Color.zaniMain2)
-                            .cornerRadius(20)
-                    }
+                    Text("밤샘 참여하기")
+                        .font(.system(size: 14))
+                        .foregroundColor(.black)
+                        .padding(.horizontal, 15)
+                        .padding(.vertical, 9)
+                        .background(Color.zaniMain2)
+                        .cornerRadius(20)
+                        .onTapGesture {
+                            mateMainPageManager.push(.mateRoom)
+                        }
                 }
                 .padding(.bottom)
                 .padding(.trailing, 16)

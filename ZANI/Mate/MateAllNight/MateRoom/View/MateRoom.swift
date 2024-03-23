@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MateRoom: View {
     @Environment(\.dismiss) var dismiss
-    
+    @EnvironmentObject private var mateMainPageManager: MateMainPageManager
     
     var body: some View {
         ZStack {
@@ -60,6 +60,7 @@ struct MateRoom: View {
             
             
         }
+        .navigationBarBackButtonHidden()
     }
 }
 
@@ -67,10 +68,11 @@ extension MateRoom {
     
     @ViewBuilder
     private func navigationBar() -> some View {
-        NavBar(title: "", leftAction: { })
+        NavBar(title: "", leftAction: { mateMainPageManager.pop() })
     }
 }
 
 #Preview {
     MateRoom()
+        .environmentObject(MateMainPageManager())
 }

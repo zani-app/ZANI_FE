@@ -15,6 +15,7 @@ struct ZANIApp: App {
   @StateObject private var recruitmentPageManager = RecruitmentPageManager()
   @StateObject private var recruitmentManager = RecruitmentManager()
   @StateObject private var myPagePageManager = MyPagePageManager()
+  @StateObject private var mateMainPageManager = MateMainPageManager()
   
   @UIApplicationDelegateAdaptor var appDelegate: AppDelegate
   
@@ -26,15 +27,16 @@ struct ZANIApp: App {
         .environmentObject(recruitmentPageManager)
         .environmentObject(recruitmentManager)
         .environmentObject(myPagePageManager)
-        .fullScreenCover(isPresented: $showAuth) {
-          AuthMainView()
-            .environmentObject(authPageManager)
-        }
-        .onChange(of: authPageManager.isDone) { newValue in
-          if newValue {
-            self.showAuth = false
-          }
-        }
+        .environmentObject(mateMainPageManager)
+//        .fullScreenCover(isPresented: $showAuth) {
+//          AuthMainView()
+//            .environmentObject(authPageManager)
+//        }
+//        .onChange(of: authPageManager.isDone) { newValue in
+//          if newValue {
+//            self.showAuth = false
+//          }
+//        }
     }
   }
 }
