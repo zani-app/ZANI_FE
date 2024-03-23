@@ -10,6 +10,7 @@ import SwiftUI
 public struct MyPageMain: View {
   @EnvironmentObject private var myPagePageManager: MyPagePageManager
   @EnvironmentObject private var myPageManager: MyPageManager
+  @EnvironmentObject private var stompManager: StompClient
   
   public var body: some View {
     NavigationStack(path: $myPagePageManager.route) {
@@ -36,10 +37,13 @@ public struct MyPageMain: View {
       )
     }
     .onAppear {
-      myPageManager.requestPatch()
-      myPageManager.calendarDate = .now
-      myPageManager.requestUserDetail()
-      myPageManager.requestNightSummary()
+      // myPageManager.requestPatch()
+      
+      stompManager.sendMessage(to: "/app/chat/message/8", with: "test")
+      
+//      myPageManager.calendarDate = .now
+//      myPageManager.requestUserDetail()
+//      myPageManager.requestNightSummary()
     }
   }
 }

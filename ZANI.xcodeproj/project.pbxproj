@@ -97,6 +97,8 @@
 		CDC88D342BAEC0D4003E34AA /* AllNightersRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC88D332BAEC0D4003E34AA /* AllNightersRouter.swift */; };
 		CDC88D362BAEC0DB003E34AA /* AllNightersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC88D352BAEC0DB003E34AA /* AllNightersService.swift */; };
 		CDC88D382BAEC4CE003E34AA /* AllNightSummaryDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC88D372BAEC4CE003E34AA /* AllNightSummaryDTO.swift */; };
+		CDCB74EA2BAF512D008D6B63 /* StompClientManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCB74E92BAF512D008D6B63 /* StompClientManager.swift */; };
+		CDCB74ED2BAF516B008D6B63 /* Starscream in Frameworks */ = {isa = PBXBuildFile; productRef = CDCB74EC2BAF516B008D6B63 /* Starscream */; };
 		CDD706FF2BACAA3A00AEC4B8 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = CDD706FE2BACAA3A00AEC4B8 /* Alamofire */; };
 /* End PBXBuildFile section */
 
@@ -182,6 +184,7 @@
 		CDC88D332BAEC0D4003E34AA /* AllNightersRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllNightersRouter.swift; sourceTree = "<group>"; };
 		CDC88D352BAEC0DB003E34AA /* AllNightersService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllNightersService.swift; sourceTree = "<group>"; };
 		CDC88D372BAEC4CE003E34AA /* AllNightSummaryDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllNightSummaryDTO.swift; sourceTree = "<group>"; };
+		CDCB74E92BAF512D008D6B63 /* StompClientManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StompClientManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,6 +199,7 @@
 				CD25EC172BAC993600A36B3A /* KakaoSDK in Frameworks */,
 				CD25EC192BAC993600A36B3A /* KakaoSDKAuth in Frameworks */,
 				CD25EC252BAC993600A36B3A /* KakaoSDKNavi in Frameworks */,
+				CDCB74ED2BAF516B008D6B63 /* Starscream in Frameworks */,
 				CD25EC292BAC993600A36B3A /* KakaoSDKTalk in Frameworks */,
 				CD25EC2D2BAC993600A36B3A /* KakaoSDKUser in Frameworks */,
 				CD25EC1B2BAC993600A36B3A /* KakaoSDKCert in Frameworks */,
@@ -456,6 +460,7 @@
 				CD25EBF72BAB197E00A36B3A /* ViewModel */,
 				CDC065012BA4C97900E24F70 /* Model */,
 				CDC064E42BA38F8100E24F70 /* View */,
+				CDCB74E92BAF512D008D6B63 /* StompClientManager.swift */,
 			);
 			path = Recruitment;
 			sourceTree = "<group>";
@@ -589,6 +594,7 @@
 				CD25EC2A2BAC993600A36B3A /* KakaoSDKTemplate */,
 				CD25EC2C2BAC993600A36B3A /* KakaoSDKUser */,
 				CDD706FE2BACAA3A00AEC4B8 /* Alamofire */,
+				CDCB74EC2BAF516B008D6B63 /* Starscream */,
 			);
 			productName = ZANI;
 			productReference = CDC064B62BA31F8200E24F70 /* ZANI.app */;
@@ -621,6 +627,7 @@
 			packageReferences = (
 				CD25EC152BAC993600A36B3A /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
 				CDD706FD2BACAA3A00AEC4B8 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				CDCB74EB2BAF516B008D6B63 /* XCRemoteSwiftPackageReference "Starscream" */,
 			);
 			productRefGroup = CDC064B72BA31F8200E24F70 /* Products */;
 			projectDirPath = "";
@@ -681,6 +688,7 @@
 				CD25EBF42BAB166100A36B3A /* MoonLevel.swift in Sources */,
 				CD6AAE4B2BAD74DD00862A46 /* AuthService.swift in Sources */,
 				CDC88D2F2BAEAADF003E34AA /* FollowingService.swift in Sources */,
+				CDCB74EA2BAF512D008D6B63 /* StompClientManager.swift in Sources */,
 				CD6AAE4D2BAD7A2100862A46 /* BaseService.swift in Sources */,
 				CD6AAE522BAD865C00862A46 /* TeamRouter.swift in Sources */,
 				CDC064DD2BA387E900E24F70 /* ZaniTextField.swift in Sources */,
@@ -947,6 +955,14 @@
 				minimumVersion = 2.21.1;
 			};
 		};
+		CDCB74EB2BAF516B008D6B63 /* XCRemoteSwiftPackageReference "Starscream" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/daltoniam/Starscream.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.8;
+			};
+		};
 		CDD706FD2BACAA3A00AEC4B8 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
@@ -1017,6 +1033,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = CD25EC152BAC993600A36B3A /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
 			productName = KakaoSDKUser;
+		};
+		CDCB74EC2BAF516B008D6B63 /* Starscream */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CDCB74EB2BAF516B008D6B63 /* XCRemoteSwiftPackageReference "Starscream" */;
+			productName = Starscream;
 		};
 		CDD706FE2BACAA3A00AEC4B8 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
