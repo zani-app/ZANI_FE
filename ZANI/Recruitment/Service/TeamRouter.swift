@@ -36,7 +36,6 @@ extension TeamRouter: BaseRouter {
   var parameters: RequestParams {
     switch self {
     case let .requestTeamList(keyword, category, isEmpty, isSecret, page, size):
-      
       var body: [String: Any] = [
         "page": page,
         "size": size
@@ -50,7 +49,7 @@ extension TeamRouter: BaseRouter {
         body["category"] = category
       }
       
-      if isEmpty {
+      if !isEmpty {
         body["isEmpty"] = isEmpty
       }
       

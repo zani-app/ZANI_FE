@@ -21,7 +21,6 @@ final class RecruitmentManager: ObservableObject {
   
   @Published var teamList: [Team]? = nil
   
-  
   /// for create Room
   @Published var teamName: String = ""
   @Published var teamCategory: String = ""
@@ -37,7 +36,7 @@ final class RecruitmentManager: ObservableObject {
       case .success(let data):
         if let data = data as? TeamListDTO {
           self.teamList = data.teams
-          print(data.teams)
+          print(data.teams, "T!@#!@#!")
         }
         
       default:

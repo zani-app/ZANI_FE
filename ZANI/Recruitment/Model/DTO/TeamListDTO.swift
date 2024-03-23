@@ -19,7 +19,7 @@ public struct Team: Codable, Hashable {
   let currentNum: Int
   let targetTime: Int
   let isSecret: Bool
-  let password: String
+  let password: String?
   let category: String
   let description: String
   let createdAt: [Int]
