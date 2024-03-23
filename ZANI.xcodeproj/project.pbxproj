@@ -88,6 +88,12 @@
 		CDC065002BA4809000E24F70 /* SectionListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC064FF2BA4809000E24F70 /* SectionListView.swift */; };
 		CDC065032BA4C98100E24F70 /* CreateTeamSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC065022BA4C98100E24F70 /* CreateTeamSection.swift */; };
 		CDC065172BA4CB2A00E24F70 /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC065162BA4CB2A00E24F70 /* FilterView.swift */; };
+		CDC88D252BAE9D49003E34AA /* MyPageRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC88D242BAE9D49003E34AA /* MyPageRouter.swift */; };
+		CDC88D272BAE9D5C003E34AA /* MyPageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC88D262BAE9D5C003E34AA /* MyPageService.swift */; };
+		CDC88D2B2BAEA22E003E34AA /* MyPageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC88D2A2BAEA22E003E34AA /* MyPageManager.swift */; };
+		CDC88D2D2BAEA577003E34AA /* FollowingRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC88D2C2BAEA577003E34AA /* FollowingRouter.swift */; };
+		CDC88D2F2BAEAADF003E34AA /* FollowingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC88D2E2BAEAADF003E34AA /* FollowingService.swift */; };
+		CDC88D322BAEACB1003E34AA /* FollowListDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC88D312BAEACB1003E34AA /* FollowListDTO.swift */; };
 		CDD706FF2BACAA3A00AEC4B8 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = CDD706FE2BACAA3A00AEC4B8 /* Alamofire */; };
 /* End PBXBuildFile section */
 
@@ -164,6 +170,12 @@
 		CDC064FF2BA4809000E24F70 /* SectionListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionListView.swift; sourceTree = "<group>"; };
 		CDC065022BA4C98100E24F70 /* CreateTeamSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTeamSection.swift; sourceTree = "<group>"; };
 		CDC065162BA4CB2A00E24F70 /* FilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterView.swift; sourceTree = "<group>"; };
+		CDC88D242BAE9D49003E34AA /* MyPageRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageRouter.swift; sourceTree = "<group>"; };
+		CDC88D262BAE9D5C003E34AA /* MyPageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageService.swift; sourceTree = "<group>"; };
+		CDC88D2A2BAEA22E003E34AA /* MyPageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageManager.swift; sourceTree = "<group>"; };
+		CDC88D2C2BAEA577003E34AA /* FollowingRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowingRouter.swift; sourceTree = "<group>"; };
+		CDC88D2E2BAEAADF003E34AA /* FollowingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowingService.swift; sourceTree = "<group>"; };
+		CDC88D312BAEACB1003E34AA /* FollowListDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowListDTO.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -283,7 +295,9 @@
 		CD25EBF62BAB197600A36B3A /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				CDC88D302BAEACAB003E34AA /* DTO */,
 				CD25EBED2BAB051400A36B3A /* MyPagePageManager.swift */,
+				CDC88D2A2BAEA22E003E34AA /* MyPageManager.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -413,6 +427,7 @@
 		CDC064C72BA3281800E24F70 /* MyPage */ = {
 			isa = PBXGroup;
 			children = (
+				CDC88D232BAE9D41003E34AA /* Service */,
 				CD25EBF62BAB197600A36B3A /* ViewModel */,
 				CD25EBF52BAB193500A36B3A /* View */,
 				CD25EBE82BAAD82900A36B3A /* Model */,
@@ -514,6 +529,25 @@
 				CD25EBD12BA8A70300A36B3A /* FilterCategory.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		CDC88D232BAE9D41003E34AA /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				CDC88D242BAE9D49003E34AA /* MyPageRouter.swift */,
+				CDC88D262BAE9D5C003E34AA /* MyPageService.swift */,
+				CDC88D2C2BAEA577003E34AA /* FollowingRouter.swift */,
+				CDC88D2E2BAEAADF003E34AA /* FollowingService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		CDC88D302BAEACAB003E34AA /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				CDC88D312BAEACB1003E34AA /* FollowListDTO.swift */,
+			);
+			path = DTO;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -630,12 +664,14 @@
 				CD25EBD52BA951B500A36B3A /* AuthMainView.swift in Sources */,
 				CDC064E12BA38B1900E24F70 /* ZaniNavigationBar.swift in Sources */,
 				CD25EBDF2BA96DAC00A36B3A /* SignUpView.swift in Sources */,
+				CDC88D2D2BAEA577003E34AA /* FollowingRouter.swift in Sources */,
 				CD25EBDB2BA959FC00A36B3A /* AuthTextField.swift in Sources */,
 				CDC065172BA4CB2A00E24F70 /* FilterView.swift in Sources */,
 				CD6AAE542BAD866400862A46 /* TeamService.swift in Sources */,
 				CDC064DF2BA3892D00E24F70 /* ZaniMainButton.swift in Sources */,
 				CD25EBF42BAB166100A36B3A /* MoonLevel.swift in Sources */,
 				CD6AAE4B2BAD74DD00862A46 /* AuthService.swift in Sources */,
+				CDC88D2F2BAEAADF003E34AA /* FollowingService.swift in Sources */,
 				CD6AAE4D2BAD7A2100862A46 /* BaseService.swift in Sources */,
 				CD6AAE522BAD865C00862A46 /* TeamRouter.swift in Sources */,
 				CDC064DD2BA387E900E24F70 /* ZaniTextField.swift in Sources */,
@@ -644,12 +680,15 @@
 				CDC064D52BA32A2B00E24F70 /* Color + Extension.swift in Sources */,
 				CDC064FE2BA4795600E24F70 /* View + Placeholder.swift in Sources */,
 				CDC065032BA4C98100E24F70 /* CreateTeamSection.swift in Sources */,
+				CDC88D272BAE9D5C003E34AA /* MyPageService.swift in Sources */,
 				CD6AAE3E2BAD33CE00862A46 /* NetworkResult.swift in Sources */,
 				CD6AAE452BAD5D2100862A46 /* UserInfoDTO.swift in Sources */,
 				012D46212BA3FA2800E05BC7 /* MateIntroduce.swift in Sources */,
+				CDC88D322BAEACB1003E34AA /* FollowListDTO.swift in Sources */,
 				012D462A2BA470A200E05BC7 /* MateAllNight.swift in Sources */,
 				012D462E2BA97A4C00E05BC7 /* TimeLineSub.swift in Sources */,
 				CDC064CC2BA3288900E24F70 /* MateMain.swift in Sources */,
+				CDC88D2B2BAEA22E003E34AA /* MyPageManager.swift in Sources */,
 				012D46232BA4019A00E05BC7 /* MateRecommend.swift in Sources */,
 				CD25EBD22BA8A70300A36B3A /* FilterCategory.swift in Sources */,
 				CD25EC322BAC9E0000A36B3A /* SceneDelegate.swift in Sources */,
@@ -658,6 +697,7 @@
 				CDC064DB2BA37F0700E24F70 /* CreateTeamView.swift in Sources */,
 				012D46252BA40DA300E05BC7 /* MateBestTips.swift in Sources */,
 				CDC064D22BA3289E00E24F70 /* MyPageMain.swift in Sources */,
+				CDC88D252BAE9D49003E34AA /* MyPageRouter.swift in Sources */,
 				CD6AAE4F2BAD7BFB00862A46 /* UserRouter.swift in Sources */,
 				CD25EBE72BA9807A00A36B3A /* SignInView.swift in Sources */,
 				CD6AAE492BAD74B100862A46 /* AuthRouter.swift in Sources */,

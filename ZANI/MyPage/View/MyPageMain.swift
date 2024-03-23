@@ -9,6 +9,7 @@ import SwiftUI
 
 public struct MyPageMain: View {
   @EnvironmentObject private var myPagePageManager: MyPagePageManager
+  @EnvironmentObject private var myPageManager: MyPageManager
   
   public var body: some View {
     NavigationStack(path: $myPagePageManager.route) {
@@ -33,6 +34,9 @@ public struct MyPageMain: View {
           endPoint: .bottom
         )
       )
+    }
+    .onAppear {
+      myPageManager.requestUserDetail()
     }
   }
 }
@@ -61,44 +65,50 @@ extension MyPageMain {
   
   @ViewBuilder
   private func profileSection() -> some View {
-    HStack(spacing: 10) {
-      Image("profileIcon")
-      
-      VStack(alignment: .leading, spacing: 10) {
-        HStack(spacing: 7) {
-          Text("유저 이름")
-            .zaniFont(.body1)
-            .bold()
-            .foregroundStyle(.white)
+    if let userInfo = myPageManager.userInfo {
+      HStack(spacing: 10) {
+        Image("profileIcon")
+        
+        VStack(alignment: .leading, spacing: 10) {
+          HStack(spacing: 7) {
+            Text(userInfo.nickname)
+              .zaniFont(.body1)
+              .bold()
+              .foregroundStyle(.white)
+            
+            Text("칭호 이름")
+              .foregroundStyle(.white)
+          }
           
-          Text("칭호 이름")
-            .foregroundStyle(.white)
+          HStack(spacing: 12) {
+            Text("나의 메이트 보기")
+            Image(systemName: "chevron.right")
+              .bold()
+          }
+          .zaniFont(.body1)
+          .background(
+            Color.main1
+          )
+          .onTapGesture {
+            myPagePageManager.push(.mateList)
+          }
+          .foregroundStyle(.white)
         }
         
-        HStack(spacing: 12) {
-          Text("나의 메이트 보기")
-          Image(systemName: "chevron.right")
-            .bold()
-        }
-        .zaniFont(.body1)
-        .background(
-          Color.main1
-        )
-        .onTapGesture {
-          myPagePageManager.push(.mateList)
-        }
-        .foregroundStyle(.white)
+        Spacer()
+        
+        Image("pencilIcon")
+          .onTapGesture {
+            myPagePageManager.push(.changeNickname)
+          }
       }
-      
-      Spacer()
-      
-      Image("pencilIcon")
-        .onTapGesture {
-          myPagePageManager.push(.changeNickname)
-        }
+      .padding(.top, 33)
+      .padding(.horizontal, 20)
+    } else {
+      ProgressView()
+        .padding(.top, 33)
+        .padding(.horizontal, 20)
     }
-    .padding(.top, 33)
-    .padding(.horizontal, 20)
   }
   
   @ViewBuilder
@@ -225,4 +235,5 @@ extension MyPageMain {
 #Preview {
   MyPageMain()
     .environmentObject(MyPagePageManager())
+    .environmentObject(MyPageManager())
 }
