@@ -37,6 +37,7 @@ public struct MyPageMain: View {
     }
     .onAppear {
       myPageManager.requestUserDetail()
+      myPageManager.requestNightSummary()
     }
   }
 }
@@ -47,8 +48,10 @@ extension MyPageMain {
   private func myPagePageDestination(_ type: MyPagePageState) -> some View {
     switch type {
     case .changeNickname:
-      ChangeNicknameView(userName: "test")
-        .toolbar(.hidden, for: .tabBar)
+      if let userInfo = myPageManager.userInfo {
+        ChangeNicknameView(userName: userInfo.nickname)
+          .toolbar(.hidden, for: .tabBar)
+      }
       
     case .mateList:
       MateListView()
@@ -150,8 +153,14 @@ extension MyPageMain {
           Text("밤샘 횟수")
             .foregroundStyle(.white)
           
-          Text("8회")
-            .foregroundStyle(.main2)
+          Group {
+            if let allNightSummary = myPageManager.allNightSummary {
+              Text("\(allNightSummary.totalAllNighters)회")
+            } else {
+              Text("정보를 불러오지 못했습니다.")
+            }
+          }
+          .foregroundStyle(.main2)
           
           Spacer()
         }
@@ -160,8 +169,23 @@ extension MyPageMain {
           Text("밤샘 누적 시간")
             .foregroundStyle(.white)
           
-          Text("56:07:07")
-            .foregroundStyle(.main2)
+          Group {
+            if let allNightSummary = myPageManager.allNightSummary {
+              let convertedValue = myPageManager.convertSecondsToHoursMinutesSeconds(seconds: allNightSummary.totalDuration)
+              
+              Text(
+                String(
+                  format: "%02d : %02d : %02d",
+                  convertedValue.hours,
+                  convertedValue.minutes,
+                  convertedValue.seconds
+                )
+              )
+            } else {
+              Text("정보를 불러오지 못했습니다.")
+            }
+          }
+          .foregroundStyle(.main2)
           
           Spacer()
         }

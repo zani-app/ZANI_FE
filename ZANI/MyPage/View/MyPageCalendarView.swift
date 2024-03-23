@@ -8,8 +8,9 @@
 import SwiftUI
 
 public struct MyPageCalendarView: View {
-  @State var date: Date = .now
-  @State var offset: CGSize = CGSize()
+  @EnvironmentObject private var myPageManager: MyPageManager
+  
+  @State private var offset: CGSize = CGSize()
   
   let days: [String] = ["일", "월", "화", "수", "목", "금", "토"]
   
@@ -28,6 +29,9 @@ public struct MyPageCalendarView: View {
         .frame(height: 375)
     )
     .frame(height: 375)
+    .onChange(of: myPageManager.calendarDate, perform: { value in
+      myPageManager.requestNightSummary()
+    })
   }
 }
 
@@ -41,16 +45,18 @@ extension MyPageCalendarView {
             moveMonth(offset: -1)
           }
         
-        Text(calendarTitleFormat(date: date))
+        Text(calendarTitleFormat(date: myPageManager.calendarDate))
         
         Image(systemName: "chevron.right")
           .frame(width: 24, height: 24)
           .onTapGesture {
-            if getMonth(date: .now) > getMonth(date: self.date) {
+            if myPageManager.checkCalendarValidation() {
               moveMonth(offset: 1)
             }
           }
-          .foregroundStyle(getMonth(date: .now) > getMonth(date: self.date) ? .white : Color.main6)
+          .foregroundStyle(
+            myPageManager.checkCalendarValidation() ? .white : .main6
+          )
       }
       .font(.custom("Pretendard-Bold", size: 18))
       .lineSpacing(2)
@@ -60,8 +66,8 @@ extension MyPageCalendarView {
   }
   
   private func calendarContents() -> some View {
-    let daysInMonth: Int = numberOfDays(in: date)
-    let firstWeekday: Int = firstWeekdayOfMonth(in: date) - 1
+    let daysInMonth: Int = numberOfDays(in: myPageManager.calendarDate)
+    let firstWeekday: Int = firstWeekdayOfMonth(in: myPageManager.calendarDate) - 1
     
     return VStack(spacing: 0) {
       HStack(spacing: 0) {
@@ -136,7 +142,7 @@ extension MyPageCalendarView {
   private func startOfMonth() -> Date {
     let components = Calendar.current.dateComponents(
       [.year, .month],
-      from: date
+      from: myPageManager.calendarDate
     )
     
     return Calendar.current.date(from: components)!
@@ -155,8 +161,8 @@ extension MyPageCalendarView {
   
   private func moveMonth(offset: Int) {
     let calendar = Calendar.current
-    if let newMonth = calendar.date(byAdding: .month, value: offset, to: date) {
-      self.date = newMonth
+    if let newMonth = calendar.date(byAdding: .month, value: offset, to: myPageManager.calendarDate) {
+      self.myPageManager.calendarDate = newMonth
     }
   }
   
@@ -166,14 +172,9 @@ extension MyPageCalendarView {
     
     return dateFormatter.string(from: date)
   }
-  
-  func getMonth(date: Date) -> Int {
-    let calendar = Calendar.current
-    let month = calendar.component(.month, from: date)
-    return month
-  }
 }
 
 #Preview {
   MyPageCalendarView()
+    .environmentObject(MyPageManager())
 }

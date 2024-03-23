@@ -14,7 +14,10 @@ final class MyPageManager: ObservableObject {
   
   @Published var userInfo: UserInfoDTO? = nil
   @Published var followList: [FollowDTO]? = nil
- 
+  @Published var allNightSummary: AllNightSummaryDTO? = nil
+  
+  @Published var calendarDate: Date = .now
+  
   /// 유저 정보 호출
   func requestUserDetail() {
     MyPageService.shared.requestUserInfo { response in
@@ -44,5 +47,54 @@ final class MyPageManager: ObservableObject {
         print("data fetch Error")
       }
     }
+  }
+  
+  /// 달력 및 밤샘 이력 조회
+  func requestNightSummary() {
+    let year = self.getMonthYear(date: self.calendarDate)[0]
+    let month = self.getMonthYear(date: self.calendarDate)[1]
+    
+    AllNightersService.shared.requestSummary(year: year, month: month) { response in
+      switch(response) {
+      case .success(let data):
+        if let data = data as? AllNightSummaryDTO {
+          self.allNightSummary = data
+          print(data)
+        }
+        
+      default:
+        print("data fetch Error")
+      }
+    }
+  }
+  
+  func checkCalendarValidation() -> Bool {
+    let nowData = getMonthYear(date: .now)
+    let calData = getMonthYear(date: self.calendarDate)
+    
+    if nowData[0] == calData[0] {
+      if nowData[1] > calData[1] {
+        return true
+      }
+    } else if nowData[0] > calData[0] {
+      return true
+    }
+    
+    return false
+  }
+  
+  /// for 달력 (년, 달)
+  private func getMonthYear(date: Date) -> [Int] {
+    let calendar = Calendar.current
+    let year = calendar.component(.year, from: date)
+    let month = calendar.component(.month, from: date)
+    return [year, month]
+  }
+  
+  func convertSecondsToHoursMinutesSeconds(seconds: Int) -> (hours: Int, minutes: Int, seconds: Int) {
+    let hours = seconds / 3600
+    let minutes = (seconds % 3600) / 60
+    let seconds = (seconds % 3600) % 60
+    return (hours, minutes, seconds)
   }
 }
