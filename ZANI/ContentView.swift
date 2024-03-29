@@ -15,7 +15,7 @@ public struct ContentView: View {
   public var body: some View {
     TabView {
       Group {
-        MateMain()
+        NightMateMain()
           .tabItem {
             Label(
               title: { Text("밤샘메이트") },

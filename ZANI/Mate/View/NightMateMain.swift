@@ -1,5 +1,5 @@
 //
-//  MateMain.swift
+//  NightMateMain.swift
 //  ZANI
 //
 //  Created by 정도현 on 3/29/24.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-public struct MateMain: View {
+public struct NightMateMain: View {
   public var body: some View {
     ScrollView {
       LazyVStack(alignment: .leading, spacing: 0) {
@@ -24,7 +24,7 @@ public struct MateMain: View {
   }
 }
 
-extension MateMain {
+extension NightMateMain {
   
   @ViewBuilder
   private func enterTeamButton() -> some View {
@@ -145,5 +145,5 @@ extension MateMain {
 }
 
 #Preview {
-  MateMain()
+  NightMateMain()
 }
