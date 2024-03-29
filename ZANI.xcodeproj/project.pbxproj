@@ -335,6 +335,7 @@
 		CD3AA6C32BB6932400C589B8 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				CDCB74F62BAF6F81008D6B63 /* ChattingManager.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -469,7 +470,6 @@
 				CD3AA6C22BB6932000C589B8 /* Model */,
 				CD3AA6C12BB6931800C589B8 /* View */,
 				CDCB74EE2BAF6619008D6B63 /* ChattingMain.swift */,
-				CDCB74F62BAF6F81008D6B63 /* ChattingManager.swift */,
 			);
 			path = Mate;
 			sourceTree = "<group>";
