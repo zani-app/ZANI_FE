@@ -53,6 +53,7 @@
 		CD3AA6CE2BB6B76C00C589B8 /* NightMateListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3AA6CD2BB6B76C00C589B8 /* NightMateListView.swift */; };
 		CD3AA6D02BB6DECF00C589B8 /* NightTimeLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3AA6CF2BB6DECF00C589B8 /* NightTimeLineView.swift */; };
 		CD3AA6D22BB6EA4700C589B8 /* NightMatePageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3AA6D12BB6EA4700C589B8 /* NightMatePageManager.swift */; };
+		CD3AA6D42BB70CBB00C589B8 /* NavigationGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3AA6D32BB70CBB00C589B8 /* NavigationGesture.swift */; };
 		CD6AAE2D2BAD206000862A46 /* BaseURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6AAE2C2BAD206000862A46 /* BaseURL.swift */; };
 		CD6AAE3C2BAD338A00862A46 /* GeneralResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6AAE3B2BAD338A00862A46 /* GeneralResponse.swift */; };
 		CD6AAE3E2BAD33CE00862A46 /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6AAE3D2BAD33CE00862A46 /* NetworkResult.swift */; };
@@ -142,6 +143,7 @@
 		CD3AA6CD2BB6B76C00C589B8 /* NightMateListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NightMateListView.swift; sourceTree = "<group>"; };
 		CD3AA6CF2BB6DECF00C589B8 /* NightTimeLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NightTimeLineView.swift; sourceTree = "<group>"; };
 		CD3AA6D12BB6EA4700C589B8 /* NightMatePageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NightMatePageManager.swift; sourceTree = "<group>"; };
+		CD3AA6D32BB70CBB00C589B8 /* NavigationGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationGesture.swift; sourceTree = "<group>"; };
 		CD6AAE2C2BAD206000862A46 /* BaseURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseURL.swift; sourceTree = "<group>"; };
 		CD6AAE3B2BAD338A00862A46 /* GeneralResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralResponse.swift; sourceTree = "<group>"; };
 		CD6AAE3D2BAD33CE00862A46 /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
@@ -497,6 +499,7 @@
 			children = (
 				CDC064FB2BA46B7700E24F70 /* Font + Utils.swift */,
 				CDC064FD2BA4795600E24F70 /* View + Placeholder.swift */,
+				CD3AA6D32BB70CBB00C589B8 /* NavigationGesture.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -709,6 +712,7 @@
 				CDC064DD2BA387E900E24F70 /* ZaniTextField.swift in Sources */,
 				CD25EBDD2BA96D0900A36B3A /* AuthPageManager.swift in Sources */,
 				CD3AA6C82BB6A1E200C589B8 /* RecruitTeamCapsule.swift in Sources */,
+				CD3AA6D42BB70CBB00C589B8 /* NavigationGesture.swift in Sources */,
 				CDC88D342BAEC0D4003E34AA /* AllNightersRouter.swift in Sources */,
 				CD6AAE592BAD88FB00862A46 /* RecruitmentManager.swift in Sources */,
 				CDC064FE2BA4795600E24F70 /* View + Placeholder.swift in Sources */,
