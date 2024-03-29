@@ -67,6 +67,9 @@ public struct ContentView: View {
       .toolbarBackground(.main4, for: .tabBar)
     }
     .tint(.white)
+    .onAppear {
+      UITabBar.appearance().backgroundColor = .main4
+    }
     .navigationBarBackButtonHidden()
   }
 }
