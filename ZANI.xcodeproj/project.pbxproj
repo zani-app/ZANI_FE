@@ -264,7 +264,6 @@
 			isa = PBXGroup;
 			children = (
 				015449052BAD5080007AA69D /* MateRoom */,
-				012D462C2BA979E700E05BC7 /* Chatting */,
 				012D462B2BA979B800E05BC7 /* TimeLine */,
 				012382D52BAF6C350048CC2D /* Mission */,
 			);
@@ -279,13 +278,6 @@
 			);
 			path = TimeLine;
 			sourceTree = "<group>";
-		};
-		012D462C2BA979E700E05BC7 /* Chatting */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Chatting;
-			sourceTree = "<unknown>";
 		};
 		015449052BAD5080007AA69D /* MateRoom */ = {
 			isa = PBXGroup;
@@ -719,8 +711,8 @@
 			mainGroup = CDC064AD2BA31F8200E24F70;
 			packageReferences = (
 				CD25EC152BAC993600A36B3A /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
-				CDD706FD2BACAA3A00AEC4B8 /* XCRemoteSwiftPackageReference "Alamofire.git" */,
-				CDCB74EB2BAF516B008D6B63 /* XCRemoteSwiftPackageReference "Starscream.git" */,
+				CDD706FD2BACAA3A00AEC4B8 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				CDCB74EB2BAF516B008D6B63 /* XCRemoteSwiftPackageReference "Starscream" */,
 			);
 			productRefGroup = CDC064B72BA31F8200E24F70 /* Products */;
 			projectDirPath = "";
@@ -1071,7 +1063,7 @@
 				minimumVersion = 2.21.1;
 			};
 		};
-		CDCB74EB2BAF516B008D6B63 /* XCRemoteSwiftPackageReference "Starscream.git" */ = {
+		CDCB74EB2BAF516B008D6B63 /* XCRemoteSwiftPackageReference "Starscream" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/daltoniam/Starscream.git";
 			requirement = {
@@ -1079,7 +1071,7 @@
 				minimumVersion = 4.0.8;
 			};
 		};
-		CDD706FD2BACAA3A00AEC4B8 /* XCRemoteSwiftPackageReference "Alamofire.git" */ = {
+		CDD706FD2BACAA3A00AEC4B8 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
 			requirement = {
@@ -1152,12 +1144,12 @@
 		};
 		CDCB74EC2BAF516B008D6B63 /* Starscream */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = CDCB74EB2BAF516B008D6B63 /* XCRemoteSwiftPackageReference "Starscream.git" */;
+			package = CDCB74EB2BAF516B008D6B63 /* XCRemoteSwiftPackageReference "Starscream" */;
 			productName = Starscream;
 		};
 		CDD706FE2BACAA3A00AEC4B8 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = CDD706FD2BACAA3A00AEC4B8 /* XCRemoteSwiftPackageReference "Alamofire.git" */;
+			package = CDD706FD2BACAA3A00AEC4B8 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
 		};
 /* End XCSwiftPackageProductDependency section */
