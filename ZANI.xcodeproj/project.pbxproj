@@ -7,22 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		012382D22BAF6B7E0048CC2D /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012382D12BAF6B7E0048CC2D /* CardView.swift */; };
-		012382D42BAF6C2F0048CC2D /* Mission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012382D32BAF6C2F0048CC2D /* Mission.swift */; };
-		012382D72BAF6CE00048CC2D /* MissionAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012382D62BAF6CE00048CC2D /* MissionAlert.swift */; };
-		012D46212BA3FA2800E05BC7 /* MateIntroduce.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012D46202BA3FA2800E05BC7 /* MateIntroduce.swift */; };
-		012D46232BA4019A00E05BC7 /* MateRecommend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012D46222BA4019A00E05BC7 /* MateRecommend.swift */; };
-		012D46252BA40DA300E05BC7 /* MateBestTips.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012D46242BA40DA300E05BC7 /* MateBestTips.swift */; };
-		012D462A2BA470A200E05BC7 /* MateRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012D46292BA470A200E05BC7 /* MateRoom.swift */; };
-		012D462E2BA97A4C00E05BC7 /* TimeLineSub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012D462D2BA97A4C00E05BC7 /* TimeLineSub.swift */; };
-		012D46302BA9DD1700E05BC7 /* TimeLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012D462F2BA9DD1700E05BC7 /* TimeLine.swift */; };
-		0154490F2BADA0C4007AA69D /* CountText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0154490E2BADA0C4007AA69D /* CountText.swift */; };
-		015449112BADA168007AA69D /* StartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015449102BADA168007AA69D /* StartButton.swift */; };
-		015449132BADA1AF007AA69D /* TwoButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015449122BADA1AF007AA69D /* TwoButtons.swift */; };
-		015449152BADA210007AA69D /* Gauge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015449142BADA210007AA69D /* Gauge.swift */; };
-		015449172BADA29E007AA69D /* BottomMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015449162BADA29E007AA69D /* BottomMessage.swift */; };
-		015449192BADA426007AA69D /* NavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015449182BADA426007AA69D /* NavBar.swift */; };
-		01B243AA2BAEC3CA00E30AE7 /* MateMainPageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B243A92BAEC3CA00E30AE7 /* MateMainPageManager.swift */; };
 		CD25EBD22BA8A70300A36B3A /* FilterCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD25EBD12BA8A70300A36B3A /* FilterCategory.swift */; };
 		CD25EBD52BA951B500A36B3A /* AuthMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD25EBD42BA951B500A36B3A /* AuthMainView.swift */; };
 		CD25EBD92BA958E600A36B3A /* LoginType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD25EBD82BA958E600A36B3A /* LoginType.swift */; };
@@ -62,6 +46,13 @@
 		CD25EC302BAC9CD900A36B3A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD25EC2F2BAC9CD900A36B3A /* AppDelegate.swift */; };
 		CD25EC322BAC9E0000A36B3A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD25EC312BAC9E0000A36B3A /* SceneDelegate.swift */; };
 		CD25EC342BACA05100A36B3A /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD25EC332BACA05100A36B3A /* LoginManager.swift */; };
+		CD3AA6C62BB693C900C589B8 /* NightMateMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3AA6C52BB693C900C589B8 /* NightMateMain.swift */; };
+		CD3AA6C82BB6A1E200C589B8 /* RecruitTeamCapsule.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3AA6C72BB6A1E200C589B8 /* RecruitTeamCapsule.swift */; };
+		CD3AA6CA2BB6A88B00C589B8 /* NightWaitingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3AA6C92BB6A88B00C589B8 /* NightWaitingView.swift */; };
+		CD3AA6CC2BB6B06300C589B8 /* NightDisplayType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3AA6CB2BB6B06300C589B8 /* NightDisplayType.swift */; };
+		CD3AA6CE2BB6B76C00C589B8 /* NightMateListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3AA6CD2BB6B76C00C589B8 /* NightMateListView.swift */; };
+		CD3AA6D02BB6DECF00C589B8 /* NightTimeLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3AA6CF2BB6DECF00C589B8 /* NightTimeLineView.swift */; };
+		CD3AA6D22BB6EA4700C589B8 /* NightMatePageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3AA6D12BB6EA4700C589B8 /* NightMatePageManager.swift */; };
 		CD6AAE2D2BAD206000862A46 /* BaseURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6AAE2C2BAD206000862A46 /* BaseURL.swift */; };
 		CD6AAE3C2BAD338A00862A46 /* GeneralResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6AAE3B2BAD338A00862A46 /* GeneralResponse.swift */; };
 		CD6AAE3E2BAD33CE00862A46 /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6AAE3D2BAD33CE00862A46 /* NetworkResult.swift */; };
@@ -82,11 +73,9 @@
 		CDC064BC2BA31F8200E24F70 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC064BB2BA31F8200E24F70 /* ContentView.swift */; };
 		CDC064BE2BA31F8300E24F70 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDC064BD2BA31F8300E24F70 /* Assets.xcassets */; };
 		CDC064C12BA31F8300E24F70 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDC064C02BA31F8300E24F70 /* Preview Assets.xcassets */; };
-		CDC064CC2BA3288900E24F70 /* MateMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC064CB2BA3288900E24F70 /* MateMain.swift */; };
 		CDC064CE2BA3289200E24F70 /* RecruitmentMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC064CD2BA3289200E24F70 /* RecruitmentMain.swift */; };
 		CDC064D02BA3289700E24F70 /* CommunityMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC064CF2BA3289700E24F70 /* CommunityMain.swift */; };
 		CDC064D22BA3289E00E24F70 /* MyPageMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC064D12BA3289E00E24F70 /* MyPageMain.swift */; };
-		CDC064D52BA32A2B00E24F70 /* Color + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC064D42BA32A2B00E24F70 /* Color + Extension.swift */; };
 		CDC064D92BA37D9A00E24F70 /* ZaniCapsuleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC064D82BA37D9A00E24F70 /* ZaniCapsuleButton.swift */; };
 		CDC064DB2BA37F0700E24F70 /* CreateTeamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC064DA2BA37F0700E24F70 /* CreateTeamView.swift */; };
 		CDC064DD2BA387E900E24F70 /* ZaniTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC064DC2BA387E900E24F70 /* ZaniTextField.swift */; };
@@ -109,7 +98,7 @@
 		CDC88D382BAEC4CE003E34AA /* AllNightSummaryDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC88D372BAEC4CE003E34AA /* AllNightSummaryDTO.swift */; };
 		CDCB74EA2BAF512D008D6B63 /* StompClientManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCB74E92BAF512D008D6B63 /* StompClientManager.swift */; };
 		CDCB74ED2BAF516B008D6B63 /* Starscream in Frameworks */ = {isa = PBXBuildFile; productRef = CDCB74EC2BAF516B008D6B63 /* Starscream */; };
-		CDCB74EF2BAF6619008D6B63 /* ChattingMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCB74EE2BAF6619008D6B63 /* ChattingMain.swift */; };
+		CDCB74EF2BAF6619008D6B63 /* NightChattingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCB74EE2BAF6619008D6B63 /* NightChattingView.swift */; };
 		CDCB74F12BAF6A78008D6B63 /* ChattingRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCB74F02BAF6A78008D6B63 /* ChattingRouter.swift */; };
 		CDCB74F32BAF6B25008D6B63 /* ChattingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCB74F22BAF6B25008D6B63 /* ChattingService.swift */; };
 		CDCB74F52BAF6B93008D6B63 /* ChatDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCB74F42BAF6B93008D6B63 /* ChatDTO.swift */; };
@@ -119,22 +108,6 @@
 
 /* Begin PBXFileReference section */
 		012382D02BAF66770048CC2D /* AccessKeys.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = AccessKeys.xcconfig; sourceTree = "<group>"; };
-		012382D12BAF6B7E0048CC2D /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
-		012382D32BAF6C2F0048CC2D /* Mission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mission.swift; sourceTree = "<group>"; };
-		012382D62BAF6CE00048CC2D /* MissionAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionAlert.swift; sourceTree = "<group>"; };
-		012D46202BA3FA2800E05BC7 /* MateIntroduce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MateIntroduce.swift; sourceTree = "<group>"; };
-		012D46222BA4019A00E05BC7 /* MateRecommend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MateRecommend.swift; sourceTree = "<group>"; };
-		012D46242BA40DA300E05BC7 /* MateBestTips.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MateBestTips.swift; sourceTree = "<group>"; };
-		012D46292BA470A200E05BC7 /* MateRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MateRoom.swift; sourceTree = "<group>"; };
-		012D462D2BA97A4C00E05BC7 /* TimeLineSub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeLineSub.swift; sourceTree = "<group>"; };
-		012D462F2BA9DD1700E05BC7 /* TimeLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeLine.swift; sourceTree = "<group>"; };
-		0154490E2BADA0C4007AA69D /* CountText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountText.swift; sourceTree = "<group>"; };
-		015449102BADA168007AA69D /* StartButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartButton.swift; sourceTree = "<group>"; };
-		015449122BADA1AF007AA69D /* TwoButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoButtons.swift; sourceTree = "<group>"; };
-		015449142BADA210007AA69D /* Gauge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gauge.swift; sourceTree = "<group>"; };
-		015449162BADA29E007AA69D /* BottomMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomMessage.swift; sourceTree = "<group>"; };
-		015449182BADA426007AA69D /* NavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavBar.swift; sourceTree = "<group>"; };
-		01B243A92BAEC3CA00E30AE7 /* MateMainPageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MateMainPageManager.swift; sourceTree = "<group>"; };
 		CD25EBD12BA8A70300A36B3A /* FilterCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCategory.swift; sourceTree = "<group>"; };
 		CD25EBD42BA951B500A36B3A /* AuthMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthMainView.swift; sourceTree = "<group>"; };
 		CD25EBD82BA958E600A36B3A /* LoginType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginType.swift; sourceTree = "<group>"; };
@@ -162,6 +135,13 @@
 		CD25EC2F2BAC9CD900A36B3A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CD25EC312BAC9E0000A36B3A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		CD25EC332BACA05100A36B3A /* LoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginManager.swift; sourceTree = "<group>"; };
+		CD3AA6C52BB693C900C589B8 /* NightMateMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NightMateMain.swift; sourceTree = "<group>"; };
+		CD3AA6C72BB6A1E200C589B8 /* RecruitTeamCapsule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecruitTeamCapsule.swift; sourceTree = "<group>"; };
+		CD3AA6C92BB6A88B00C589B8 /* NightWaitingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NightWaitingView.swift; sourceTree = "<group>"; };
+		CD3AA6CB2BB6B06300C589B8 /* NightDisplayType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NightDisplayType.swift; sourceTree = "<group>"; };
+		CD3AA6CD2BB6B76C00C589B8 /* NightMateListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NightMateListView.swift; sourceTree = "<group>"; };
+		CD3AA6CF2BB6DECF00C589B8 /* NightTimeLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NightTimeLineView.swift; sourceTree = "<group>"; };
+		CD3AA6D12BB6EA4700C589B8 /* NightMatePageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NightMatePageManager.swift; sourceTree = "<group>"; };
 		CD6AAE2C2BAD206000862A46 /* BaseURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseURL.swift; sourceTree = "<group>"; };
 		CD6AAE3B2BAD338A00862A46 /* GeneralResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralResponse.swift; sourceTree = "<group>"; };
 		CD6AAE3D2BAD33CE00862A46 /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
@@ -183,11 +163,9 @@
 		CDC064BB2BA31F8200E24F70 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		CDC064BD2BA31F8300E24F70 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CDC064C02BA31F8300E24F70 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		CDC064CB2BA3288900E24F70 /* MateMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MateMain.swift; sourceTree = "<group>"; };
 		CDC064CD2BA3289200E24F70 /* RecruitmentMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecruitmentMain.swift; sourceTree = "<group>"; };
 		CDC064CF2BA3289700E24F70 /* CommunityMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityMain.swift; sourceTree = "<group>"; };
 		CDC064D12BA3289E00E24F70 /* MyPageMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageMain.swift; sourceTree = "<group>"; };
-		CDC064D42BA32A2B00E24F70 /* Color + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color + Extension.swift"; sourceTree = "<group>"; };
 		CDC064D82BA37D9A00E24F70 /* ZaniCapsuleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZaniCapsuleButton.swift; sourceTree = "<group>"; };
 		CDC064DA2BA37F0700E24F70 /* CreateTeamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTeamView.swift; sourceTree = "<group>"; };
 		CDC064DC2BA387E900E24F70 /* ZaniTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZaniTextField.swift; sourceTree = "<group>"; };
@@ -210,7 +188,7 @@
 		CDC88D352BAEC0DB003E34AA /* AllNightersService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllNightersService.swift; sourceTree = "<group>"; };
 		CDC88D372BAEC4CE003E34AA /* AllNightSummaryDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllNightSummaryDTO.swift; sourceTree = "<group>"; };
 		CDCB74E92BAF512D008D6B63 /* StompClientManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StompClientManager.swift; sourceTree = "<group>"; };
-		CDCB74EE2BAF6619008D6B63 /* ChattingMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingMain.swift; sourceTree = "<group>"; };
+		CDCB74EE2BAF6619008D6B63 /* NightChattingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NightChattingView.swift; sourceTree = "<group>"; };
 		CDCB74F02BAF6A78008D6B63 /* ChattingRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingRouter.swift; sourceTree = "<group>"; };
 		CDCB74F22BAF6B25008D6B63 /* ChattingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingService.swift; sourceTree = "<group>"; };
 		CDCB74F42BAF6B93008D6B63 /* ChatDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatDTO.swift; sourceTree = "<group>"; };
@@ -242,101 +220,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		012382D52BAF6C350048CC2D /* Mission */ = {
-			isa = PBXGroup;
-			children = (
-				012382D32BAF6C2F0048CC2D /* Mission.swift */,
-				012382D62BAF6CE00048CC2D /* MissionAlert.swift */,
-			);
-			path = Mission;
-			sourceTree = "<group>";
-		};
-		012D46262BA4697700E05BC7 /* MateMain */ = {
-			isa = PBXGroup;
-			children = (
-				01B243A62BAEBDCA00E30AE7 /* ViewModel */,
-				01B243A42BAEBD9400E30AE7 /* View */,
-			);
-			path = MateMain;
-			sourceTree = "<group>";
-		};
-		012D46282BA4698900E05BC7 /* MateAllNight */ = {
-			isa = PBXGroup;
-			children = (
-				015449052BAD5080007AA69D /* MateRoom */,
-				012D462C2BA979E700E05BC7 /* Chatting */,
-				012D462B2BA979B800E05BC7 /* TimeLine */,
-				012382D52BAF6C350048CC2D /* Mission */,
-			);
-			path = MateAllNight;
-			sourceTree = "<group>";
-		};
-		012D462B2BA979B800E05BC7 /* TimeLine */ = {
-			isa = PBXGroup;
-			children = (
-				012D462F2BA9DD1700E05BC7 /* TimeLine.swift */,
-				012D462D2BA97A4C00E05BC7 /* TimeLineSub.swift */,
-			);
-			path = TimeLine;
-			sourceTree = "<group>";
-		};
-		012D462C2BA979E700E05BC7 /* Chatting */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Chatting;
-			sourceTree = "<unknown>";
-		};
-		015449052BAD5080007AA69D /* MateRoom */ = {
-			isa = PBXGroup;
-			children = (
-				01B243A52BAEBDA900E30AE7 /* ViewModel */,
-				01B243A32BAEBD7D00E30AE7 /* View */,
-			);
-			path = MateRoom;
-			sourceTree = "<group>";
-		};
-		01B243A32BAEBD7D00E30AE7 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				012D46292BA470A200E05BC7 /* MateRoom.swift */,
-				0154490E2BADA0C4007AA69D /* CountText.swift */,
-				015449102BADA168007AA69D /* StartButton.swift */,
-				015449122BADA1AF007AA69D /* TwoButtons.swift */,
-				015449142BADA210007AA69D /* Gauge.swift */,
-				015449162BADA29E007AA69D /* BottomMessage.swift */,
-				015449182BADA426007AA69D /* NavBar.swift */,
-				012382D12BAF6B7E0048CC2D /* CardView.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		01B243A42BAEBD9400E30AE7 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				CDC064CB2BA3288900E24F70 /* MateMain.swift */,
-				012D46202BA3FA2800E05BC7 /* MateIntroduce.swift */,
-				012D46222BA4019A00E05BC7 /* MateRecommend.swift */,
-				012D46242BA40DA300E05BC7 /* MateBestTips.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		01B243A52BAEBDA900E30AE7 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		01B243A62BAEBDCA00E30AE7 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				01B243A92BAEC3CA00E30AE7 /* MateMainPageManager.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
 		CD25EBD32BA9515A00A36B3A /* Auth */ = {
 			isa = PBXGroup;
 			children = (
@@ -436,6 +319,42 @@
 				CD6AAE4C2BAD7A2100862A46 /* BaseService.swift */,
 			);
 			path = Bases;
+			sourceTree = "<group>";
+		};
+		CD3AA6C12BB6931800C589B8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CDCB74EE2BAF6619008D6B63 /* NightChattingView.swift */,
+				CD3AA6C52BB693C900C589B8 /* NightMateMain.swift */,
+				CD3AA6C92BB6A88B00C589B8 /* NightWaitingView.swift */,
+				CD3AA6CD2BB6B76C00C589B8 /* NightMateListView.swift */,
+				CD3AA6CF2BB6DECF00C589B8 /* NightTimeLineView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CD3AA6C22BB6932000C589B8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CD3AA6CB2BB6B06300C589B8 /* NightDisplayType.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CD3AA6C32BB6932400C589B8 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				CDCB74F62BAF6F81008D6B63 /* ChattingManager.swift */,
+				CD3AA6D12BB6EA4700C589B8 /* NightMatePageManager.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		CD3AA6C42BB6932800C589B8 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 		CD6AAE382BAD335700862A46 /* Service */ = {
@@ -556,10 +475,10 @@
 		CDC064CA2BA3281D00E24F70 /* Mate */ = {
 			isa = PBXGroup;
 			children = (
-				012D46262BA4697700E05BC7 /* MateMain */,
-				012D46282BA4698900E05BC7 /* MateAllNight */,
-				CDCB74EE2BAF6619008D6B63 /* ChattingMain.swift */,
-				CDCB74F62BAF6F81008D6B63 /* ChattingManager.swift */,
+				CD3AA6C42BB6932800C589B8 /* Service */,
+				CD3AA6C32BB6932400C589B8 /* ViewModel */,
+				CD3AA6C22BB6932000C589B8 /* Model */,
+				CD3AA6C12BB6931800C589B8 /* View */,
 			);
 			path = Mate;
 			sourceTree = "<group>";
@@ -576,7 +495,6 @@
 		CDC064E22BA38C1400E24F70 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				CDC064D42BA32A2B00E24F70 /* Color + Extension.swift */,
 				CDC064FB2BA46B7700E24F70 /* Font + Utils.swift */,
 				CDC064FD2BA4795600E24F70 /* View + Placeholder.swift */,
 			);
@@ -602,6 +520,7 @@
 				CDC064FF2BA4809000E24F70 /* SectionListView.swift */,
 				CDC065162BA4CB2A00E24F70 /* FilterView.swift */,
 				CD6AAE5E2BADC93700862A46 /* TeamDetailView.swift */,
+				CD3AA6C72BB6A1E200C589B8 /* RecruitTeamCapsule.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -765,34 +684,33 @@
 				CD25EBEE2BAB051400A36B3A /* MyPagePageManager.swift in Sources */,
 				CD6AAE5F2BADC93700862A46 /* TeamDetailView.swift in Sources */,
 				CD25EBEA2BAAD8C400A36B3A /* MyPageCalendarView.swift in Sources */,
-				015449112BADA168007AA69D /* StartButton.swift in Sources */,
 				CDC064BC2BA31F8200E24F70 /* ContentView.swift in Sources */,
-				012D46302BA9DD1700E05BC7 /* TimeLine.swift in Sources */,
 				CD25EBD92BA958E600A36B3A /* LoginType.swift in Sources */,
 				CDC064E62BA38F9B00E24F70 /* RecruitmentPageManager.swift in Sources */,
 				CD6AAE2D2BAD206000862A46 /* BaseURL.swift in Sources */,
-				012382D22BAF6B7E0048CC2D /* CardView.swift in Sources */,
-				012382D72BAF6CE00048CC2D /* MissionAlert.swift in Sources */,
 				CD25EBD52BA951B500A36B3A /* AuthMainView.swift in Sources */,
 				CDC064E12BA38B1900E24F70 /* ZaniNavigationBar.swift in Sources */,
 				CD25EBDF2BA96DAC00A36B3A /* SignUpView.swift in Sources */,
 				CDC88D2D2BAEA577003E34AA /* FollowingRouter.swift in Sources */,
 				CD25EBDB2BA959FC00A36B3A /* AuthTextField.swift in Sources */,
-				015449132BADA1AF007AA69D /* TwoButtons.swift in Sources */,
 				CDC065172BA4CB2A00E24F70 /* FilterView.swift in Sources */,
 				CD6AAE542BAD866400862A46 /* TeamService.swift in Sources */,
+				CD3AA6C62BB693C900C589B8 /* NightMateMain.swift in Sources */,
 				CDC064DF2BA3892D00E24F70 /* ZaniMainButton.swift in Sources */,
 				CD25EBF42BAB166100A36B3A /* MoonLevel.swift in Sources */,
 				CD6AAE4B2BAD74DD00862A46 /* AuthService.swift in Sources */,
+				CD3AA6CC2BB6B06300C589B8 /* NightDisplayType.swift in Sources */,
+				CD3AA6CA2BB6A88B00C589B8 /* NightWaitingView.swift in Sources */,
 				CDC88D2F2BAEAADF003E34AA /* FollowingService.swift in Sources */,
 				CDCB74EA2BAF512D008D6B63 /* StompClientManager.swift in Sources */,
+				CD3AA6CE2BB6B76C00C589B8 /* NightMateListView.swift in Sources */,
 				CD6AAE4D2BAD7A2100862A46 /* BaseService.swift in Sources */,
 				CD6AAE522BAD865C00862A46 /* TeamRouter.swift in Sources */,
 				CDC064DD2BA387E900E24F70 /* ZaniTextField.swift in Sources */,
 				CD25EBDD2BA96D0900A36B3A /* AuthPageManager.swift in Sources */,
+				CD3AA6C82BB6A1E200C589B8 /* RecruitTeamCapsule.swift in Sources */,
 				CDC88D342BAEC0D4003E34AA /* AllNightersRouter.swift in Sources */,
 				CD6AAE592BAD88FB00862A46 /* RecruitmentManager.swift in Sources */,
-				CDC064D52BA32A2B00E24F70 /* Color + Extension.swift in Sources */,
 				CDC064FE2BA4795600E24F70 /* View + Placeholder.swift in Sources */,
 				CDC065032BA4C98100E24F70 /* CreateTeamSection.swift in Sources */,
 				CDC88D382BAEC4CE003E34AA /* AllNightSummaryDTO.swift in Sources */,
@@ -800,26 +718,16 @@
 				CDC88D272BAE9D5C003E34AA /* MyPageService.swift in Sources */,
 				CD6AAE3E2BAD33CE00862A46 /* NetworkResult.swift in Sources */,
 				CD6AAE452BAD5D2100862A46 /* UserInfoDTO.swift in Sources */,
-				012D46212BA3FA2800E05BC7 /* MateIntroduce.swift in Sources */,
 				CDC88D322BAEACB1003E34AA /* FollowListDTO.swift in Sources */,
-				012D462A2BA470A200E05BC7 /* MateRoom.swift in Sources */,
-				0154490F2BADA0C4007AA69D /* CountText.swift in Sources */,
 				CD6AAE3E2BAD33CE00862A46 /* NetworkResult.swift in Sources */,
 				CD6AAE452BAD5D2100862A46 /* UserInfoDTO.swift in Sources */,
-				012D46212BA3FA2800E05BC7 /* MateIntroduce.swift in Sources */,
-				012D462A2BA470A200E05BC7 /* MateRoom.swift in Sources */,
-				012D462E2BA97A4C00E05BC7 /* TimeLineSub.swift in Sources */,
-				CDC064CC2BA3288900E24F70 /* MateMain.swift in Sources */,
 				CDC88D2B2BAEA22E003E34AA /* MyPageManager.swift in Sources */,
-				012D46232BA4019A00E05BC7 /* MateRecommend.swift in Sources */,
-				015449192BADA426007AA69D /* NavBar.swift in Sources */,
+				CD3AA6D02BB6DECF00C589B8 /* NightTimeLineView.swift in Sources */,
 				CD25EBD22BA8A70300A36B3A /* FilterCategory.swift in Sources */,
-				01B243AA2BAEC3CA00E30AE7 /* MateMainPageManager.swift in Sources */,
 				CD25EC322BAC9E0000A36B3A /* SceneDelegate.swift in Sources */,
 				CDC064BA2BA31F8200E24F70 /* ZANIApp.swift in Sources */,
 				CD6AAE402BAD33EC00862A46 /* SignUpDTO.swift in Sources */,
 				CDC064DB2BA37F0700E24F70 /* CreateTeamView.swift in Sources */,
-				012D46252BA40DA300E05BC7 /* MateBestTips.swift in Sources */,
 				CDC064D22BA3289E00E24F70 /* MyPageMain.swift in Sources */,
 				CDC88D252BAE9D49003E34AA /* MyPageRouter.swift in Sources */,
 				CDC88D362BAEC0DB003E34AA /* AllNightersService.swift in Sources */,
@@ -829,13 +737,12 @@
 				CD25EBEC2BAB02C200A36B3A /* ChangeNicknameView.swift in Sources */,
 				CDCB74F52BAF6B93008D6B63 /* ChatDTO.swift in Sources */,
 				CD6AAE572BAD885700862A46 /* TeamListDTO.swift in Sources */,
-				CDCB74EF2BAF6619008D6B63 /* ChattingMain.swift in Sources */,
-				012382D42BAF6C2F0048CC2D /* Mission.swift in Sources */,
+				CDCB74EF2BAF6619008D6B63 /* NightChattingView.swift in Sources */,
 				CDC065002BA4809000E24F70 /* SectionListView.swift in Sources */,
-				015449152BADA210007AA69D /* Gauge.swift in Sources */,
 				CDCB74F32BAF6B25008D6B63 /* ChattingService.swift in Sources */,
 				CD25EC302BAC9CD900A36B3A /* AppDelegate.swift in Sources */,
 				CD25EC342BACA05100A36B3A /* LoginManager.swift in Sources */,
+				CD3AA6D22BB6EA4700C589B8 /* NightMatePageManager.swift in Sources */,
 				CD6AAE3C2BAD338A00862A46 /* GeneralResponse.swift in Sources */,
 				CDCB74F12BAF6A78008D6B63 /* ChattingRouter.swift in Sources */,
 				CDC064D92BA37D9A00E24F70 /* ZaniCapsuleButton.swift in Sources */,
@@ -843,7 +750,6 @@
 				CDC064CE2BA3289200E24F70 /* RecruitmentMain.swift in Sources */,
 				CDC064D02BA3289700E24F70 /* CommunityMain.swift in Sources */,
 				CD25EBE12BA9760700A36B3A /* AuthTextFieldType.swift in Sources */,
-				015449172BADA29E007AA69D /* BottomMessage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

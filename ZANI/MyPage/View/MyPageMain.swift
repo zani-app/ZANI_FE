@@ -165,7 +165,7 @@ extension MyPageMain {
                 .frame(maxWidth: .infinity)
             }
           }
-          .foregroundStyle(.main2)
+          .foregroundStyle(.mainYellow)
           
           Spacer()
         }
@@ -191,7 +191,7 @@ extension MyPageMain {
                 .frame(maxWidth: .infinity)
             }
           }
-          .foregroundStyle(.main2)
+          .foregroundStyle(.mainYellow)
           
           Spacer()
         }
@@ -202,7 +202,7 @@ extension MyPageMain {
       .padding(.bottom, 35)
       .background(
         RoundedRectangle(cornerRadius: 20)
-          .fill(.main7)
+          .fill(.main2)
           .frame(maxWidth: .infinity)
       )
     }

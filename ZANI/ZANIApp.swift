@@ -12,12 +12,12 @@ import KakaoSDKAuth
 @main
 struct ZANIApp: App {
   @StateObject private var authPageManager = AuthPageManager()
+  @StateObject private var nightMatePageManager = NightMatePageManager()
   @StateObject private var recruitmentPageManager = RecruitmentPageManager()
   @StateObject private var recruitmentManager = RecruitmentManager()
   @StateObject private var myPagePageManager = MyPagePageManager()
   @StateObject private var myPageManager = MyPageManager()
   @StateObject private var stompManager = StompClient()
-  @StateObject private var mateMainPageManager = MateMainPageManager()
   @StateObject private var chattingManager = ChattingManager()
   
   @UIApplicationDelegateAdaptor var appDelegate: AppDelegate
@@ -27,22 +27,22 @@ struct ZANIApp: App {
   var body: some Scene {
     WindowGroup {
       ContentView()
+        .environmentObject(nightMatePageManager)
         .environmentObject(recruitmentPageManager)
         .environmentObject(recruitmentManager)
         .environmentObject(myPagePageManager)
         .environmentObject(myPageManager)
         .environmentObject(stompManager)
-        .environmentObject(mateMainPageManager)
         .environmentObject(chattingManager)
-        .fullScreenCover(isPresented: $showAuth) {
-          AuthMainView()
-            .environmentObject(authPageManager)
-        }
-        .onChange(of: authPageManager.isDone) { newValue in
-          if newValue {
-            self.showAuth = false
-          }
-        }
+//        .fullScreenCover(isPresented: $showAuth) {
+//          AuthMainView()
+//            .environmentObject(authPageManager)
+//        }
+//        .onChange(of: authPageManager.isDone) { newValue in
+//          if newValue {
+//            self.showAuth = false
+//          }
+//        }
     }
   }
 }

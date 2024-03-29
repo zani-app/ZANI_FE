@@ -11,10 +11,19 @@ public struct ZaniNavigationBar: View {
   
   public var title: String
   public var leftAction: () -> Void
+  public var rightIcon: Image?
+  public var rightAction: () -> Void
   
-  public init(title: String, leftAction: @escaping () -> Void) {
+  public init(
+    title: String,
+    leftAction: @escaping () -> Void,
+    rightIcon: Image? = nil,
+    rightAction: @escaping () -> Void = { }
+  ) {
     self.title = title
     self.leftAction = leftAction
+    self.rightIcon = rightIcon
+    self.rightAction = rightAction
   }
   
   public var body: some View {
@@ -28,6 +37,15 @@ public struct ZaniNavigationBar: View {
           }
         
         Spacer()
+        
+        if let rightIcon = rightIcon {
+          rightIcon
+            .padding(12)
+            .padding(.trailing, 12)
+            .onTapGesture {
+              rightAction()
+            }
+        }
       }
       
       Text(title)
@@ -41,8 +59,8 @@ public struct ZaniNavigationBar: View {
 
 #Preview {
   VStack {
-    ZaniNavigationBar(title: "test", leftAction: { })
+    ZaniNavigationBar(title: "test", leftAction: { }, rightIcon: Image("matesIcon"))
   }
-  .background(Color.zaniMain1)
+  .background(Color.main1)
 }
 

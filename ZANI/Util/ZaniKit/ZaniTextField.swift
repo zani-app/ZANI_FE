@@ -22,7 +22,7 @@ public struct ZaniTextField: View {
   public init(
     placeholderText: String,
     placeholderTextStyle: ZaniFontType,
-    placeHolderColor: Color = Color.zaniMain6,
+    placeHolderColor: Color = Color(red: 189/255, green: 189/255, blue: 197/255),
     textColor: Color = .white,
     backgroundColor: Color = Color(red: 35/255, green: 35/255, blue: 63/255),
     keyboardType: UIKeyboardType,
@@ -49,7 +49,7 @@ public struct ZaniTextField: View {
           .foregroundStyle(placeHolderColor)
       })
       .zaniFont(placeholderTextStyle)
-      .tint(Color.zaniMain1)
+      .tint(Color.main1)
       .foregroundColor(textColor)
       .lineLimit(lineLimit, reservesSpace: true)
       .autocorrectionDisabled()

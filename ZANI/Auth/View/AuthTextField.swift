@@ -36,7 +36,7 @@ public struct AuthTextField: View {
     VStack(alignment: .leading, spacing: 16) {
       Text(fieldType.title)
         .zaniFont(.title2)
-        .foregroundStyle(.main6)
+        .foregroundStyle(.mainGray)
       
       HStack(spacing: 10) {
         if fieldType == .password || fieldType == .passwordConfirm {
@@ -44,10 +44,10 @@ public struct AuthTextField: View {
             .placeholder(when: inputText.isEmpty, placeholder: {
               Text(" " + fieldType.placeholder)
                 .zaniFont(.body1)
-                .foregroundStyle(.main6)
+                .foregroundStyle(.main4)
             })
-            .tint(Color.zaniMain2)
-            .foregroundColor(focusState.wrappedValue == fieldType ? .white : .main6)
+            .tint(Color.mainYellow)
+            .foregroundColor(focusState.wrappedValue == fieldType ? .white : .main4)
             .autocorrectionDisabled()
             .textInputAutocapitalization(.never)
             .keyboardType(fieldType.keyboardType)
@@ -60,10 +60,10 @@ public struct AuthTextField: View {
           .placeholder(when: inputText.isEmpty, placeholder: {
             Text(" " + fieldType.placeholder)
               .zaniFont(.body1)
-              .foregroundStyle(.main6)
+              .foregroundStyle(.main4)
           })
-          .tint(Color.zaniMain2)
-          .foregroundColor(focusState.wrappedValue == fieldType ? .white : .main6)
+          .tint(Color.mainYellow)
+          .foregroundColor(focusState.wrappedValue == fieldType ? .white : .main4)
           .autocorrectionDisabled()
           .textInputAutocapitalization(.never)
           .keyboardType(fieldType.keyboardType)
@@ -84,8 +84,8 @@ public struct AuthTextField: View {
         RoundedRectangle(cornerRadius: 8.0)
           .stroke(
             focusState.wrappedValue == fieldType ?
-            inputText.isEmpty || isVerified ? .main2 : .errorRed :
-            inputText.isEmpty || isVerified ? .main6 : .errorRed,
+            inputText.isEmpty || isVerified ? .mainYellow : .errorRed :
+            inputText.isEmpty || isVerified ? .main4 : .errorRed,
             lineWidth: 1
           )
           .foregroundStyle(.main1)

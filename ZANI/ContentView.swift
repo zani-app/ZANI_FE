@@ -8,6 +8,7 @@
 import SwiftUI
 
 public struct ContentView: View {
+  @EnvironmentObject private var nightMatePageManager: NightMatePageManager
   @EnvironmentObject private var recruitmentPageManager: RecruitmentPageManager
   @EnvironmentObject private var authPageManager: AuthPageManager
   @EnvironmentObject private var myPagePageManager: MyPagePageManager
@@ -15,7 +16,7 @@ public struct ContentView: View {
   public var body: some View {
     TabView {
       Group {
-        MateMain()
+        NightMateMain()
           .tabItem {
             Label(
               title: { Text("밤샘메이트") },
@@ -72,6 +73,7 @@ public struct ContentView: View {
 
 #Preview {
   ContentView()
+    .environmentObject(NightMatePageManager())
     .environmentObject(RecruitmentPageManager())
     .environmentObject(AuthPageManager())
     .environmentObject(MyPagePageManager())

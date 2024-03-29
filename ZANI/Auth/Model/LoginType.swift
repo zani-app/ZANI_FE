@@ -52,7 +52,7 @@ public enum AuthProvider: CaseIterable {
     case .kakao:
       return Color(red: 255/255, green: 232/255, blue: 18/255)
     case .email:
-      return Color.main6
+      return Color.mainGray
     }
   }
 }

@@ -26,12 +26,12 @@ public struct ZaniMainButton: View {
     }, label: {
       Text(title)
         .zaniFont(.title2)
-        .foregroundStyle(Color.zaniMain1)
+        .foregroundStyle(Color.main1)
         .padding(.vertical, verticalPadding)
         .frame(maxWidth: .infinity)
         .background(
           RoundedRectangle(cornerRadius: 10.0)
-            .fill(isValid ? Color.zaniMain2 : Color.zaniMain6)
+            .fill(isValid ? Color.mainYellow : Color.mainGray)
         )
     })
     .disabled(!isValid)

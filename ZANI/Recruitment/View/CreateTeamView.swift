@@ -23,7 +23,7 @@ public struct CreateTeamView: View {
     }
     .navigationBarBackButtonHidden()
     .background(
-      Color.zaniMain1
+      Color.main1
     )
   }
 }
@@ -115,7 +115,7 @@ extension CreateTeamView {
           .padding(.horizontal, 6)
           .padding(.vertical, 4)
       }
-      .foregroundStyle(Color.zaniMain6)
+      .foregroundStyle(Color.mainGray)
     }
     .zaniFont(.body1)
     .padding(.vertical, 14)
@@ -123,7 +123,7 @@ extension CreateTeamView {
     .padding(.trailing, 14)
     .background(
       RoundedRectangle(cornerRadius: 10.0)
-        .fill(Color(red: 35/255, green: 35/255, blue: 63/255))
+        .fill(Color.main2)
     )
     .onTapGesture {
       recruitmentPageManager.push(.category(section))
@@ -137,12 +137,12 @@ extension CreateTeamView {
         Text("비밀방 여부")
           .foregroundStyle(.white)
       })
-      .tint(Color.zaniMain2)
+      .tint(Color.mainYellow)
       .padding(.horizontal, 14)
       .padding(.vertical, 6)
       .background(
         RoundedRectangle(cornerRadius: 10.0)
-          .fill(Color(red: 35/255, green: 35/255, blue: 63/255))
+          .fill(Color.main2)
       )
       
       if recruitmentManager.isSecretRoom {

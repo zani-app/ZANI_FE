@@ -8,11 +8,11 @@
 import Foundation
 
 public struct TeamListDTO: Codable, Hashable {
-  let teams: [Team]
+  let teams: [RecruitmentTeamData]
   let hasNext: Bool
 }
 
-public struct Team: Codable, Hashable {
+public struct RecruitmentTeamData: Codable, Hashable {
   let id: Int
   let title: String
   let maxNum: Int
