@@ -43,6 +43,6 @@ public struct ZaniNavigationBar: View {
   VStack {
     ZaniNavigationBar(title: "test", leftAction: { })
   }
-  .background(Color.zaniMain1)
+  .background(Color.main1)
 }
 

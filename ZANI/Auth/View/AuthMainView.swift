@@ -68,7 +68,7 @@ extension AuthMainView {
       
       Text("밤샘메이트들과 함께하는\n밤샘 서비스, 자니")
         .zaniFont(.title2)
-        .multilineTextAlignment(.center).foregroundStyle(Color.main6)
+        .multilineTextAlignment(.center).foregroundStyle(Color.mainGray)
     }
     .padding(.top, 201)
   }
@@ -89,7 +89,7 @@ extension AuthMainView {
       
       Text("이메일로 회원가입")
         .zaniFont(.body1)
-        .foregroundStyle(Color.main6)
+        .foregroundStyle(Color.mainGray)
         .padding(.bottom, 87)
         .onTapGesture {
           authPageManager.push(.signUpEmail)

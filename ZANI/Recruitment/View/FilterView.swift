@@ -45,7 +45,7 @@ public struct FilterView: View {
     }
     .navigationBarBackButtonHidden()
     .background(
-      Color.zaniMain1
+      Color.main1
     )
   }
 }
@@ -83,7 +83,7 @@ extension FilterView {
             height: 5
           )
           .offset(x: CGFloat(startTimeBuffer - 2) * (UIScreen.main.bounds.width - 58) / CGFloat(10))
-          .foregroundStyle(.main2)
+          .foregroundStyle(.mainYellow)
           .padding(.horizontal, 9)
         
         Circle()
@@ -91,7 +91,7 @@ extension FilterView {
           .frame(width: 12, height: 12)
           .overlay(
             Circle()
-              .stroke(Color.zaniMain2, lineWidth: 6)
+              .stroke(Color.mainYellow, lineWidth: 6)
               .frame(width: 18, height: 18)
           )
           .offset(x: CGFloat(startTimeBuffer - 2) * ((UIScreen.main.bounds.width - 58) / CGFloat(10)))
@@ -123,7 +123,7 @@ extension FilterView {
           .frame(width: 12, height: 12)
           .overlay(
             Circle()
-              .stroke(Color.zaniMain2, lineWidth: 6)
+              .stroke(Color.mainYellow, lineWidth: 6)
               .frame(width: 18, height: 18)
           )
           .offset(x: CGFloat(endTimeBuffer - 2)/CGFloat(10) * (UIScreen.main.bounds.width - 58))
@@ -222,7 +222,7 @@ extension FilterView {
         .frame(maxWidth: .infinity)
         .background(
           RoundedRectangle(cornerRadius: 10)
-            .fill(Color.zaniMain4)
+            .fill(Color.main4)
         )
       })
       
@@ -246,7 +246,7 @@ extension FilterView {
   private func divider() -> some View {
     Divider()
       .frame(height: 2)
-      .overlay(Color(red: 35/255, green: 35/255, blue: 63/255))
+      .overlay(Color.main2)
   }
 }
 

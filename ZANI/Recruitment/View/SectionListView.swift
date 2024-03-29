@@ -57,7 +57,7 @@ public struct SectionListView: View {
               .opacity(index < section.selectOptions.count - 1 ? 1 : 0)
           }
           .background(
-            Color(red: 35/255, green: 35/255, blue: 63/255)
+            Color.main2
           )
           .onTapGesture {
             switch self.section {
@@ -74,7 +74,7 @@ public struct SectionListView: View {
       .padding(.horizontal, 12)
       .background(
         RoundedRectangle(cornerRadius: 10)
-          .foregroundStyle(Color(red: 35/255, green: 35/255, blue: 63/255))
+          .foregroundStyle(Color.main2)
       )
       .padding(.horizontal, 20)
       .padding(.top, 30)
@@ -84,7 +84,7 @@ public struct SectionListView: View {
     }
     .navigationBarBackButtonHidden()
     .background(
-      Color.zaniMain1
+      Color.main1
     )
   }
 }

@@ -113,16 +113,16 @@ extension RecruitmentMain {
               .renderingMode(.template)
               .padding(.leading, 4)
           }
-          .foregroundStyle(self.isSearching ? Color.zaniMain1 : .white)
+          .foregroundStyle(self.isSearching ? Color.main1 : .white)
           .padding(.vertical, 6)
           .padding(.horizontal, 12)
           .zaniFont(.body2)
           .background(
             Capsule()
-              .fill(self.isSearching ? Color.zaniMain2 : .clear)
+              .fill(self.isSearching ? Color.mainYellow : .clear)
               .overlay(
                 Capsule()
-                  .stroke(self.isSearching ? Color.zaniMain2 : .white)
+                  .stroke(self.isSearching ? Color.mainYellow : .white)
               )
           )
         })
@@ -163,7 +163,7 @@ extension RecruitmentMain {
       ZaniTextField(
         placeholderText: "방 검색하기",
         placeholderTextStyle: .body2,
-        placeHolderColor: Color.zaniMain1,
+        placeHolderColor: Color.main1,
         textColor: .black,
         backgroundColor: Color(red: 1, green: 234/255, blue: 184/255),
         keyboardType: .default,
@@ -246,7 +246,7 @@ extension RecruitmentMain {
         
         Spacer()
       }
-      .foregroundStyle(.main6)
+      .foregroundStyle(.main4)
     }
     .frame(maxWidth: .infinity)
     .padding(.horizontal, 16)
@@ -254,7 +254,7 @@ extension RecruitmentMain {
     .padding(.bottom, 14)
     .background(
       RoundedRectangle(cornerRadius: 20)
-        .fill(Color.main7)
+        .fill(Color.main2)
     )
   }
 }

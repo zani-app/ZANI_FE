@@ -50,13 +50,13 @@ public struct ZaniCapsuleButton: View {
             .padding(.leading, 4)
         }
       }
-      .foregroundStyle(isValid ? Color.zaniMain2 : .white)
+      .foregroundStyle(isValid ? Color.mainYellow : .white)
       .padding(.vertical, 6)
       .padding(.horizontal, horizontalPadding)
       .zaniFont(.body2)
       .background(
         Capsule()
-          .stroke(isValid ? Color.zaniMain2 : .white, lineWidth: 1)
+          .stroke(isValid ? Color.mainYellow : .white, lineWidth: 1)
       )
     })
   }

@@ -9,7 +9,6 @@ import SwiftUI
 
 public struct ChattingMain: View {
   @EnvironmentObject private var stompManager: StompClient
-  @EnvironmentObject private var mateMainPageManager: MateMainPageManager
   @EnvironmentObject private var chattingManager: ChattingManager
   @EnvironmentObject private var stomManager: StompClient
   
@@ -17,7 +16,7 @@ public struct ChattingMain: View {
   
   public var body: some View {
     VStack(spacing: 0) {
-      ZaniNavigationBar(title: "채팅", leftAction: { mateMainPageManager.pop() })
+      ZaniNavigationBar(title: "채팅", leftAction: {  })
       
       ScrollViewReader { proxy in
         ScrollView {
@@ -67,7 +66,7 @@ public struct ChattingMain: View {
             .padding(8)
             .background(
               Circle()
-                .fill(.main2)
+                .fill(.mainYellow)
             )
         })
       }
@@ -114,7 +113,7 @@ extension ChattingMain {
         .padding(.vertical, 8)
         .background(
           RoundedRectangle(cornerRadius: 10)
-            .fill(isMe ? .main2 : .main4)
+            .fill(isMe ? .mainYellow : .main4)
         )
         .padding(
           isMe ? .leading : .trailing,
@@ -142,5 +141,4 @@ extension ChattingMain {
 #Preview {
   ChattingMain()
     .environmentObject(StompClient())
-    .environmentObject(MateMainPageManager())
 }

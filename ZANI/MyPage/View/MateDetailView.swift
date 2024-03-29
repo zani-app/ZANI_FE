@@ -95,7 +95,7 @@ extension MateDetailView {
             .foregroundStyle(.white)
           
           Text("8회")
-            .foregroundStyle(.main2)
+            .foregroundStyle(.mainYellow)
           
           Spacer()
         }
@@ -105,7 +105,7 @@ extension MateDetailView {
             .foregroundStyle(.white)
           
           Text("56:07:07")
-            .foregroundStyle(.main2)
+            .foregroundStyle(.mainYellow)
           
           Spacer()
         }
@@ -116,7 +116,7 @@ extension MateDetailView {
       .padding(.bottom, 35)
       .background(
         RoundedRectangle(cornerRadius: 20)
-          .fill(.main7)
+          .fill(.main2)
           .frame(maxWidth: .infinity)
       )
     }

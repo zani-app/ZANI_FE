@@ -79,7 +79,7 @@ extension TeamDetailView {
         .padding(.horizontal, 16)
         .background(
           Capsule()
-            .fill(.main2)
+            .fill(.mainYellow)
         )
     })
   }
@@ -92,7 +92,7 @@ extension TeamDetailView {
       Text(content)
         .zaniFont(.body2)
     }
-    .foregroundStyle(Color.main6)
+    .foregroundStyle(Color.mainGray)
   }
 }
 

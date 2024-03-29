@@ -25,7 +25,7 @@ public struct MyPageCalendarView: View {
     .padding(.top, 20)
     .background(
       RoundedRectangle(cornerRadius: 20)
-        .fill(Color.main7)
+        .fill(Color.main2)
         .frame(height: 375)
     )
     .frame(height: 375)
@@ -58,7 +58,7 @@ extension MyPageCalendarView {
             }
           }
           .foregroundStyle(
-            myPageManager.checkCalendarValidation() ? .white : .main6
+            myPageManager.checkCalendarValidation() ? .white : .mainGray
           )
       }
       .font(.custom("Pretendard-Bold", size: 18))
