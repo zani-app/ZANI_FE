@@ -8,16 +8,39 @@
 import SwiftUI
 
 public struct NightWaitingView: View {
+  @State private var isShowMateList: Bool = false
+  
   public var body: some View {
-    VStack(spacing: 0) {
-      ZaniNavigationBar(title: "", leftAction: { })
+    ZStack {
+      VStack(spacing: 0) {
+        ZaniNavigationBar(
+          title: "",
+          leftAction: { },
+          rightIcon: Image("matesIcon"),
+          rightAction: { withAnimation { isShowMateList = true } }
+        )
+        
+        Image("backgroundCloud")
+          .offset(x: -39)
+        
+        Spacer()
+        
+        bottomSheet()
+      }
       
-      Image("backgroundCloud")
-        .offset(x: -39)
-      
-      Spacer()
-      
-      bottomSheet()
+      NightMateListView()
+        .clipShape(
+          RoundedRectangle(cornerRadius: 20)
+        )
+        .offset(x: isShowMateList ? 118 : UIScreen.main.bounds.width)
+        .background(
+          Color.black.opacity(isShowMateList ? 0.6 : 0.0)
+        )
+        .onTapGesture {
+          withAnimation {
+            isShowMateList = false
+          }
+        }
     }
     .background(
       VStack(spacing: 0) {
