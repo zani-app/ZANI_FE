@@ -8,7 +8,7 @@
 import SwiftUI
 
 public struct TeamDetailView: View {
-  @Binding var teamInfo: Team?
+  @Binding var teamInfo: RecruitmentTeamData?
   
   public var body: some View {
     ZStack {
@@ -29,7 +29,7 @@ public struct TeamDetailView: View {
 extension TeamDetailView {
   
   @ViewBuilder
-  private func contents(teamInfo: Team) -> some View {
+  private func contents(teamInfo: RecruitmentTeamData) -> some View {
     VStack(spacing: 0) {
       VStack(alignment: .leading, spacing: 0) {
         HStack(spacing: 4) {
@@ -97,5 +97,5 @@ extension TeamDetailView {
 }
 
 #Preview {
-  TeamDetailView(teamInfo: .constant(Team(id: 1, title: "test", maxNum: 1, currentNum: 1, targetTime: 1, isSecret: true, password: "test", category: "Test", description: "test", createdAt: [1])))
+  TeamDetailView(teamInfo: .constant(RecruitmentTeamData(id: 1, title: "test", maxNum: 1, currentNum: 1, targetTime: 1, isSecret: true, password: "test", category: "Test", description: "test", createdAt: [1])))
 }

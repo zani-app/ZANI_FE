@@ -47,6 +47,7 @@
 		CD25EC322BAC9E0000A36B3A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD25EC312BAC9E0000A36B3A /* SceneDelegate.swift */; };
 		CD25EC342BACA05100A36B3A /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD25EC332BACA05100A36B3A /* LoginManager.swift */; };
 		CD3AA6C62BB693C900C589B8 /* MateMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3AA6C52BB693C900C589B8 /* MateMain.swift */; };
+		CD3AA6C82BB6A1E200C589B8 /* RecruitTeamCapsule.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3AA6C72BB6A1E200C589B8 /* RecruitTeamCapsule.swift */; };
 		CD6AAE2D2BAD206000862A46 /* BaseURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6AAE2C2BAD206000862A46 /* BaseURL.swift */; };
 		CD6AAE3C2BAD338A00862A46 /* GeneralResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6AAE3B2BAD338A00862A46 /* GeneralResponse.swift */; };
 		CD6AAE3E2BAD33CE00862A46 /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6AAE3D2BAD33CE00862A46 /* NetworkResult.swift */; };
@@ -130,6 +131,7 @@
 		CD25EC312BAC9E0000A36B3A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		CD25EC332BACA05100A36B3A /* LoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginManager.swift; sourceTree = "<group>"; };
 		CD3AA6C52BB693C900C589B8 /* MateMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MateMain.swift; sourceTree = "<group>"; };
+		CD3AA6C72BB6A1E200C589B8 /* RecruitTeamCapsule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecruitTeamCapsule.swift; sourceTree = "<group>"; };
 		CD6AAE2C2BAD206000862A46 /* BaseURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseURL.swift; sourceTree = "<group>"; };
 		CD6AAE3B2BAD338A00862A46 /* GeneralResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralResponse.swift; sourceTree = "<group>"; };
 		CD6AAE3D2BAD33CE00862A46 /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
@@ -503,6 +505,7 @@
 				CDC064FF2BA4809000E24F70 /* SectionListView.swift */,
 				CDC065162BA4CB2A00E24F70 /* FilterView.swift */,
 				CD6AAE5E2BADC93700862A46 /* TeamDetailView.swift */,
+				CD3AA6C72BB6A1E200C589B8 /* RecruitTeamCapsule.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -687,6 +690,7 @@
 				CD6AAE522BAD865C00862A46 /* TeamRouter.swift in Sources */,
 				CDC064DD2BA387E900E24F70 /* ZaniTextField.swift in Sources */,
 				CD25EBDD2BA96D0900A36B3A /* AuthPageManager.swift in Sources */,
+				CD3AA6C82BB6A1E200C589B8 /* RecruitTeamCapsule.swift in Sources */,
 				CDC88D342BAEC0D4003E34AA /* AllNightersRouter.swift in Sources */,
 				CD6AAE592BAD88FB00862A46 /* RecruitmentManager.swift in Sources */,
 				CDC064FE2BA4795600E24F70 /* View + Placeholder.swift in Sources */,

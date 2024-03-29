@@ -19,7 +19,7 @@ final class RecruitmentManager: ObservableObject {
   @Published var page: Int = 0
   @Published var size: Int = 10
   
-  @Published var teamList: [Team]? = nil
+  @Published var teamList: [RecruitmentTeamData]? = nil
   
   /// for create Room
   @Published var teamName: String = ""
@@ -49,7 +49,7 @@ final class RecruitmentManager: ObservableObject {
     TeamService.shared.requestCreateTeam(title: teamName, maxNum: maxNum!, targetTime: targetTime!, password: password, category: teamCategory, description: teamDescription, secret: isSecretRoom) { response in
       switch(response) {
       case .success(let data):
-        if let data = data as? Team {
+        if let data = data as? RecruitmentTeamData {
           print("success")
         }
         
