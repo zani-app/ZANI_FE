@@ -8,15 +8,17 @@
 import SwiftUI
 
 public struct NightTimeLineView: View {
+  @EnvironmentObject private var nightMatePageManager: NightMatePageManager
+  
   @State private var selectedMission: String? = nil
   @State private var isShowMission: Bool = false
   
   public var body: some View {
     VStack(spacing: 0) {
-      ZaniNavigationBar(title: "타임라인", leftAction: { })
+      ZaniNavigationBar(title: "타임라인", leftAction: { nightMatePageManager.pop() })
       
       ScrollView {
-        VStack(spacing: 39) {
+        LazyVStack(spacing: 39) {
           missionContent()
           missionContent()
           missionContent()
@@ -36,6 +38,7 @@ public struct NightTimeLineView: View {
     .background(
       Color.main1
     )
+    .navigationBarBackButtonHidden()
   }
 }
 
@@ -124,4 +127,5 @@ extension NightTimeLineView {
 
 #Preview {
   NightTimeLineView()
+    .environmentObject(NightMatePageManager())
 }

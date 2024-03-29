@@ -8,23 +8,53 @@
 import SwiftUI
 
 public struct NightMateMain: View {
+  @EnvironmentObject private var nightMatePageManager: NightMatePageManager
+  
   public var body: some View {
-    ScrollView {
-      LazyVStack(alignment: .leading, spacing: 0) {
-        enterTeamButton()
-        
-        teamRecommendSection()
-        
-        hotBoardList()
+    NavigationStack(path: $nightMatePageManager.route) {
+      ScrollView {
+        LazyVStack(alignment: .leading, spacing: 0) {
+          enterTeamButton()
+          
+          teamRecommendSection()
+          
+          hotBoardList()
+        }
+      } 
+      .navigationDestination(for: NightMatePageState.self) { pageState in
+        nightMatePageDestination(pageState)
       }
+      .background(
+        Color.main1
+      )
     }
-    .background(
-      Color.main1
-    )
   }
 }
 
 extension NightMateMain {
+  
+  @ViewBuilder
+  private func nightMatePageDestination(_ type: NightMatePageState) -> some View {
+    switch type {
+    case .main:
+      NightMateMain()
+      
+    case .waitingRoom:
+      NightWaitingView()
+        .toolbar(.hidden, for: .tabBar)
+      
+    case .chatting:
+      NightChattingView()
+        .toolbar(.hidden, for: .tabBar)
+      
+    case .timeline:
+      NightTimeLineView()
+        .toolbar(.hidden, for: .tabBar)
+      
+    default:
+      NightMateMain()
+    }
+  }
   
   @ViewBuilder
   private func enterTeamButton() -> some View {
@@ -42,7 +72,7 @@ extension NightMateMain {
         Spacer()
         
         Button(action: {
-          
+          nightMatePageManager.push(.waitingRoom)
         }, label: {
           Text("밤샘 참여하기")
             .zaniFont(.body2)
@@ -146,4 +176,5 @@ extension NightMateMain {
 
 #Preview {
   NightMateMain()
+    .environmentObject(NightMatePageManager())
 }

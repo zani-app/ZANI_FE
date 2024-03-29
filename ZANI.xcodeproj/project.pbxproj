@@ -46,12 +46,13 @@
 		CD25EC302BAC9CD900A36B3A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD25EC2F2BAC9CD900A36B3A /* AppDelegate.swift */; };
 		CD25EC322BAC9E0000A36B3A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD25EC312BAC9E0000A36B3A /* SceneDelegate.swift */; };
 		CD25EC342BACA05100A36B3A /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD25EC332BACA05100A36B3A /* LoginManager.swift */; };
-		CD3AA6C62BB693C900C589B8 /* MateMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3AA6C52BB693C900C589B8 /* MateMain.swift */; };
+		CD3AA6C62BB693C900C589B8 /* NightMateMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3AA6C52BB693C900C589B8 /* NightMateMain.swift */; };
 		CD3AA6C82BB6A1E200C589B8 /* RecruitTeamCapsule.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3AA6C72BB6A1E200C589B8 /* RecruitTeamCapsule.swift */; };
 		CD3AA6CA2BB6A88B00C589B8 /* NightWaitingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3AA6C92BB6A88B00C589B8 /* NightWaitingView.swift */; };
 		CD3AA6CC2BB6B06300C589B8 /* NightDisplayType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3AA6CB2BB6B06300C589B8 /* NightDisplayType.swift */; };
 		CD3AA6CE2BB6B76C00C589B8 /* NightMateListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3AA6CD2BB6B76C00C589B8 /* NightMateListView.swift */; };
 		CD3AA6D02BB6DECF00C589B8 /* NightTimeLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3AA6CF2BB6DECF00C589B8 /* NightTimeLineView.swift */; };
+		CD3AA6D22BB6EA4700C589B8 /* NightMatePageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3AA6D12BB6EA4700C589B8 /* NightMatePageManager.swift */; };
 		CD6AAE2D2BAD206000862A46 /* BaseURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6AAE2C2BAD206000862A46 /* BaseURL.swift */; };
 		CD6AAE3C2BAD338A00862A46 /* GeneralResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6AAE3B2BAD338A00862A46 /* GeneralResponse.swift */; };
 		CD6AAE3E2BAD33CE00862A46 /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6AAE3D2BAD33CE00862A46 /* NetworkResult.swift */; };
@@ -97,7 +98,7 @@
 		CDC88D382BAEC4CE003E34AA /* AllNightSummaryDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC88D372BAEC4CE003E34AA /* AllNightSummaryDTO.swift */; };
 		CDCB74EA2BAF512D008D6B63 /* StompClientManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCB74E92BAF512D008D6B63 /* StompClientManager.swift */; };
 		CDCB74ED2BAF516B008D6B63 /* Starscream in Frameworks */ = {isa = PBXBuildFile; productRef = CDCB74EC2BAF516B008D6B63 /* Starscream */; };
-		CDCB74EF2BAF6619008D6B63 /* ChattingMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCB74EE2BAF6619008D6B63 /* ChattingMain.swift */; };
+		CDCB74EF2BAF6619008D6B63 /* NightChattingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCB74EE2BAF6619008D6B63 /* NightChattingView.swift */; };
 		CDCB74F12BAF6A78008D6B63 /* ChattingRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCB74F02BAF6A78008D6B63 /* ChattingRouter.swift */; };
 		CDCB74F32BAF6B25008D6B63 /* ChattingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCB74F22BAF6B25008D6B63 /* ChattingService.swift */; };
 		CDCB74F52BAF6B93008D6B63 /* ChatDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCB74F42BAF6B93008D6B63 /* ChatDTO.swift */; };
@@ -134,12 +135,13 @@
 		CD25EC2F2BAC9CD900A36B3A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CD25EC312BAC9E0000A36B3A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		CD25EC332BACA05100A36B3A /* LoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginManager.swift; sourceTree = "<group>"; };
-		CD3AA6C52BB693C900C589B8 /* MateMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MateMain.swift; sourceTree = "<group>"; };
+		CD3AA6C52BB693C900C589B8 /* NightMateMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NightMateMain.swift; sourceTree = "<group>"; };
 		CD3AA6C72BB6A1E200C589B8 /* RecruitTeamCapsule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecruitTeamCapsule.swift; sourceTree = "<group>"; };
 		CD3AA6C92BB6A88B00C589B8 /* NightWaitingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NightWaitingView.swift; sourceTree = "<group>"; };
 		CD3AA6CB2BB6B06300C589B8 /* NightDisplayType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NightDisplayType.swift; sourceTree = "<group>"; };
 		CD3AA6CD2BB6B76C00C589B8 /* NightMateListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NightMateListView.swift; sourceTree = "<group>"; };
 		CD3AA6CF2BB6DECF00C589B8 /* NightTimeLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NightTimeLineView.swift; sourceTree = "<group>"; };
+		CD3AA6D12BB6EA4700C589B8 /* NightMatePageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NightMatePageManager.swift; sourceTree = "<group>"; };
 		CD6AAE2C2BAD206000862A46 /* BaseURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseURL.swift; sourceTree = "<group>"; };
 		CD6AAE3B2BAD338A00862A46 /* GeneralResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralResponse.swift; sourceTree = "<group>"; };
 		CD6AAE3D2BAD33CE00862A46 /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
@@ -186,7 +188,7 @@
 		CDC88D352BAEC0DB003E34AA /* AllNightersService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllNightersService.swift; sourceTree = "<group>"; };
 		CDC88D372BAEC4CE003E34AA /* AllNightSummaryDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllNightSummaryDTO.swift; sourceTree = "<group>"; };
 		CDCB74E92BAF512D008D6B63 /* StompClientManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StompClientManager.swift; sourceTree = "<group>"; };
-		CDCB74EE2BAF6619008D6B63 /* ChattingMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingMain.swift; sourceTree = "<group>"; };
+		CDCB74EE2BAF6619008D6B63 /* NightChattingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NightChattingView.swift; sourceTree = "<group>"; };
 		CDCB74F02BAF6A78008D6B63 /* ChattingRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingRouter.swift; sourceTree = "<group>"; };
 		CDCB74F22BAF6B25008D6B63 /* ChattingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingService.swift; sourceTree = "<group>"; };
 		CDCB74F42BAF6B93008D6B63 /* ChatDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatDTO.swift; sourceTree = "<group>"; };
@@ -322,7 +324,8 @@
 		CD3AA6C12BB6931800C589B8 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				CD3AA6C52BB693C900C589B8 /* MateMain.swift */,
+				CDCB74EE2BAF6619008D6B63 /* NightChattingView.swift */,
+				CD3AA6C52BB693C900C589B8 /* NightMateMain.swift */,
 				CD3AA6C92BB6A88B00C589B8 /* NightWaitingView.swift */,
 				CD3AA6CD2BB6B76C00C589B8 /* NightMateListView.swift */,
 				CD3AA6CF2BB6DECF00C589B8 /* NightTimeLineView.swift */,
@@ -342,6 +345,7 @@
 			isa = PBXGroup;
 			children = (
 				CDCB74F62BAF6F81008D6B63 /* ChattingManager.swift */,
+				CD3AA6D12BB6EA4700C589B8 /* NightMatePageManager.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -475,7 +479,6 @@
 				CD3AA6C32BB6932400C589B8 /* ViewModel */,
 				CD3AA6C22BB6932000C589B8 /* Model */,
 				CD3AA6C12BB6931800C589B8 /* View */,
-				CDCB74EE2BAF6619008D6B63 /* ChattingMain.swift */,
 			);
 			path = Mate;
 			sourceTree = "<group>";
@@ -692,7 +695,7 @@
 				CD25EBDB2BA959FC00A36B3A /* AuthTextField.swift in Sources */,
 				CDC065172BA4CB2A00E24F70 /* FilterView.swift in Sources */,
 				CD6AAE542BAD866400862A46 /* TeamService.swift in Sources */,
-				CD3AA6C62BB693C900C589B8 /* MateMain.swift in Sources */,
+				CD3AA6C62BB693C900C589B8 /* NightMateMain.swift in Sources */,
 				CDC064DF2BA3892D00E24F70 /* ZaniMainButton.swift in Sources */,
 				CD25EBF42BAB166100A36B3A /* MoonLevel.swift in Sources */,
 				CD6AAE4B2BAD74DD00862A46 /* AuthService.swift in Sources */,
@@ -734,11 +737,12 @@
 				CD25EBEC2BAB02C200A36B3A /* ChangeNicknameView.swift in Sources */,
 				CDCB74F52BAF6B93008D6B63 /* ChatDTO.swift in Sources */,
 				CD6AAE572BAD885700862A46 /* TeamListDTO.swift in Sources */,
-				CDCB74EF2BAF6619008D6B63 /* ChattingMain.swift in Sources */,
+				CDCB74EF2BAF6619008D6B63 /* NightChattingView.swift in Sources */,
 				CDC065002BA4809000E24F70 /* SectionListView.swift in Sources */,
 				CDCB74F32BAF6B25008D6B63 /* ChattingService.swift in Sources */,
 				CD25EC302BAC9CD900A36B3A /* AppDelegate.swift in Sources */,
 				CD25EC342BACA05100A36B3A /* LoginManager.swift in Sources */,
+				CD3AA6D22BB6EA4700C589B8 /* NightMatePageManager.swift in Sources */,
 				CD6AAE3C2BAD338A00862A46 /* GeneralResponse.swift in Sources */,
 				CDCB74F12BAF6A78008D6B63 /* ChattingRouter.swift in Sources */,
 				CDC064D92BA37D9A00E24F70 /* ZaniCapsuleButton.swift in Sources */,

@@ -8,6 +8,7 @@
 import SwiftUI
 
 public struct NightMateListView: View {
+  
   public var body: some View {
     VStack(alignment: .leading, spacing: 0) {
       Text("밤샘메이트")
@@ -16,7 +17,7 @@ public struct NightMateListView: View {
         .padding(.bottom, 20)
       
       ScrollView {
-        VStack(spacing: 28) {
+        LazyVStack(spacing: 28) {
           mateInfo()
           mateInfo()
           mateInfo()

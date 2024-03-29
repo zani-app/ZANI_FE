@@ -8,6 +8,8 @@
 import SwiftUI
 
 public struct NightWaitingView: View {
+  @EnvironmentObject private var nightMatePageManager: NightMatePageManager
+  
   @State private var isShowMateList: Bool = false
   
   public var body: some View {
@@ -15,7 +17,7 @@ public struct NightWaitingView: View {
       VStack(spacing: 0) {
         ZaniNavigationBar(
           title: "",
-          leftAction: { },
+          leftAction: { nightMatePageManager.pop() },
           rightIcon: Image("matesIcon"),
           rightAction: { withAnimation { isShowMateList = true } }
         )
@@ -42,6 +44,7 @@ public struct NightWaitingView: View {
           }
         }
     }
+    .navigationBarBackButtonHidden()
     .background(
       VStack(spacing: 0) {
         LinearGradient(
@@ -76,12 +79,12 @@ extension NightWaitingView {
       HStack(spacing: 17) {
         typeButton(type: .chatting)
           .onTapGesture {
-            
+            nightMatePageManager.push(.chatting)
           }
         
         typeButton(type: .timeline)
           .onTapGesture {
-            
+            nightMatePageManager.push(.timeline)
           }
       }
       .padding(.bottom, 22)
@@ -227,4 +230,5 @@ extension NightWaitingView {
 
 #Preview {
   NightWaitingView()
+    .environmentObject(NightMatePageManager())
 }

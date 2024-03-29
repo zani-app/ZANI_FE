@@ -12,6 +12,7 @@ import KakaoSDKAuth
 @main
 struct ZANIApp: App {
   @StateObject private var authPageManager = AuthPageManager()
+  @StateObject private var nightMatePageManager = NightMatePageManager()
   @StateObject private var recruitmentPageManager = RecruitmentPageManager()
   @StateObject private var recruitmentManager = RecruitmentManager()
   @StateObject private var myPagePageManager = MyPagePageManager()
@@ -26,6 +27,7 @@ struct ZANIApp: App {
   var body: some Scene {
     WindowGroup {
       ContentView()
+        .environmentObject(nightMatePageManager)
         .environmentObject(recruitmentPageManager)
         .environmentObject(recruitmentManager)
         .environmentObject(myPagePageManager)

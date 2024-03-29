@@ -7,16 +7,16 @@
 
 import SwiftUI
 
-public struct ChattingMain: View {
-  @EnvironmentObject private var stompManager: StompClient
+public struct NightChattingView: View {
+  @EnvironmentObject private var nightMatePageManager: NightMatePageManager
   @EnvironmentObject private var chattingManager: ChattingManager
-  @EnvironmentObject private var stomManager: StompClient
+  @EnvironmentObject private var stompManager: StompClient
   
   @State private var text: String = ""
   
   public var body: some View {
     VStack(spacing: 0) {
-      ZaniNavigationBar(title: "채팅", leftAction: {  })
+      ZaniNavigationBar(title: "채팅", leftAction: { nightMatePageManager.pop() })
       
       ScrollViewReader { proxy in
         ScrollView {
@@ -85,7 +85,7 @@ public struct ChattingMain: View {
   }
 }
 
-extension ChattingMain {
+extension NightChattingView {
   
   @ViewBuilder
   private func chatMessage(url: String, isMe: Bool, message: String) -> some View {
@@ -139,6 +139,7 @@ extension ChattingMain {
 }
 
 #Preview {
-  ChattingMain()
+  NightChattingView()
+    .environmentObject(NightMatePageManager())
     .environmentObject(StompClient())
 }

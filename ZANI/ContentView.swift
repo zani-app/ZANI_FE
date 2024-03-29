@@ -8,6 +8,7 @@
 import SwiftUI
 
 public struct ContentView: View {
+  @EnvironmentObject private var nightMatePageManager: NightMatePageManager
   @EnvironmentObject private var recruitmentPageManager: RecruitmentPageManager
   @EnvironmentObject private var authPageManager: AuthPageManager
   @EnvironmentObject private var myPagePageManager: MyPagePageManager
@@ -72,6 +73,7 @@ public struct ContentView: View {
 
 #Preview {
   ContentView()
+    .environmentObject(NightMatePageManager())
     .environmentObject(RecruitmentPageManager())
     .environmentObject(AuthPageManager())
     .environmentObject(MyPagePageManager())
