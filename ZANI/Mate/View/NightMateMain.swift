@@ -140,36 +140,19 @@ extension NightMateMain {
         .padding(.bottom, 16)
       
       divider()
-      
-      VStack(alignment: .leading, spacing: 8) {
-        HStack(spacing: 0) {
-          VStack(alignment: .leading, spacing: 16) {
-            Text("게시글 제목")
-              .zaniFont(.title2)
-            
-            Text("게시글 컨텐츠")
-              .zaniFont(.body2)
-          }
-          .foregroundStyle(.white)
-          
-          Spacer()
-          
-          RoundedRectangle(cornerRadius: 10)
-            .frame(width: 64, height: 64)
-            .foregroundStyle(.black)
-        }
-        
-        Text("50")
-          .foregroundStyle(Color.mainGray)
-      }
-      .padding(20)
+      CommunityBoardBox()
+      divider()
+      CommunityBoardBox()
+      divider()
+      CommunityBoardBox()
+      divider()
     }
   }
   
   @ViewBuilder
   private func divider() -> some View {
     Divider()
-      .frame(height: 2)
+      .frame(height: 1)
       .overlay(Color.main4)
   }
 }
