@@ -54,6 +54,7 @@
 		CD3AA6D02BB6DECF00C589B8 /* NightTimeLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3AA6CF2BB6DECF00C589B8 /* NightTimeLineView.swift */; };
 		CD3AA6D22BB6EA4700C589B8 /* NightMatePageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3AA6D12BB6EA4700C589B8 /* NightMatePageManager.swift */; };
 		CD3AA6D42BB70CBB00C589B8 /* NavigationGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3AA6D32BB70CBB00C589B8 /* NavigationGesture.swift */; };
+		CD3AA6D92BB8855800C589B8 /* CommunityBoardBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3AA6D82BB8855800C589B8 /* CommunityBoardBox.swift */; };
 		CD6AAE2D2BAD206000862A46 /* BaseURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6AAE2C2BAD206000862A46 /* BaseURL.swift */; };
 		CD6AAE3C2BAD338A00862A46 /* GeneralResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6AAE3B2BAD338A00862A46 /* GeneralResponse.swift */; };
 		CD6AAE3E2BAD33CE00862A46 /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6AAE3D2BAD33CE00862A46 /* NetworkResult.swift */; };
@@ -144,6 +145,7 @@
 		CD3AA6CF2BB6DECF00C589B8 /* NightTimeLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NightTimeLineView.swift; sourceTree = "<group>"; };
 		CD3AA6D12BB6EA4700C589B8 /* NightMatePageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NightMatePageManager.swift; sourceTree = "<group>"; };
 		CD3AA6D32BB70CBB00C589B8 /* NavigationGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationGesture.swift; sourceTree = "<group>"; };
+		CD3AA6D82BB8855800C589B8 /* CommunityBoardBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityBoardBox.swift; sourceTree = "<group>"; };
 		CD6AAE2C2BAD206000862A46 /* BaseURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseURL.swift; sourceTree = "<group>"; };
 		CD6AAE3B2BAD338A00862A46 /* GeneralResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralResponse.swift; sourceTree = "<group>"; };
 		CD6AAE3D2BAD33CE00862A46 /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
@@ -359,6 +361,29 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
+		CD3AA6D52BB8811F00C589B8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CDC064CF2BA3289700E24F70 /* CommunityMain.swift */,
+				CD3AA6D82BB8855800C589B8 /* CommunityBoardBox.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CD3AA6D62BB8812400C589B8 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		CD3AA6D72BB8812900C589B8 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		CD6AAE382BAD335700862A46 /* Service */ = {
 			isa = PBXGroup;
 			children = (
@@ -457,7 +482,9 @@
 		CDC064C82BA3281A00E24F70 /* Community */ = {
 			isa = PBXGroup;
 			children = (
-				CDC064CF2BA3289700E24F70 /* CommunityMain.swift */,
+				CD3AA6D72BB8812900C589B8 /* Service */,
+				CD3AA6D62BB8812400C589B8 /* ViewModel */,
+				CD3AA6D52BB8811F00C589B8 /* View */,
 			);
 			path = Community;
 			sourceTree = "<group>";
@@ -707,6 +734,7 @@
 				CDC88D2F2BAEAADF003E34AA /* FollowingService.swift in Sources */,
 				CDCB74EA2BAF512D008D6B63 /* StompClientManager.swift in Sources */,
 				CD3AA6CE2BB6B76C00C589B8 /* NightMateListView.swift in Sources */,
+				CD3AA6D92BB8855800C589B8 /* CommunityBoardBox.swift in Sources */,
 				CD6AAE4D2BAD7A2100862A46 /* BaseService.swift in Sources */,
 				CD6AAE522BAD865C00862A46 /* TeamRouter.swift in Sources */,
 				CDC064DD2BA387E900E24F70 /* ZaniTextField.swift in Sources */,
