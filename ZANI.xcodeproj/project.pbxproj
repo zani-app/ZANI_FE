@@ -55,6 +55,7 @@
 		CD3AA6D22BB6EA4700C589B8 /* NightMatePageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3AA6D12BB6EA4700C589B8 /* NightMatePageManager.swift */; };
 		CD3AA6D42BB70CBB00C589B8 /* NavigationGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3AA6D32BB70CBB00C589B8 /* NavigationGesture.swift */; };
 		CD3AA6D92BB8855800C589B8 /* CommunityBoardBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3AA6D82BB8855800C589B8 /* CommunityBoardBox.swift */; };
+		CD3AA6DB2BB8861900C589B8 /* CommunityWritingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3AA6DA2BB8861900C589B8 /* CommunityWritingView.swift */; };
 		CD6AAE2D2BAD206000862A46 /* BaseURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6AAE2C2BAD206000862A46 /* BaseURL.swift */; };
 		CD6AAE3C2BAD338A00862A46 /* GeneralResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6AAE3B2BAD338A00862A46 /* GeneralResponse.swift */; };
 		CD6AAE3E2BAD33CE00862A46 /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6AAE3D2BAD33CE00862A46 /* NetworkResult.swift */; };
@@ -146,6 +147,7 @@
 		CD3AA6D12BB6EA4700C589B8 /* NightMatePageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NightMatePageManager.swift; sourceTree = "<group>"; };
 		CD3AA6D32BB70CBB00C589B8 /* NavigationGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationGesture.swift; sourceTree = "<group>"; };
 		CD3AA6D82BB8855800C589B8 /* CommunityBoardBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityBoardBox.swift; sourceTree = "<group>"; };
+		CD3AA6DA2BB8861900C589B8 /* CommunityWritingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityWritingView.swift; sourceTree = "<group>"; };
 		CD6AAE2C2BAD206000862A46 /* BaseURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseURL.swift; sourceTree = "<group>"; };
 		CD6AAE3B2BAD338A00862A46 /* GeneralResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralResponse.swift; sourceTree = "<group>"; };
 		CD6AAE3D2BAD33CE00862A46 /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
@@ -366,6 +368,7 @@
 			children = (
 				CDC064CF2BA3289700E24F70 /* CommunityMain.swift */,
 				CD3AA6D82BB8855800C589B8 /* CommunityBoardBox.swift */,
+				CD3AA6DA2BB8861900C589B8 /* CommunityWritingView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -717,6 +720,7 @@
 				CDC064BC2BA31F8200E24F70 /* ContentView.swift in Sources */,
 				CD25EBD92BA958E600A36B3A /* LoginType.swift in Sources */,
 				CDC064E62BA38F9B00E24F70 /* RecruitmentPageManager.swift in Sources */,
+				CD3AA6DB2BB8861900C589B8 /* CommunityWritingView.swift in Sources */,
 				CD6AAE2D2BAD206000862A46 /* BaseURL.swift in Sources */,
 				CD25EBD52BA951B500A36B3A /* AuthMainView.swift in Sources */,
 				CDC064E12BA38B1900E24F70 /* ZaniNavigationBar.swift in Sources */,
