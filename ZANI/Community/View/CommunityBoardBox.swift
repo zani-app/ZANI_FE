@@ -29,7 +29,7 @@ public struct CommunityBoardBox: View {
       }
       
       HStack(spacing: 4) {
-        Image("boardHeartIcon")
+        Image("heartIcon")
         
         Text("50")
           .zaniFont(.body2)

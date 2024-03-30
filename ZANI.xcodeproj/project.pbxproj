@@ -56,6 +56,7 @@
 		CD3AA6D42BB70CBB00C589B8 /* NavigationGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3AA6D32BB70CBB00C589B8 /* NavigationGesture.swift */; };
 		CD3AA6D92BB8855800C589B8 /* CommunityBoardBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3AA6D82BB8855800C589B8 /* CommunityBoardBox.swift */; };
 		CD3AA6DB2BB8861900C589B8 /* CommunityWritingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3AA6DA2BB8861900C589B8 /* CommunityWritingView.swift */; };
+		CD3AA6DD2BB88A1400C589B8 /* CommunityDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3AA6DC2BB88A1400C589B8 /* CommunityDetailView.swift */; };
 		CD6AAE2D2BAD206000862A46 /* BaseURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6AAE2C2BAD206000862A46 /* BaseURL.swift */; };
 		CD6AAE3C2BAD338A00862A46 /* GeneralResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6AAE3B2BAD338A00862A46 /* GeneralResponse.swift */; };
 		CD6AAE3E2BAD33CE00862A46 /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6AAE3D2BAD33CE00862A46 /* NetworkResult.swift */; };
@@ -148,6 +149,7 @@
 		CD3AA6D32BB70CBB00C589B8 /* NavigationGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationGesture.swift; sourceTree = "<group>"; };
 		CD3AA6D82BB8855800C589B8 /* CommunityBoardBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityBoardBox.swift; sourceTree = "<group>"; };
 		CD3AA6DA2BB8861900C589B8 /* CommunityWritingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityWritingView.swift; sourceTree = "<group>"; };
+		CD3AA6DC2BB88A1400C589B8 /* CommunityDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityDetailView.swift; sourceTree = "<group>"; };
 		CD6AAE2C2BAD206000862A46 /* BaseURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseURL.swift; sourceTree = "<group>"; };
 		CD6AAE3B2BAD338A00862A46 /* GeneralResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralResponse.swift; sourceTree = "<group>"; };
 		CD6AAE3D2BAD33CE00862A46 /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
@@ -369,6 +371,7 @@
 				CDC064CF2BA3289700E24F70 /* CommunityMain.swift */,
 				CD3AA6D82BB8855800C589B8 /* CommunityBoardBox.swift */,
 				CD3AA6DA2BB8861900C589B8 /* CommunityWritingView.swift */,
+				CD3AA6DC2BB88A1400C589B8 /* CommunityDetailView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -730,6 +733,7 @@
 				CDC065172BA4CB2A00E24F70 /* FilterView.swift in Sources */,
 				CD6AAE542BAD866400862A46 /* TeamService.swift in Sources */,
 				CD3AA6C62BB693C900C589B8 /* NightMateMain.swift in Sources */,
+				CD3AA6DD2BB88A1400C589B8 /* CommunityDetailView.swift in Sources */,
 				CDC064DF2BA3892D00E24F70 /* ZaniMainButton.swift in Sources */,
 				CD25EBF42BAB166100A36B3A /* MoonLevel.swift in Sources */,
 				CD6AAE4B2BAD74DD00862A46 /* AuthService.swift in Sources */,
