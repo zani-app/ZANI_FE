@@ -57,6 +57,7 @@
 		CD3AA6D92BB8855800C589B8 /* CommunityBoardBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3AA6D82BB8855800C589B8 /* CommunityBoardBox.swift */; };
 		CD3AA6DB2BB8861900C589B8 /* CommunityWritingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3AA6DA2BB8861900C589B8 /* CommunityWritingView.swift */; };
 		CD3AA6DD2BB88A1400C589B8 /* CommunityDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3AA6DC2BB88A1400C589B8 /* CommunityDetailView.swift */; };
+		CD3AA6DF2BB8901A00C589B8 /* CommunityPageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3AA6DE2BB8901A00C589B8 /* CommunityPageManager.swift */; };
 		CD6AAE2D2BAD206000862A46 /* BaseURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6AAE2C2BAD206000862A46 /* BaseURL.swift */; };
 		CD6AAE3C2BAD338A00862A46 /* GeneralResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6AAE3B2BAD338A00862A46 /* GeneralResponse.swift */; };
 		CD6AAE3E2BAD33CE00862A46 /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6AAE3D2BAD33CE00862A46 /* NetworkResult.swift */; };
@@ -150,6 +151,7 @@
 		CD3AA6D82BB8855800C589B8 /* CommunityBoardBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityBoardBox.swift; sourceTree = "<group>"; };
 		CD3AA6DA2BB8861900C589B8 /* CommunityWritingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityWritingView.swift; sourceTree = "<group>"; };
 		CD3AA6DC2BB88A1400C589B8 /* CommunityDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityDetailView.swift; sourceTree = "<group>"; };
+		CD3AA6DE2BB8901A00C589B8 /* CommunityPageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityPageManager.swift; sourceTree = "<group>"; };
 		CD6AAE2C2BAD206000862A46 /* BaseURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseURL.swift; sourceTree = "<group>"; };
 		CD6AAE3B2BAD338A00862A46 /* GeneralResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralResponse.swift; sourceTree = "<group>"; };
 		CD6AAE3D2BAD33CE00862A46 /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
@@ -379,6 +381,7 @@
 		CD3AA6D62BB8812400C589B8 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				CD3AA6DE2BB8901A00C589B8 /* CommunityPageManager.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -752,6 +755,7 @@
 				CDC88D342BAEC0D4003E34AA /* AllNightersRouter.swift in Sources */,
 				CD6AAE592BAD88FB00862A46 /* RecruitmentManager.swift in Sources */,
 				CDC064FE2BA4795600E24F70 /* View + Placeholder.swift in Sources */,
+				CD3AA6DF2BB8901A00C589B8 /* CommunityPageManager.swift in Sources */,
 				CDC065032BA4C98100E24F70 /* CreateTeamSection.swift in Sources */,
 				CDC88D382BAEC4CE003E34AA /* AllNightSummaryDTO.swift in Sources */,
 				CDCB74F72BAF6F81008D6B63 /* ChattingManager.swift in Sources */,

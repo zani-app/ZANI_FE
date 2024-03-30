@@ -39,6 +39,9 @@ public struct CommunityBoardBox: View {
       .foregroundStyle(.mainGray)
     }
     .padding(20)
+    .background(
+      Color.main1
+    )
   }
 }
 

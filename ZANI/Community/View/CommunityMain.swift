@@ -8,37 +8,72 @@
 import SwiftUI
 
 public struct CommunityMain: View {
+  @EnvironmentObject private var communityPageManager: CommunityPageManager
+  
   public var body: some View {
-    ZStack {
-      ScrollView {
-        LazyVStack(spacing: 0) {
-          title()
-          
-          VStack(spacing: 0) {
-            divider()
-            CommunityBoardBox()
-            divider()
-            CommunityBoardBox()
-            divider()
-            CommunityBoardBox()
-            divider()
-            CommunityBoardBox()
-            divider()
+    NavigationStack(path: $communityPageManager.route) {
+      ZStack {
+        ScrollView {
+          LazyVStack(spacing: 0) {
+            title()
+            
+            VStack(spacing: 0) {
+              divider()
+              CommunityBoardBox()
+                .onTapGesture {
+                  communityPageManager.push(.detail)
+                }
+              divider()
+              CommunityBoardBox()
+                .onTapGesture {
+                  communityPageManager.push(.detail)
+                }
+              divider()
+              CommunityBoardBox()
+                .onTapGesture {
+                  communityPageManager.push(.detail)
+                }
+              divider()
+              CommunityBoardBox()
+                .onTapGesture {
+                  communityPageManager.push(.detail)
+                }
+              divider()
+            }
+            
           }
-          
         }
+        .padding(.top, 10)
+        
+        writeButton()
       }
-      .padding(.top, 10)
-      
-      writeButton()
+      .background(
+        Color.main1
+      )
+      .navigationDestination(for: CommunityPageState.self) { pageState in
+        communityPageDestination(pageState)
+      }
     }
-    .background(
-      Color.main1
-    )
   }
 }
 
 extension CommunityMain {
+  
+  @ViewBuilder
+  private func communityPageDestination(_ type: CommunityPageState) -> some View {
+    switch type {
+    case .writing:
+      CommunityWritingView()
+        .toolbar(.hidden, for: .tabBar)
+      
+    case .detail:
+      CommunityDetailView()
+        .toolbar(.hidden, for: .tabBar)
+      
+    default:
+      CommunityMain()
+    }
+  }
   
   @ViewBuilder
   private func title() -> some View {
@@ -65,7 +100,7 @@ extension CommunityMain {
         Spacer()
         
         Button(action: {
-          
+          communityPageManager.push(.writing)
         }, label: {
           Image("pencilIcon")
             .padding(18)
@@ -90,4 +125,5 @@ extension CommunityMain {
 
 #Preview {
   CommunityMain()
+    .environmentObject(CommunityPageManager())
 }

@@ -8,12 +8,14 @@
 import SwiftUI
 
 public struct CommunityWritingView: View {
+  @EnvironmentObject private var communityPageManager: CommunityPageManager
+  
   @State private var title: String = ""
   @State private var content: String = ""
   
   public var body: some View {
     VStack(spacing: 0) {
-      ZaniNavigationBar(title: "글쓰기", leftAction: { })
+      ZaniNavigationBar(title: "글쓰기", leftAction: { communityPageManager.pop() })
         .padding(.bottom, 22)
       
       contents()
@@ -22,6 +24,7 @@ public struct CommunityWritingView: View {
       
       bottomButton()
     }
+    .navigationBarBackButtonHidden()
     .background(
       .main1
     )
@@ -85,4 +88,5 @@ extension CommunityWritingView {
 
 #Preview {
   CommunityWritingView()
+    .environmentObject(CommunityPageManager())
 }

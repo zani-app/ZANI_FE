@@ -8,11 +8,13 @@
 import SwiftUI
 
 public struct CommunityDetailView: View {
+  @EnvironmentObject private var communityPageManager: CommunityPageManager
+  
   @State private var isShowDeleteIcon: Bool = false
   
   public var body: some View {
-    VStack {
-      ZaniNavigationBar(title: "글 상세", leftAction: { })
+    VStack(spacing: 0) {
+      ZaniNavigationBar(title: "글 상세", leftAction: { communityPageManager.pop() })
       
       ScrollView {
         LazyVStack(spacing: 0) {
@@ -24,6 +26,7 @@ public struct CommunityDetailView: View {
         }
       }
     }
+    .navigationBarBackButtonHidden()
     .background(
       .main1
     )
@@ -132,4 +135,5 @@ extension CommunityDetailView {
 
 #Preview {
   CommunityDetailView()
+    .environmentObject(CommunityPageManager())
 }
