@@ -30,6 +30,9 @@ public struct CommunityDetailView: View {
     .background(
       .main1
     )
+    .onTapGesture {
+      self.isShowDeleteIcon = false
+    }
   }
 }
 
