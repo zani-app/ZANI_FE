@@ -4,6 +4,9 @@
 .AppleDouble
 .LSOverride
 
+# Markdown
+*.md
+
 # Icon must end with two
 Icon
 
