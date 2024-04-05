@@ -52,7 +52,6 @@ extension CommunityDetailView {
             .foregroundStyle(.mainGray)
             .frame(maxWidth: .infinity, alignment: .leading)
         }
-        .padding(.vertical, 16)
         
         Spacer()
         
@@ -89,14 +88,31 @@ extension CommunityDetailView {
           }
         }
       }
+      .padding(.vertical, 16)
+      .padding(.horizontal, 20)
       
       Text("컨텐츠 내용")
         .zaniFont(.body1)
         .foregroundStyle(.white)
-        .padding(.vertical, 20)
         .frame(maxWidth: .infinity, alignment: .leading)
+        .padding(.horizontal, 20)
+        .padding(.top, 20)
+        .padding(.bottom, 27)
+      
+      // TODO: 사진 있는 경우만
+      ScrollView(.horizontal, showsIndicators: false) {
+        HStack(spacing: 8) {
+          RoundedRectangle(cornerRadius: 10)
+            .frame(width: 128, height: 128)
+          RoundedRectangle(cornerRadius: 10)
+            .frame(width: 128, height: 128)
+          RoundedRectangle(cornerRadius: 10)
+            .frame(width: 128, height: 128)
+        }
+        .padding(.horizontal, 20)
+      }
+      .padding(.bottom, 27)
     }
-    .padding(.horizontal, 20)
   }
   
   @ViewBuilder
