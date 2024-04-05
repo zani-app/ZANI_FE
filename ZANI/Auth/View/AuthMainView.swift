@@ -83,8 +83,20 @@ extension AuthMainView {
             loginManager.handleKakaoLogin()
           }
         )
-        signInButton(type: .apple, action: { })
-        signInButton(type: .email, action: { authPageManager.push(.loginEmail) })
+        
+        signInButton(
+          type: .apple,
+          action: {
+            loginManager.requestAppleLogin()
+          }
+        )
+        
+        signInButton(
+          type: .email,
+          action: {
+            authPageManager.push(.loginEmail)
+          }
+        )
       }
       
       Text("이메일로 회원가입")

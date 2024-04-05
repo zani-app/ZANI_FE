@@ -5,12 +5,13 @@
 //  Created by 정도현 on 3/22/24.
 //
 
+import AuthenticationServices
 import Combine
 import Foundation
 import KakaoSDKUser
 import Alamofire
 
-final class LoginManager: ObservableObject {
+final class LoginManager: NSObject, ObservableObject {
   
   @Published var loginType: AuthProvider? = nil
   
@@ -41,6 +42,34 @@ final class LoginManager: ObservableObject {
     }
   }
   
+  /// MARK: KakaoLogout
+  func handleKakaoLogout() async -> Bool {
+    await withCheckedContinuation { continuation in
+      UserApi.shared.logout {(error) in
+        if let error = error {
+          print(error)
+          continuation.resume(returning: false)
+        }
+        else {
+          print("logout() success.")
+          continuation.resume(returning: true)
+        }
+      }
+    }
+  }
+  
+  /// MARK: Apple Login Request
+  func requestAppleLogin() {
+    let appleIDProvider = ASAuthorizationAppleIDProvider()
+    let request = appleIDProvider.createRequest()
+    request.requestedScopes = [.fullName, .email]
+    
+    let authorizationController = ASAuthorizationController(authorizationRequests: [request])
+    authorizationController.delegate = self
+    authorizationController.presentationContextProvider = self
+    authorizationController.performRequests()
+  }
+  
   /// Social Login 회원가입 호출
   private func signUpUserWithSocialLogin(loginPath: AuthProvider) {
     UserApi.shared.me() {(user, error) in
@@ -49,7 +78,6 @@ final class LoginManager: ObservableObject {
       }
       else {
         if let user = user {
-
           AuthService.shared.requestSocialSignUp(id: String(user.id ?? 0), provider: loginPath) { response in
             switch(response) {
             case .success(let data):
@@ -68,22 +96,61 @@ final class LoginManager: ObservableObject {
       }
     }
   }
-  
-  // MARK: KakaoLogout
-  func handleKakaoLogout() async -> Bool {
-    
-    await withCheckedContinuation { continuation in
-      UserApi.shared.logout {(error) in
-        if let error = error {
-          print(error)
-          continuation.resume(returning: false)
-        }
-        else {
-          print("logout() success.")
-          continuation.resume(returning: true)
-        }
-      }
+}
+
+// MARK: Apple Login delegate
+extension LoginManager: ASAuthorizationControllerDelegate, ASAuthorizationControllerPresentationContextProviding{
+  func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
+    guard let window = UIApplication.shared.windows.first else {
+      fatalError("no window found!")
     }
+    return window
+  }
+  
+  /// Login 성공
+  func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
+    switch authorization.credential {
+    case let appleIDCredential as ASAuthorizationAppleIDCredential:
+      let userIdentifier = appleIDCredential.user
+      let fullName = appleIDCredential.fullName
+      let email = appleIDCredential.email
+      
+      if let authorizationCode = appleIDCredential.authorizationCode,
+         let identityToken = appleIDCredential.identityToken,
+         let authCodeString = String(data: authorizationCode, encoding: .utf8),
+         let identifyTokenString = String(data: identityToken, encoding: .utf8) {
+        print("authorizationCode: \(authorizationCode)")
+        print("identityToken: \(identityToken)")
+        print("authCodeString: \(authCodeString)")
+        print("identifyTokenString: \(identifyTokenString)")
+      }
+      
+      print("useridentifier: \(userIdentifier)")
+      print("fullName: \(fullName)")
+      print("email: \(email)")
+      
+      print("🔑 Apple login Success")
+      self.loginType = .apple
+      
+    // Sign in using an existing iCloud Keychain credential.
+    case let passwordCredential as ASPasswordCredential:
+      let username = passwordCredential.user
+      let password = passwordCredential.password
+      
+      print("username: \(username)")
+      print("password: \(password)")
+      
+      print("🔑 Apple login Success")
+      self.loginType = .apple
+      
+    default:
+      break
+    }
+  }
+  
+  /// Login 실패
+  func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
+    print("🔑 Apple login failed - \(error.localizedDescription)")
   }
 }
 
