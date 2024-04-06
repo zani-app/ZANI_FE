@@ -10,6 +10,7 @@
 		CD09B4AD2BC1AFAB00A0CD68 /* NightUserDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD09B4AC2BC1AFAB00A0CD68 /* NightUserDetailView.swift */; };
 		CD09B4AF2BC1B84900A0CD68 /* NightMissionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD09B4AE2BC1B84900A0CD68 /* NightMissionType.swift */; };
 		CD09B4B12BC1BB1600A0CD68 /* NightMissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD09B4B02BC1BB1600A0CD68 /* NightMissionView.swift */; };
+		CD09B4B32BC1BE9C00A0CD68 /* NightMissionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD09B4B22BC1BE9C00A0CD68 /* NightMissionDetailView.swift */; };
 		CD25EBD22BA8A70300A36B3A /* FilterCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD25EBD12BA8A70300A36B3A /* FilterCategory.swift */; };
 		CD25EBD52BA951B500A36B3A /* AuthMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD25EBD42BA951B500A36B3A /* AuthMainView.swift */; };
 		CD25EBD92BA958E600A36B3A /* LoginType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD25EBD82BA958E600A36B3A /* LoginType.swift */; };
@@ -120,6 +121,7 @@
 		CD09B4AC2BC1AFAB00A0CD68 /* NightUserDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NightUserDetailView.swift; sourceTree = "<group>"; };
 		CD09B4AE2BC1B84900A0CD68 /* NightMissionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NightMissionType.swift; sourceTree = "<group>"; };
 		CD09B4B02BC1BB1600A0CD68 /* NightMissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NightMissionView.swift; sourceTree = "<group>"; };
+		CD09B4B22BC1BE9C00A0CD68 /* NightMissionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NightMissionDetailView.swift; sourceTree = "<group>"; };
 		CD25EBD12BA8A70300A36B3A /* FilterCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCategory.swift; sourceTree = "<group>"; };
 		CD25EBD42BA951B500A36B3A /* AuthMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthMainView.swift; sourceTree = "<group>"; };
 		CD25EBD82BA958E600A36B3A /* LoginType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginType.swift; sourceTree = "<group>"; };
@@ -348,6 +350,7 @@
 				CD3AA6CF2BB6DECF00C589B8 /* NightTimeLineView.swift */,
 				CD09B4AC2BC1AFAB00A0CD68 /* NightUserDetailView.swift */,
 				CD09B4B02BC1BB1600A0CD68 /* NightMissionView.swift */,
+				CD09B4B22BC1BE9C00A0CD68 /* NightMissionDetailView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -765,6 +768,7 @@
 				CD25EBDD2BA96D0900A36B3A /* AuthPageManager.swift in Sources */,
 				CD3AA6C82BB6A1E200C589B8 /* RecruitTeamCapsule.swift in Sources */,
 				CD3AA6D42BB70CBB00C589B8 /* NavigationGesture.swift in Sources */,
+				CD09B4B32BC1BE9C00A0CD68 /* NightMissionDetailView.swift in Sources */,
 				CDC88D342BAEC0D4003E34AA /* AllNightersRouter.swift in Sources */,
 				CD6AAE592BAD88FB00862A46 /* RecruitmentManager.swift in Sources */,
 				CDC064FE2BA4795600E24F70 /* View + Placeholder.swift in Sources */,
