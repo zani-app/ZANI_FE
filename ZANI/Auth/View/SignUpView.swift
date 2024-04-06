@@ -42,6 +42,18 @@ public struct SignUpView: View {
     .onTapGesture {
       focusState = nil
     }
+    .onAppear {
+      switch pageState {
+      case .loginEmail, .signUpEmail:
+        self.focusState = .email
+      case .signUpPassword:
+        self.focusState = .password
+      case .nickname:
+        self.focusState = .nickname
+      default:
+        self.focusState = nil
+      }
+    }
   }
 }
 
