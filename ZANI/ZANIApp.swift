@@ -37,15 +37,15 @@ struct ZANIApp: App {
         .environmentObject(myPageManager)
         .environmentObject(stompManager)
         .environmentObject(chattingManager)
-        .fullScreenCover(isPresented: $showAuth) {
-          AuthMainView()
-            .environmentObject(authPageManager)
-        }
-        .onChange(of: authPageManager.isDone) { newValue in
-          if newValue {
-            self.showAuth = false
-          }
-        }
+//        .fullScreenCover(isPresented: $showAuth) {
+//          AuthMainView()
+//            .environmentObject(authPageManager)
+//        }
+//        .onChange(of: authPageManager.isDone) { newValue in
+//          if newValue {
+//            self.showAuth = false
+//          }
+//        }
     }
   }
 }
