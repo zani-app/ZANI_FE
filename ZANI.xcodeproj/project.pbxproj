@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		CD09B4AD2BC1AFAB00A0CD68 /* NightUserDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD09B4AC2BC1AFAB00A0CD68 /* NightUserDetailView.swift */; };
+		CD09B4AF2BC1B84900A0CD68 /* NightMissionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD09B4AE2BC1B84900A0CD68 /* NightMissionType.swift */; };
+		CD09B4B12BC1BB1600A0CD68 /* NightMissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD09B4B02BC1BB1600A0CD68 /* NightMissionView.swift */; };
 		CD25EBD22BA8A70300A36B3A /* FilterCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD25EBD12BA8A70300A36B3A /* FilterCategory.swift */; };
 		CD25EBD52BA951B500A36B3A /* AuthMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD25EBD42BA951B500A36B3A /* AuthMainView.swift */; };
 		CD25EBD92BA958E600A36B3A /* LoginType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD25EBD82BA958E600A36B3A /* LoginType.swift */; };
@@ -116,6 +118,8 @@
 		012382D02BAF66770048CC2D /* AccessKeys.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = AccessKeys.xcconfig; sourceTree = "<group>"; };
 		CD09B4AB2BC02BDC00A0CD68 /* ZANI.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ZANI.entitlements; sourceTree = "<group>"; };
 		CD09B4AC2BC1AFAB00A0CD68 /* NightUserDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NightUserDetailView.swift; sourceTree = "<group>"; };
+		CD09B4AE2BC1B84900A0CD68 /* NightMissionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NightMissionType.swift; sourceTree = "<group>"; };
+		CD09B4B02BC1BB1600A0CD68 /* NightMissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NightMissionView.swift; sourceTree = "<group>"; };
 		CD25EBD12BA8A70300A36B3A /* FilterCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCategory.swift; sourceTree = "<group>"; };
 		CD25EBD42BA951B500A36B3A /* AuthMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthMainView.swift; sourceTree = "<group>"; };
 		CD25EBD82BA958E600A36B3A /* LoginType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginType.swift; sourceTree = "<group>"; };
@@ -343,6 +347,7 @@
 				CD3AA6CD2BB6B76C00C589B8 /* NightMateListView.swift */,
 				CD3AA6CF2BB6DECF00C589B8 /* NightTimeLineView.swift */,
 				CD09B4AC2BC1AFAB00A0CD68 /* NightUserDetailView.swift */,
+				CD09B4B02BC1BB1600A0CD68 /* NightMissionView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -351,6 +356,7 @@
 			isa = PBXGroup;
 			children = (
 				CD3AA6CB2BB6B06300C589B8 /* NightDisplayType.swift */,
+				CD09B4AE2BC1B84900A0CD68 /* NightMissionType.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -752,6 +758,7 @@
 				CDCB74EA2BAF512D008D6B63 /* StompClientManager.swift in Sources */,
 				CD3AA6CE2BB6B76C00C589B8 /* NightMateListView.swift in Sources */,
 				CD3AA6D92BB8855800C589B8 /* CommunityBoardBox.swift in Sources */,
+				CD09B4B12BC1BB1600A0CD68 /* NightMissionView.swift in Sources */,
 				CD6AAE4D2BAD7A2100862A46 /* BaseService.swift in Sources */,
 				CD6AAE522BAD865C00862A46 /* TeamRouter.swift in Sources */,
 				CDC064DD2BA387E900E24F70 /* ZaniTextField.swift in Sources */,
@@ -772,6 +779,7 @@
 				CD6AAE3E2BAD33CE00862A46 /* NetworkResult.swift in Sources */,
 				CD6AAE452BAD5D2100862A46 /* UserInfoDTO.swift in Sources */,
 				CDC88D2B2BAEA22E003E34AA /* MyPageManager.swift in Sources */,
+				CD09B4AF2BC1B84900A0CD68 /* NightMissionType.swift in Sources */,
 				CD3AA6D02BB6DECF00C589B8 /* NightTimeLineView.swift in Sources */,
 				CD25EBD22BA8A70300A36B3A /* FilterCategory.swift in Sources */,
 				CD25EC322BAC9E0000A36B3A /* SceneDelegate.swift in Sources */,
