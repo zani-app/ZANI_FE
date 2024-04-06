@@ -9,6 +9,8 @@ import SwiftUI
 
 public struct NightMateListView: View {
   
+  @Binding var isTapUser: Bool
+  
   public var body: some View {
     VStack(alignment: .leading, spacing: 0) {
       Text("밤샘메이트")
@@ -65,9 +67,13 @@ extension NightMateListView {
       
       Spacer()
     }
+    .background(.main3)
+    .onTapGesture {
+      isTapUser = true
+    }
   }
 }
 
 #Preview {
-  NightMateListView()
+  NightMateListView(isTapUser: .constant(false))
 }

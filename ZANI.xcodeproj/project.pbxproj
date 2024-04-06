@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CD09B4AD2BC1AFAB00A0CD68 /* NightUserDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD09B4AC2BC1AFAB00A0CD68 /* NightUserDetailView.swift */; };
 		CD25EBD22BA8A70300A36B3A /* FilterCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD25EBD12BA8A70300A36B3A /* FilterCategory.swift */; };
 		CD25EBD52BA951B500A36B3A /* AuthMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD25EBD42BA951B500A36B3A /* AuthMainView.swift */; };
 		CD25EBD92BA958E600A36B3A /* LoginType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD25EBD82BA958E600A36B3A /* LoginType.swift */; };
@@ -114,6 +115,7 @@
 /* Begin PBXFileReference section */
 		012382D02BAF66770048CC2D /* AccessKeys.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = AccessKeys.xcconfig; sourceTree = "<group>"; };
 		CD09B4AB2BC02BDC00A0CD68 /* ZANI.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ZANI.entitlements; sourceTree = "<group>"; };
+		CD09B4AC2BC1AFAB00A0CD68 /* NightUserDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NightUserDetailView.swift; sourceTree = "<group>"; };
 		CD25EBD12BA8A70300A36B3A /* FilterCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCategory.swift; sourceTree = "<group>"; };
 		CD25EBD42BA951B500A36B3A /* AuthMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthMainView.swift; sourceTree = "<group>"; };
 		CD25EBD82BA958E600A36B3A /* LoginType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginType.swift; sourceTree = "<group>"; };
@@ -340,6 +342,7 @@
 				CD3AA6C92BB6A88B00C589B8 /* NightWaitingView.swift */,
 				CD3AA6CD2BB6B76C00C589B8 /* NightMateListView.swift */,
 				CD3AA6CF2BB6DECF00C589B8 /* NightTimeLineView.swift */,
+				CD09B4AC2BC1AFAB00A0CD68 /* NightUserDetailView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -728,6 +731,7 @@
 				CDC064BC2BA31F8200E24F70 /* ContentView.swift in Sources */,
 				CD25EBD92BA958E600A36B3A /* LoginType.swift in Sources */,
 				CDC064E62BA38F9B00E24F70 /* RecruitmentPageManager.swift in Sources */,
+				CD09B4AD2BC1AFAB00A0CD68 /* NightUserDetailView.swift in Sources */,
 				CD3AA6DB2BB8861900C589B8 /* CommunityWritingView.swift in Sources */,
 				CD6AAE2D2BAD206000862A46 /* BaseURL.swift in Sources */,
 				CD25EBD52BA951B500A36B3A /* AuthMainView.swift in Sources */,

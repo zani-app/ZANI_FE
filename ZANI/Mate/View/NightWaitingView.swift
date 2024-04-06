@@ -11,6 +11,7 @@ public struct NightWaitingView: View {
   @EnvironmentObject private var nightMatePageManager: NightMatePageManager
   
   @State private var isShowMateList: Bool = false
+  @State private var isTapUser: Bool = false
   
   public var body: some View {
     ZStack {
@@ -30,19 +31,34 @@ public struct NightWaitingView: View {
         bottomSheet()
       }
       
-      NightMateListView()
+      NightMateListView(isTapUser: $isTapUser)
         .clipShape(
           RoundedRectangle(cornerRadius: 20)
         )
         .offset(x: isShowMateList ? 118 : UIScreen.main.bounds.width)
         .background(
-          Color.black.opacity(isShowMateList ? 0.6 : 0.0)
+          Color.black.opacity(isShowMateList ? 0.5 : 0.0)
+            .ignoresSafeArea()
+            .onTapGesture {
+              withAnimation {
+                isShowMateList = false
+              }
+            }
         )
-        .onTapGesture {
-          withAnimation {
-            isShowMateList = false
-          }
+      
+      if isTapUser {
+        ZStack {
+          Color.black.opacity(0.5).ignoresSafeArea()
+            .onTapGesture {
+              isTapUser = false
+            }
+          
+          NightUserDetailView()
+            .padding(.horizontal, 50)
+            .frame(maxHeight: .infinity)
         }
+        
+      }
     }
     .navigationBarBackButtonHidden()
     .background(
