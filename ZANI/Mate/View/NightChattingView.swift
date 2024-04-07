@@ -142,4 +142,5 @@ extension NightChattingView {
   NightChattingView()
     .environmentObject(NightMatePageManager())
     .environmentObject(StompClient())
+    .environmentObject(ChattingManager())
 }
