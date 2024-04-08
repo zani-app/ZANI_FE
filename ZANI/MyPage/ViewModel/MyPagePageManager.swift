@@ -13,6 +13,7 @@ public enum MyPagePageState {
   case mateList
   case mateDetail
   case timeLine
+  case badgeDetail
 }
 
 final class MyPagePageManager: ObservableObject {

@@ -65,6 +65,10 @@ extension MyPageMain {
       MateDetailView()
         .toolbar(.hidden, for: .tabBar)
       
+    case .badgeDetail:
+      MyPageBadgeView()
+        .toolbar(.hidden, for: .tabBar)
+      
     default:
       RecruitmentMain()
     }
@@ -223,7 +227,11 @@ extension MyPageMain {
       }
       .zaniFont(.title1)
       .foregroundStyle(.white)
+      .background(.clear)
       .padding(.horizontal, 20)
+      .onTapGesture {
+        myPagePageManager.push(.badgeDetail)
+      }
       
       ScrollView(.horizontal, showsIndicators: false) {
         HStack(spacing: 14) {
