@@ -11,6 +11,7 @@
 		CD09B4AF2BC1B84900A0CD68 /* NightMissionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD09B4AE2BC1B84900A0CD68 /* NightMissionType.swift */; };
 		CD09B4B12BC1BB1600A0CD68 /* NightMissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD09B4B02BC1BB1600A0CD68 /* NightMissionView.swift */; };
 		CD09B4B32BC1BE9C00A0CD68 /* NightMissionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD09B4B22BC1BE9C00A0CD68 /* NightMissionDetailView.swift */; };
+		CD09B4B52BC4373500A0CD68 /* MyPageBadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD09B4B42BC4373500A0CD68 /* MyPageBadgeView.swift */; };
 		CD25EBD22BA8A70300A36B3A /* FilterCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD25EBD12BA8A70300A36B3A /* FilterCategory.swift */; };
 		CD25EBD52BA951B500A36B3A /* AuthMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD25EBD42BA951B500A36B3A /* AuthMainView.swift */; };
 		CD25EBD92BA958E600A36B3A /* LoginType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD25EBD82BA958E600A36B3A /* LoginType.swift */; };
@@ -122,6 +123,7 @@
 		CD09B4AE2BC1B84900A0CD68 /* NightMissionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NightMissionType.swift; sourceTree = "<group>"; };
 		CD09B4B02BC1BB1600A0CD68 /* NightMissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NightMissionView.swift; sourceTree = "<group>"; };
 		CD09B4B22BC1BE9C00A0CD68 /* NightMissionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NightMissionDetailView.swift; sourceTree = "<group>"; };
+		CD09B4B42BC4373500A0CD68 /* MyPageBadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageBadgeView.swift; sourceTree = "<group>"; };
 		CD25EBD12BA8A70300A36B3A /* FilterCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCategory.swift; sourceTree = "<group>"; };
 		CD25EBD42BA951B500A36B3A /* AuthMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthMainView.swift; sourceTree = "<group>"; };
 		CD25EBD82BA958E600A36B3A /* LoginType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginType.swift; sourceTree = "<group>"; };
@@ -288,6 +290,7 @@
 				CD25EBEB2BAB02C200A36B3A /* ChangeNicknameView.swift */,
 				CD25EBEF2BAB08AB00A36B3A /* MateListView.swift */,
 				CD25EBF12BAB0F2600A36B3A /* MateDetailView.swift */,
+				CD09B4B42BC4373500A0CD68 /* MyPageBadgeView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -810,6 +813,7 @@
 				CDC064D92BA37D9A00E24F70 /* ZaniCapsuleButton.swift in Sources */,
 				CD6AAE432BAD59D300862A46 /* UserService.swift in Sources */,
 				CDC064CE2BA3289200E24F70 /* RecruitmentMain.swift in Sources */,
+				CD09B4B52BC4373500A0CD68 /* MyPageBadgeView.swift in Sources */,
 				CDC064D02BA3289700E24F70 /* CommunityMain.swift in Sources */,
 				CD25EBE12BA9760700A36B3A /* AuthTextFieldType.swift in Sources */,
 			);

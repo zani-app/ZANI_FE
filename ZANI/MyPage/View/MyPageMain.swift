@@ -65,6 +65,10 @@ extension MyPageMain {
       MateDetailView()
         .toolbar(.hidden, for: .tabBar)
       
+    case .badgeDetail:
+      MyPageBadgeView()
+        .toolbar(.hidden, for: .tabBar)
+      
     default:
       RecruitmentMain()
     }
@@ -214,11 +218,20 @@ extension MyPageMain {
     VStack(alignment: .leading, spacing: 20) {
       HStack(spacing: 8) {
         Text("내가 획득한 칭호")
+        
         Image(systemName: "chevron.right")
+          .resizable()
+          .frame(width: 6, height: 12)
+          .padding(.horizontal, 9)
+          .padding(.vertical, 6)
       }
       .zaniFont(.title1)
       .foregroundStyle(.white)
+      .background(.clear)
       .padding(.horizontal, 20)
+      .onTapGesture {
+        myPagePageManager.push(.badgeDetail)
+      }
       
       ScrollView(.horizontal, showsIndicators: false) {
         HStack(spacing: 14) {
