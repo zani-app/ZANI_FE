@@ -9,6 +9,7 @@ import SwiftUI
 
 public struct SignUpView: View {
   @EnvironmentObject private var authPageManager: AuthPageManager
+  @EnvironmentObject private var authDataManager: AuthDataManager
   
   @FocusState private var focusState: AuthTextFieldType?
   
@@ -130,5 +131,6 @@ extension SignUpView {
 #Preview {
   SignUpView(pageState: .signUpEmail)
     .environmentObject(AuthPageManager())
+    .environmentObject(AuthDataManager())
 }
 

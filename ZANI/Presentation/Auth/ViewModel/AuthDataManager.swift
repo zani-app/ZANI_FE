@@ -5,23 +5,28 @@
 //  Created by 정도현 on 3/22/24.
 //
 
+import Alamofire
 import AuthenticationServices
 import Combine
 import Foundation
 import KakaoSDKUser
-import Alamofire
 
-final class LoginManager: NSObject, ObservableObject {
+final class AuthDataManager: NSObject, ObservableObject {
   
   @Published var loginType: AuthProvider? = nil
+  @Published var isShowNicknameView: Bool = false
+  @Published var isLogin: Bool = false
+  
+  private var requestSocialSignUpUseCase: RequestSocialSignUpUseCaseImpl = RequestSocialSignUpUseCaseImpl(userRepository: DefaultUserRepository())
+  private var fetchUserInfoUseCase: FetchUserInfoUseCaseImpl = FetchUserInfoUseCaseImpl(userRepository: DefaultUserRepository())
   
   /// MARK: KAKAO Login
-  func handleKakaoLogin() {
+  public func handleKakaoLogin() {
     // 카카오톡 설치 된 경우 - 카카오톡으로 로그인
     if (UserApi.isKakaoTalkLoginAvailable()) {
       UserApi.shared.loginWithKakaoTalk {(oauthToken, error) in
         if let error = error {
-          print(error)
+          print(error.localizedDescription)
         }
         else {
           self.signUpUserWithSocialLogin(loginPath: .kakao)
@@ -33,13 +38,25 @@ final class LoginManager: NSObject, ObservableObject {
     else {
       UserApi.shared.loginWithKakaoAccount {(oauthToken, error) in
         if let error = error {
-          print(error)
+          print(error.localizedDescription)
         }
         else {
           self.signUpUserWithSocialLogin(loginPath: .kakao)
         }
       }
     }
+  }
+  
+  /// MARK: Apple Login Request
+  func requestAppleLogin() {
+    let appleIDProvider = ASAuthorizationAppleIDProvider()
+    let request = appleIDProvider.createRequest()
+    request.requestedScopes = [.fullName, .email]
+    
+    let authorizationController = ASAuthorizationController(authorizationRequests: [request])
+    authorizationController.delegate = self
+    authorizationController.presentationContextProvider = self
+    authorizationController.performRequests()
   }
   
   /// MARK: KakaoLogout
@@ -58,32 +75,23 @@ final class LoginManager: NSObject, ObservableObject {
     }
   }
   
-  /// MARK: Apple Login Request
-  func requestAppleLogin() {
-    let appleIDProvider = ASAuthorizationAppleIDProvider()
-    let request = appleIDProvider.createRequest()
-    request.requestedScopes = [.fullName, .email]
-    
-    let authorizationController = ASAuthorizationController(authorizationRequests: [request])
-    authorizationController.delegate = self
-    authorizationController.presentationContextProvider = self
-    authorizationController.performRequests()
-  }
-  
   /// Social Login 회원가입 호출
   private func signUpUserWithSocialLogin(loginPath: AuthProvider) {
-    UserApi.shared.me() {(user, error) in
+    UserApi.shared.me() { (user, error) in
       if let error = error {
         print(error)
       }
       else {
         if let user = user {
-          AuthService.shared.requestSocialSignUp(id: String(user.id ?? 0), provider: loginPath) { response in
+          self.requestSocialSignUpUseCase.execute(
+            id: String(user.id ?? 0),
+            provider: loginPath
+          ) { response in
             switch(response) {
             case .success(let data):
               if let data = data as? SignUpDTO {
                 UserDefaults.standard.set(data.accessToken, forKey: "accessToken")
-                print(data.accessToken, "hear~")
+                print("Access Token: \(data.accessToken))")
                 self.loginType = loginPath
                 self.getUserDetail()
               }
@@ -98,8 +106,32 @@ final class LoginManager: NSObject, ObservableObject {
   }
 }
 
+// MARK: User 관련 API
+extension AuthDataManager {
+  func getUserDetail() {
+    fetchUserInfoUseCase.execute { response in
+      switch(response) {
+      case .success(let data):
+        if let data = data as? UserInfoDTO {
+          self.isLogin = true
+        } else {
+          self.isShowNicknameView = true
+        }
+        
+      default:
+        print("errorGetUser")
+      }
+    }
+  }
+  
+  func checkNicknameValidation(nickName: String) {
+    
+  }
+}
+
+
 // MARK: Apple Login delegate
-extension LoginManager: ASAuthorizationControllerDelegate, ASAuthorizationControllerPresentationContextProviding{
+extension AuthDataManager: ASAuthorizationControllerDelegate, ASAuthorizationControllerPresentationContextProviding{
   func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
     guard let window = UIApplication.shared.windows.first else {
       fatalError("no window found!")
@@ -151,26 +183,5 @@ extension LoginManager: ASAuthorizationControllerDelegate, ASAuthorizationContro
   /// Login 실패
   func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
     print("🔑 Apple login failed - \(error.localizedDescription)")
-  }
-}
-
-// MARK: User 관련 API
-extension LoginManager {
-  func getUserDetail() {
-    UserService.shared.requestUserInfo { response in
-      switch(response) {
-      case .success(let data):
-        if let data = data as? UserInfoDTO {
-          print(data.nickname, "!@#!@#")
-        }
-        
-      default:
-        print("errorGetUser")
-      }
-    }
-  }
-  
-  func checkNicknameValidation(nickName: String) {
-    
   }
 }

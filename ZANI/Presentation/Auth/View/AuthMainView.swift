@@ -8,9 +8,8 @@
 import SwiftUI
 
 public struct AuthMainView: View {
-  @EnvironmentObject private var authPageManager: AuthPageManager
-  
-  @StateObject var loginManager: LoginManager = LoginManager()
+  @EnvironmentObject private var authDataManager: AuthDataManager
+  @StateObject private var authPageManager = AuthPageManager()
   
   public var body: some View {
     NavigationStack(path: $authPageManager.route) {
@@ -21,15 +20,15 @@ public struct AuthMainView: View {
         
         loginButton()
       }
+      .padding(.horizontal, 20)
       .onAppear {
-        loginManager.loginType = nil
+        authDataManager.loginType = nil
       }
-      .onChange(of: loginManager.loginType, perform: { value in
-        if value != nil {
+      .onChange(of: authDataManager.isShowNicknameView, perform: { value in
+        if value {
           authPageManager.push(.nickname)
         }
       })
-      .padding(.horizontal, 20)
       .navigationDestination(for: AuthPageState.self) { pageState in
         authPageDestination(pageState)
       }
@@ -50,12 +49,15 @@ extension AuthMainView {
       
     case .done:
       SignUpDoneView()
+        .environmentObject(authPageManager)
       
     case .loginEmail:
       SignInView()
+        .environmentObject(authPageManager)
       
     case .main:
       AuthMainView()
+        .environmentObject(authPageManager)
     }
   }
   
@@ -80,14 +82,14 @@ extension AuthMainView {
         signInButton(
           type: .kakao,
           action: {
-            loginManager.handleKakaoLogin()
+            authDataManager.handleKakaoLogin()
           }
         )
         
         signInButton(
           type: .apple,
           action: {
-            loginManager.requestAppleLogin()
+            authDataManager.requestAppleLogin()
           }
         )
         

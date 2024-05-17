@@ -8,7 +8,7 @@
 import SwiftUI
 
 public struct SignUpDoneView: View {
-  @EnvironmentObject private var authPageManager: AuthPageManager
+  @EnvironmentObject private var authDataManager: AuthDataManager
   
   public var body: some View {
     VStack(spacing: 0) {
@@ -55,7 +55,7 @@ extension SignUpDoneView {
     ZaniMainButton(
       title: "다음",
       isValid: true,
-      action: { authPageManager.isDone = true }
+      action: { authDataManager.isLogin = true }
     )
     .padding(.vertical, 8)
   }
@@ -63,5 +63,5 @@ extension SignUpDoneView {
 
 #Preview {
   SignUpDoneView()
-    .environmentObject(AuthPageManager())
+    .environmentObject(AuthDataManager())
 }

@@ -49,7 +49,6 @@ public enum AuthPageState: Hashable {
 
 final class AuthPageManager: ObservableObject {
   @Published public var route: [AuthPageState] = []
-  @Published public var isDone: Bool = false
   
   func push(_ page: AuthPageState) {
     route.append(page)

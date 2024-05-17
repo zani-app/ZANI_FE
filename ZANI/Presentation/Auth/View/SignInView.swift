@@ -9,6 +9,7 @@ import SwiftUI
 
 public struct SignInView: View {
   @EnvironmentObject private var authPageManager: AuthPageManager
+  @EnvironmentObject private var authDataManager: AuthDataManager
   
   @FocusState private var focusState: AuthTextFieldType?
   
@@ -73,4 +74,6 @@ public struct SignInView: View {
 
 #Preview {
   SignInView()
+    .environmentObject(AuthPageManager())
+    .environmentObject(AuthDataManager())
 }
