@@ -30,18 +30,4 @@ final class ChattingManager: ObservableObject {
       }
     }
   }
-  
-  func requestUserDetail() {
-    MyPageService.shared.requestUserInfo { response in
-      switch(response) {
-      case .success(let data):
-        if let data = data as? UserInfoDTO {
-          self.nickname = data.nickname
-        }
-        
-      default:
-        print("data fetch Error")
-      }
-    }
-  }
 }

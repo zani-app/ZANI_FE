@@ -14,11 +14,9 @@ struct ZANIApp: App {
   @StateObject private var nightMatePageManager = NightMatePageManager()
   @StateObject private var recruitmentPageManager = RecruitmentPageManager()
   @StateObject private var communityPageManager = CommunityPageManager()
-  @StateObject private var myPagePageManager = MyPagePageManager()
   
   @StateObject private var authDataManager = AuthDataManager()
   @StateObject private var recruitmentManager = RecruitmentManager()
-  @StateObject private var myPageManager = MyPageManager()
   @StateObject private var stompManager = StompClient()
   @StateObject private var chattingManager = ChattingManager()
   
@@ -31,9 +29,7 @@ struct ZANIApp: App {
           .environmentObject(nightMatePageManager)
           .environmentObject(recruitmentPageManager)
           .environmentObject(communityPageManager)
-          .environmentObject(myPagePageManager)
           .environmentObject(recruitmentManager)
-          .environmentObject(myPageManager)
           .environmentObject(stompManager)
           .environmentObject(chattingManager)
       } else {

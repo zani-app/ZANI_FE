@@ -11,22 +11,25 @@ import KakaoSDKUser
 import Alamofire
 import UIKit
 
-final class MyPageManager: ObservableObject {
+final class MyPageDataManager: ObservableObject {
   
   @Published var userInfo: UserInfoDTO? = nil
   @Published var followList: [FollowDTO]? = nil
   @Published var allNightSummary: AllNightSummaryDTO? = nil
-  
   @Published var calendarDate: Date = .now
+  
+  private var requestFollowListUseCase: RequestFollowListUseCaseImpl = RequestFollowListUseCaseImpl(userRepository: DefaultUserRepository())
+  private var requestNicknameDuplicateUseCase: RequestNicknameDuplicateUseCaseImpl = RequestNicknameDuplicateUseCaseImpl(userRepository: DefaultUserRepository())
+  private var requestNightSummaryUseCase: RequestNightSummaryUseCaseImpl = RequestNightSummaryUseCaseImpl(userRepository: DefaultUserRepository())
+  private var fetchUserInfoUseCase: FetchUserInfoUseCaseImpl = FetchUserInfoUseCaseImpl(userRepository: DefaultUserRepository())
   
   /// 유저 정보 호출
   func requestUserDetail() {
-    MyPageService.shared.requestUserInfo { response in
+    fetchUserInfoUseCase.execute { response in
       switch(response) {
       case .success(let data):
         if let data = data as? UserInfoDTO {
           self.userInfo = data
-          print(data.nickname, "TEST")
         }
         
       default:
@@ -53,13 +56,11 @@ final class MyPageManager: ObservableObject {
     ]
     
     let imageData = UIImage().pngData()!
-    
-    
   }
   
   /// 팔로우 리스트 출력
   func requestFollowList() {
-    FollowingService.shared.requestFollowList { response in
+    requestFollowListUseCase.execute { response in
       switch(response) {
       case .success(let data):
         if let data = data as? [FollowDTO] {
@@ -76,7 +77,7 @@ final class MyPageManager: ObservableObject {
   func requestNightSummary() {
     let summaryDate = self.getMonthYear(date: self.calendarDate)
     
-    AllNightersService.shared.requestSummary(year: summaryDate[0], month: summaryDate[1]) { response in
+    requestNightSummaryUseCase.execute(year: summaryDate[0], month: summaryDate[1]) { response in
       switch(response) {
       case .success(let data):
         if let data = data as? AllNightSummaryDTO {
@@ -92,11 +93,17 @@ final class MyPageManager: ObservableObject {
   
   /// 닉네임 검증
   func checkNicnameValidation(nickname: String) {
-      MyPageService.shared.checkNicknameDuplicate(nickname: nickname) { response in
+    requestNicknameDuplicateUseCase.execute(nickname: nickname) { response in
       switch(response) {
       case .success(let data):
         if let data = data as? Bool {
           print(data, "data")
+          
+          if data {
+            let imageData = UIImage(systemName: "chevron.left")
+            
+            self.requestPatch(nickname: nickname, image: imageData)
+          }
         }
         
       default:
@@ -104,7 +111,6 @@ final class MyPageManager: ObservableObject {
       }
     }
   }
-  
   
   func checkCalendarValidation() -> Bool {
     let nowData = getMonthYear(date: .now)
@@ -159,8 +165,8 @@ final class MyPageManager: ObservableObject {
     return nil
   }
   
-  // **절대 건드리지 말 것! **
-  func requestPatch(nickname: String, image: UIImage) {
+  // ** Multipart Form **
+  func requestPatch(nickname: String, image: UIImage?) {
     let URL = "https://dongkyeom.com/api/v1/user"
     
     var header : HTTPHeaders = [
@@ -180,13 +186,13 @@ final class MyPageManager: ObservableObject {
         multipartFormData.append("\(value)".data(using: .utf8)!, withName: key)
       }
       
-      if let image = image.pngData() {
+      if let image = image?.pngData() {
         multipartFormData.append(image, withName: "file", fileName: "\(image).png", mimeType: "image/png")
       }
     }, to: URL, usingThreshold: UInt64.init(), method: .patch, headers: header).response { response in
-      guard let statusCode = response.response?.statusCode,
-            statusCode == 200
-      else { return }
+      guard let statusCode = response.response?.statusCode, statusCode == 200 else {
+        return
+      }
     }
   }
 }

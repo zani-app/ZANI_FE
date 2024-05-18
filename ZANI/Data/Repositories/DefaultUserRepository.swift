@@ -45,4 +45,55 @@ final class DefaultUserRepository: BaseService, UserRepository {
       }
     }
   }
+  
+  func requestNicknameDuplicate(nickname: String, completion: @escaping (NetworkResult<Any>) -> Void) {
+    AFManager.request(
+      MyPageRouter.checkNicknameDuplicate(nickname: nickname)
+    ).responseData { response in
+      switch response.result {
+      case .success:
+        guard let statusCode = response.response?.statusCode else { return }
+        guard let data = response.data else { return }
+        let networkResult = self.judgeStatus(by: statusCode, data, type: Bool.self)
+        completion(networkResult)
+        
+      case .failure(let err):
+        print(err.localizedDescription)
+      }
+    }
+  }
+  
+  func requestFollowList(completion: @escaping (NetworkResult<Any>) -> Void) {
+    AFManager.request(
+      FollowingRouter.requestFollowList
+    ).responseData { response in
+      switch response.result {
+      case .success:
+        guard let statusCode = response.response?.statusCode else { return }
+        guard let data = response.data else { return }
+        let networkResult = self.judgeStatus(by: statusCode, data, type: [FollowDTO].self)
+        completion(networkResult)
+        
+      case .failure(let err):
+        print(err.localizedDescription)
+      }
+    }
+  }
+  
+  func requestNightSummary(year: Int, month: Int, completion: @escaping (NetworkResult<Any>) -> Void) {
+    AFManager.request(
+      AllNightersRouter.requestSummary(year: year, month: month)
+    ).responseData { response in
+      switch response.result {
+      case .success:
+        guard let statusCode = response.response?.statusCode else { return }
+        guard let data = response.data else { return }
+        let networkResult = self.judgeStatus(by: statusCode, data, type: AllNightSummaryDTO.self)
+        completion(networkResult)
+        
+      case .failure(let err):
+        print(err.localizedDescription)
+      }
+    }
+  }
 }

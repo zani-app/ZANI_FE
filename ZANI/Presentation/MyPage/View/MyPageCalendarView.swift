@@ -8,7 +8,7 @@
 import SwiftUI
 
 public struct MyPageCalendarView: View {
-  @EnvironmentObject private var myPageManager: MyPageManager
+  @EnvironmentObject private var myPageDataManager: MyPageDataManager
   
   @State private var offset: CGSize = CGSize()
   
@@ -30,10 +30,10 @@ public struct MyPageCalendarView: View {
     )
     .frame(height: 375)
     .onAppear {
-      myPageManager.calendarDate = .now
+      myPageDataManager.calendarDate = .now
     }
-    .onChange(of: myPageManager.calendarDate, perform: { value in
-      myPageManager.requestNightSummary()
+    .onChange(of: myPageDataManager.calendarDate, perform: { value in
+      myPageDataManager.requestNightSummary()
     })
   }
 }
@@ -48,17 +48,17 @@ extension MyPageCalendarView {
             moveMonth(offset: -1)
           }
         
-        Text(calendarTitleFormat(date: myPageManager.calendarDate))
+        Text(calendarTitleFormat(date: myPageDataManager.calendarDate))
         
         Image(systemName: "chevron.right")
           .frame(width: 24, height: 24)
           .onTapGesture {
-            if myPageManager.checkCalendarValidation() {
+            if myPageDataManager.checkCalendarValidation() {
               moveMonth(offset: 1)
             }
           }
           .foregroundStyle(
-            myPageManager.checkCalendarValidation() ? .white : .mainGray
+            myPageDataManager.checkCalendarValidation() ? .white : .mainGray
           )
       }
       .font(.custom("Pretendard-Bold", size: 18))
@@ -69,8 +69,8 @@ extension MyPageCalendarView {
   }
   
   private func calendarContents() -> some View {
-    let daysInMonth: Int = numberOfDays(in: myPageManager.calendarDate)
-    let firstWeekday: Int = firstWeekdayOfMonth(in: myPageManager.calendarDate) - 1
+    let daysInMonth: Int = numberOfDays(in: myPageDataManager.calendarDate)
+    let firstWeekday: Int = firstWeekdayOfMonth(in: myPageDataManager.calendarDate) - 1
     
     return VStack(spacing: 0) {
       HStack(spacing: 0) {
@@ -89,7 +89,7 @@ extension MyPageCalendarView {
       .padding(.horizontal, 34)
       .padding(.bottom, 4)
       
-      if let nightSummary = myPageManager.allNightSummary {
+      if let nightSummary = myPageDataManager.allNightSummary {
         LazyVGrid(
           columns: Array(repeating: GridItem(spacing: 6), count: 7), spacing: 4
         ) {
@@ -100,7 +100,7 @@ extension MyPageCalendarView {
                 .opacity(0)
             } else {
               let day = index - firstWeekday + 1
-              let nightRecordsIdx = myPageManager.findIndexMatchingNightRecords(data: nightSummary.allNightersRecords, targetDate: day)
+              let nightRecordsIdx = myPageDataManager.findIndexMatchingNightRecords(data: nightSummary.allNightersRecords, targetDate: day)
               
               if let nightRecordsIdx = nightRecordsIdx {
                 dateView(day: day, nightData: nightSummary.allNightersRecords[nightRecordsIdx])
@@ -159,7 +159,7 @@ extension MyPageCalendarView {
   private func startOfMonth() -> Date {
     let components = Calendar.current.dateComponents(
       [.year, .month],
-      from: myPageManager.calendarDate
+      from: myPageDataManager.calendarDate
     )
     
     return Calendar.current.date(from: components)!
@@ -178,8 +178,8 @@ extension MyPageCalendarView {
   
   private func moveMonth(offset: Int) {
     let calendar = Calendar.current
-    if let newMonth = calendar.date(byAdding: .month, value: offset, to: myPageManager.calendarDate) {
-      self.myPageManager.calendarDate = newMonth
+    if let newMonth = calendar.date(byAdding: .month, value: offset, to: myPageDataManager.calendarDate) {
+      self.myPageDataManager.calendarDate = newMonth
     }
   }
   
@@ -193,5 +193,5 @@ extension MyPageCalendarView {
 
 #Preview {
   MyPageCalendarView()
-    .environmentObject(MyPageManager())
+    .environmentObject(MyPageDataManager())
 }

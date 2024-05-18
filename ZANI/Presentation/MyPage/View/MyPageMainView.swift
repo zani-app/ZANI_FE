@@ -1,5 +1,5 @@
 //
-//  MyPageMain.swift
+//  MyPageMainView.swift
 //  ZANI
 //
 //  Created by 정도현 on 3/14/24.
@@ -7,10 +7,9 @@
 
 import SwiftUI
 
-public struct MyPageMain: View {
-  @EnvironmentObject private var myPagePageManager: MyPagePageManager
-  @EnvironmentObject private var myPageManager: MyPageManager
-  @EnvironmentObject private var stompManager: StompClient
+public struct MyPageMainView: View {
+  @StateObject private var myPagePageManager = MyPagePageManager()
+  @StateObject private var myPageDataManager = MyPageDataManager()
   
   public var body: some View {
     NavigationStack(path: $myPagePageManager.route) {
@@ -37,37 +36,43 @@ public struct MyPageMain: View {
       )
     }
     .onAppear {
-      // myPageManager.requestPatch()
-      
-      myPageManager.calendarDate = .now
-      myPageManager.requestUserDetail()
-      myPageManager.requestNightSummary()
+      myPageDataManager.calendarDate = .now
+      myPageDataManager.requestUserDetail()
+      myPageDataManager.requestNightSummary()
     }
   }
 }
 
-extension MyPageMain {
+extension MyPageMainView {
   
   @ViewBuilder
   private func myPagePageDestination(_ type: MyPagePageState) -> some View {
     switch type {
     case .changeNickname:
-      if let userInfo = myPageManager.userInfo {
+      if let userInfo = myPageDataManager.userInfo {
         ChangeNicknameView(userName: userInfo.nickname)
           .toolbar(.hidden, for: .tabBar)
+          .environmentObject(myPageDataManager)
+          .environmentObject(myPagePageManager)
       }
       
     case .mateList:
       MateListView()
         .toolbar(.hidden, for: .tabBar)
+        .environmentObject(myPageDataManager)
+        .environmentObject(myPagePageManager)
       
     case .mateDetail:
       MateDetailView()
         .toolbar(.hidden, for: .tabBar)
+        .environmentObject(myPageDataManager)
+        .environmentObject(myPagePageManager)
       
     case .badgeDetail:
       MyPageBadgeView()
         .toolbar(.hidden, for: .tabBar)
+        .environmentObject(myPageDataManager)
+        .environmentObject(myPagePageManager)
       
     default:
       RecruitmentMain()
@@ -76,7 +81,7 @@ extension MyPageMain {
   
   @ViewBuilder
   private func profileSection() -> some View {
-    if let userInfo = myPageManager.userInfo {
+    if let userInfo = myPageDataManager.userInfo {
       HStack(spacing: 10) {
         Image("profileIcon")
         
@@ -130,6 +135,7 @@ extension MyPageMain {
         .foregroundStyle(.white)
       
       MyPageCalendarView()
+        .environmentObject(myPageDataManager)
       
       HStack(spacing: 8) {
         ForEach(MoonLevel.allCases, id: \.self) { level in
@@ -162,7 +168,7 @@ extension MyPageMain {
             .foregroundStyle(.white)
           
           Group {
-            if let allNightSummary = myPageManager.allNightSummary {
+            if let allNightSummary = myPageDataManager.allNightSummary {
               Text("\(allNightSummary.totalAllNighters)회")
             } else {
               ProgressView()
@@ -179,8 +185,8 @@ extension MyPageMain {
             .foregroundStyle(.white)
           
           Group {
-            if let allNightSummary = myPageManager.allNightSummary {
-              let convertedValue = myPageManager.convertSecondsToHoursMinutesSeconds(seconds: allNightSummary.totalDuration)
+            if let allNightSummary = myPageDataManager.allNightSummary {
+              let convertedValue = myPageDataManager.convertSecondsToHoursMinutesSeconds(seconds: allNightSummary.totalDuration)
               
               Text(
                 String(
@@ -215,9 +221,9 @@ extension MyPageMain {
   
   @ViewBuilder
   private func badgeSection() -> some View {
-    VStack(alignment: .leading, spacing: 20) {
+    VStack(alignment: .leading, spacing: 15) {
       HStack(spacing: 8) {
-        Text("내가 획득한 칭호")
+        Text("칭호 자세히 보기")
         
         Image(systemName: "chevron.right")
           .resizable()
@@ -233,50 +239,14 @@ extension MyPageMain {
         myPagePageManager.push(.badgeDetail)
       }
       
-      ScrollView(.horizontal, showsIndicators: false) {
-        HStack(spacing: 14) {
-          Text("잠만보")
-            .zaniFont(.title1)
-            .foregroundStyle(.white)
-            .padding(.top, 159)
-            .padding(.bottom, 24)
-            .padding(.horizontal, 65)
-            .background(
-              RoundedRectangle(cornerRadius: 30)
-                .fill(Color(red: 105/255, green: 105/255, blue: 143/255))
-            )
-          
-          Text("잠만보")
-            .zaniFont(.title1)
-            .foregroundStyle(.white)
-            .padding(.top, 159)
-            .padding(.bottom, 24)
-            .padding(.horizontal, 65)
-            .background(
-              RoundedRectangle(cornerRadius: 30)
-                .fill(Color(red: 105/255, green: 105/255, blue: 143/255))
-            )
-          
-          Text("잠만보")
-            .zaniFont(.title1)
-            .foregroundStyle(.white)
-            .padding(.top, 159)
-            .padding(.bottom, 24)
-            .padding(.horizontal, 65)
-            .background(
-              RoundedRectangle(cornerRadius: 30)
-                .fill(Color(red: 105/255, green: 105/255, blue: 143/255))
-            )
-        }
-        .padding(.horizontal, 20)
-      }
+      BadgeContainer(
+        badgeData: BadgeDTO(title: "test", condition: "test", isLock: true)
+      )
     }
     .padding(.bottom, 40)
   }
 }
 
 #Preview {
-  MyPageMain()
-    .environmentObject(MyPagePageManager())
-    .environmentObject(MyPageManager())
+  MyPageMainView()
 }

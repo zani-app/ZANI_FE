@@ -9,7 +9,7 @@ import SwiftUI
 
 public struct MateListView: View {
   @EnvironmentObject private var myPagePageManager: MyPagePageManager
-  @EnvironmentObject private var myPageManager: MyPageManager
+  @EnvironmentObject private var myPageManager: MyPageDataManager
   
   public var body: some View {
     VStack(spacing: 0) {
@@ -85,5 +85,5 @@ extension MateListView {
 #Preview {
   MateListView()
     .environmentObject(MyPagePageManager())
-    .environmentObject(MyPageManager())
+    .environmentObject(MyPageDataManager())
 }

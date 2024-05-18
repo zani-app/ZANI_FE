@@ -75,7 +75,7 @@ public struct NightChattingView: View {
     }
     .onAppear {
       stompManager.connectStomp()
-      chattingManager.requestUserDetail()
+      // chattingManager.requestUserDetail()
       chattingManager.requestChattingList(teamId: 8, page: 0, size: 50)
     }
     .background(

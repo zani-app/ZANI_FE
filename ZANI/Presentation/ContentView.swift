@@ -47,7 +47,7 @@ public struct ContentView: View {
           }
           .tag(3)
         
-        MyPageMain()
+        MyPageMainView()
           .tabItem {
             Label(
               title: { Text("마이페이지") },

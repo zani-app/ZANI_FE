@@ -81,13 +81,17 @@
 		CDBB96DE2BF7BDD4005BD03B /* DefaultUserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDBB96DD2BF7BDD4005BD03B /* DefaultUserRepository.swift */; };
 		CDBB96E12BF7BF67005BD03B /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDBB96E02BF7BF67005BD03B /* UserRepository.swift */; };
 		CDBB96E32BF7C243005BD03B /* FetchUserInfoUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDBB96E22BF7C243005BD03B /* FetchUserInfoUseCase.swift */; };
+		CDBB96E72BF7DD46005BD03B /* RequestNicknameDuplicateUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDBB96E62BF7DD46005BD03B /* RequestNicknameDuplicateUseCase.swift */; };
+		CDBB96E92BF7DE67005BD03B /* RequestFollowListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDBB96E82BF7DE67005BD03B /* RequestFollowListUseCase.swift */; };
+		CDBB96EB2BF7DF86005BD03B /* RequestNightSummaryUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDBB96EA2BF7DF86005BD03B /* RequestNightSummaryUseCase.swift */; };
+		CDBB96EE2BF8967B005BD03B /* BadgeContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDBB96ED2BF8967B005BD03B /* BadgeContainer.swift */; };
 		CDC064BA2BA31F8200E24F70 /* ZANIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC064B92BA31F8200E24F70 /* ZANIApp.swift */; };
 		CDC064BC2BA31F8200E24F70 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC064BB2BA31F8200E24F70 /* ContentView.swift */; };
 		CDC064BE2BA31F8300E24F70 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDC064BD2BA31F8300E24F70 /* Assets.xcassets */; };
 		CDC064C12BA31F8300E24F70 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDC064C02BA31F8300E24F70 /* Preview Assets.xcassets */; };
 		CDC064CE2BA3289200E24F70 /* RecruitmentMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC064CD2BA3289200E24F70 /* RecruitmentMain.swift */; };
 		CDC064D02BA3289700E24F70 /* CommunityMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC064CF2BA3289700E24F70 /* CommunityMain.swift */; };
-		CDC064D22BA3289E00E24F70 /* MyPageMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC064D12BA3289E00E24F70 /* MyPageMain.swift */; };
+		CDC064D22BA3289E00E24F70 /* MyPageMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC064D12BA3289E00E24F70 /* MyPageMainView.swift */; };
 		CDC064D92BA37D9A00E24F70 /* ZaniCapsuleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC064D82BA37D9A00E24F70 /* ZaniCapsuleButton.swift */; };
 		CDC064DB2BA37F0700E24F70 /* CreateTeamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC064DA2BA37F0700E24F70 /* CreateTeamView.swift */; };
 		CDC064DD2BA387E900E24F70 /* ZaniTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC064DC2BA387E900E24F70 /* ZaniTextField.swift */; };
@@ -100,13 +104,10 @@
 		CDC065032BA4C98100E24F70 /* CreateTeamSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC065022BA4C98100E24F70 /* CreateTeamSection.swift */; };
 		CDC065172BA4CB2A00E24F70 /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC065162BA4CB2A00E24F70 /* FilterView.swift */; };
 		CDC88D252BAE9D49003E34AA /* MyPageRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC88D242BAE9D49003E34AA /* MyPageRouter.swift */; };
-		CDC88D272BAE9D5C003E34AA /* MyPageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC88D262BAE9D5C003E34AA /* MyPageService.swift */; };
-		CDC88D2B2BAEA22E003E34AA /* MyPageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC88D2A2BAEA22E003E34AA /* MyPageManager.swift */; };
+		CDC88D2B2BAEA22E003E34AA /* MyPageDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC88D2A2BAEA22E003E34AA /* MyPageDataManager.swift */; };
 		CDC88D2D2BAEA577003E34AA /* FollowingRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC88D2C2BAEA577003E34AA /* FollowingRouter.swift */; };
-		CDC88D2F2BAEAADF003E34AA /* FollowingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC88D2E2BAEAADF003E34AA /* FollowingService.swift */; };
 		CDC88D322BAEACB1003E34AA /* FollowListDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC88D312BAEACB1003E34AA /* FollowListDTO.swift */; };
 		CDC88D342BAEC0D4003E34AA /* AllNightersRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC88D332BAEC0D4003E34AA /* AllNightersRouter.swift */; };
-		CDC88D362BAEC0DB003E34AA /* AllNightersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC88D352BAEC0DB003E34AA /* AllNightersService.swift */; };
 		CDC88D382BAEC4CE003E34AA /* AllNightSummaryDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC88D372BAEC4CE003E34AA /* AllNightSummaryDTO.swift */; };
 		CDCB74EA2BAF512D008D6B63 /* StompClientManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCB74E92BAF512D008D6B63 /* StompClientManager.swift */; };
 		CDCB74ED2BAF516B008D6B63 /* Starscream in Frameworks */ = {isa = PBXBuildFile; productRef = CDCB74EC2BAF516B008D6B63 /* Starscream */; };
@@ -183,6 +184,10 @@
 		CDBB96DD2BF7BDD4005BD03B /* DefaultUserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultUserRepository.swift; sourceTree = "<group>"; };
 		CDBB96E02BF7BF67005BD03B /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		CDBB96E22BF7C243005BD03B /* FetchUserInfoUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchUserInfoUseCase.swift; sourceTree = "<group>"; };
+		CDBB96E62BF7DD46005BD03B /* RequestNicknameDuplicateUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestNicknameDuplicateUseCase.swift; sourceTree = "<group>"; };
+		CDBB96E82BF7DE67005BD03B /* RequestFollowListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestFollowListUseCase.swift; sourceTree = "<group>"; };
+		CDBB96EA2BF7DF86005BD03B /* RequestNightSummaryUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestNightSummaryUseCase.swift; sourceTree = "<group>"; };
+		CDBB96ED2BF8967B005BD03B /* BadgeContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeContainer.swift; sourceTree = "<group>"; };
 		CDC064B62BA31F8200E24F70 /* ZANI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZANI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDC064B92BA31F8200E24F70 /* ZANIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZANIApp.swift; sourceTree = "<group>"; };
 		CDC064BB2BA31F8200E24F70 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -190,7 +195,7 @@
 		CDC064C02BA31F8300E24F70 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CDC064CD2BA3289200E24F70 /* RecruitmentMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecruitmentMain.swift; sourceTree = "<group>"; };
 		CDC064CF2BA3289700E24F70 /* CommunityMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityMain.swift; sourceTree = "<group>"; };
-		CDC064D12BA3289E00E24F70 /* MyPageMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageMain.swift; sourceTree = "<group>"; };
+		CDC064D12BA3289E00E24F70 /* MyPageMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageMainView.swift; sourceTree = "<group>"; };
 		CDC064D82BA37D9A00E24F70 /* ZaniCapsuleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZaniCapsuleButton.swift; sourceTree = "<group>"; };
 		CDC064DA2BA37F0700E24F70 /* CreateTeamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTeamView.swift; sourceTree = "<group>"; };
 		CDC064DC2BA387E900E24F70 /* ZaniTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZaniTextField.swift; sourceTree = "<group>"; };
@@ -204,13 +209,10 @@
 		CDC065022BA4C98100E24F70 /* CreateTeamSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTeamSection.swift; sourceTree = "<group>"; };
 		CDC065162BA4CB2A00E24F70 /* FilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterView.swift; sourceTree = "<group>"; };
 		CDC88D242BAE9D49003E34AA /* MyPageRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageRouter.swift; sourceTree = "<group>"; };
-		CDC88D262BAE9D5C003E34AA /* MyPageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageService.swift; sourceTree = "<group>"; };
-		CDC88D2A2BAEA22E003E34AA /* MyPageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageManager.swift; sourceTree = "<group>"; };
+		CDC88D2A2BAEA22E003E34AA /* MyPageDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageDataManager.swift; sourceTree = "<group>"; };
 		CDC88D2C2BAEA577003E34AA /* FollowingRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowingRouter.swift; sourceTree = "<group>"; };
-		CDC88D2E2BAEAADF003E34AA /* FollowingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowingService.swift; sourceTree = "<group>"; };
 		CDC88D312BAEACB1003E34AA /* FollowListDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowListDTO.swift; sourceTree = "<group>"; };
 		CDC88D332BAEC0D4003E34AA /* AllNightersRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllNightersRouter.swift; sourceTree = "<group>"; };
-		CDC88D352BAEC0DB003E34AA /* AllNightersService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllNightersService.swift; sourceTree = "<group>"; };
 		CDC88D372BAEC4CE003E34AA /* AllNightSummaryDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllNightSummaryDTO.swift; sourceTree = "<group>"; };
 		CDCB74E92BAF512D008D6B63 /* StompClientManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StompClientManager.swift; sourceTree = "<group>"; };
 		CDCB74EE2BAF6619008D6B63 /* NightChattingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NightChattingView.swift; sourceTree = "<group>"; };
@@ -280,6 +282,7 @@
 		CD25EBE82BAAD82900A36B3A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				CDC88D302BAEACAB003E34AA /* DTO */,
 				CD25EBF32BAB166100A36B3A /* MoonLevel.swift */,
 			);
 			path = Model;
@@ -288,7 +291,8 @@
 		CD25EBF52BAB193500A36B3A /* View */ = {
 			isa = PBXGroup;
 			children = (
-				CDC064D12BA3289E00E24F70 /* MyPageMain.swift */,
+				CDBB96EC2BF89662005BD03B /* Components */,
+				CDC064D12BA3289E00E24F70 /* MyPageMainView.swift */,
 				CD25EBE92BAAD8C400A36B3A /* MyPageCalendarView.swift */,
 				CD25EBEB2BAB02C200A36B3A /* ChangeNicknameView.swift */,
 				CD25EBEF2BAB08AB00A36B3A /* MateListView.swift */,
@@ -301,9 +305,8 @@
 		CD25EBF62BAB197600A36B3A /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				CDC88D302BAEACAB003E34AA /* DTO */,
 				CD25EBED2BAB051400A36B3A /* MyPagePageManager.swift */,
-				CDC88D2A2BAEA22E003E34AA /* MyPageManager.swift */,
+				CDC88D2A2BAEA22E003E34AA /* MyPageDataManager.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -350,6 +353,9 @@
 		CD2FDF872BF10215004D6B49 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				CDC064BB2BA31F8200E24F70 /* ContentView.swift */,
+				CD25EC2F2BAC9CD900A36B3A /* AppDelegate.swift */,
+				CD25EC312BAC9E0000A36B3A /* SceneDelegate.swift */,
 				CD25EBD32BA9515A00A36B3A /* Auth */,
 				CDC064CA2BA3281D00E24F70 /* Mate */,
 				CDC064C92BA3281C00E24F70 /* Recruitment */,
@@ -420,6 +426,7 @@
 		CD3AA6C42BB6932800C589B8 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				CDCB74F22BAF6B25008D6B63 /* ChattingService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -498,6 +505,9 @@
 			children = (
 				CDBB96D62BF7BC41005BD03B /* RequestSocialSignUpUseCase.swift */,
 				CDBB96E22BF7C243005BD03B /* FetchUserInfoUseCase.swift */,
+				CDBB96E62BF7DD46005BD03B /* RequestNicknameDuplicateUseCase.swift */,
+				CDBB96E82BF7DE67005BD03B /* RequestFollowListUseCase.swift */,
+				CDBB96EA2BF7DF86005BD03B /* RequestNightSummaryUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -529,6 +539,10 @@
 		CDBB96E42BF7DA48005BD03B /* Router */ = {
 			isa = PBXGroup;
 			children = (
+				CDC88D242BAE9D49003E34AA /* MyPageRouter.swift */,
+				CDC88D2C2BAEA577003E34AA /* FollowingRouter.swift */,
+				CDC88D332BAEC0D4003E34AA /* AllNightersRouter.swift */,
+				CDCB74F02BAF6A78008D6B63 /* ChattingRouter.swift */,
 				CD6AAE482BAD74B100862A46 /* AuthRouter.swift */,
 				CD6AAE4E2BAD7BFB00862A46 /* UserRouter.swift */,
 			);
@@ -539,6 +553,14 @@
 			isa = PBXGroup;
 			children = (
 				CD25EBDA2BA959FC00A36B3A /* AuthTextField.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		CDBB96EC2BF89662005BD03B /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				CDBB96ED2BF8967B005BD03B /* BadgeContainer.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -562,6 +584,7 @@
 		CDC064B82BA31F8200E24F70 /* ZANI */ = {
 			isa = PBXGroup;
 			children = (
+				CDC064B92BA31F8200E24F70 /* ZANIApp.swift */,
 				CDBB96D02BF7AFA0005BD03B /* Domain */,
 				CD2FDF8A2BF1029F004D6B49 /* Data */,
 				CD2FDF892BF10256004D6B49 /* Mocks */,
@@ -571,11 +594,7 @@
 				CD25EBFE2BAC4EAC00A36B3A /* Network */,
 				CDC064FA2BA46ACA00E24F70 /* Info.plist */,
 				CDC064D32BA32A1E00E24F70 /* Util */,
-				CDC064B92BA31F8200E24F70 /* ZANIApp.swift */,
-				CDC064BB2BA31F8200E24F70 /* ContentView.swift */,
 				CDC064BF2BA31F8300E24F70 /* Preview Content */,
-				CD25EC2F2BAC9CD900A36B3A /* AppDelegate.swift */,
-				CD25EC312BAC9E0000A36B3A /* SceneDelegate.swift */,
 			);
 			path = ZANI;
 			sourceTree = "<group>";
@@ -591,7 +610,6 @@
 		CDC064C72BA3281800E24F70 /* MyPage */ = {
 			isa = PBXGroup;
 			children = (
-				CDC88D232BAE9D41003E34AA /* Service */,
 				CD25EBF62BAB197600A36B3A /* ViewModel */,
 				CD25EBF52BAB193500A36B3A /* View */,
 				CD25EBE82BAAD82900A36B3A /* Model */,
@@ -699,21 +717,6 @@
 				CD25EBD12BA8A70300A36B3A /* FilterCategory.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		CDC88D232BAE9D41003E34AA /* Service */ = {
-			isa = PBXGroup;
-			children = (
-				CDC88D242BAE9D49003E34AA /* MyPageRouter.swift */,
-				CDC88D262BAE9D5C003E34AA /* MyPageService.swift */,
-				CDC88D2C2BAEA577003E34AA /* FollowingRouter.swift */,
-				CDC88D2E2BAEAADF003E34AA /* FollowingService.swift */,
-				CDC88D332BAEC0D4003E34AA /* AllNightersRouter.swift */,
-				CDC88D352BAEC0DB003E34AA /* AllNightersService.swift */,
-				CDCB74F02BAF6A78008D6B63 /* ChattingRouter.swift */,
-				CDCB74F22BAF6B25008D6B63 /* ChattingService.swift */,
-			);
-			path = Service;
 			sourceTree = "<group>";
 		};
 		CDC88D302BAEACAB003E34AA /* DTO */ = {
@@ -845,6 +848,7 @@
 				CD25EBD52BA951B500A36B3A /* AuthMainView.swift in Sources */,
 				CDC064E12BA38B1900E24F70 /* ZaniNavigationBar.swift in Sources */,
 				CD25EBDF2BA96DAC00A36B3A /* SignUpView.swift in Sources */,
+				CDBB96EE2BF8967B005BD03B /* BadgeContainer.swift in Sources */,
 				CDC88D2D2BAEA577003E34AA /* FollowingRouter.swift in Sources */,
 				CD25EBDB2BA959FC00A36B3A /* AuthTextField.swift in Sources */,
 				CDC065172BA4CB2A00E24F70 /* FilterView.swift in Sources */,
@@ -852,11 +856,11 @@
 				CD3AA6C62BB693C900C589B8 /* NightMateMain.swift in Sources */,
 				CD3AA6DD2BB88A1400C589B8 /* CommunityDetailView.swift in Sources */,
 				CDC064DF2BA3892D00E24F70 /* ZaniMainButton.swift in Sources */,
+				CDBB96EB2BF7DF86005BD03B /* RequestNightSummaryUseCase.swift in Sources */,
 				CD25EBF42BAB166100A36B3A /* MoonLevel.swift in Sources */,
 				CD3AA6CC2BB6B06300C589B8 /* NightDisplayType.swift in Sources */,
 				CDBB96DE2BF7BDD4005BD03B /* DefaultUserRepository.swift in Sources */,
 				CD3AA6CA2BB6A88B00C589B8 /* NightWaitingView.swift in Sources */,
-				CDC88D2F2BAEAADF003E34AA /* FollowingService.swift in Sources */,
 				CDCB74EA2BAF512D008D6B63 /* StompClientManager.swift in Sources */,
 				CD3AA6CE2BB6B76C00C589B8 /* NightMateListView.swift in Sources */,
 				CD3AA6D92BB8855800C589B8 /* CommunityBoardBox.swift in Sources */,
@@ -875,13 +879,12 @@
 				CDC065032BA4C98100E24F70 /* CreateTeamSection.swift in Sources */,
 				CDC88D382BAEC4CE003E34AA /* AllNightSummaryDTO.swift in Sources */,
 				CDCB74F72BAF6F81008D6B63 /* ChattingManager.swift in Sources */,
-				CDC88D272BAE9D5C003E34AA /* MyPageService.swift in Sources */,
 				CD6AAE3E2BAD33CE00862A46 /* NetworkResult.swift in Sources */,
 				CD6AAE452BAD5D2100862A46 /* UserInfoDTO.swift in Sources */,
 				CDC88D322BAEACB1003E34AA /* FollowListDTO.swift in Sources */,
 				CD6AAE3E2BAD33CE00862A46 /* NetworkResult.swift in Sources */,
 				CD6AAE452BAD5D2100862A46 /* UserInfoDTO.swift in Sources */,
-				CDC88D2B2BAEA22E003E34AA /* MyPageManager.swift in Sources */,
+				CDC88D2B2BAEA22E003E34AA /* MyPageDataManager.swift in Sources */,
 				CD09B4AF2BC1B84900A0CD68 /* NightMissionType.swift in Sources */,
 				CD3AA6D02BB6DECF00C589B8 /* NightTimeLineView.swift in Sources */,
 				CD25EBD22BA8A70300A36B3A /* FilterCategory.swift in Sources */,
@@ -889,9 +892,8 @@
 				CDC064BA2BA31F8200E24F70 /* ZANIApp.swift in Sources */,
 				CD6AAE402BAD33EC00862A46 /* SignUpDTO.swift in Sources */,
 				CDC064DB2BA37F0700E24F70 /* CreateTeamView.swift in Sources */,
-				CDC064D22BA3289E00E24F70 /* MyPageMain.swift in Sources */,
+				CDC064D22BA3289E00E24F70 /* MyPageMainView.swift in Sources */,
 				CDC88D252BAE9D49003E34AA /* MyPageRouter.swift in Sources */,
-				CDC88D362BAEC0DB003E34AA /* AllNightersService.swift in Sources */,
 				CD6AAE4F2BAD7BFB00862A46 /* UserRouter.swift in Sources */,
 				CD25EBE72BA9807A00A36B3A /* SignInView.swift in Sources */,
 				CD6AAE492BAD74B100862A46 /* AuthRouter.swift in Sources */,
@@ -901,6 +903,7 @@
 				CDCB74EF2BAF6619008D6B63 /* NightChattingView.swift in Sources */,
 				CDC065002BA4809000E24F70 /* SectionListView.swift in Sources */,
 				CDCB74F32BAF6B25008D6B63 /* ChattingService.swift in Sources */,
+				CDBB96E72BF7DD46005BD03B /* RequestNicknameDuplicateUseCase.swift in Sources */,
 				CD25EC302BAC9CD900A36B3A /* AppDelegate.swift in Sources */,
 				CD25EC342BACA05100A36B3A /* AuthDataManager.swift in Sources */,
 				CDBB96E12BF7BF67005BD03B /* UserRepository.swift in Sources */,
@@ -908,6 +911,7 @@
 				CD6AAE3C2BAD338A00862A46 /* GeneralResponse.swift in Sources */,
 				CDCB74F12BAF6A78008D6B63 /* ChattingRouter.swift in Sources */,
 				CDC064D92BA37D9A00E24F70 /* ZaniCapsuleButton.swift in Sources */,
+				CDBB96E92BF7DE67005BD03B /* RequestFollowListUseCase.swift in Sources */,
 				CDC064CE2BA3289200E24F70 /* RecruitmentMain.swift in Sources */,
 				CD09B4B52BC4373500A0CD68 /* MyPageBadgeView.swift in Sources */,
 				CDC064D02BA3289700E24F70 /* CommunityMain.swift in Sources */,

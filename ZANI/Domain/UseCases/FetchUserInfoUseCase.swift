@@ -26,4 +26,3 @@ final class FetchUserInfoUseCaseImpl: FetchUserInfoUseCase {
     return userRepository.fetchUserInfo(completion: completion)
   }
 }
-

@@ -9,7 +9,7 @@ import SwiftUI
 
 public struct ChangeNicknameView: View {
   @EnvironmentObject private var myPagePageManager: MyPagePageManager
-  @EnvironmentObject private var myPageManager: MyPageManager
+  @EnvironmentObject private var myPageManager: MyPageDataManager
   
   @State private var userInput: String = ""
   
@@ -95,5 +95,5 @@ extension ChangeNicknameView {
 #Preview {
   ChangeNicknameView(userName: "test")
     .environmentObject(MyPagePageManager())
-    .environmentObject(MyPageManager())
+    .environmentObject(MyPageDataManager())
 }
