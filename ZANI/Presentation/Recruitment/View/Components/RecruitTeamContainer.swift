@@ -1,5 +1,5 @@
 //
-//  RecruitTeamCapsule.swift
+//  RecruitTeamContainer.swift
 //  ZANI
 //
 //  Created by 정도현 on 3/29/24.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-public struct RecruitTeamCapsule: View {
+public struct RecruitTeamContainer: View {
   public var teamData: RecruitmentTeamData
   
   public init(teamData: RecruitmentTeamData) {
@@ -74,7 +74,7 @@ public struct RecruitTeamCapsule: View {
 }
 
 #Preview {
-  RecruitTeamCapsule(
+  RecruitTeamContainer(
     teamData: RecruitmentTeamData(
       id: 1,
       title: "test",

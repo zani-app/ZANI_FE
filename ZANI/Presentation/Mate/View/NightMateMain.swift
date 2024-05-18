@@ -121,7 +121,7 @@ extension NightMateMain {
       
       VStack(spacing: 10) {
         ForEach(0..<3) { _ in
-          RecruitTeamCapsule(teamData: RecruitmentTeamData(id: 1, title: "test", maxNum: 1, currentNum: 1, targetTime: 1, isSecret: true, password: "test", category: "Test", description: "test", createdAt: [1]))
+          RecruitTeamContainer(teamData: RecruitmentTeamData(id: 1, title: "test", maxNum: 1, currentNum: 1, targetTime: 1, isSecret: true, password: "test", category: "Test", description: "test", createdAt: [1]))
         }
       }
       

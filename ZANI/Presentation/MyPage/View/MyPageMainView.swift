@@ -75,7 +75,7 @@ extension MyPageMainView {
         .environmentObject(myPagePageManager)
       
     default:
-      RecruitmentMain()
+      RecruitmentMainView()
     }
   }
   

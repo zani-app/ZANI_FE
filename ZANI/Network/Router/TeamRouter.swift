@@ -67,7 +67,7 @@ extension TeamRouter: BaseRouter {
         "password": password,
         "category": category,
         "description": description,
-        "secret": secret
+        "isSecret": secret
       ]
       return .requestBody(body, bodyEncoding: JSONEncoding.default)
     }

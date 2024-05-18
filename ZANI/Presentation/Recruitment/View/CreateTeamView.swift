@@ -9,7 +9,7 @@ import SwiftUI
 
 public struct CreateTeamView: View {
   @EnvironmentObject private var recruitmentPageManager: RecruitmentPageManager
-  @EnvironmentObject private var recruitmentManager: RecruitmentManager
+  @EnvironmentObject private var recruitmentDataManager: RecruitmentDataManager
   
   public var body: some View {
     VStack(spacing: 0) {
@@ -59,16 +59,9 @@ extension CreateTeamView {
   private func bottomButton() -> some View {
     ZaniMainButton(
       title: "팀 생성하기",
-      isValid: !recruitmentManager.teamName.isEmpty &&
-      !recruitmentManager.teamCategory.isEmpty &&
-      recruitmentManager.maxNum != nil &&
-      recruitmentManager.targetTime != nil &&
-      !recruitmentManager.teamDescription.isEmpty &&
-      (!recruitmentManager.isSecretRoom || !recruitmentManager.password.isEmpty)
-      ,
+      isValid: recruitmentDataManager.validateCreateTeamData(),
       action: {
-        recruitmentManager.requestCreateTeam()
-        recruitmentManager.deInitCreateTeamData()
+        recruitmentDataManager.requestCreateTeam()
         recruitmentPageManager.pop()
       }
     )
@@ -83,19 +76,29 @@ extension CreateTeamView {
       placeholderTextStyle: .title2,
       keyboardType: .default,
       maximumInputCount: 10,
-      inputText: $recruitmentManager.teamName
+      inputText: Binding(
+        get: { recruitmentDataManager.createTeamData?.title ?? "" },
+        set: { value in
+          recruitmentDataManager.createTeamData?.title = value
+        }
+      )
     )
     .padding(.horizontal, 20)
   }
   
   @ViewBuilder
   private func sectionList() -> some View {
-    VStack(spacing: 14) {
-      sectionBox(section: .category, data: recruitmentManager.teamCategory)
-      sectionBox(section: .peopleCount, data: recruitmentManager.maxNum?.description ?? "")
-      sectionBox(section: .nightTime, data: recruitmentManager.targetTime?.description ?? "")
+    if let data = recruitmentDataManager.createTeamData {
+      VStack(spacing: 14) {
+        sectionBox(section: .category, data: data.category)
+        sectionBox(section: .peopleCount, data: data.maxNum == 0 ? "" : data.maxNum.description)
+        sectionBox(section: .nightTime, data: data.targetTime == 0 ? "" : data.targetTime.description)
+      }
+      .padding(.horizontal, 20)
+    } else {
+      ProgressView()
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
-    .padding(.horizontal, 20)
   }
   
   @ViewBuilder
@@ -133,10 +136,17 @@ extension CreateTeamView {
   @ViewBuilder
   private func secretRoomOption() -> some View {
     VStack(spacing: 7) {
-      Toggle(isOn: $recruitmentManager.isSecretRoom, label: {
-        Text("비밀방 여부")
-          .foregroundStyle(.white)
-      })
+      Toggle(
+        isOn: Binding(
+          get: { recruitmentDataManager.createTeamData?.secret ?? false },
+          set: { value in
+            recruitmentDataManager.createTeamData?.secret = value
+          }
+        ),
+        label: {
+          Text("비밀방 여부")
+            .foregroundStyle(.white)
+        })
       .tint(Color.mainYellow)
       .padding(.horizontal, 14)
       .padding(.vertical, 6)
@@ -145,13 +155,18 @@ extension CreateTeamView {
           .fill(Color.main2)
       )
       
-      if recruitmentManager.isSecretRoom {
+      if recruitmentDataManager.createTeamData?.secret ?? false {
         ZaniTextField(
           placeholderText: "비밀번호 입력 (숫자 4자리 구성)",
           placeholderTextStyle: .body1,
           keyboardType: .numberPad,
           maximumInputCount: 4,
-          inputText: $recruitmentManager.password
+          inputText: Binding(
+            get: { recruitmentDataManager.createTeamData?.password ?? "" },
+            set: { value in
+              recruitmentDataManager.createTeamData?.password = value
+            }
+          )
         )
       }
     }
@@ -166,7 +181,12 @@ extension CreateTeamView {
       keyboardType: .default,
       maximumInputCount: 50,
       lineLimit: 6,
-      inputText: $recruitmentManager.teamDescription
+      inputText: Binding(
+        get: { recruitmentDataManager.createTeamData?.description ?? "" },
+        set: { value in
+          recruitmentDataManager.createTeamData?.description = value
+        }
+      )
     )
     .padding(.horizontal, 20)
     .padding(.bottom, 40)
@@ -176,5 +196,5 @@ extension CreateTeamView {
 #Preview {
   CreateTeamView()
     .environmentObject(RecruitmentPageManager())
-    .environmentObject(RecruitmentManager())
+    .environmentObject(RecruitmentDataManager())
 }

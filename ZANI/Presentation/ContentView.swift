@@ -23,7 +23,7 @@ public struct ContentView: View {
           }
           .tag(1)
         
-        RecruitmentMain()
+        RecruitmentMainView()
           .tabItem {
             Label(
               title: { Text("모집페이지") },

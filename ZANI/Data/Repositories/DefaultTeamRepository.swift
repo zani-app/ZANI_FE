@@ -1,29 +1,24 @@
 //
-//  TeamService.swift
+//  DefaultTeamRepository.swift
 //  ZANI
 //
-//  Created by 정도현 on 3/22/24.
+//  Created by 정도현 on 5/18/24.
 //
 
-import Foundation
 import Alamofire
+import Foundation
 
-final class TeamService: BaseService {
-  static let shared = TeamService()
+final class DefaultTeamRepository: BaseService, TeamRepository {
   
-  private override init() {}
-}
-
-extension TeamService {
-  func requestTeamList(keyword: String, category: String, isEmpty: Bool, isSecret: Bool, page: Int, size: Int, completion: @escaping (NetworkResult<Any>) -> Void) {
+  func requestTeamList(data: RequestTeamListDTO, completion: @escaping (NetworkResult<Any>) -> Void) {
     AFManager.request(
       TeamRouter.requestTeamList(
-        keyword: keyword,
-        category: category,
-        isEmpty: isEmpty,
-        isSecret: isSecret,
-        page: page,
-        size: size
+        keyword: data.keyword,
+        category: data.category,
+        isEmpty: data.isEmpty,
+        isSecret: data.isSecret,
+        page: data.page,
+        size: data.size
       )
     ).responseData { response in
       switch response.result {
@@ -39,9 +34,17 @@ extension TeamService {
     }
   }
   
-  func requestCreateTeam(title: String, maxNum: Int, targetTime: Int, password: String, category: String, description: String, secret: Bool, completion: @escaping (NetworkResult<Any>) -> Void) {
+  func requestCreateTeam(data: RequestCreateTeamDTO, completion: @escaping (NetworkResult<Any>) -> Void) {
     AFManager.request(
-      TeamRouter.requestCreateTeam(title: title, maxNum: maxNum, targetTime: targetTime, password: password, category: category, description: description, secret: secret)
+      TeamRouter.requestCreateTeam(
+        title: data.title,
+        maxNum: data.maxNum,
+        targetTime: data.targetTime,
+        password: data.password,
+        category: data.category,
+        description: data.description,
+        secret: data.secret
+      )
     ).responseData { response in
       switch response.result {
       case .success:

@@ -9,7 +9,7 @@ import SwiftUI
 
 public struct FilterView: View {
   @EnvironmentObject private var recruitmentPageManager: RecruitmentPageManager
-  @EnvironmentObject private var recruitmentManager: RecruitmentManager
+  @EnvironmentObject private var recruitmentDataManager: RecruitmentDataManager
   
   @State private var startTime: Int = 2
   @State private var endTime: Int = 12
@@ -231,9 +231,9 @@ extension FilterView {
         isValid: true,
         verticalPadding: 10,
         action: { 
-          recruitmentManager.category = self.categoryBuffer
-          recruitmentManager.isEmpty = self.isEmptyBuffer
-          recruitmentManager.isSecret = self.isSecretBuffer
+          recruitmentDataManager.requestTeamData.category = self.categoryBuffer
+          recruitmentDataManager.requestTeamData.isEmpty = self.isEmptyBuffer
+          recruitmentDataManager.requestTeamData.isSecret = self.isSecretBuffer
           recruitmentPageManager.pop()
         }
       )
@@ -253,5 +253,5 @@ extension FilterView {
 #Preview {
   FilterView(categoryBuffer: "test", isSecretBuffer: false, isEmptyBuffer: false)
     .environmentObject(RecruitmentPageManager())
-    .environmentObject(RecruitmentManager())
+    .environmentObject(RecruitmentDataManager())
 }

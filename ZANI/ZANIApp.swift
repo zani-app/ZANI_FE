@@ -12,10 +12,7 @@ import KakaoSDKAuth
 @main
 struct ZANIApp: App {
   @StateObject private var nightMatePageManager = NightMatePageManager()
-  @StateObject private var recruitmentPageManager = RecruitmentPageManager()
-  
   @StateObject private var authDataManager = AuthDataManager()
-  @StateObject private var recruitmentManager = RecruitmentManager()
   @StateObject private var stompManager = StompClient()
   @StateObject private var chattingManager = ChattingManager()
   
@@ -26,8 +23,6 @@ struct ZANIApp: App {
       if authDataManager.isLogin {
         ContentView()
           .environmentObject(nightMatePageManager)
-          .environmentObject(recruitmentPageManager)
-          .environmentObject(recruitmentManager)
           .environmentObject(stompManager)
           .environmentObject(chattingManager)
       } else {

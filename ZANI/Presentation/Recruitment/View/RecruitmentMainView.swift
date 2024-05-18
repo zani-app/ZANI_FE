@@ -1,5 +1,5 @@
 //
-//  RecruitmentMain.swift
+//  RecruitmentMainView.swift
 //  ZANI
 //
 //  Created by 정도현 on 3/14/24.
@@ -7,12 +7,11 @@
 
 import SwiftUI
 
-public struct RecruitmentMain: View {
-  @EnvironmentObject private var recruitmentPageManager: RecruitmentPageManager
-  @EnvironmentObject private var recruitmentManager: RecruitmentManager
+public struct RecruitmentMainView: View {
+  @StateObject private var recruitmentPageManager = RecruitmentPageManager()
+  @StateObject private var recruitmentDataManager = RecruitmentDataManager()
   
   @State private var isSearching: Bool = false
-  
   @State private var selectedTeam: RecruitmentTeamData? = nil
   
   public var body: some View {
@@ -28,16 +27,19 @@ public struct RecruitmentMain: View {
           teamList()
         }
         
-        if let selectedTeam = selectedTeam {
+        if selectedTeam != nil {
           TeamDetailView(teamInfo: $selectedTeam)
         }
       }
-      .onAppear {
-        recruitmentManager.requestTeamList()
-        recruitmentManager.keyword = ""
+      .task {
+        recruitmentDataManager.requestTeamList()
       }
-      .onChange(of: recruitmentManager.keyword, perform: { newValue in
-        recruitmentManager.requestTeamList()
+      .onAppear {
+        recruitmentDataManager.deInitCreateTeamData()
+        recruitmentDataManager.requestTeamData.keyword = ""
+      }
+      .onChange(of: recruitmentDataManager.requestTeamData.keyword, perform: { newValue in
+        recruitmentDataManager.requestTeamList()
       })
       .navigationDestination(for: RecruitmentPageState.self) { pageState in
         recruitmentPageDestination(pageState)
@@ -47,7 +49,7 @@ public struct RecruitmentMain: View {
   }
 }
 
-extension RecruitmentMain {
+extension RecruitmentMainView {
   
   @ViewBuilder
   private func recruitmentPageDestination(_ type: RecruitmentPageState) -> some View {
@@ -55,21 +57,27 @@ extension RecruitmentMain {
     case .createTeam:
       CreateTeamView()
         .toolbar(.hidden, for: .tabBar)
+        .environmentObject(recruitmentDataManager)
+        .environmentObject(recruitmentPageManager)
       
     case let .category(category):
       SectionListView(section: category)
         .toolbar(.hidden, for: .tabBar)
+        .environmentObject(recruitmentDataManager)
+        .environmentObject(recruitmentPageManager)
       
     case .filter:
       FilterView(
-        categoryBuffer: recruitmentManager.category,
-        isSecretBuffer: recruitmentManager.isSecret,
-        isEmptyBuffer: recruitmentManager.isEmpty
+        categoryBuffer: recruitmentDataManager.requestTeamData.category,
+        isSecretBuffer: recruitmentDataManager.requestTeamData.isSecret,
+        isEmptyBuffer: recruitmentDataManager.requestTeamData.isEmpty
       )
       .toolbar(.hidden, for: .tabBar)
+      .environmentObject(recruitmentDataManager)
+      .environmentObject(recruitmentPageManager)
       
     default:
-      RecruitmentMain()
+      RecruitmentMainView()
     }
   }
   
@@ -89,7 +97,7 @@ extension RecruitmentMain {
         horizontalPadding: 8,
         action: {
           recruitmentPageManager.push(.createTeam)
-          recruitmentManager.deInitCreateTeamData()
+          recruitmentDataManager.allocCreateTeamData()
         }
       )
     }
@@ -135,18 +143,18 @@ extension RecruitmentMain {
         )
         ZaniCapsuleButton(
           title: "유형",
-          isValid: !recruitmentManager.category.isEmpty,
+          isValid: !recruitmentDataManager.requestTeamData.category.isEmpty,
           trailingIcon: Image("chevronDown"),
           action: { recruitmentPageManager.push(.filter) }
         )
         ZaniCapsuleButton(
           title: "빈 자리",
-          isValid: recruitmentManager.isEmpty,
+          isValid: recruitmentDataManager.requestTeamData.isEmpty,
           action: { recruitmentPageManager.push(.filter) }
         )
         ZaniCapsuleButton(
           title: "비공개방",
-          isValid: recruitmentManager.isSecret,
+          isValid: recruitmentDataManager.requestTeamData.isSecret,
           action: { recruitmentPageManager.push(.filter) }
         )
       }
@@ -168,7 +176,7 @@ extension RecruitmentMain {
         backgroundColor: Color(red: 1, green: 234/255, blue: 184/255),
         keyboardType: .default,
         maximumInputCount: 20,
-        inputText: $recruitmentManager.keyword
+        inputText: $recruitmentDataManager.requestTeamData.keyword
       )
       .padding(.horizontal, 20)
     }
@@ -177,11 +185,11 @@ extension RecruitmentMain {
   @ViewBuilder
   private func teamList() -> some View {
     
-    if let teamList = recruitmentManager.teamList {
+    if let teamList = recruitmentDataManager.teamList {
       ScrollView {
         VStack(spacing: 10) {
           ForEach(teamList, id: \.id) { teamData in
-            RecruitTeamCapsule(teamData: teamData)
+            RecruitTeamContainer(teamData: teamData)
               .onTapGesture {
                 self.selectedTeam = teamData
               }
@@ -201,7 +209,5 @@ extension RecruitmentMain {
 }
 
 #Preview {
-  RecruitmentMain()
-    .environmentObject(RecruitmentPageManager())
-    .environmentObject(RecruitmentManager())
+  RecruitmentMainView()
 }
