@@ -35,7 +35,7 @@ public struct ContentView: View {
           }
           .tag(2)
         
-        CommunityMain()
+        CommunityMainView()
           .tabItem {
             Label(
               title: { Text("커뮤니티") },

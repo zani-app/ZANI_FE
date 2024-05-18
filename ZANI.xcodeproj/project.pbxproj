@@ -90,7 +90,7 @@
 		CDC064BE2BA31F8300E24F70 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDC064BD2BA31F8300E24F70 /* Assets.xcassets */; };
 		CDC064C12BA31F8300E24F70 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDC064C02BA31F8300E24F70 /* Preview Assets.xcassets */; };
 		CDC064CE2BA3289200E24F70 /* RecruitmentMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC064CD2BA3289200E24F70 /* RecruitmentMain.swift */; };
-		CDC064D02BA3289700E24F70 /* CommunityMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC064CF2BA3289700E24F70 /* CommunityMain.swift */; };
+		CDC064D02BA3289700E24F70 /* CommunityMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC064CF2BA3289700E24F70 /* CommunityMainView.swift */; };
 		CDC064D22BA3289E00E24F70 /* MyPageMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC064D12BA3289E00E24F70 /* MyPageMainView.swift */; };
 		CDC064D92BA37D9A00E24F70 /* ZaniCapsuleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC064D82BA37D9A00E24F70 /* ZaniCapsuleButton.swift */; };
 		CDC064DB2BA37F0700E24F70 /* CreateTeamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC064DA2BA37F0700E24F70 /* CreateTeamView.swift */; };
@@ -194,7 +194,7 @@
 		CDC064BD2BA31F8300E24F70 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CDC064C02BA31F8300E24F70 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CDC064CD2BA3289200E24F70 /* RecruitmentMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecruitmentMain.swift; sourceTree = "<group>"; };
-		CDC064CF2BA3289700E24F70 /* CommunityMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityMain.swift; sourceTree = "<group>"; };
+		CDC064CF2BA3289700E24F70 /* CommunityMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityMainView.swift; sourceTree = "<group>"; };
 		CDC064D12BA3289E00E24F70 /* MyPageMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageMainView.swift; sourceTree = "<group>"; };
 		CDC064D82BA37D9A00E24F70 /* ZaniCapsuleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZaniCapsuleButton.swift; sourceTree = "<group>"; };
 		CDC064DA2BA37F0700E24F70 /* CreateTeamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTeamView.swift; sourceTree = "<group>"; };
@@ -434,7 +434,7 @@
 		CD3AA6D52BB8811F00C589B8 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				CDC064CF2BA3289700E24F70 /* CommunityMain.swift */,
+				CDC064CF2BA3289700E24F70 /* CommunityMainView.swift */,
 				CD3AA6D82BB8855800C589B8 /* CommunityBoardBox.swift */,
 				CD3AA6DA2BB8861900C589B8 /* CommunityWritingView.swift */,
 				CD3AA6DC2BB88A1400C589B8 /* CommunityDetailView.swift */,
@@ -448,13 +448,6 @@
 				CD3AA6DE2BB8901A00C589B8 /* CommunityPageManager.swift */,
 			);
 			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		CD3AA6D72BB8812900C589B8 /* Service */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Service;
 			sourceTree = "<group>";
 		};
 		CD6AAE412BAD34A100862A46 /* DTO */ = {
@@ -620,7 +613,6 @@
 		CDC064C82BA3281A00E24F70 /* Community */ = {
 			isa = PBXGroup;
 			children = (
-				CD3AA6D72BB8812900C589B8 /* Service */,
 				CD3AA6D62BB8812400C589B8 /* ViewModel */,
 				CD3AA6D52BB8811F00C589B8 /* View */,
 			);
@@ -914,7 +906,7 @@
 				CDBB96E92BF7DE67005BD03B /* RequestFollowListUseCase.swift in Sources */,
 				CDC064CE2BA3289200E24F70 /* RecruitmentMain.swift in Sources */,
 				CD09B4B52BC4373500A0CD68 /* MyPageBadgeView.swift in Sources */,
-				CDC064D02BA3289700E24F70 /* CommunityMain.swift in Sources */,
+				CDC064D02BA3289700E24F70 /* CommunityMainView.swift in Sources */,
 				CD25EBE12BA9760700A36B3A /* AuthTextFieldType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

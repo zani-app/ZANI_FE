@@ -1,5 +1,5 @@
 //
-//  CommunityMain.swift
+//  CommunityMainView.swift
 //  ZANI
 //
 //  Created by 정도현 on 3/14/24.
@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-public struct CommunityMain: View {
-  @EnvironmentObject private var communityPageManager: CommunityPageManager
+public struct CommunityMainView: View {
+  @StateObject private var communityPageManager = CommunityPageManager()
   
   public var body: some View {
     NavigationStack(path: $communityPageManager.route) {
@@ -57,7 +57,7 @@ public struct CommunityMain: View {
   }
 }
 
-extension CommunityMain {
+extension CommunityMainView {
   
   @ViewBuilder
   private func communityPageDestination(_ type: CommunityPageState) -> some View {
@@ -65,13 +65,15 @@ extension CommunityMain {
     case .writing:
       CommunityWritingView()
         .toolbar(.hidden, for: .tabBar)
+        .environmentObject(communityPageManager)
       
     case .detail:
       CommunityDetailView()
         .toolbar(.hidden, for: .tabBar)
+        .environmentObject(communityPageManager)
       
     default:
-      CommunityMain()
+      CommunityMainView()
     }
   }
   
@@ -124,6 +126,5 @@ extension CommunityMain {
 }
 
 #Preview {
-  CommunityMain()
-    .environmentObject(CommunityPageManager())
+  CommunityMainView()
 }
