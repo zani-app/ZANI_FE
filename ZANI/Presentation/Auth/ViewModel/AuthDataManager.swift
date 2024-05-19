@@ -18,7 +18,7 @@ final class AuthDataManager: NSObject, ObservableObject {
   @Published var isLogin: Bool = false
   
   private var requestSocialSignUpUseCase: RequestSocialSignUpUseCaseImpl = RequestSocialSignUpUseCaseImpl(userRepository: DefaultUserRepository())
-  private var fetchUserInfoUseCase: FetchUserInfoUseCaseImpl = FetchUserInfoUseCaseImpl(userRepository: DefaultUserRepository())
+  private var requestUserInfoUseCase: RequestUserInfoUseCaseImpl = RequestUserInfoUseCaseImpl(userRepository: DefaultUserRepository())
   
   /// MARK: KAKAO Login
   public func handleKakaoLogin() {
@@ -109,7 +109,7 @@ final class AuthDataManager: NSObject, ObservableObject {
 // MARK: User 관련 API
 extension AuthDataManager {
   func getUserDetail() {
-    fetchUserInfoUseCase.execute { response in
+    requestUserInfoUseCase.execute { response in
       switch(response) {
       case .success(let data):
         if let data = data as? UserInfoDTO {

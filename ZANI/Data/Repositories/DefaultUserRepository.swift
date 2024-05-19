@@ -10,7 +10,7 @@ import Alamofire
 
 final class DefaultUserRepository: BaseService, UserRepository {
  
-  func requestSocialSignUp(
+  public func requestSocialSignUp(
     id: String,
     provider: AuthProvider,
     completion: @escaping (NetworkResult<Any>) -> (Void)
@@ -30,7 +30,7 @@ final class DefaultUserRepository: BaseService, UserRepository {
     }
   }
   
-  func fetchUserInfo(completion: @escaping (NetworkResult<Any>) -> (Void)) {
+  public func requestUserInfo(completion: @escaping (NetworkResult<Any>) -> (Void)) {
     AFManager.request(UserRouter.requestUserInfo).responseData { response in
       switch response.result {
       case .success:
@@ -46,7 +46,7 @@ final class DefaultUserRepository: BaseService, UserRepository {
     }
   }
   
-  func requestNicknameDuplicate(nickname: String, completion: @escaping (NetworkResult<Any>) -> Void) {
+  public func requestNicknameDuplicate(nickname: String, completion: @escaping (NetworkResult<Any>) -> Void) {
     AFManager.request(
       MyPageRouter.checkNicknameDuplicate(nickname: nickname)
     ).responseData { response in
@@ -63,7 +63,7 @@ final class DefaultUserRepository: BaseService, UserRepository {
     }
   }
   
-  func requestFollowList(completion: @escaping (NetworkResult<Any>) -> Void) {
+  public func requestFollowList(completion: @escaping (NetworkResult<Any>) -> Void) {
     AFManager.request(
       FollowingRouter.requestFollowList
     ).responseData { response in
@@ -80,7 +80,7 @@ final class DefaultUserRepository: BaseService, UserRepository {
     }
   }
   
-  func requestNightSummary(year: Int, month: Int, completion: @escaping (NetworkResult<Any>) -> Void) {
+  public func requestNightSummary(year: Int, month: Int, completion: @escaping (NetworkResult<Any>) -> Void) {
     AFManager.request(
       AllNightersRouter.requestSummary(year: year, month: month)
     ).responseData { response in

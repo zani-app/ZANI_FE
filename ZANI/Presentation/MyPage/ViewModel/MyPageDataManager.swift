@@ -21,11 +21,11 @@ final class MyPageDataManager: ObservableObject {
   private var requestFollowListUseCase: RequestFollowListUseCaseImpl = RequestFollowListUseCaseImpl(userRepository: DefaultUserRepository())
   private var requestNicknameDuplicateUseCase: RequestNicknameDuplicateUseCaseImpl = RequestNicknameDuplicateUseCaseImpl(userRepository: DefaultUserRepository())
   private var requestNightSummaryUseCase: RequestNightSummaryUseCaseImpl = RequestNightSummaryUseCaseImpl(userRepository: DefaultUserRepository())
-  private var fetchUserInfoUseCase: FetchUserInfoUseCaseImpl = FetchUserInfoUseCaseImpl(userRepository: DefaultUserRepository())
+  private var requestUserInfoUseCase: RequestUserInfoUseCaseImpl = RequestUserInfoUseCaseImpl(userRepository: DefaultUserRepository())
   
   /// 유저 정보 호출
   func requestUserDetail() {
-    fetchUserInfoUseCase.execute { response in
+    requestUserInfoUseCase.execute { response in
       switch(response) {
       case .success(let data):
         if let data = data as? UserInfoDTO {

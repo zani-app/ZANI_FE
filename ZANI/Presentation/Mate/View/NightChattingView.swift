@@ -9,8 +9,8 @@ import SwiftUI
 
 public struct NightChattingView: View {
   @EnvironmentObject private var nightMatePageManager: NightMatePageManager
-  @EnvironmentObject private var chattingManager: ChattingManager
-  @EnvironmentObject private var stompManager: StompClient
+  
+  @ObservedObject private var chattingManager = ChattingManager()
   
   @State private var text: String = ""
   
@@ -53,7 +53,7 @@ public struct NightChattingView: View {
         )
         
         Button (action: {
-          stompManager.sendMessage(
+          chattingManager.sendMessage(
             from: chattingManager.nickname!,
             to: "/app/chat/message/8",
             with: self.text
@@ -74,8 +74,8 @@ public struct NightChattingView: View {
       .padding(.bottom, 8)
     }
     .onAppear {
-      stompManager.connectStomp()
-      // chattingManager.requestUserDetail()
+      chattingManager.connectStomp()
+      chattingManager.requestUserInfo()
       chattingManager.requestChattingList(teamId: 8, page: 0, size: 50)
     }
     .background(
@@ -141,6 +141,4 @@ extension NightChattingView {
 #Preview {
   NightChattingView()
     .environmentObject(NightMatePageManager())
-    .environmentObject(StompClient())
-    .environmentObject(ChattingManager())
 }

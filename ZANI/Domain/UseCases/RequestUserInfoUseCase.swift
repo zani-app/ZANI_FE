@@ -1,5 +1,5 @@
 //
-//  FetchUserInfoUseCase.swift
+//  RequestUserInfoUseCase.swift
 //  ZANI
 //
 //  Created by 정도현 on 5/18/24.
@@ -7,13 +7,13 @@
 
 import Foundation
 
-protocol FetchUserInfoUseCase {
+protocol RequestUserInfoUseCase {
   func execute(
     completion: @escaping (NetworkResult<Any>) -> (Void)
   )
 }
 
-final class FetchUserInfoUseCaseImpl: FetchUserInfoUseCase {
+final class RequestUserInfoUseCaseImpl: RequestUserInfoUseCase {
   private let userRepository: UserRepository
   
   init(userRepository: UserRepository) {
@@ -23,6 +23,6 @@ final class FetchUserInfoUseCaseImpl: FetchUserInfoUseCase {
   func execute(
     completion: @escaping (NetworkResult<Any>) -> (Void)
   ) {
-    return userRepository.fetchUserInfo(completion: completion)
+    return userRepository.requestUserInfo(completion: completion)
   }
 }

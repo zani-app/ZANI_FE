@@ -20,4 +20,12 @@ protocol TeamRepository {
     data: RequestCreateTeamDTO,
     completion: @escaping (NetworkResult<Any>) -> Void
   ) -> Void
+  
+  /// 팀의 채팅 기록
+  func requestChatHistory(
+    teamId: Int,
+    page: Int,
+    size: Int, 
+    completion: @escaping (NetworkResult<Any>) -> Void
+  ) -> Void
 }

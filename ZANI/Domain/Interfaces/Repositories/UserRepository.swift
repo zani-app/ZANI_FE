@@ -8,6 +8,7 @@
 import Foundation
 
 protocol UserRepository {
+  
   /// 소셜 로그인
   func requestSocialSignUp(
     id: String,
@@ -22,11 +23,11 @@ protocol UserRepository {
   ) -> Void
   
   /// 유저 정보 가져오기
-  func fetchUserInfo(
+  func requestUserInfo(
     completion: @escaping (NetworkResult<Any>) -> (Void)
   ) -> Void
   
-  /// 팔로우 정보
+  /// 유저 팔로우 정보
   func requestFollowList(
     completion: @escaping (NetworkResult<Any>) -> Void
   ) -> Void

@@ -8,7 +8,7 @@
 import SwiftUI
 
 public struct NightMateMain: View {
-  @EnvironmentObject private var nightMatePageManager: NightMatePageManager
+  @StateObject private var nightMatePageManager = NightMatePageManager()
   
   public var body: some View {
     NavigationStack(path: $nightMatePageManager.route) {
@@ -42,14 +42,17 @@ extension NightMateMain {
     case .waitingRoom:
       NightWaitingView()
         .toolbar(.hidden, for: .tabBar)
+        .environmentObject(nightMatePageManager)
       
     case .chatting:
       NightChattingView()
         .toolbar(.hidden, for: .tabBar)
+        .environmentObject(nightMatePageManager)
       
     case .timeline:
       NightTimeLineView()
         .toolbar(.hidden, for: .tabBar)
+        .environmentObject(nightMatePageManager)
       
     default:
       NightMateMain()
@@ -159,5 +162,4 @@ extension NightMateMain {
 
 #Preview {
   NightMateMain()
-    .environmentObject(NightMatePageManager())
 }

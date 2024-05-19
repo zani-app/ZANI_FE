@@ -11,10 +11,7 @@ import KakaoSDKAuth
 
 @main
 struct ZANIApp: App {
-  @StateObject private var nightMatePageManager = NightMatePageManager()
   @StateObject private var authDataManager = AuthDataManager()
-  @StateObject private var stompManager = StompClient()
-  @StateObject private var chattingManager = ChattingManager()
   
   @UIApplicationDelegateAdaptor var appDelegate: AppDelegate
   
@@ -22,9 +19,6 @@ struct ZANIApp: App {
     WindowGroup {
       if authDataManager.isLogin {
         ContentView()
-          .environmentObject(nightMatePageManager)
-          .environmentObject(stompManager)
-          .environmentObject(chattingManager)
       } else {
         AuthMainView()
           .environmentObject(authDataManager)
