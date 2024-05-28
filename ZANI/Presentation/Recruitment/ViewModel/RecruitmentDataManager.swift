@@ -12,6 +12,8 @@ import Alamofire
 
 final class RecruitmentDataManager: ObservableObject {
   
+  @Published private(set) var isSuccessTask: Bool = false
+  
   @Published var requestTeamData: RequestTeamListDTO = RequestTeamListDTO(
     keyword: "",
     category: "",
@@ -21,7 +23,6 @@ final class RecruitmentDataManager: ObservableObject {
     size: 10
   )
   @Published var createTeamData: RequestCreateTeamDTO? = nil
-  
   @Published var teamList: [RecruitmentTeamData]? = nil
   
   private var requestTeamListUseCase: RequestTeamListUseCaseImpl = RequestTeamListUseCaseImpl(teamRepository: DefaultTeamRepository())
@@ -43,18 +44,19 @@ final class RecruitmentDataManager: ObservableObject {
   }
   
   public func requestCreateTeam() {
+    self.isSuccessTask = false
+    
     if let data = createTeamData {
       requestCreateTeamUseCase.execute(data: data) { response in
         switch(response) {
-        case .success(let data):
-          if let data = data as? RecruitmentTeamData {
-            print("success")
-          }
+        case .success:
+          print("success")
           
         default:
           print("failCreateRoom")
         }
         
+        self.isSuccessTask = true
         self.deInitCreateTeamData()
       }
     }
