@@ -9,6 +9,7 @@ import SwiftUI
 
 public struct NightWaitingView: View {
   @EnvironmentObject private var nightMatePageManager: NightMatePageManager
+  @EnvironmentObject private var nightMateDataManager: NightMateDataManager
   
   @State private var isShowMateList: Bool = false
   @State private var isTapUser: Bool = false
@@ -60,6 +61,11 @@ public struct NightWaitingView: View {
         
       }
     }
+    .onChange(of: nightMateDataManager.isUserParticipateTeam, perform: { value in
+      if !value {
+        nightMatePageManager.pop()
+      }
+    })
     .navigationBarBackButtonHidden()
     .background(
       VStack(spacing: 0) {

@@ -28,4 +28,10 @@ protocol TeamRepository {
     size: Int, 
     completion: @escaping (NetworkResult<Any>) -> Void
   ) -> Void
+  
+  /// 팀 나가기
+  func requestLeaveTeam(
+    teamId: Int,
+    completion: @escaping (NetworkResult<Any>) -> Void
+  ) -> Void
 }

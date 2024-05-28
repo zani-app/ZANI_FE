@@ -91,7 +91,7 @@ final class AuthDataManager: NSObject, ObservableObject {
             case .success(let data):
               if let data = data as? SignUpDTO {
                 UserDefaults.standard.set(data.accessToken, forKey: "accessToken")
-                print("Access Token: \(data.accessToken))")
+                print("Access Token: \(data.accessToken)")
                 self.loginType = loginPath
                 self.getUserDetail()
               }

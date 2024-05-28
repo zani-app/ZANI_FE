@@ -8,6 +8,7 @@
 import SwiftUI
 
 public struct NightMateListView: View {
+  @EnvironmentObject private var nightMateDataManager: NightMateDataManager
   
   @Binding var isTapUser: Bool
   
@@ -27,6 +28,19 @@ public struct NightMateListView: View {
         }
         .padding(.top, 18)
       }
+      
+      HStack(spacing: 4) {
+        Image("exitDoorIcon")
+        
+        Text("팀 나가기")
+          .zaniFont(.title1)
+          .foregroundStyle(.errorRed)
+          .onTapGesture {
+            // TODO: teamId Variable
+            nightMateDataManager.requestLeaveTeam(teamId: 23)
+          }
+      }
+      .padding(.bottom, 26)
     }
     .padding(.top, 27)
     .padding(.horizontal, 16)
@@ -76,4 +90,5 @@ extension NightMateListView {
 
 #Preview {
   NightMateListView(isTapUser: .constant(false))
+    .environmentObject(NightMateDataManager())
 }

@@ -33,6 +33,7 @@ final class RecruitmentDataManager: ObservableObject {
       case .success(let data):
         if let data = data as? TeamListDTO {
           self.teamList = data.teams
+          print(data)
         }
         
       default:

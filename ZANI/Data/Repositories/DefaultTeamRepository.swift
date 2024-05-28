@@ -80,4 +80,24 @@ final class DefaultTeamRepository: BaseService, TeamRepository {
       }
     }
   }
+  
+  public func requestLeaveTeam(
+    teamId: Int,
+    completion: @escaping (NetworkResult<Any>) -> Void
+  ) {
+    AFManager.request(
+      TeamRouter.requestLeaveTeam(teamId: teamId)
+    ).responseData { response in
+      switch response.result {
+      case .success:
+        guard let statusCode = response.response?.statusCode else { return }
+        guard let data = response.data else { return }
+        let networkResult = self.judgeStatus(by: statusCode, data, type: ChatDTO.self)
+        completion(networkResult)
+        
+      case .failure(let err):
+        print(err.localizedDescription)
+      }
+    }
+  }
 }
