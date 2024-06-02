@@ -39,6 +39,7 @@ public struct MyPageMainView: View {
       myPageDataManager.calendarDate = .now
       myPageDataManager.requestUserDetail()
       myPageDataManager.requestNightSummary()
+      myPageDataManager.requestUserAchievement()
     }
   }
 }

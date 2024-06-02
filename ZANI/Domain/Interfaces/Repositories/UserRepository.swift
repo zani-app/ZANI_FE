@@ -38,4 +38,9 @@ protocol UserRepository {
     month: Int,
     completion: @escaping (NetworkResult<Any>) -> Void
   ) -> Void
+  
+  /// 유저 칭호 정보
+  func requestAchievement(
+    completion: @escaping (NetworkResult<Any>) -> Void
+  ) -> Void
 }

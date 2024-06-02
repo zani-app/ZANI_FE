@@ -96,4 +96,30 @@ final class DefaultUserRepository: BaseService, UserRepository {
       }
     }
   }
+  
+  public func requestAchievement(completion: @escaping (NetworkResult<Any>) -> Void) {
+    AFManager.request(
+      AchievementRouter.requestAchievement
+    ).responseData { response in
+      switch response.result {
+      case .success:
+        guard let statusCode = response.response?.statusCode else { return }
+        guard let data = response.data else { return }
+        
+        // TODO: Data Decoding
+        do {
+          let object = try JSONSerialization.jsonObject(with: data, options: []) as? NSDictionary
+          print(object)
+        } catch {
+          print(error.localizedDescription)
+        }
+        
+        // let networkResult = self.judgeStatus(by: statusCode, data, type: AllNightSummaryDTO.self)
+        // completion(networkResult)
+        
+      case .failure(let err):
+        print(err.localizedDescription)
+      }
+    }
+  }
 }

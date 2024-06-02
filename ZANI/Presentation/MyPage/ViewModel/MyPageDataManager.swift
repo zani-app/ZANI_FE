@@ -22,6 +22,7 @@ final class MyPageDataManager: ObservableObject {
   private var requestNicknameDuplicateUseCase: RequestNicknameDuplicateUseCaseImpl = RequestNicknameDuplicateUseCaseImpl(userRepository: DefaultUserRepository())
   private var requestNightSummaryUseCase: RequestNightSummaryUseCaseImpl = RequestNightSummaryUseCaseImpl(userRepository: DefaultUserRepository())
   private var requestUserInfoUseCase: RequestUserInfoUseCaseImpl = RequestUserInfoUseCaseImpl(userRepository: DefaultUserRepository())
+  private var requestAchievementUseCase: RequestAchievementUseCaseImpl = RequestAchievementUseCaseImpl(userRepository: DefaultUserRepository())
   
   /// 유저 정보 호출
   func requestUserDetail() {
@@ -84,6 +85,20 @@ final class MyPageDataManager: ObservableObject {
           self.allNightSummary = data
           print(data, "data")
         }
+        
+      default:
+        print("data fetch Error")
+      }
+    }
+  }
+  
+  /// 유저 칭호
+  func requestUserAchievement() {
+    requestAchievementUseCase.execute { response in
+      switch(response) {
+        // TODO: Data Decoding
+      case .success(let data):
+        return
         
       default:
         print("data fetch Error")
