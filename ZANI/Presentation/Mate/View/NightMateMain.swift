@@ -8,6 +8,7 @@
 import SwiftUI
 
 public struct NightMateMain: View {
+  @StateObject private var nightMateDataManager = NightMateDataManager()
   @StateObject private var nightMatePageManager = NightMatePageManager()
   
   public var body: some View {
@@ -43,6 +44,7 @@ extension NightMateMain {
       NightWaitingView()
         .toolbar(.hidden, for: .tabBar)
         .environmentObject(nightMatePageManager)
+        .environmentObject(nightMateDataManager)
       
     case .chatting:
       NightChattingView()

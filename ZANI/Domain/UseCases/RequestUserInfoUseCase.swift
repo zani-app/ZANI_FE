@@ -6,9 +6,16 @@
 //
 
 import Foundation
+import UIKit
 
 protocol RequestUserInfoUseCase {
   func execute(
+    completion: @escaping (NetworkResult<Any>) -> (Void)
+  )
+  
+  func update(
+    image: UIImage?,
+    nickname: String?,
     completion: @escaping (NetworkResult<Any>) -> (Void)
   )
 }
@@ -24,5 +31,17 @@ final class RequestUserInfoUseCaseImpl: RequestUserInfoUseCase {
     completion: @escaping (NetworkResult<Any>) -> (Void)
   ) {
     return userRepository.requestUserInfo(completion: completion)
+  }
+  
+  func update(
+    image: UIImage?,
+    nickname: String?,
+    completion: @escaping (NetworkResult<Any>) -> (Void)
+  ) {
+    return userRepository.updateUserInfo(
+      image: image,
+      nickname: nickname,
+      completion: completion
+    )
   }
 }

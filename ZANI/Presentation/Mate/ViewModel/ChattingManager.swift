@@ -84,7 +84,6 @@ extension ChattingManager: WebSocketDelegate {
         do {
           let decoder = JSONDecoder()
           let chgat = try? decoder.decode(Chat.self, from: data)
-          print(chgat?.sendTime, "NIlnl")
         } catch {
           print("Error decoding JSON: \(error.localizedDescription)")
         }

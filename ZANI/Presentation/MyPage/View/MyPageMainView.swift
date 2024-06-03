@@ -24,6 +24,12 @@ public struct MyPageMainView: View {
       .navigationDestination(for: MyPagePageState.self) { pageState in
         myPagePageDestination(pageState)
       }
+      .onAppear {
+        myPageDataManager.calendarDate = .now
+        myPageDataManager.requestUserDetail()
+        myPageDataManager.requestNightSummary()
+        myPageDataManager.requestUserAchievement()
+      }
       .background(
         LinearGradient(
           colors: [
@@ -34,11 +40,6 @@ public struct MyPageMainView: View {
           endPoint: .bottom
         )
       )
-    }
-    .onAppear {
-      myPageDataManager.calendarDate = .now
-      myPageDataManager.requestUserDetail()
-      myPageDataManager.requestNightSummary()
     }
   }
 }
@@ -83,7 +84,18 @@ extension MyPageMainView {
   private func profileSection() -> some View {
     if let userInfo = myPageDataManager.userInfo {
       HStack(spacing: 10) {
-        Image("profileIcon")
+        Group {
+          if userInfo.profileImageUrl != "", let url = URL(string: userInfo.profileImageUrl) {
+            AsyncImage(url: url)
+          } else {
+            Image("profileIcon")
+              .resizable()
+          }
+        }
+        .frame(width: 48, height: 48)
+        .clipShape(
+          Circle()
+        )
         
         VStack(alignment: .leading, spacing: 10) {
           HStack(spacing: 7) {

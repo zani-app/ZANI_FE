@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 protocol UserRepository {
   
@@ -27,6 +28,13 @@ protocol UserRepository {
     completion: @escaping (NetworkResult<Any>) -> (Void)
   ) -> Void
   
+  /// 유저 정보 업데이트
+  func updateUserInfo(
+    image: UIImage?,
+    nickname: String?,
+    completion: @escaping (NetworkResult<Any>) -> (Void)
+  ) -> Void
+  
   /// 유저 팔로우 정보
   func requestFollowList(
     completion: @escaping (NetworkResult<Any>) -> Void
@@ -36,6 +44,11 @@ protocol UserRepository {
   func requestNightSummary(
     year: Int,
     month: Int,
+    completion: @escaping (NetworkResult<Any>) -> Void
+  ) -> Void
+  
+  /// 유저 칭호 정보
+  func requestAchievement(
     completion: @escaping (NetworkResult<Any>) -> Void
   ) -> Void
 }

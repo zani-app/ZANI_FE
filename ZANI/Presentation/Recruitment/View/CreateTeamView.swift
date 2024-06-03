@@ -17,10 +17,16 @@ public struct CreateTeamView: View {
       
       teamInfoSection()
       
+      
       Spacer()
       
       bottomButton()
     }
+    .onChange(of: recruitmentDataManager.isSuccessTask, perform: { value in
+      if value {
+        recruitmentPageManager.pop()
+      }
+    })
     .navigationBarBackButtonHidden()
     .background(
       Color.main1
@@ -62,7 +68,6 @@ extension CreateTeamView {
       isValid: recruitmentDataManager.validateCreateTeamData(),
       action: {
         recruitmentDataManager.requestCreateTeam()
-        recruitmentPageManager.pop()
       }
     )
     .padding(.horizontal, 20)
