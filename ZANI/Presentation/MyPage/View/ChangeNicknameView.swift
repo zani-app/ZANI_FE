@@ -9,7 +9,7 @@ import SwiftUI
 
 public struct ChangeNicknameView: View {
   @EnvironmentObject private var myPagePageManager: MyPagePageManager
-  @EnvironmentObject private var myPageManager: MyPageDataManager
+  @EnvironmentObject private var myPageDataManager: MyPageDataManager
   
   @State private var userInput: String = ""
   
@@ -37,6 +37,11 @@ public struct ChangeNicknameView: View {
     .onAppear {
       userInput = userName
     }
+    .onChange(of: myPageDataManager.isSuccess, perform: { newValue in
+      if newValue {
+        myPagePageManager.pop()
+      }
+    })
     .background(
       Color.main1
     )
@@ -84,8 +89,8 @@ extension ChangeNicknameView {
   private func bottomButton() -> some View {
     ZaniMainButton(
       title: "수정 완료하기",
-      isValid: !userInput.isEmpty && userInput.count < AuthTextFieldType.nickname.maximumInput && userInput != userName,
-      action: { myPageManager.checkNicnameValidation(nickname: self.userName) }
+      isValid: myPageDataManager.changeNicknameButtonValidation(userInput: self.userInput),
+      action: { myPageDataManager.checkNicnameValidation(nickname: self.userInput) }
     )
     .padding(.horizontal, 20)
     .padding(.bottom, 28)

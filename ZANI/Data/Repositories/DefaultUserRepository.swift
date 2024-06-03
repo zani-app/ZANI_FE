@@ -7,6 +7,7 @@
 
 import Foundation
 import Alamofire
+import UIKit
 
 final class DefaultUserRepository: BaseService, UserRepository {
  
@@ -37,6 +38,29 @@ final class DefaultUserRepository: BaseService, UserRepository {
         guard let statusCode = response.response?.statusCode else { return }
         guard let data = response.data else { return }
         let networkResult = self.judgeStatus(by: statusCode, data, type: UserInfoDTO.self)
+        
+        completion(networkResult)
+        
+      case .failure(let err):
+        print(err.localizedDescription)
+      }
+    }
+  }
+  
+  public func updateUserInfo(
+    image: UIImage?,
+    nickname: String?,
+    completion: @escaping (NetworkResult<Any>) -> (Void)
+  ) {
+    AFManager.upload(
+      multipartFormData: UserRouter.updateUserInfo(image: image, nickname: nickname).multipart,
+      with: UserRouter.updateUserInfo(image: image, nickname: nickname)
+    ).responseData { response in
+      switch response.result {
+      case .success:
+        guard let statusCode = response.response?.statusCode else { return }
+        guard let data = response.data else { return }
+        let networkResult = self.judgeStatus(by: statusCode, data, type: Bool.self)
         
         completion(networkResult)
         

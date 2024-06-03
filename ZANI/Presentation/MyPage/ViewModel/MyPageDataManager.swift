@@ -18,6 +18,8 @@ final class MyPageDataManager: ObservableObject {
   @Published var allNightSummary: AllNightSummaryDTO? = nil
   @Published var calendarDate: Date = .now
   
+  @Published private(set) var isSuccess: Bool = false
+  
   private var requestFollowListUseCase: RequestFollowListUseCaseImpl = RequestFollowListUseCaseImpl(userRepository: DefaultUserRepository())
   private var requestNicknameDuplicateUseCase: RequestNicknameDuplicateUseCaseImpl = RequestNicknameDuplicateUseCaseImpl(userRepository: DefaultUserRepository())
   private var requestNightSummaryUseCase: RequestNightSummaryUseCaseImpl = RequestNightSummaryUseCaseImpl(userRepository: DefaultUserRepository())
@@ -50,11 +52,6 @@ final class MyPageDataManager: ObservableObject {
     //        print("data fetch Error")
     //      }
     //    }
-    
-    let param: Parameters = [
-      "message":
-        [ "nickname": "test" ]
-    ]
     
     let imageData = UIImage().pngData()!
   }
@@ -108,22 +105,34 @@ final class MyPageDataManager: ObservableObject {
   
   /// 닉네임 검증
   func checkNicnameValidation(nickname: String) {
+    self.isSuccess = false
     requestNicknameDuplicateUseCase.execute(nickname: nickname) { response in
       switch(response) {
-      case .success(let data):
-        if let data = data as? Bool {
-          print(data, "data")
-          
-          if data {
-            let imageData = UIImage(systemName: "chevron.left")
+      case .success:
+        let imageData = UIImage(systemName: "chevron.right")
+        
+        self.requestUserInfoUseCase.update(image: imageData, nickname: nickname) { response in
+          switch(response) {
+          case .success:
+            self.isSuccess = true
             
-            self.requestPatch(nickname: nickname, image: imageData)
+          default:
+            print("data fetch Error")
           }
         }
         
       default:
         print("data fetch Error")
       }
+    }
+  }
+  
+  /// 닉네임 변경 버튼 Validation
+  func changeNicknameButtonValidation(userInput: String) -> Bool {
+    if let userInfo = userInfo {
+      return !userInput.isEmpty && userInput.count < AuthTextFieldType.nickname.maximumInput && userInput != userInfo.nickname
+    } else {
+      return false
     }
   }
   
@@ -178,36 +187,5 @@ final class MyPageDataManager: ObservableObject {
       }
     }
     return nil
-  }
-  
-  // ** Multipart Form **
-  func requestPatch(nickname: String, image: UIImage?) {
-    let URL = "https://dongkyeom.com/api/v1/user"
-    
-    var header : HTTPHeaders = [
-      "Content-Type" : "multipart/form-data",
-    ]
-    
-    if let accessToken = UserDefaults.standard.string(forKey: "accessToken") {
-      header["Authorization"] = "Bearer \(accessToken)"
-    }
-  
-    let parameters: [String : Any] = [
-      "nickname": nickname
-    ]
-    
-    AF.upload(multipartFormData: { multipartFormData in
-      for (key, value) in parameters {
-        multipartFormData.append("\(value)".data(using: .utf8)!, withName: key)
-      }
-      
-      if let image = image?.pngData() {
-        multipartFormData.append(image, withName: "file", fileName: "\(image).png", mimeType: "image/png")
-      }
-    }, to: URL, usingThreshold: UInt64.init(), method: .patch, headers: header).response { response in
-      guard let statusCode = response.response?.statusCode, statusCode == 200 else {
-        return
-      }
-    }
   }
 }

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 protocol UserRepository {
   
@@ -24,6 +25,13 @@ protocol UserRepository {
   
   /// 유저 정보 가져오기
   func requestUserInfo(
+    completion: @escaping (NetworkResult<Any>) -> (Void)
+  ) -> Void
+  
+  /// 유저 정보 업데이트
+  func updateUserInfo(
+    image: UIImage?,
+    nickname: String?,
     completion: @escaping (NetworkResult<Any>) -> (Void)
   ) -> Void
   

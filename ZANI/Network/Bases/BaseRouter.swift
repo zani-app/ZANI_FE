@@ -14,6 +14,7 @@ public protocol BaseRouter: URLRequestConvertible {
   var path: String { get }
   var parameters: RequestParams { get }
   var header: HeaderType { get }
+  var multipart: MultipartFormData { get }
 }
 
 public enum HeaderType {
@@ -48,15 +49,7 @@ extension BaseRouter {
       request.setValue("application/json", forHTTPHeaderField: "Content-Type")
       if let accessToken = UserDefaults.standard.string(forKey: "accessToken") {
         request.setValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
-      }
-      
-      //    case .multiPart:
-      //      request.setValue(HeaderContent.multiPart.rawValue, forHTTPHeaderField: HTTPHeaderField.contentType.rawValue)
-      //
-      //    case .multiPartWithToken:
-      //      request.setValue(HeaderContent.multiPart.rawValue, forHTTPHeaderField: HTTPHeaderField.contentType.rawValue)
-      //      request.setValue(HeaderContent.tokenSerial.rawValue, forHTTPHeaderField: HTTPHeaderField.accesstoken.rawValue)
-      
+      }      
     }
     return request
   }
@@ -89,6 +82,10 @@ extension BaseRouter {
 extension BaseRouter {
   var baseURL: String {
     return .baseURL
+  }
+  
+  var multipart: MultipartFormData {
+    return MultipartFormData()
   }
 }
 
