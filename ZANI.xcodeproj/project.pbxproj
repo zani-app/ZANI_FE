@@ -81,6 +81,11 @@
 		CD6AAE5F2BADC93700862A46 /* TeamDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6AAE5E2BADC93700862A46 /* TeamDetailView.swift */; };
 		CD75956F2C0C921B00E04595 /* AchievementRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD75956E2C0C921B00E04595 /* AchievementRouter.swift */; };
 		CD7595712C0C92A400E04595 /* RequestAchievementUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7595702C0C92A400E04595 /* RequestAchievementUseCase.swift */; };
+		CD8CD0732C0EC0B6002C6129 /* PostRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8CD0722C0EC0B6002C6129 /* PostRouter.swift */; };
+		CD8CD0752C0EC2F0002C6129 /* PostRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8CD0742C0EC2F0002C6129 /* PostRepository.swift */; };
+		CD8CD0772C0EC373002C6129 /* DefaultPostRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8CD0762C0EC373002C6129 /* DefaultPostRepository.swift */; };
+		CD8D2E572C0F22DC00DBC490 /* PostUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8D2E562C0F22DC00DBC490 /* PostUseCase.swift */; };
+		CD8D2E592C0F242C00DBC490 /* CommunityDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8D2E582C0F242C00DBC490 /* CommunityDataManager.swift */; };
 		CDBB96D72BF7BC41005BD03B /* RequestSocialSignUpUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDBB96D62BF7BC41005BD03B /* RequestSocialSignUpUseCase.swift */; };
 		CDBB96DE2BF7BDD4005BD03B /* DefaultUserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDBB96DD2BF7BDD4005BD03B /* DefaultUserRepository.swift */; };
 		CDBB96E12BF7BF67005BD03B /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDBB96E02BF7BF67005BD03B /* UserRepository.swift */; };
@@ -192,6 +197,11 @@
 		CD6AAE5E2BADC93700862A46 /* TeamDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamDetailView.swift; sourceTree = "<group>"; };
 		CD75956E2C0C921B00E04595 /* AchievementRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementRouter.swift; sourceTree = "<group>"; };
 		CD7595702C0C92A400E04595 /* RequestAchievementUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestAchievementUseCase.swift; sourceTree = "<group>"; };
+		CD8CD0722C0EC0B6002C6129 /* PostRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRouter.swift; sourceTree = "<group>"; };
+		CD8CD0742C0EC2F0002C6129 /* PostRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRepository.swift; sourceTree = "<group>"; };
+		CD8CD0762C0EC373002C6129 /* DefaultPostRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultPostRepository.swift; sourceTree = "<group>"; };
+		CD8D2E562C0F22DC00DBC490 /* PostUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostUseCase.swift; sourceTree = "<group>"; };
+		CD8D2E582C0F242C00DBC490 /* CommunityDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityDataManager.swift; sourceTree = "<group>"; };
 		CDBB96D62BF7BC41005BD03B /* RequestSocialSignUpUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestSocialSignUpUseCase.swift; sourceTree = "<group>"; };
 		CDBB96DD2BF7BDD4005BD03B /* DefaultUserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultUserRepository.swift; sourceTree = "<group>"; };
 		CDBB96E02BF7BF67005BD03B /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
@@ -455,6 +465,7 @@
 			isa = PBXGroup;
 			children = (
 				CD3AA6DE2BB8901A00C589B8 /* CommunityPageManager.swift */,
+				CD8D2E582C0F242C00DBC490 /* CommunityDataManager.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -508,6 +519,7 @@
 				CD3EBDF72BFA1A84006F51BA /* RequestChatHistoryUseCase.swift */,
 				CD3C51032C05999600D51F56 /* RequestLeaveTeamUseCase.swift */,
 				CD7595702C0C92A400E04595 /* RequestAchievementUseCase.swift */,
+				CD8D2E562C0F22DC00DBC490 /* PostUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -525,6 +537,7 @@
 			children = (
 				CDBB96DD2BF7BDD4005BD03B /* DefaultUserRepository.swift */,
 				CDBB96F52BF89D23005BD03B /* DefaultTeamRepository.swift */,
+				CD8CD0762C0EC373002C6129 /* DefaultPostRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -534,6 +547,7 @@
 			children = (
 				CDBB96E02BF7BF67005BD03B /* UserRepository.swift */,
 				CDBB96EF2BF89C25005BD03B /* TeamRepository.swift */,
+				CD8CD0742C0EC2F0002C6129 /* PostRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -549,6 +563,7 @@
 				CD6AAE482BAD74B100862A46 /* AuthRouter.swift */,
 				CD6AAE4E2BAD7BFB00862A46 /* UserRouter.swift */,
 				CD75956E2C0C921B00E04595 /* AchievementRouter.swift */,
+				CD8CD0722C0EC0B6002C6129 /* PostRouter.swift */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -840,11 +855,13 @@
 				CD25EBF02BAB08AB00A36B3A /* MateListView.swift in Sources */,
 				CD25EBE32BA97ECE00A36B3A /* SignUpDoneView.swift in Sources */,
 				CD6AAE472BAD73FB00862A46 /* BaseRouter.swift in Sources */,
+				CD8CD0772C0EC373002C6129 /* DefaultPostRepository.swift in Sources */,
 				CDBB96E32BF7C243005BD03B /* RequestUserInfoUseCase.swift in Sources */,
 				CD75956F2C0C921B00E04595 /* AchievementRouter.swift in Sources */,
 				CDC064FC2BA46B7700E24F70 /* Font + Utils.swift in Sources */,
 				CD25EBF22BAB0F2600A36B3A /* MateDetailView.swift in Sources */,
 				CDBB96F02BF89C25005BD03B /* TeamRepository.swift in Sources */,
+				CD8CD0752C0EC2F0002C6129 /* PostRepository.swift in Sources */,
 				CD25EBEE2BAB051400A36B3A /* MyPagePageManager.swift in Sources */,
 				CD6AAE5F2BADC93700862A46 /* TeamDetailView.swift in Sources */,
 				CD25EBEA2BAAD8C400A36B3A /* MyPageCalendarView.swift in Sources */,
@@ -906,9 +923,11 @@
 				CD3C50FF2C058BBF00D51F56 /* NightMateDataManager.swift in Sources */,
 				CDC064BA2BA31F8200E24F70 /* ZANIApp.swift in Sources */,
 				CDBB96F82BF89DCA005BD03B /* RequestTeamListUseCase.swift in Sources */,
+				CD8D2E572C0F22DC00DBC490 /* PostUseCase.swift in Sources */,
 				CD6AAE402BAD33EC00862A46 /* SignUpDTO.swift in Sources */,
 				CDC064DB2BA37F0700E24F70 /* CreateTeamView.swift in Sources */,
 				CDC064D22BA3289E00E24F70 /* MyPageMainView.swift in Sources */,
+				CD8D2E592C0F242C00DBC490 /* CommunityDataManager.swift in Sources */,
 				CDC88D252BAE9D49003E34AA /* MyPageRouter.swift in Sources */,
 				CD6AAE4F2BAD7BFB00862A46 /* UserRouter.swift in Sources */,
 				CD25EBE72BA9807A00A36B3A /* SignInView.swift in Sources */,
@@ -919,6 +938,7 @@
 				CDCB74EF2BAF6619008D6B63 /* NightChattingView.swift in Sources */,
 				CDC065002BA4809000E24F70 /* SectionListView.swift in Sources */,
 				CDBB96E72BF7DD46005BD03B /* RequestNicknameDuplicateUseCase.swift in Sources */,
+				CD8CD0732C0EC0B6002C6129 /* PostRouter.swift in Sources */,
 				CD25EC302BAC9CD900A36B3A /* AppDelegate.swift in Sources */,
 				CD25EC342BACA05100A36B3A /* AuthDataManager.swift in Sources */,
 				CDBB96E12BF7BF67005BD03B /* UserRepository.swift in Sources */,

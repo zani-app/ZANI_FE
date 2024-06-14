@@ -21,6 +21,7 @@ final class DefaultUserRepository: BaseService, UserRepository {
       case .success:
         guard let statusCode = response.response?.statusCode else { return }
         guard let data = response.data else { return }
+        
         let networkResult = self.judgeStatus(by: statusCode, data, type: SignUpDTO.self)
         
         completion(networkResult)

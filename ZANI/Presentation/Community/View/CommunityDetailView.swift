@@ -9,6 +9,7 @@ import SwiftUI
 
 public struct CommunityDetailView: View {
   @EnvironmentObject private var communityPageManager: CommunityPageManager
+  @EnvironmentObject private var communityDataManager: CommunityDataManager
   
   @State private var isShowDeleteIcon: Bool = false
   
@@ -155,4 +156,5 @@ extension CommunityDetailView {
 #Preview {
   CommunityDetailView()
     .environmentObject(CommunityPageManager())
+    .environmentObject(CommunityDataManager())
 }

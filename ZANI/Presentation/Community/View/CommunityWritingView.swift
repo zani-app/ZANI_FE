@@ -10,6 +10,7 @@ import SwiftUI
 
 public struct CommunityWritingView: View {
   @EnvironmentObject private var communityPageManager: CommunityPageManager
+  @EnvironmentObject private var communityDataManager: CommunityDataManager
   
   @State private var title: String = ""
   @State private var content: String = ""
@@ -153,4 +154,5 @@ extension CommunityWritingView {
 #Preview {
   CommunityWritingView()
     .environmentObject(CommunityPageManager())
+    .environmentObject(CommunityDataManager())
 }
