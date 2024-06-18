@@ -9,6 +9,7 @@ import SwiftUI
 
 public struct CommunityMainView: View {
   @StateObject private var communityPageManager = CommunityPageManager()
+  @StateObject private var communityDataManager = CommunityDataManager()
   
   public var body: some View {
     NavigationStack(path: $communityPageManager.route) {
@@ -47,6 +48,10 @@ public struct CommunityMainView: View {
         
         writeButton()
       }
+      .onAppear {
+        communityDataManager.fetchPost()
+        communityDataManager.createPost(title: "test", content: "Test")
+      }
       .background(
         Color.main1
       )
@@ -66,11 +71,13 @@ extension CommunityMainView {
       CommunityWritingView()
         .toolbar(.hidden, for: .tabBar)
         .environmentObject(communityPageManager)
+        .environmentObject(communityDataManager)
       
     case .detail:
       CommunityDetailView()
         .toolbar(.hidden, for: .tabBar)
         .environmentObject(communityPageManager)
+        .environmentObject(communityDataManager)
       
     default:
       CommunityMainView()
