@@ -12,11 +12,13 @@ public struct UserInfoDTO: Codable {
   let id: Int
   let nickname: String
   let provider: String
+  let achievementTitle: String?
   
   enum CodingKeys: String, CodingKey {
     case profileImageUrl = "profile_image_url"
     case id
     case nickname
     case provider
+    case achievementTitle = "AchievementTitle"
   }
 }
