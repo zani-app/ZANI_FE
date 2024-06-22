@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import PhotosUI
 
 public struct ChangeNicknameView: View {
   @EnvironmentObject private var myPagePageManager: MyPagePageManager
@@ -42,6 +43,9 @@ public struct ChangeNicknameView: View {
         myPagePageManager.pop()
       }
     })
+    .onDisappear {
+      myPageDataManager.deinitImageData()
+    }
     .background(
       Color.main1
     )
@@ -60,10 +64,43 @@ extension ChangeNicknameView {
   
   @ViewBuilder
   private func profileImage() -> some View {
-    Image("profileIcon")
-      .resizable()
-      .frame(width: 98, height: 98)
-      .padding(.top, 58)
+    if let userInfo = myPageDataManager.userInfo {
+      PhotosPicker(selection: $myPageDataManager.selectedImage, matching: .images) {
+        Group {
+          if let imageData = myPageDataManager.selectedImageData, let image = UIImage(data: imageData) {
+            Image(uiImage: image)
+              .resizable()
+              .aspectRatio(contentMode: .fill)
+          } else {
+            if userInfo.profileImageUrl != "" {
+              AsyncImage(url: URL(string: userInfo.profileImageUrl)) { image in
+                image.resizable()
+                  .aspectRatio(contentMode: .fill)
+              } placeholder: {
+                ProgressView()
+              }
+            } else {
+              Image("profileIcon")
+                .resizable()
+            }
+          }
+        }
+        .frame(width: 98, height: 98)
+      }
+      .onChange(of: myPageDataManager.selectedImage) { newItem in
+        Task {
+          if let data = try? await newItem?.loadTransferable(type: Data.self) {
+            myPageDataManager.selectedImageData = data
+          }
+        }
+      }
+      .clipShape(
+        Circle()
+      )
+    } else {
+      ProgressView()
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+    }
   }
   
   @ViewBuilder

@@ -68,6 +68,13 @@ final class DefaultUserRepository: BaseService, UserRepository {
       case .success:
         guard let statusCode = response.response?.statusCode else { return }
         guard let data = response.data else { return }
+        
+        if let json = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] {
+          print(json)
+        } else {
+          print("Failed to convert data to JSON")
+        }
+        
         let networkResult = self.judgeStatus(by: statusCode, data, type: Bool.self)
         
         completion(networkResult)

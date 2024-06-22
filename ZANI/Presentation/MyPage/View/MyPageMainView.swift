@@ -85,8 +85,13 @@ extension MyPageMainView {
     if let userInfo = myPageDataManager.userInfo {
       HStack(spacing: 10) {
         Group {
-          if userInfo.profileImageUrl != "", let url = URL(string: userInfo.profileImageUrl) {
-            AsyncImage(url: url)
+          if userInfo.profileImageUrl != "" {
+            AsyncImage(url: URL(string: userInfo.profileImageUrl)) { image in
+              image.resizable()
+                .aspectRatio(contentMode: .fill)
+            } placeholder: {
+              ProgressView()
+            }
           } else {
             Image("profileIcon")
               .resizable()
