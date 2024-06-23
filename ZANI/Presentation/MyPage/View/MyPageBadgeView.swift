@@ -9,6 +9,7 @@ import SwiftUI
 
 public struct MyPageBadgeView: View {
   @EnvironmentObject private var myPagePageManager: MyPagePageManager
+  @EnvironmentObject private var myPageDataManager: MyPageDataManager
   
   public var body: some View {
     VStack(spacing: 0) {
@@ -20,17 +21,9 @@ public struct MyPageBadgeView: View {
       
       ScrollView(.vertical) {
         LazyVStack(spacing: 8) {
-          BadgeContainer(
-            badgeData: BadgeDTO(title: "test", condition: "test", isLock: true)
-          )
-          
-          BadgeContainer(
-            badgeData: BadgeDTO(title: "test", condition: "test", isLock: true)
-          )
-          
-          BadgeContainer(
-            badgeData: BadgeDTO(title: "test", condition: "test", isLock: true)
-          )
+          ForEach(myPageDataManager.badgeList) { badgeData in
+            BadgeContainer(badgeData: badgeData)
+          }
         }
       }
     }
@@ -44,4 +37,5 @@ public struct MyPageBadgeView: View {
 #Preview {
   MyPageBadgeView()
     .environmentObject(MyPagePageManager())
+    .environmentObject(MyPageDataManager())
 }

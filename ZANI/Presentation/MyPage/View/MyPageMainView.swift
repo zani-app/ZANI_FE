@@ -247,6 +247,8 @@ extension MyPageMainView {
           .frame(width: 6, height: 12)
           .padding(.horizontal, 9)
           .padding(.vertical, 6)
+        
+        Spacer()
       }
       .zaniFont(.title1)
       .foregroundStyle(.white)
@@ -256,9 +258,11 @@ extension MyPageMainView {
         myPagePageManager.push(.badgeDetail)
       }
       
-      BadgeContainer(
-        badgeData: BadgeDTO(title: "test", condition: "test", isLock: true)
-      )
+      if let badgeData = myPageDataManager.badgeList.first {
+        BadgeContainer(
+          badgeData: badgeData
+        )
+      }
     }
     .padding(.bottom, 40)
   }

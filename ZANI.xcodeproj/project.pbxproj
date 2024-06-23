@@ -66,6 +66,7 @@
 		CD3C50FF2C058BBF00D51F56 /* NightMateDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3C50FE2C058BBF00D51F56 /* NightMateDataManager.swift */; };
 		CD3C51042C05999600D51F56 /* RequestLeaveTeamUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3C51032C05999600D51F56 /* RequestLeaveTeamUseCase.swift */; };
 		CD3EBDF82BFA1A84006F51BA /* RequestChatHistoryUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3EBDF72BFA1A84006F51BA /* RequestChatHistoryUseCase.swift */; };
+		CD51AB652C328CD30091021F /* BadgeDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD51AB642C328CD30091021F /* BadgeDTO.swift */; };
 		CD6AAE2D2BAD206000862A46 /* BaseURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6AAE2C2BAD206000862A46 /* BaseURL.swift */; };
 		CD6AAE3C2BAD338A00862A46 /* GeneralResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6AAE3B2BAD338A00862A46 /* GeneralResponse.swift */; };
 		CD6AAE3E2BAD33CE00862A46 /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6AAE3D2BAD33CE00862A46 /* NetworkResult.swift */; };
@@ -182,6 +183,7 @@
 		CD3C50FE2C058BBF00D51F56 /* NightMateDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NightMateDataManager.swift; sourceTree = "<group>"; };
 		CD3C51032C05999600D51F56 /* RequestLeaveTeamUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestLeaveTeamUseCase.swift; sourceTree = "<group>"; };
 		CD3EBDF72BFA1A84006F51BA /* RequestChatHistoryUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestChatHistoryUseCase.swift; sourceTree = "<group>"; };
+		CD51AB642C328CD30091021F /* BadgeDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeDTO.swift; sourceTree = "<group>"; };
 		CD6AAE2C2BAD206000862A46 /* BaseURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseURL.swift; sourceTree = "<group>"; };
 		CD6AAE3B2BAD338A00862A46 /* GeneralResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralResponse.swift; sourceTree = "<group>"; };
 		CD6AAE3D2BAD33CE00862A46 /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
@@ -748,6 +750,7 @@
 				CDC88D312BAEACB1003E34AA /* FollowListDTO.swift */,
 				CDC88D372BAEC4CE003E34AA /* AllNightSummaryDTO.swift */,
 				CDCB74F42BAF6B93008D6B63 /* ChatDTO.swift */,
+				CD51AB642C328CD30091021F /* BadgeDTO.swift */,
 			);
 			path = DTO;
 			sourceTree = "<group>";
@@ -918,6 +921,7 @@
 				CDC88D2B2BAEA22E003E34AA /* MyPageDataManager.swift in Sources */,
 				CD09B4AF2BC1B84900A0CD68 /* NightMissionType.swift in Sources */,
 				CD3AA6D02BB6DECF00C589B8 /* NightTimeLineView.swift in Sources */,
+				CD51AB652C328CD30091021F /* BadgeDTO.swift in Sources */,
 				CD25EBD22BA8A70300A36B3A /* FilterCategory.swift in Sources */,
 				CD25EC322BAC9E0000A36B3A /* SceneDelegate.swift in Sources */,
 				CD3C50FF2C058BBF00D51F56 /* NightMateDataManager.swift in Sources */,

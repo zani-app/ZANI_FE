@@ -7,12 +7,6 @@
 
 import SwiftUI
 
-public struct BadgeDTO {
-  public let title: String
-  public let condition: String
-  public let isLock: Bool
-}
-
 public struct BadgeContainer: View {
   
   public let badgeData: BadgeDTO
@@ -24,16 +18,16 @@ public struct BadgeContainer: View {
           .zaniFont(.title2)
           .foregroundStyle(.yellow1)
           
-        Text("획들 조건: \(badgeData.condition)")
+        Text("획득 조건: \(badgeData.content)")
           .zaniFont(.body2)
           .foregroundStyle(.white)
       }
       
       Spacer()
       
-      if badgeData.isLock {
-        Image("lockIcon")
-      }
+//      if badgeData.isLock {
+//        Image("lockIcon")
+//      }
     }
     .padding(16)
     .background(
@@ -44,12 +38,12 @@ public struct BadgeContainer: View {
   }
 }
 
-#Preview {
-  BadgeContainer(
-    badgeData: BadgeDTO(
-      title: "test", 
-      condition: "test",
-      isLock: true
-    )
-  )
-}
+//#Preview {
+//  BadgeContainer(
+//    badgeData: BadgeDTO(
+//      title: "test", 
+//      condition: "test",
+//      isLock: true
+//    )
+//  )
+//}

@@ -10,7 +10,7 @@ import Alamofire
 import UIKit
 
 final class DefaultUserRepository: BaseService, UserRepository {
- 
+  
   public func requestSocialSignUp(
     id: String,
     provider: AuthProvider,
@@ -93,6 +93,7 @@ final class DefaultUserRepository: BaseService, UserRepository {
       case .success:
         guard let statusCode = response.response?.statusCode else { return }
         guard let data = response.data else { return }
+        
         let networkResult = self.judgeStatus(by: statusCode, data, type: Bool.self)
         completion(networkResult)
         
@@ -110,6 +111,7 @@ final class DefaultUserRepository: BaseService, UserRepository {
       case .success:
         guard let statusCode = response.response?.statusCode else { return }
         guard let data = response.data else { return }
+        
         let networkResult = self.judgeStatus(by: statusCode, data, type: [FollowDTO].self)
         completion(networkResult)
         
@@ -127,6 +129,7 @@ final class DefaultUserRepository: BaseService, UserRepository {
       case .success:
         guard let statusCode = response.response?.statusCode else { return }
         guard let data = response.data else { return }
+        
         let networkResult = self.judgeStatus(by: statusCode, data, type: AllNightSummaryDTO.self)
         completion(networkResult)
         
@@ -145,16 +148,8 @@ final class DefaultUserRepository: BaseService, UserRepository {
         guard let statusCode = response.response?.statusCode else { return }
         guard let data = response.data else { return }
         
-        // TODO: Data Decoding
-        do {
-          let object = try JSONSerialization.jsonObject(with: data, options: []) as? NSDictionary
-          print(object)
-        } catch {
-          print(error.localizedDescription)
-        }
-        
-        // let networkResult = self.judgeStatus(by: statusCode, data, type: AllNightSummaryDTO.self)
-        // completion(networkResult)
+        let networkResult = self.judgeStatus(by: statusCode, data, type: [BadgeDTO].self)
+        completion(networkResult)
         
       case .failure(let err):
         print(err.localizedDescription)

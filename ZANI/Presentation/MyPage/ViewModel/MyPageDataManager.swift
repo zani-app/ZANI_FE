@@ -14,10 +14,11 @@ import _PhotosUI_SwiftUI
 
 final class MyPageDataManager: ObservableObject {
   
-  @Published var userInfo: UserInfoDTO? = nil
-  @Published var followList: [FollowDTO]? = nil
-  @Published var allNightSummary: AllNightSummaryDTO? = nil
+  @Published private(set) var userInfo: UserInfoDTO? = nil
+  @Published private(set) var followList: [FollowDTO]? = nil
+  @Published private(set) var allNightSummary: AllNightSummaryDTO? = nil
   @Published var calendarDate: Date = .now
+  @Published private(set) var badgeList: [BadgeDTO] = []
   
   @Published var selectedImage: PhotosPickerItem?
   @Published var selectedImageData: Data?
@@ -74,7 +75,7 @@ final class MyPageDataManager: ObservableObject {
       case .success(let data):
         if let data = data as? AllNightSummaryDTO {
           self.allNightSummary = data
-          print(data, "data")
+          print(data)
         }
         
       default:
@@ -89,7 +90,10 @@ final class MyPageDataManager: ObservableObject {
       switch(response) {
         // TODO: Data Decoding
       case .success(let data):
-        return
+        if let data = data as? [BadgeDTO] {
+          self.badgeList = data
+          print(data)
+        }
         
       default:
         print("data fetch Error")
