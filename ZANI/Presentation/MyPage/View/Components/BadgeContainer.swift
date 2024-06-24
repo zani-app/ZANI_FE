@@ -16,8 +16,10 @@ public struct BadgeContainer: View {
       VStack(alignment: .leading, spacing: 13) {
         Text(badgeData.title)
           .zaniFont(.title2)
-          .foregroundStyle(.yellow1)
-          
+          .foregroundStyle(
+            badgeData.difficulty == "1" ? .mainYellow : badgeData.difficulty == "2" ? .badgeGreen : .badgeCyan
+          )
+        
         Text("획득 조건: \(badgeData.content)")
           .zaniFont(.body2)
           .foregroundStyle(.white)
@@ -25,9 +27,9 @@ public struct BadgeContainer: View {
       
       Spacer()
       
-//      if badgeData.isLock {
-//        Image("lockIcon")
-//      }
+      //      if badgeData.isLock {
+      //        Image("lockIcon")
+      //      }
     }
     .padding(16)
     .background(
@@ -41,7 +43,7 @@ public struct BadgeContainer: View {
 //#Preview {
 //  BadgeContainer(
 //    badgeData: BadgeDTO(
-//      title: "test", 
+//      title: "test",
 //      condition: "test",
 //      isLock: true
 //    )
