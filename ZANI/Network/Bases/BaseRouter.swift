@@ -49,7 +49,7 @@ extension BaseRouter {
       request.setValue("application/json", forHTTPHeaderField: "Content-Type")
       if let accessToken = UserDefaults.standard.string(forKey: "accessToken") {
         request.setValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
-      }      
+      }
     }
     return request
   }

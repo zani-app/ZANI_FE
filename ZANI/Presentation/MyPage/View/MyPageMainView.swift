@@ -85,8 +85,13 @@ extension MyPageMainView {
     if let userInfo = myPageDataManager.userInfo {
       HStack(spacing: 10) {
         Group {
-          if userInfo.profileImageUrl != "", let url = URL(string: userInfo.profileImageUrl) {
-            AsyncImage(url: url)
+          if userInfo.profileImageUrl != "" {
+            AsyncImage(url: URL(string: userInfo.profileImageUrl)) { image in
+              image.resizable()
+                .aspectRatio(contentMode: .fill)
+            } placeholder: {
+              ProgressView()
+            }
           } else {
             Image("profileIcon")
               .resizable()
@@ -242,6 +247,8 @@ extension MyPageMainView {
           .frame(width: 6, height: 12)
           .padding(.horizontal, 9)
           .padding(.vertical, 6)
+        
+        Spacer()
       }
       .zaniFont(.title1)
       .foregroundStyle(.white)
@@ -251,9 +258,11 @@ extension MyPageMainView {
         myPagePageManager.push(.badgeDetail)
       }
       
-      BadgeContainer(
-        badgeData: BadgeDTO(title: "test", condition: "test", isLock: true)
-      )
+      if let badgeData = myPageDataManager.badgeList.first {
+        BadgeContainer(
+          badgeData: badgeData
+        )
+      }
     }
     .padding(.bottom, 40)
   }

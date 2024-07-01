@@ -10,13 +10,18 @@ import Foundation
 import KakaoSDKUser
 import Alamofire
 import UIKit
+import _PhotosUI_SwiftUI
 
 final class MyPageDataManager: ObservableObject {
   
-  @Published var userInfo: UserInfoDTO? = nil
-  @Published var followList: [FollowDTO]? = nil
-  @Published var allNightSummary: AllNightSummaryDTO? = nil
+  @Published private(set) var userInfo: UserInfoDTO? = nil
+  @Published private(set) var followList: [FollowDTO]? = nil
+  @Published private(set) var allNightSummary: AllNightSummaryDTO? = nil
   @Published var calendarDate: Date = .now
+  @Published private(set) var badgeList: [BadgeDTO] = []
+  
+  @Published var selectedImage: PhotosPickerItem?
+  @Published var selectedImageData: Data?
   
   @Published private(set) var isSuccess: Bool = false
   
@@ -41,21 +46,6 @@ final class MyPageDataManager: ObservableObject {
     }
   }
   
-  /// 유저 정보 업데이트
-  func requestUpdateUserProfile() {
-    //    MyPageService.shared.updateUserInfo(nickname: "test", image: UIImage()) { response in
-    //      switch(response) {
-    //      case .success(let data):
-    //        print("nice!")
-    //
-    //      default:
-    //        print("data fetch Error")
-    //      }
-    //    }
-    
-    let imageData = UIImage().pngData()!
-  }
-  
   /// 팔로우 리스트 출력
   func requestFollowList() {
     requestFollowListUseCase.execute { response in
@@ -71,6 +61,11 @@ final class MyPageDataManager: ObservableObject {
     }
   }
   
+  func deinitImageData() {
+    self.selectedImageData = nil
+    self.selectedImage = nil
+  }
+  
   /// 달력 및 밤샘 이력 조회
   func requestNightSummary() {
     let summaryDate = self.getMonthYear(date: self.calendarDate)
@@ -80,7 +75,7 @@ final class MyPageDataManager: ObservableObject {
       case .success(let data):
         if let data = data as? AllNightSummaryDTO {
           self.allNightSummary = data
-          print(data, "data")
+          print(data)
         }
         
       default:
@@ -95,7 +90,10 @@ final class MyPageDataManager: ObservableObject {
       switch(response) {
         // TODO: Data Decoding
       case .success(let data):
-        return
+        if let data = data as? [BadgeDTO] {
+          self.badgeList = data
+          print(data)
+        }
         
       default:
         print("data fetch Error")
@@ -103,13 +101,18 @@ final class MyPageDataManager: ObservableObject {
     }
   }
   
-  /// 닉네임 검증
+  /// 닉네임 검증 + 유저 정보 수정
   func checkNicnameValidation(nickname: String) {
     self.isSuccess = false
+    
     requestNicknameDuplicateUseCase.execute(nickname: nickname) { response in
       switch(response) {
       case .success:
-        let imageData = UIImage(systemName: "chevron.right")
+        var imageData: UIImage? = nil
+        
+        if let data = self.selectedImageData {
+          imageData = UIImage(data: data)
+        }
         
         self.requestUserInfoUseCase.update(image: imageData, nickname: nickname) { response in
           switch(response) {
@@ -130,7 +133,7 @@ final class MyPageDataManager: ObservableObject {
   /// 닉네임 변경 버튼 Validation
   func changeNicknameButtonValidation(userInput: String) -> Bool {
     if let userInfo = userInfo {
-      return !userInput.isEmpty && userInput.count < AuthTextFieldType.nickname.maximumInput && userInput != userInfo.nickname
+      return (!userInput.isEmpty && userInput.count < AuthTextFieldType.nickname.maximumInput && userInput != userInfo.nickname) || self.selectedImageData != nil
     } else {
       return false
     }
