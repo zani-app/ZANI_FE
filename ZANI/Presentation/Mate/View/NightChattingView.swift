@@ -81,7 +81,7 @@ public struct NightChattingView: View {
     .onAppear {
       chattingManager.connectStomp()
       chattingManager.requestUserInfo()
-      chattingManager.requestChattingList(teamId: 8, page: 0, size: 50)
+      chattingManager.requestChattingList(teamId: 8, page: 0, size: 30)
     }
     .background(
       Color.main1
@@ -99,17 +99,7 @@ extension NightChattingView {
       if isMe {
         Spacer()
       } else {
-        AsyncImage(url: URL(string: url)) { image in
-          image.resizable()
-            .aspectRatio(contentMode: .fill)
-        } placeholder: {
-          ProgressView()
-        }
-        .frame(height: 38)
-        .clipShape(
-          Circle()
-        )
-        .frame(width: 38, height: 38)
+        CachedImageView(url: url, imageSize: 38)
       }
       
       Text(message)
@@ -129,17 +119,7 @@ extension NightChattingView {
       if !isMe {
         Spacer()
       } else {
-        AsyncImage(url: URL(string: url)) { image in
-          image.resizable()
-            .aspectRatio(contentMode: .fill)
-        } placeholder: {
-          ProgressView()
-        }
-        .frame(height: 38)
-        .clipShape(
-          Circle()
-        )
-        .frame(width: 38, height: 38)
+        CachedImageView(url: url, imageSize: 38)
       }
     }
   }
