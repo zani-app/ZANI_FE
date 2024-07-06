@@ -21,15 +21,20 @@ public struct NightChattingView: View {
       ScrollViewReader { proxy in
         ScrollView {
           if let chattingList = chattingManager.chatList, let nickname = chattingManager.nickname {
-            var messageList = chattingList.messageList.reversed()
             
-            VStack(spacing: 20) {
-              ForEach(messageList.indices, id: \.self) { index in
-                chatMessage(url: messageList[index].senderProfileImage, isMe: nickname == messageList[index].senderNickname, message: messageList[index].content)
-                  .id(index)
+            LazyVStack(spacing: 20) {
+              ForEach(chattingList.messageList.indices, id: \.self) { index in
+                chatMessage(
+                  url: chattingList.messageList[index].senderProfileImage,
+                  isMe: nickname == chattingList.messageList[index].senderNickname,
+                  message: chattingList.messageList[index].content
+                )
+                .id(index)
               }
               .onAppear {
-                proxy.scrollTo(messageList.count - 1, anchor: .bottom)
+                withAnimation(.easeInOut) {
+                  proxy.scrollTo(chattingList.messageList.count - 1, anchor: .bottom)
+                }
               }
             }
             .padding(.bottom, 20)
@@ -96,14 +101,15 @@ extension NightChattingView {
       } else {
         AsyncImage(url: URL(string: url)) { image in
           image.resizable()
+            .aspectRatio(contentMode: .fill)
         } placeholder: {
           ProgressView()
         }
+        .frame(height: 38)
         .clipShape(
           Circle()
         )
-        .aspectRatio(contentMode: .fit)
-        .frame(height: 38)
+        .frame(width: 38, height: 38)
       }
       
       Text(message)
@@ -125,14 +131,15 @@ extension NightChattingView {
       } else {
         AsyncImage(url: URL(string: url)) { image in
           image.resizable()
+            .aspectRatio(contentMode: .fill)
         } placeholder: {
           ProgressView()
         }
+        .frame(height: 38)
         .clipShape(
           Circle()
         )
-        .aspectRatio(contentMode: .fit)
-        .frame(height: 38)
+        .frame(width: 38, height: 38)
       }
     }
   }
