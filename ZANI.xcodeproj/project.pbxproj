@@ -64,6 +64,7 @@
 		CD3AA6DD2BB88A1400C589B8 /* CommunityDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3AA6DC2BB88A1400C589B8 /* CommunityDetailView.swift */; };
 		CD3AA6DF2BB8901A00C589B8 /* CommunityPageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3AA6DE2BB8901A00C589B8 /* CommunityPageManager.swift */; };
 		CD3C50FF2C058BBF00D51F56 /* NightMateDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3C50FE2C058BBF00D51F56 /* NightMateDataManager.swift */; };
+		CD5086222C3EC1A500B72788 /* LoadingIndicatorModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5086212C3EC1A500B72788 /* LoadingIndicatorModifier.swift */; };
 		CD51AB652C328CD30091021F /* BadgeDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD51AB642C328CD30091021F /* BadgeDTO.swift */; };
 		CD6AAE2D2BAD206000862A46 /* BaseURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6AAE2C2BAD206000862A46 /* BaseURL.swift */; };
 		CD6AAE3C2BAD338A00862A46 /* GeneralResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6AAE3B2BAD338A00862A46 /* GeneralResponse.swift */; };
@@ -183,6 +184,7 @@
 		CD3AA6DC2BB88A1400C589B8 /* CommunityDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityDetailView.swift; sourceTree = "<group>"; };
 		CD3AA6DE2BB8901A00C589B8 /* CommunityPageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityPageManager.swift; sourceTree = "<group>"; };
 		CD3C50FE2C058BBF00D51F56 /* NightMateDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NightMateDataManager.swift; sourceTree = "<group>"; };
+		CD5086212C3EC1A500B72788 /* LoadingIndicatorModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicatorModifier.swift; sourceTree = "<group>"; };
 		CD51AB642C328CD30091021F /* BadgeDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeDTO.swift; sourceTree = "<group>"; };
 		CD6AAE2C2BAD206000862A46 /* BaseURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseURL.swift; sourceTree = "<group>"; };
 		CD6AAE3B2BAD338A00862A46 /* GeneralResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralResponse.swift; sourceTree = "<group>"; };
@@ -733,6 +735,7 @@
 				CDBB96ED2BF8967B005BD03B /* BadgeContainer.swift */,
 				CDE17A172C39B399008A9469 /* CachedImageView.swift */,
 				CDE17A192C39B4DB008A9469 /* ImageCacheManager.swift */,
+				CD5086212C3EC1A500B72788 /* LoadingIndicatorModifier.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -920,6 +923,7 @@
 				CDC064BA2BA31F8200E24F70 /* ZANIApp.swift in Sources */,
 				CDBB96F82BF89DCA005BD03B /* RequestTeamListUseCase.swift in Sources */,
 				CD8D2E572C0F22DC00DBC490 /* PostUseCase.swift in Sources */,
+				CD5086222C3EC1A500B72788 /* LoadingIndicatorModifier.swift in Sources */,
 				CD6AAE402BAD33EC00862A46 /* SignUpDTO.swift in Sources */,
 				CDC064DB2BA37F0700E24F70 /* CreateTeamView.swift in Sources */,
 				CDC064D22BA3289E00E24F70 /* MyPageMainView.swift in Sources */,
