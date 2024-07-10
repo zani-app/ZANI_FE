@@ -8,12 +8,6 @@
 import Foundation
 
 final class NightMateDataManager: ObservableObject {
-  public enum State {
-    case loading
-    case success
-    case failure(errorDescription: String)
-  }
-  
   public enum Action {
     case tappedLeaveTeamIcon(teamId: Int)
     case tappedTimelineIcon(teamId: Int)
@@ -22,7 +16,7 @@ final class NightMateDataManager: ObservableObject {
   @Published private(set) var isUserParticipateTeam: Bool = true  // 현재 유저의 밤샘 진행 여부 -> 서버에서 확인 필요
   
   private let nightTeamUseCase: NightTeamUseCaseImpl = NightTeamUseCaseImpl(teamRepository: DefaultTeamRepository())
-  public var viewState: State = .success
+  public var viewState: ViewState = .success
   
   public func action(_ action: Action) {
     switch action {

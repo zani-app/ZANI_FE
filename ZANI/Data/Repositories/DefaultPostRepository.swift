@@ -46,13 +46,6 @@ final class DefaultPostRepository: BaseService, PostRepository {
         guard let statusCode = response.response?.statusCode else { return }
         guard let data = response.data else { return }
         
-        // TODO: Error 검사 - 서버 수정 필요
-        if let json = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] {
-          print(json, "createPost")
-        } else {
-          print("Failed to convert data to JSON")
-        }
-        
         // TODO: DTO Setting
         let networkResult = self.judgeStatus(by: statusCode, data, type: Bool.self)
         completion(networkResult)

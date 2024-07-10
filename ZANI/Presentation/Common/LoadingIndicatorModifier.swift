@@ -35,12 +35,3 @@ public struct LoadingIndicatorModifier: AnimatableModifier {
     }
   }
 }
-
-extension View {
-  
-  func loadingView(isLoading: Bool) -> some View {
-    modifier(
-      LoadingIndicatorModifier(isLoading: isLoading)
-    )
-  }
-}
