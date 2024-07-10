@@ -23,13 +23,6 @@ final class DefaultPostRepository: BaseService, PostRepository {
         guard let statusCode = response.response?.statusCode else { return }
         guard let data = response.data else { return }
         
-        // JSON 데이터를 Dictionary로 변환
-        if let json = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] {
-          print(json)
-        } else {
-          print("Failed to convert data to JSON")
-        }
-        
         // TODO: DTO Setting
         let networkResult = self.judgeStatus(by: statusCode, data, type: TeamListDTO.self)
         completion(networkResult)

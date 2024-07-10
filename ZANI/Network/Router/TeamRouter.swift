@@ -12,6 +12,7 @@ enum TeamRouter {
   case requestTeamList(keyword: String, category: String, isEmpty: Bool, isSecret: Bool, page: Int, size: Int)
   case requestCreateTeam(title: String, maxNum: Int, targetTime: Int, password: String, category: String, description: String, secret: Bool)
   case requestLeaveTeam(teamId: Int)
+  case requestMissionTimeline(teamId: Int)
 }
 
 extension TeamRouter: BaseRouter { 
@@ -22,6 +23,8 @@ extension TeamRouter: BaseRouter {
       return "/api/v1/team"
     case .requestCreateTeam:
       return "/api/v1/team"
+    case .requestMissionTimeline(let teamId):
+      return "/api/v1/user-team/\(teamId)/mission"
     case .requestLeaveTeam(let teamId):
       return "/api/v1/user-team/\(teamId)"
     }
@@ -33,6 +36,8 @@ extension TeamRouter: BaseRouter {
       return .get
     case .requestCreateTeam:
       return .post
+    case .requestMissionTimeline(let teamId):
+      return .get
     case .requestLeaveTeam:
       return .delete
     }
@@ -76,6 +81,12 @@ extension TeamRouter: BaseRouter {
       ]
       return .requestBody(body, bodyEncoding: JSONEncoding.default)
       
+    case let .requestMissionTimeline(teamId):
+      let body: [String: Any] = [
+        "teamId": teamId
+      ]
+      return .requestBody(body, bodyEncoding: URLEncoding.queryString)
+    
     case let .requestLeaveTeam(teamId):
       let body: [String: Any] = [
         "teamId": teamId
@@ -86,7 +97,7 @@ extension TeamRouter: BaseRouter {
   
   var header: HeaderType {
     switch self {
-    case .requestTeamList, .requestCreateTeam, .requestLeaveTeam:
+    default:
       return .withToken
     }
   }

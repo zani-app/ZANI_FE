@@ -54,6 +54,7 @@ extension NightMateMain {
     case .timeline:
       NightTimeLineView()
         .toolbar(.hidden, for: .tabBar)
+        .environmentObject(nightMateDataManager)
         .environmentObject(nightMatePageManager)
       
     default:

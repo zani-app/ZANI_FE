@@ -9,6 +9,7 @@ import SwiftUI
 
 public struct NightTimeLineView: View {
   @EnvironmentObject private var nightMatePageManager: NightMatePageManager
+  @EnvironmentObject private var nightMateDataManager: NightMateDataManager
   
   @State private var selectedMission: String? = nil
   @State private var isShowMission: Bool = false
@@ -35,6 +36,10 @@ public struct NightTimeLineView: View {
         .presentationDetents([.fraction(0.82)])
         .presentationDragIndicator(.visible)
     })
+    .onAppear {
+      // TODO: TeamId Variable
+      nightMateDataManager.action(.tappedTimelineIcon(teamId: 8))
+    }
     .background(
       Color.main1
     )
@@ -128,4 +133,5 @@ extension NightTimeLineView {
 #Preview {
   NightTimeLineView()
     .environmentObject(NightMatePageManager())
+    .environmentObject(NightMateDataManager())
 }

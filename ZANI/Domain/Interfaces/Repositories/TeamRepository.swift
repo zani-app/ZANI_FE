@@ -29,6 +29,12 @@ protocol TeamRepository {
     completion: @escaping (NetworkResult<Any>) -> Void
   ) -> Void
   
+  /// 팀 미션 기록
+  func requestMissionTimeline(
+    teamId: Int,
+    completion: @escaping (NetworkResult<Any>) -> Void
+  ) -> Void
+  
   /// 팀 나가기
   func requestLeaveTeam(
     teamId: Int,

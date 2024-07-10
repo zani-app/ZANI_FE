@@ -64,8 +64,6 @@
 		CD3AA6DD2BB88A1400C589B8 /* CommunityDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3AA6DC2BB88A1400C589B8 /* CommunityDetailView.swift */; };
 		CD3AA6DF2BB8901A00C589B8 /* CommunityPageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3AA6DE2BB8901A00C589B8 /* CommunityPageManager.swift */; };
 		CD3C50FF2C058BBF00D51F56 /* NightMateDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3C50FE2C058BBF00D51F56 /* NightMateDataManager.swift */; };
-		CD3C51042C05999600D51F56 /* RequestLeaveTeamUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3C51032C05999600D51F56 /* RequestLeaveTeamUseCase.swift */; };
-		CD3EBDF82BFA1A84006F51BA /* RequestChatHistoryUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3EBDF72BFA1A84006F51BA /* RequestChatHistoryUseCase.swift */; };
 		CD51AB652C328CD30091021F /* BadgeDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD51AB642C328CD30091021F /* BadgeDTO.swift */; };
 		CD6AAE2D2BAD206000862A46 /* BaseURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6AAE2C2BAD206000862A46 /* BaseURL.swift */; };
 		CD6AAE3C2BAD338A00862A46 /* GeneralResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6AAE3B2BAD338A00862A46 /* GeneralResponse.swift */; };
@@ -133,6 +131,8 @@
 		CDD706FF2BACAA3A00AEC4B8 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = CDD706FE2BACAA3A00AEC4B8 /* Alamofire */; };
 		CDE17A182C39B399008A9469 /* CachedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE17A172C39B399008A9469 /* CachedImageView.swift */; };
 		CDE17A1A2C39B4DB008A9469 /* ImageCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE17A192C39B4DB008A9469 /* ImageCacheManager.swift */; };
+		CDE17A1C2C39B8F0008A9469 /* NightTeamUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE17A1B2C39B8F0008A9469 /* NightTeamUseCase.swift */; };
+		CDE17A1F2C39CD81008A9469 /* MissionDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE17A1E2C39CD81008A9469 /* MissionDTO.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -183,8 +183,6 @@
 		CD3AA6DC2BB88A1400C589B8 /* CommunityDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityDetailView.swift; sourceTree = "<group>"; };
 		CD3AA6DE2BB8901A00C589B8 /* CommunityPageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityPageManager.swift; sourceTree = "<group>"; };
 		CD3C50FE2C058BBF00D51F56 /* NightMateDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NightMateDataManager.swift; sourceTree = "<group>"; };
-		CD3C51032C05999600D51F56 /* RequestLeaveTeamUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestLeaveTeamUseCase.swift; sourceTree = "<group>"; };
-		CD3EBDF72BFA1A84006F51BA /* RequestChatHistoryUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestChatHistoryUseCase.swift; sourceTree = "<group>"; };
 		CD51AB642C328CD30091021F /* BadgeDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeDTO.swift; sourceTree = "<group>"; };
 		CD6AAE2C2BAD206000862A46 /* BaseURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseURL.swift; sourceTree = "<group>"; };
 		CD6AAE3B2BAD338A00862A46 /* GeneralResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralResponse.swift; sourceTree = "<group>"; };
@@ -252,6 +250,8 @@
 		CDCB74F62BAF6F81008D6B63 /* ChattingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingManager.swift; sourceTree = "<group>"; };
 		CDE17A172C39B399008A9469 /* CachedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachedImageView.swift; sourceTree = "<group>"; };
 		CDE17A192C39B4DB008A9469 /* ImageCacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheManager.swift; sourceTree = "<group>"; };
+		CDE17A1B2C39B8F0008A9469 /* NightTeamUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NightTeamUseCase.swift; sourceTree = "<group>"; };
+		CDE17A1E2C39CD81008A9469 /* MissionDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionDTO.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -439,6 +439,7 @@
 		CD3AA6C22BB6932000C589B8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				CDE17A1D2C39CD74008A9469 /* DTO */,
 				CD3AA6CB2BB6B06300C589B8 /* NightDisplayType.swift */,
 				CD09B4AE2BC1B84900A0CD68 /* NightMissionType.swift */,
 			);
@@ -521,10 +522,9 @@
 				CDBB96EA2BF7DF86005BD03B /* RequestNightSummaryUseCase.swift */,
 				CDBB96F72BF89DCA005BD03B /* RequestTeamListUseCase.swift */,
 				CDBB96F92BF89E15005BD03B /* RequestCreateTeamUseCase.swift */,
-				CD3EBDF72BFA1A84006F51BA /* RequestChatHistoryUseCase.swift */,
-				CD3C51032C05999600D51F56 /* RequestLeaveTeamUseCase.swift */,
 				CD7595702C0C92A400E04595 /* RequestAchievementUseCase.swift */,
 				CD8D2E562C0F22DC00DBC490 /* PostUseCase.swift */,
+				CDE17A1B2C39B8F0008A9469 /* NightTeamUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -737,6 +737,14 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
+		CDE17A1D2C39CD74008A9469 /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				CDE17A1E2C39CD81008A9469 /* MissionDTO.swift */,
+			);
+			path = DTO;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -851,7 +859,6 @@
 				CD6AAE5F2BADC93700862A46 /* TeamDetailView.swift in Sources */,
 				CD25EBEA2BAAD8C400A36B3A /* MyPageCalendarView.swift in Sources */,
 				CDC064BC2BA31F8200E24F70 /* ContentView.swift in Sources */,
-				CD3EBDF82BFA1A84006F51BA /* RequestChatHistoryUseCase.swift in Sources */,
 				CDBB96F62BF89D23005BD03B /* DefaultTeamRepository.swift in Sources */,
 				CD25EBD92BA958E600A36B3A /* LoginType.swift in Sources */,
 				CDC064E62BA38F9B00E24F70 /* RecruitmentPageManager.swift in Sources */,
@@ -862,8 +869,10 @@
 				CDBB96D72BF7BC41005BD03B /* RequestSocialSignUpUseCase.swift in Sources */,
 				CD25EBD52BA951B500A36B3A /* AuthMainView.swift in Sources */,
 				CDC064E12BA38B1900E24F70 /* ZaniNavigationBar.swift in Sources */,
+				CDE17A1F2C39CD81008A9469 /* MissionDTO.swift in Sources */,
 				CD25EBDF2BA96DAC00A36B3A /* SignUpView.swift in Sources */,
 				CDE17A1A2C39B4DB008A9469 /* ImageCacheManager.swift in Sources */,
+				CDE17A1C2C39B8F0008A9469 /* NightTeamUseCase.swift in Sources */,
 				CDBB96EE2BF8967B005BD03B /* BadgeContainer.swift in Sources */,
 				CDC88D2D2BAEA577003E34AA /* FollowingRouter.swift in Sources */,
 				CD25EBDB2BA959FC00A36B3A /* AuthTextField.swift in Sources */,
@@ -871,7 +880,6 @@
 				CD3AA6C62BB693C900C589B8 /* NightMateMain.swift in Sources */,
 				CDBB96F22BF89C8D005BD03B /* RequestTeamListDTO.swift in Sources */,
 				CD3AA6DD2BB88A1400C589B8 /* CommunityDetailView.swift in Sources */,
-				CD3C51042C05999600D51F56 /* RequestLeaveTeamUseCase.swift in Sources */,
 				CDC064DF2BA3892D00E24F70 /* ZaniMainButton.swift in Sources */,
 				CDBB96EB2BF7DF86005BD03B /* RequestNightSummaryUseCase.swift in Sources */,
 				CD25EBF42BAB166100A36B3A /* MoonLevel.swift in Sources */,
