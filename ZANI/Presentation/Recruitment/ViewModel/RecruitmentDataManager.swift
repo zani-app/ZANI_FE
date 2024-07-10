@@ -12,7 +12,11 @@ import Alamofire
 
 final class RecruitmentDataManager: ObservableObject {
   
-  @Published private(set) var isSuccessTask: Bool = false
+  public enum Action {
+    case mainViewAppear
+    case requestTeamList
+    case tappedCreateTeam
+  }
   
   @Published var requestTeamData: RequestTeamListDTO = RequestTeamListDTO(
     keyword: "",
@@ -22,43 +26,40 @@ final class RecruitmentDataManager: ObservableObject {
     page: 0,
     size: 10
   )
+  
   @Published var createTeamData: RequestCreateTeamDTO? = nil
-  @Published var teamList: [RecruitmentTeamData]? = nil
-  
-  private var requestTeamListUseCase: RequestTeamListUseCaseImpl = RequestTeamListUseCaseImpl(teamRepository: DefaultTeamRepository())
-  private var requestCreateTeamUseCase: RequestCreateTeamUseCaseImpl = RequestCreateTeamUseCaseImpl(teamRepository: DefaultTeamRepository())
-  
-  public func requestTeamList() {
-    requestTeamListUseCase.execute(data: requestTeamData) { response in
-      switch(response) {
-      case .success(let data):
-        if let data = data as? TeamListDTO {
-          self.teamList = data.teams
-          print(data)
-        }
+  @Published var viewState: ViewState = .success {
+    didSet {
+      switch viewState {
+      case .failure(let errorDescription):
+        self.errorMsg = errorDescription
+        self.isAlertPresented = true
         
       default:
-        print("ErrorFetchTeamList")
+        self.errorMsg = ""
+        self.isAlertPresented = false
       }
     }
   }
+  @Published var isAlertPresented: Bool = false
   
-  public func requestCreateTeam() {
-    self.isSuccessTask = false
-    
-    if let data = createTeamData {
-      requestCreateTeamUseCase.execute(data: data) { response in
-        switch(response) {
-        case .success:
-          print("success")
-          
-        default:
-          print("failCreateRoom")
-        }
-        
-        self.isSuccessTask = true
-        self.deInitCreateTeamData()
-      }
+  public var teamList: [RecruitmentTeamData]? = nil
+  public var errorMsg: String = ""
+  
+  private let requestTeamListUseCase: RequestTeamListUseCaseImpl = RequestTeamListUseCaseImpl(teamRepository: DefaultTeamRepository())
+  private let requestCreateTeamUseCase: RequestCreateTeamUseCaseImpl = RequestCreateTeamUseCaseImpl(teamRepository: DefaultTeamRepository())
+  
+  public func action(_ action: Action) {
+    switch action {
+    case .mainViewAppear:
+      self.requestTeamData.keyword = ""
+      return self.requestTeamList()
+      
+    case .requestTeamList:
+      return self.requestTeamList()
+      
+    case .tappedCreateTeam:
+      return self.requestCreateTeam()
     }
   }
   
@@ -89,5 +90,56 @@ final class RecruitmentDataManager: ObservableObject {
     } else {
       return false
     }
+  }
+}
+
+private extension RecruitmentDataManager {
+  
+  /// 현재 생성된 팀 리스트를 요청합니다.
+  func requestTeamList() {
+    requestTeamListUseCase.execute(data: requestTeamData) { response in
+      self.viewState = .loading
+      
+      switch(response) {
+      case .success(let data):
+        if let data = data as? TeamListDTO {
+          self.teamList = data.teams
+          self.viewState = .success
+        }
+        
+      case .requestErr(let error):
+        if let error = error as? ErrorModel {
+          self.viewState = .failure(errorDescription: error.message)
+        }
+        
+      default:
+        self.viewState = .failure(errorDescription: "error")
+      }
+    }
+  }
+  
+  /// 새로운 팀을 생성합니다.
+  func requestCreateTeam() {
+    self.viewState = .loading
+    
+    if let data = createTeamData {
+      requestCreateTeamUseCase.execute(data: data) { response in
+        
+        switch(response) {
+        case .success:
+          self.viewState = .success
+          
+        case .requestErr(let error):
+          if let error = error as? ErrorModel {
+            self.viewState = .failure(errorDescription: error.message)
+          }
+          
+        default:
+          self.viewState = .failure(errorDescription: "error")
+        }
+      }
+    }
+    
+    self.deInitCreateTeamData()
   }
 }

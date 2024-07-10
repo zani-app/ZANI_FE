@@ -31,15 +31,18 @@ public struct RecruitmentMainView: View {
           TeamDetailView(teamInfo: $selectedTeam)
         }
       }
-      .task {
-        recruitmentDataManager.requestTeamList()
-      }
+      .loadingView(isLoading: recruitmentDataManager.viewState == .loading)
+      .failureAlert(
+        isAlert: $recruitmentDataManager.isAlertPresented,
+        description: recruitmentDataManager.errorMsg,
+        action: { recruitmentDataManager.viewState = .success }
+      )
       .onAppear {
+        recruitmentDataManager.action(.mainViewAppear)
         recruitmentDataManager.deInitCreateTeamData()
-        recruitmentDataManager.requestTeamData.keyword = ""
       }
       .onChange(of: recruitmentDataManager.requestTeamData.keyword, perform: { newValue in
-        recruitmentDataManager.requestTeamList()
+        recruitmentDataManager.action(.requestTeamList)
       })
       .navigationDestination(for: RecruitmentPageState.self) { pageState in
         recruitmentPageDestination(pageState)
