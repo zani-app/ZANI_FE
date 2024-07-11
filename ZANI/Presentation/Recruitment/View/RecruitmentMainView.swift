@@ -8,8 +8,8 @@
 import SwiftUI
 
 public struct RecruitmentMainView: View {
+  @EnvironmentObject private var recruitmentDataManager: RecruitmentDataManager
   @StateObject private var recruitmentPageManager = RecruitmentPageManager()
-  @StateObject private var recruitmentDataManager = RecruitmentDataManager()
   
   @State private var isSearching: Bool = false
   @State private var selectedTeam: RecruitmentTeamData? = nil
@@ -31,12 +31,6 @@ public struct RecruitmentMainView: View {
           TeamDetailView(teamInfo: $selectedTeam)
         }
       }
-      .loadingView(isLoading: recruitmentDataManager.viewState == .loading)
-      .failureAlert(
-        isAlert: $recruitmentDataManager.isAlertPresented,
-        description: recruitmentDataManager.errorMsg,
-        action: { recruitmentDataManager.viewState = .success }
-      )
       .onAppear {
         recruitmentDataManager.action(.mainViewAppear)
         recruitmentDataManager.deInitCreateTeamData()
@@ -60,13 +54,11 @@ extension RecruitmentMainView {
     case .createTeam:
       CreateTeamView()
         .toolbar(.hidden, for: .tabBar)
-        .environmentObject(recruitmentDataManager)
         .environmentObject(recruitmentPageManager)
       
     case let .category(category):
       SectionListView(section: category)
         .toolbar(.hidden, for: .tabBar)
-        .environmentObject(recruitmentDataManager)
         .environmentObject(recruitmentPageManager)
       
     case .filter:
@@ -76,7 +68,6 @@ extension RecruitmentMainView {
         isEmptyBuffer: recruitmentDataManager.requestTeamData.isEmpty
       )
       .toolbar(.hidden, for: .tabBar)
-      .environmentObject(recruitmentDataManager)
       .environmentObject(recruitmentPageManager)
       
     default:
@@ -213,4 +204,5 @@ extension RecruitmentMainView {
 
 #Preview {
   RecruitmentMainView()
+    .environmentObject(RecruitmentDataManager())
 }

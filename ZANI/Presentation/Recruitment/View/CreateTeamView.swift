@@ -21,12 +21,6 @@ public struct CreateTeamView: View {
       
       bottomButton()
     }
-    .failureAlert(
-      isAlert: $recruitmentDataManager.isAlertPresented,
-      description: recruitmentDataManager.errorMsg,
-      action: { recruitmentDataManager.viewState = .success }
-    )
-    .loadingView(isLoading: recruitmentDataManager.viewState == .loading)
     .onChange(of: recruitmentDataManager.viewState, perform: { newValue in
       if newValue == .success {
         recruitmentPageManager.pop()

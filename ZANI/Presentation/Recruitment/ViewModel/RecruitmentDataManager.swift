@@ -18,6 +18,7 @@ final class RecruitmentDataManager: ObservableObject {
     case tappedCreateTeam
   }
   
+  // MARK: Variables
   @Published var requestTeamData: RequestTeamListDTO = RequestTeamListDTO(
     keyword: "",
     category: "",
@@ -26,26 +27,23 @@ final class RecruitmentDataManager: ObservableObject {
     page: 0,
     size: 10
   )
-  
   @Published var createTeamData: RequestCreateTeamDTO? = nil
   @Published var viewState: ViewState = .success {
     didSet {
       switch viewState {
       case .failure(let errorDescription):
         self.errorMsg = errorDescription
-        self.isAlertPresented = true
         
       default:
         self.errorMsg = ""
-        self.isAlertPresented = false
       }
     }
   }
-  @Published var isAlertPresented: Bool = false
   
   public var teamList: [RecruitmentTeamData]? = nil
   public var errorMsg: String = ""
   
+  // MARK: UseCase
   private let requestTeamListUseCase: RequestTeamListUseCaseImpl = RequestTeamListUseCaseImpl(teamRepository: DefaultTeamRepository())
   private let requestCreateTeamUseCase: RequestCreateTeamUseCaseImpl = RequestCreateTeamUseCaseImpl(teamRepository: DefaultTeamRepository())
   
