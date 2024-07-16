@@ -23,21 +23,6 @@ public struct ContentView: View {
       }
       .toolbarBackground(.main4, for: .tabBar)
     }
-    .failureAlert(
-      isAlert: Binding(
-        get: {
-          if case .failure(_) = recruitmentDataManager.viewState {
-            return true
-          } else {
-            return false
-          }
-        }, set: { value in
-          recruitmentDataManager.viewState = .success
-        }
-      ),
-      description: recruitmentDataManager.errorMsg,
-      action: { }
-    )
     .tint(.white)
     .onAppear {
       UITabBar.appearance().backgroundColor = .main4

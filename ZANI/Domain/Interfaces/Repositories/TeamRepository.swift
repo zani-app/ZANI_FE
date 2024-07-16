@@ -21,6 +21,12 @@ protocol TeamRepository {
     completion: @escaping (NetworkResult<Any>) -> Void
   ) -> Void
   
+  /// 팀 가입
+  func requestApplyTeam(
+    teamId: Int,
+    completion: @escaping (NetworkResult<Any>) -> Void
+  ) -> Void
+  
   /// 팀의 채팅 기록
   func requestChatHistory(
     teamId: Int,

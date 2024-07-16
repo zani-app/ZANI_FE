@@ -11,6 +11,7 @@ import Alamofire
 enum TeamRouter {
   case requestTeamList(keyword: String, category: String, isEmpty: Bool, isSecret: Bool, page: Int, size: Int)
   case requestCreateTeam(title: String, maxNum: Int, targetTime: Int, password: String, category: String, description: String, secret: Bool)
+  case requestApplyTeam(teamId: Int)
   case requestLeaveTeam(teamId: Int)
   case requestMissionTimeline(teamId: Int)
 }
@@ -23,6 +24,8 @@ extension TeamRouter: BaseRouter {
       return "/api/v1/team"
     case .requestCreateTeam:
       return "/api/v1/team"
+    case let .requestApplyTeam(teamId):
+      return "/api/v1/user-team/\(teamId)"
     case .requestMissionTimeline(let teamId):
       return "/api/v1/user-team/\(teamId)/mission"
     case .requestLeaveTeam(let teamId):
@@ -36,7 +39,9 @@ extension TeamRouter: BaseRouter {
       return .get
     case .requestCreateTeam:
       return .post
-    case .requestMissionTimeline(let teamId):
+    case .requestApplyTeam:
+      return .post
+    case .requestMissionTimeline:
       return .get
     case .requestLeaveTeam:
       return .delete
@@ -78,6 +83,12 @@ extension TeamRouter: BaseRouter {
         "category": category,
         "description": description,
         "isSecret": secret
+      ]
+      return .requestBody(body, bodyEncoding: JSONEncoding.default)
+      
+    case let .requestApplyTeam(teamId):
+      let body: [String: Any] = [
+        "teamId": teamId
       ]
       return .requestBody(body, bodyEncoding: JSONEncoding.default)
       

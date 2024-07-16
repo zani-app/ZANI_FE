@@ -8,19 +8,24 @@
 import SwiftUI
 
 public struct TeamDetailView: View {
-  @Binding var teamInfo: RecruitmentTeamData?
+  @EnvironmentObject private var recruitmentDataManager: RecruitmentDataManager
   
   public var body: some View {
     ZStack {
       Color.black.opacity(0.7).ignoresSafeArea()
         .onTapGesture {
-          teamInfo = nil
+          recruitmentDataManager.action(.tappedOutsideTeamDetailView)
         }
       
-      if let teamInfo = teamInfo {
+      if let teamInfo = recruitmentDataManager.selectedTeam {
         contents(teamInfo: teamInfo)
       } else {
         Text("Data Error")
+      }
+    }
+    .onChange(of: recruitmentDataManager.viewState) { newValue in
+      if newValue == .success {
+        recruitmentDataManager.action(.tappedOutsideTeamDetailView)
       }
     }
   }
@@ -70,7 +75,7 @@ extension TeamDetailView {
   @ViewBuilder
   private func bottomButton() -> some View {
     Button(action: {
-      
+      recruitmentDataManager.action(.tappedApplyTeam)
     }, label: {
       Text("팀 가입하기")
         .zaniFont(.body2).bold()
@@ -97,5 +102,6 @@ extension TeamDetailView {
 }
 
 #Preview {
-  TeamDetailView(teamInfo: .constant(RecruitmentTeamData(id: 1, title: "test", maxNum: 1, currentNum: 1, targetTime: 1, isSecret: true, password: "test", category: "Test", description: "test", createdAt: [1])))
+  TeamDetailView()
+    .environmentObject(RecruitmentDataManager())
 }

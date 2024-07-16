@@ -11,9 +11,6 @@ public struct RecruitmentMainView: View {
   @EnvironmentObject private var recruitmentDataManager: RecruitmentDataManager
   @StateObject private var recruitmentPageManager = RecruitmentPageManager()
   
-  @State private var isSearching: Bool = false
-  @State private var selectedTeam: RecruitmentTeamData? = nil
-  
   public var body: some View {
     NavigationStack(path: $recruitmentPageManager.route) {
       ZStack {
@@ -27,13 +24,12 @@ public struct RecruitmentMainView: View {
           teamList()
         }
         
-        if selectedTeam != nil {
-          TeamDetailView(teamInfo: $selectedTeam)
+        if recruitmentDataManager.selectedTeam != nil {
+          TeamDetailView()
         }
       }
       .onAppear {
         recruitmentDataManager.action(.mainViewAppear)
-        recruitmentDataManager.deInitCreateTeamData()
       }
       .onChange(of: recruitmentDataManager.requestTeamData.keyword, perform: { newValue in
         recruitmentDataManager.action(.requestTeamList)
@@ -43,6 +39,21 @@ public struct RecruitmentMainView: View {
       }
       .background(Color.main1)
     }
+    .failureAlert(
+      isAlert: Binding(
+        get: {
+          if case .failure(_) = recruitmentDataManager.viewState {
+            return true
+          } else {
+            return false
+          }
+        }, set: { value in
+          recruitmentDataManager.viewState = .success
+        }
+      ),
+      description: recruitmentDataManager.errorMsg,
+      action: { }
+    )
   }
 }
 
@@ -105,7 +116,7 @@ extension RecruitmentMainView {
       HStack(spacing: 6) {
         Button(action: {
           withAnimation {
-            self.isSearching.toggle()
+            recruitmentDataManager.action(.tappedSearchIcon)
           }
         }, label: {
           HStack(alignment: .center, spacing: 0) {
@@ -115,16 +126,16 @@ extension RecruitmentMainView {
               .renderingMode(.template)
               .padding(.leading, 4)
           }
-          .foregroundStyle(self.isSearching ? Color.main1 : .white)
+          .foregroundStyle(recruitmentDataManager.searchBarState ? Color.main1 : .white)
           .padding(.vertical, 6)
           .padding(.horizontal, 12)
           .zaniFont(.body2)
           .background(
             Capsule()
-              .fill(self.isSearching ? Color.mainYellow : .clear)
+              .fill(recruitmentDataManager.searchBarState ? Color.mainYellow : .clear)
               .overlay(
                 Capsule()
-                  .stroke(self.isSearching ? Color.mainYellow : .white)
+                  .stroke(recruitmentDataManager.searchBarState ? Color.mainYellow : .white)
               )
           )
         })
@@ -161,7 +172,7 @@ extension RecruitmentMainView {
   
   @ViewBuilder
   private func searchBar() -> some View {
-    if self.isSearching {
+    if recruitmentDataManager.searchBarState {
       ZaniTextField(
         placeholderText: "방 검색하기",
         placeholderTextStyle: .body2,
@@ -185,7 +196,7 @@ extension RecruitmentMainView {
           ForEach(teamList, id: \.id) { teamData in
             RecruitTeamContainer(teamData: teamData)
               .onTapGesture {
-                self.selectedTeam = teamData
+                recruitmentDataManager.action(.tappedTeam(teamInfo: teamData))
               }
           }
         }

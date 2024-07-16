@@ -129,7 +129,6 @@ extension AuthDataManager {
   }
 }
 
-
 // MARK: Apple Login delegate
 extension AuthDataManager: ASAuthorizationControllerDelegate, ASAuthorizationControllerPresentationContextProviding{
   func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {

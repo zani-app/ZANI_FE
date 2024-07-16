@@ -61,11 +61,11 @@ public struct NightWaitingView: View {
         
       }
     }
-    .onChange(of: nightMateDataManager.isUserParticipateTeam, perform: { value in
-      if !value {
-        nightMatePageManager.pop()
-      }
-    })
+//    .onChange(of: nightMateDataManager.isUserParticipateTeam, perform: { value in
+//      if !value {
+//        nightMatePageManager.pop()
+//      }
+//    })
     .navigationBarBackButtonHidden()
     .background(
       VStack(spacing: 0) {

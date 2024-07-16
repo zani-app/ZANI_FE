@@ -90,6 +90,8 @@
 		CD8CD0772C0EC373002C6129 /* DefaultPostRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8CD0762C0EC373002C6129 /* DefaultPostRepository.swift */; };
 		CD8D2E572C0F22DC00DBC490 /* PostUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8D2E562C0F22DC00DBC490 /* PostUseCase.swift */; };
 		CD8D2E592C0F242C00DBC490 /* CommunityDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8D2E582C0F242C00DBC490 /* CommunityDataManager.swift */; };
+		CD9297722C466AD400ABB14B /* RecruitTeamUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9297712C466AD400ABB14B /* RecruitTeamUseCase.swift */; };
+		CD9297742C466C7E00ABB14B /* RegisterTeamDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9297732C466C7E00ABB14B /* RegisterTeamDTO.swift */; };
 		CDBB96D72BF7BC41005BD03B /* RequestSocialSignUpUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDBB96D62BF7BC41005BD03B /* RequestSocialSignUpUseCase.swift */; };
 		CDBB96DE2BF7BDD4005BD03B /* DefaultUserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDBB96DD2BF7BDD4005BD03B /* DefaultUserRepository.swift */; };
 		CDBB96E12BF7BF67005BD03B /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDBB96E02BF7BF67005BD03B /* UserRepository.swift */; };
@@ -102,8 +104,6 @@
 		CDBB96F22BF89C8D005BD03B /* RequestTeamListDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDBB96F12BF89C8D005BD03B /* RequestTeamListDTO.swift */; };
 		CDBB96F42BF89CCB005BD03B /* RequestCreateTeamDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDBB96F32BF89CCB005BD03B /* RequestCreateTeamDTO.swift */; };
 		CDBB96F62BF89D23005BD03B /* DefaultTeamRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDBB96F52BF89D23005BD03B /* DefaultTeamRepository.swift */; };
-		CDBB96F82BF89DCA005BD03B /* RequestTeamListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDBB96F72BF89DCA005BD03B /* RequestTeamListUseCase.swift */; };
-		CDBB96FA2BF89E15005BD03B /* RequestCreateTeamUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDBB96F92BF89E15005BD03B /* RequestCreateTeamUseCase.swift */; };
 		CDC064BA2BA31F8200E24F70 /* ZANIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC064B92BA31F8200E24F70 /* ZANIApp.swift */; };
 		CDC064BC2BA31F8200E24F70 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC064BB2BA31F8200E24F70 /* ContentView.swift */; };
 		CDC064BE2BA31F8300E24F70 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDC064BD2BA31F8300E24F70 /* Assets.xcassets */; };
@@ -214,6 +214,8 @@
 		CD8CD0762C0EC373002C6129 /* DefaultPostRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultPostRepository.swift; sourceTree = "<group>"; };
 		CD8D2E562C0F22DC00DBC490 /* PostUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostUseCase.swift; sourceTree = "<group>"; };
 		CD8D2E582C0F242C00DBC490 /* CommunityDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityDataManager.swift; sourceTree = "<group>"; };
+		CD9297712C466AD400ABB14B /* RecruitTeamUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecruitTeamUseCase.swift; sourceTree = "<group>"; };
+		CD9297732C466C7E00ABB14B /* RegisterTeamDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterTeamDTO.swift; sourceTree = "<group>"; };
 		CDBB96D62BF7BC41005BD03B /* RequestSocialSignUpUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestSocialSignUpUseCase.swift; sourceTree = "<group>"; };
 		CDBB96DD2BF7BDD4005BD03B /* DefaultUserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultUserRepository.swift; sourceTree = "<group>"; };
 		CDBB96E02BF7BF67005BD03B /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
@@ -226,8 +228,6 @@
 		CDBB96F12BF89C8D005BD03B /* RequestTeamListDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestTeamListDTO.swift; sourceTree = "<group>"; };
 		CDBB96F32BF89CCB005BD03B /* RequestCreateTeamDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestCreateTeamDTO.swift; sourceTree = "<group>"; };
 		CDBB96F52BF89D23005BD03B /* DefaultTeamRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTeamRepository.swift; sourceTree = "<group>"; };
-		CDBB96F72BF89DCA005BD03B /* RequestTeamListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestTeamListUseCase.swift; sourceTree = "<group>"; };
-		CDBB96F92BF89E15005BD03B /* RequestCreateTeamUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestCreateTeamUseCase.swift; sourceTree = "<group>"; };
 		CDC064B62BA31F8200E24F70 /* ZANI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZANI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDC064B92BA31F8200E24F70 /* ZANIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZANIApp.swift; sourceTree = "<group>"; };
 		CDC064BB2BA31F8200E24F70 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -486,6 +486,7 @@
 				CD6AAE562BAD885700862A46 /* TeamListDTO.swift */,
 				CDBB96F12BF89C8D005BD03B /* RequestTeamListDTO.swift */,
 				CDBB96F32BF89CCB005BD03B /* RequestCreateTeamDTO.swift */,
+				CD9297732C466C7E00ABB14B /* RegisterTeamDTO.swift */,
 			);
 			path = DTO;
 			sourceTree = "<group>";
@@ -515,11 +516,10 @@
 				CDBB96E62BF7DD46005BD03B /* RequestNicknameDuplicateUseCase.swift */,
 				CDBB96E82BF7DE67005BD03B /* RequestFollowListUseCase.swift */,
 				CDBB96EA2BF7DF86005BD03B /* RequestNightSummaryUseCase.swift */,
-				CDBB96F72BF89DCA005BD03B /* RequestTeamListUseCase.swift */,
-				CDBB96F92BF89E15005BD03B /* RequestCreateTeamUseCase.swift */,
 				CD7595702C0C92A400E04595 /* RequestAchievementUseCase.swift */,
 				CD8D2E562C0F22DC00DBC490 /* PostUseCase.swift */,
 				CDE17A1B2C39B8F0008A9469 /* NightTeamUseCase.swift */,
+				CD9297712C466AD400ABB14B /* RecruitTeamUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -631,8 +631,8 @@
 		CDC064C92BA3281C00E24F70 /* Recruitment */ = {
 			isa = PBXGroup;
 			children = (
-				CD25EBF72BAB197E00A36B3A /* ViewModel */,
 				CDC064E42BA38F8100E24F70 /* View */,
+				CD25EBF72BAB197E00A36B3A /* ViewModel */,
 			);
 			path = Recruitment;
 			sourceTree = "<group>";
@@ -823,11 +823,13 @@
 				CDBB96F02BF89C25005BD03B /* TeamRepository.swift in Sources */,
 				CD8CD0752C0EC2F0002C6129 /* PostRepository.swift in Sources */,
 				CD25EBEE2BAB051400A36B3A /* MyPagePageManager.swift in Sources */,
+				CD9297742C466C7E00ABB14B /* RegisterTeamDTO.swift in Sources */,
 				CD6AAE5F2BADC93700862A46 /* TeamDetailView.swift in Sources */,
 				CD25EBEA2BAAD8C400A36B3A /* MyPageCalendarView.swift in Sources */,
 				CDC064BC2BA31F8200E24F70 /* ContentView.swift in Sources */,
 				CDBB96F62BF89D23005BD03B /* DefaultTeamRepository.swift in Sources */,
 				CD25EBD92BA958E600A36B3A /* LoginType.swift in Sources */,
+				CD9297722C466AD400ABB14B /* RecruitTeamUseCase.swift in Sources */,
 				CD5086242C3EC59C00B72788 /* View + Loading.swift in Sources */,
 				CDC064E62BA38F9B00E24F70 /* RecruitmentPageManager.swift in Sources */,
 				CD09B4AD2BC1AFAB00A0CD68 /* NightUserDetailView.swift in Sources */,
@@ -888,7 +890,6 @@
 				CD25EC322BAC9E0000A36B3A /* SceneDelegate.swift in Sources */,
 				CD3C50FF2C058BBF00D51F56 /* NightMateDataManager.swift in Sources */,
 				CDC064BA2BA31F8200E24F70 /* ZANIApp.swift in Sources */,
-				CDBB96F82BF89DCA005BD03B /* RequestTeamListUseCase.swift in Sources */,
 				CD8D2E572C0F22DC00DBC490 /* PostUseCase.swift in Sources */,
 				CD5086222C3EC1A500B72788 /* LoadingIndicatorModifier.swift in Sources */,
 				CD6AAE402BAD33EC00862A46 /* SignUpDTO.swift in Sources */,
@@ -914,7 +915,6 @@
 				CD6AAE3C2BAD338A00862A46 /* GeneralResponse.swift in Sources */,
 				CDCB74F12BAF6A78008D6B63 /* ChattingRouter.swift in Sources */,
 				CDC064D92BA37D9A00E24F70 /* ZaniCapsuleButton.swift in Sources */,
-				CDBB96FA2BF89E15005BD03B /* RequestCreateTeamUseCase.swift in Sources */,
 				CDBB96E92BF7DE67005BD03B /* RequestFollowListUseCase.swift in Sources */,
 				CDC064CE2BA3289200E24F70 /* RecruitmentMainView.swift in Sources */,
 				CD09B4B52BC4373500A0CD68 /* MyPageBadgeView.swift in Sources */,
