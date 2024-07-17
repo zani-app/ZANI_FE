@@ -15,7 +15,7 @@ public struct UserInfoDTO: Codable {
   let achievementTitle: String?
   let isBlocked: Bool
   let isInTeam: Bool
-  let teamId: Int
+  let teamId: Int?
   
   enum CodingKeys: String, CodingKey {
     case profileImageUrl = "profile_image_url"

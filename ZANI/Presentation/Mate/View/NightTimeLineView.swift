@@ -37,8 +37,7 @@ public struct NightTimeLineView: View {
         .presentationDragIndicator(.visible)
     })
     .onAppear {
-      // TODO: TeamId Variable
-      nightMateDataManager.action(.tappedTimelineIcon(teamId: 8))
+      nightMateDataManager.action(.tappedTimelineIcon)
     }
     .background(
       Color.main1
