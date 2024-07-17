@@ -46,6 +46,7 @@ extension AuthMainView {
     switch type {
     case .signUpEmail, .signUpPassword, .nickname:
       SignUpView(pageState: type)
+        .environmentObject(authPageManager)
       
     case .done:
       SignUpDoneView()

@@ -86,12 +86,7 @@ extension MyPageMainView {
       HStack(spacing: 10) {
         Group {
           if userInfo.profileImageUrl != "" {
-            AsyncImage(url: URL(string: userInfo.profileImageUrl)) { image in
-              image.resizable()
-                .aspectRatio(contentMode: .fill)
-            } placeholder: {
-              ProgressView()
-            }
+            CachedImageView(url: userInfo.profileImageUrl, imageSize: 48)
           } else {
             Image("profileIcon")
               .resizable()

@@ -21,15 +21,20 @@ public struct NightChattingView: View {
       ScrollViewReader { proxy in
         ScrollView {
           if let chattingList = chattingManager.chatList, let nickname = chattingManager.nickname {
-            var messageList = chattingList.messageList.reversed()
             
-            VStack(spacing: 20) {
-              ForEach(messageList.indices, id: \.self) { index in
-                chatMessage(url: messageList[index].senderProfileImage, isMe: nickname == messageList[index].senderNickname, message: messageList[index].content)
-                  .id(index)
+            LazyVStack(spacing: 20) {
+              ForEach(chattingList.messageList.indices, id: \.self) { index in
+                chatMessage(
+                  url: chattingList.messageList[index].senderProfileImage,
+                  isMe: nickname == chattingList.messageList[index].senderNickname,
+                  message: chattingList.messageList[index].content
+                )
+                .id(index)
               }
               .onAppear {
-                proxy.scrollTo(messageList.count - 1, anchor: .bottom)
+                withAnimation(.easeInOut) {
+                  proxy.scrollTo(chattingList.messageList.count - 1, anchor: .bottom)
+                }
               }
             }
             .padding(.bottom, 20)
@@ -76,7 +81,7 @@ public struct NightChattingView: View {
     .onAppear {
       chattingManager.connectStomp()
       chattingManager.requestUserInfo()
-      chattingManager.requestChattingList(teamId: 8, page: 0, size: 50)
+      chattingManager.requestChattingList(teamId: 8, page: 0, size: 30)
     }
     .background(
       Color.main1
@@ -94,16 +99,7 @@ extension NightChattingView {
       if isMe {
         Spacer()
       } else {
-        AsyncImage(url: URL(string: url)) { image in
-          image.resizable()
-        } placeholder: {
-          ProgressView()
-        }
-        .clipShape(
-          Circle()
-        )
-        .aspectRatio(contentMode: .fit)
-        .frame(height: 38)
+        CachedImageView(url: url, imageSize: 38)
       }
       
       Text(message)
@@ -123,16 +119,7 @@ extension NightChattingView {
       if !isMe {
         Spacer()
       } else {
-        AsyncImage(url: URL(string: url)) { image in
-          image.resizable()
-        } placeholder: {
-          ProgressView()
-        }
-        .clipShape(
-          Circle()
-        )
-        .aspectRatio(contentMode: .fit)
-        .frame(height: 38)
+        CachedImageView(url: url, imageSize: 38)
       }
     }
   }

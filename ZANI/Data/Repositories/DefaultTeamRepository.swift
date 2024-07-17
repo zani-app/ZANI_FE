@@ -10,7 +10,10 @@ import Foundation
 
 final class DefaultTeamRepository: BaseService, TeamRepository {
   
-  public func requestTeamList(data: RequestTeamListDTO, completion: @escaping (NetworkResult<Any>) -> Void) {
+  public func requestTeamList(
+    data: RequestTeamListDTO,
+    completion: @escaping (NetworkResult<Any>) -> Void
+  ) {
     AFManager.request(
       TeamRouter.requestTeamList(
         keyword: data.keyword,
@@ -34,7 +37,10 @@ final class DefaultTeamRepository: BaseService, TeamRepository {
     }
   }
   
-  public func requestCreateTeam(data: RequestCreateTeamDTO, completion: @escaping (NetworkResult<Any>) -> Void) {
+  public func requestCreateTeam(
+    data: RequestCreateTeamDTO,
+    completion: @escaping (NetworkResult<Any>) -> Void
+  ) {
     AFManager.request(
       TeamRouter.requestCreateTeam(
         title: data.title,
@@ -59,6 +65,27 @@ final class DefaultTeamRepository: BaseService, TeamRepository {
     }
   }
   
+  public func requestApplyTeam(
+    teamId: Int,
+    completion: @escaping (NetworkResult<Any>) -> Void
+  ) {
+    AFManager.request(
+      TeamRouter.requestApplyTeam(teamId: teamId)
+    ).responseData { response in
+      switch response.result {
+      case .success:
+        guard let statusCode = response.response?.statusCode else { return }
+        guard let data = response.data else { return }
+        
+        let networkResult = self.judgeStatus(by: statusCode, data, type: RegisterTeamDTO.self)
+        completion(networkResult)
+        
+      case .failure(let err):
+        print(err.localizedDescription)
+      }
+    }
+  }
+  
   public func requestChatHistory(
     teamId: Int,
     page: Int,
@@ -73,6 +100,27 @@ final class DefaultTeamRepository: BaseService, TeamRepository {
         guard let statusCode = response.response?.statusCode else { return }
         guard let data = response.data else { return }
         let networkResult = self.judgeStatus(by: statusCode, data, type: ChatDTO.self)
+        completion(networkResult)
+        
+      case .failure(let err):
+        print(err.localizedDescription)
+      }
+    }
+  }
+  
+  public func requestMissionTimeline(
+    teamId: Int,
+    completion: @escaping (NetworkResult<Any>) -> Void
+  ) {
+    AFManager.request(
+      TeamRouter.requestLeaveTeam(teamId: teamId)
+    ).responseData { response in
+      switch response.result {
+      case .success:
+        guard let statusCode = response.response?.statusCode else { return }
+        guard let data = response.data else { return }
+        
+        let networkResult = self.judgeStatus(by: statusCode, data, type: MissionDTO.self)
         completion(networkResult)
         
       case .failure(let err):

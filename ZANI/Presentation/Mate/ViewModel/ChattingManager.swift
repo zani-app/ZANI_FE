@@ -19,7 +19,7 @@ final class ChattingManager: ObservableObject {
   private let serverURL = URL(string: "wss://dongkyeom.com/ws-connection")!
   
   private var requestUserInfoUseCase: RequestUserInfoUseCaseImpl = RequestUserInfoUseCaseImpl(userRepository: DefaultUserRepository())
-  private var requestChatHistoryUseCase: RequestChatHistoryUseCaseImpl = RequestChatHistoryUseCaseImpl(teamRepository: DefaultTeamRepository())
+  private var nightTeamUseCase: NightTeamUseCaseImpl = NightTeamUseCaseImpl(teamRepository: DefaultTeamRepository())
 
   init() {
     var request = URLRequest(url: serverURL)
@@ -30,7 +30,7 @@ final class ChattingManager: ObservableObject {
   }
   
   func requestChattingList(teamId: Int, page: Int, size: Int) {
-    requestChatHistoryUseCase.execute(teamId: teamId, page: page, size: size) { response in
+    nightTeamUseCase.requestChatHistory(teamId: teamId, page: page, size: size) { response in
       switch(response) {
       case .success(let data):
         if let data = data as? ChatDTO {

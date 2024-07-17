@@ -22,7 +22,9 @@ final class RecruitmentPageManager: ObservableObject {
   }
   
   func pop() {
-    route.removeLast()
+    if self.route.count > 0 {
+      route.removeLast()
+    }
   }
   
   func popToRoot() {

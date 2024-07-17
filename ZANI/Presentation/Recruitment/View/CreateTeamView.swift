@@ -17,13 +17,12 @@ public struct CreateTeamView: View {
       
       teamInfoSection()
       
-      
       Spacer()
       
       bottomButton()
     }
-    .onChange(of: recruitmentDataManager.isSuccessTask, perform: { value in
-      if value {
+    .onChange(of: recruitmentDataManager.viewState, perform: { newValue in
+      if newValue == .success {
         recruitmentPageManager.pop()
       }
     })
@@ -67,7 +66,7 @@ extension CreateTeamView {
       title: "팀 생성하기",
       isValid: recruitmentDataManager.validateCreateTeamData(),
       action: {
-        recruitmentDataManager.requestCreateTeam()
+        recruitmentDataManager.action(.tappedCreateTeam)
       }
     )
     .padding(.horizontal, 20)

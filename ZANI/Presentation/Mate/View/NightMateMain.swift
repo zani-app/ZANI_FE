@@ -21,7 +21,10 @@ public struct NightMateMain: View {
           
           hotBoardList()
         }
-      } 
+      }
+      .onAppear {
+        nightMateDataManager.action(.mainViewAppear)
+      }
       .navigationDestination(for: NightMatePageState.self) { pageState in
         nightMatePageDestination(pageState)
       }
@@ -29,6 +32,21 @@ public struct NightMateMain: View {
         Color.main1
       )
     }
+    .failureAlert(
+      isAlert: Binding(
+        get: {
+          if case .failure(_) = nightMateDataManager.viewState {
+            return true
+          } else {
+            return false
+          }
+        }, set: { value in
+          nightMateDataManager.viewState = .success
+        }
+      ),
+      description: nightMateDataManager.errorMsg,
+      action: { }
+    )
   }
 }
 
@@ -54,6 +72,7 @@ extension NightMateMain {
     case .timeline:
       NightTimeLineView()
         .toolbar(.hidden, for: .tabBar)
+        .environmentObject(nightMateDataManager)
         .environmentObject(nightMatePageManager)
       
     default:

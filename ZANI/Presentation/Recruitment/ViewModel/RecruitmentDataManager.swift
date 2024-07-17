@@ -5,15 +5,26 @@
 //  Created by 정도현 on 3/22/24.
 //
 
+import Alamofire
 import Combine
 import Foundation
 import KakaoSDKUser
-import Alamofire
 
 final class RecruitmentDataManager: ObservableObject {
-  
-  @Published private(set) var isSuccessTask: Bool = false
-  
+
+  // MARK: Variables
+  @Published var viewState: ViewState = .success {
+    didSet {
+      switch viewState {
+      case .failure(let errorDescription):
+        self.errorMsg = errorDescription
+        
+      default:
+        self.errorMsg = ""
+      }
+    }
+  }
+  @Published private(set) var searchBarState: Bool = false
   @Published var requestTeamData: RequestTeamListDTO = RequestTeamListDTO(
     keyword: "",
     category: "",
@@ -23,42 +34,54 @@ final class RecruitmentDataManager: ObservableObject {
     size: 10
   )
   @Published var createTeamData: RequestCreateTeamDTO? = nil
-  @Published var teamList: [RecruitmentTeamData]? = nil
+  @Published var selectedTeam: RecruitmentTeamData? = nil
   
-  private var requestTeamListUseCase: RequestTeamListUseCaseImpl = RequestTeamListUseCaseImpl(teamRepository: DefaultTeamRepository())
-  private var requestCreateTeamUseCase: RequestCreateTeamUseCaseImpl = RequestCreateTeamUseCaseImpl(teamRepository: DefaultTeamRepository())
+  public private(set) var userInfo: UserInfoDTO? = nil
+  public private(set) var teamList: [RecruitmentTeamData]? = nil
+  public private(set) var errorMsg: String = ""
   
-  public func requestTeamList() {
-    requestTeamListUseCase.execute(data: requestTeamData) { response in
-      switch(response) {
-      case .success(let data):
-        if let data = data as? TeamListDTO {
-          self.teamList = data.teams
-          print(data)
-        }
-        
-      default:
-        print("ErrorFetchTeamList")
-      }
-    }
+  // MARK: UseCase
+  private let requestUserInfoUseCase: RequestUserInfoUseCaseImpl = RequestUserInfoUseCaseImpl(userRepository: DefaultUserRepository())
+  private let recruitTeamUseCase: RecruitTeamUseCaseImpl = RecruitTeamUseCaseImpl(teamRepository: DefaultTeamRepository())
+  
+  // MARK: User Action
+  public enum Action {
+    case mainViewAppear
+    case requestTeamList
+    case tappedCreateTeam
+    case tappedSearchIcon
+    case tappedTeam(teamInfo: RecruitmentTeamData)
+    case tappedApplyTeam
+    case tappedOutsideTeamDetailView
   }
   
-  public func requestCreateTeam() {
-    self.isSuccessTask = false
+  public func action(_ action: Action) {
+    switch action {
+    case .mainViewAppear:
+      self.requestUserInfo()
+      self.deInitCreateTeamData()
+      self.requestTeamList()
+      
+    case .requestTeamList:
+      self.requestTeamList()
+      
+    case .tappedCreateTeam:
+      self.requestCreateTeam()
+      
+    case .tappedSearchIcon:
+      self.searchBarState.toggle()
+      
+    case let .tappedTeam(teamInfo: teamData):
+      self.selectedTeam = teamData
     
-    if let data = createTeamData {
-      requestCreateTeamUseCase.execute(data: data) { response in
-        switch(response) {
-        case .success:
-          print("success")
-          
-        default:
-          print("failCreateRoom")
-        }
-        
-        self.isSuccessTask = true
-        self.deInitCreateTeamData()
-      }
+    case .tappedApplyTeam:
+      self.requestApplyTeam()
+      
+    case .tappedOutsideTeamDetailView:
+      self.selectedTeam = nil
+      
+    default:
+      return
     }
   }
   
@@ -74,10 +97,6 @@ final class RecruitmentDataManager: ObservableObject {
     )
   }
   
-  public func deInitCreateTeamData() {
-    self.createTeamData = nil
-  }
-  
   public func validateCreateTeamData() -> Bool {
     if let data = self.createTeamData {
       return !data.title.isEmpty &&
@@ -89,5 +108,115 @@ final class RecruitmentDataManager: ObservableObject {
     } else {
       return false
     }
+  }
+}
+
+private extension RecruitmentDataManager {
+  
+  /// 유저 정보를 가져옵니다 - 유저가 속해있는 팀 파악
+  func requestUserInfo() {
+    requestUserInfoUseCase.execute() { response in
+      self.viewState = .loading
+      
+      switch(response) {
+      case .success(let data):
+        if let data = data as? UserInfoDTO {
+          self.userInfo = data
+          self.viewState = .success
+        } else {
+          self.viewState = .failure(errorDescription: "데이터 오류")
+        }
+        
+      case .requestErr(let error):
+        if let error = error as? ErrorModel {
+          self.viewState = .failure(errorDescription: error.message)
+        }
+        
+      default:
+        self.viewState = .failure(errorDescription: "error")
+      }
+    }
+  }
+  
+  /// 현재 생성된 팀 리스트를 요청합니다.
+  func requestTeamList() {
+    recruitTeamUseCase.requestTeamList(data: requestTeamData) { response in
+      self.viewState = .loading
+      
+      switch(response) {
+      case .success(let data):
+        if let data = data as? TeamListDTO {
+          self.teamList = data.teams
+          self.viewState = .success
+        } else {
+          self.viewState = .failure(errorDescription: "데이터 오류")
+        }
+        
+      case .requestErr(let error):
+        if let error = error as? ErrorModel {
+          self.viewState = .failure(errorDescription: error.message)
+        }
+        
+      default:
+        self.viewState = .failure(errorDescription: "error")
+      }
+    }
+  }
+  
+  /// 자신이 선택한 팀에 가입합니다.
+  func requestApplyTeam() {
+    self.viewState = .loading
+    
+    if let data = selectedTeam {
+      recruitTeamUseCase.applyTeam(teamId: data.id) { response in
+        switch(response) {
+        case .success:
+          self.viewState = .success
+          
+        case .requestErr(let error):
+          if let error = error as? ErrorModel {
+            self.viewState = .failure(errorDescription: error.message)
+          }
+          
+        default:
+          self.viewState = .failure(errorDescription: "error")
+        }
+      }
+    } else {
+      self.viewState = .failure(errorDescription: "해당 팀 데이터가 존재하지 않습니다.")
+    }
+    
+    self.deInitCreateTeamData()
+  }
+  
+  
+  /// 새로운 팀을 생성합니다.
+  func requestCreateTeam() {
+    self.viewState = .loading
+    
+    if let data = createTeamData {
+      recruitTeamUseCase.createTeamList(data: data) { response in
+        
+        switch(response) {
+        case .success:
+          self.viewState = .success
+          
+        case .requestErr(let error):
+          if let error = error as? ErrorModel {
+            self.viewState = .failure(errorDescription: error.message)
+          }
+          
+        default:
+          self.viewState = .failure(errorDescription: "error")
+        }
+      }
+    }
+    
+    self.deInitCreateTeamData()
+  }
+  
+  /// 생성시킨 팀 데이터 소멸
+  func deInitCreateTeamData() {
+    self.createTeamData = nil
   }
 }

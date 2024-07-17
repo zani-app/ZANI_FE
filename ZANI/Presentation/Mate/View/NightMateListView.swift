@@ -36,8 +36,7 @@ public struct NightMateListView: View {
           .zaniFont(.title1)
           .foregroundStyle(.errorRed)
           .onTapGesture {
-            // TODO: teamId Variable
-            nightMateDataManager.requestLeaveTeam(teamId: 23)
+            nightMateDataManager.action(.tappedLeaveTeamIcon)
           }
       }
       .padding(.bottom, 26)
