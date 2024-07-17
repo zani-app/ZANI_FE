@@ -14,43 +14,25 @@ public struct CommunityMainView: View {
   public var body: some View {
     NavigationStack(path: $communityPageManager.route) {
       ZStack {
-        ScrollView {
-          LazyVStack(spacing: 0) {
-            title()
-            
-            VStack(spacing: 0) {
-              divider()
-              CommunityBoardBox()
-                .onTapGesture {
-                  communityPageManager.push(.detail)
-                }
-              divider()
-              CommunityBoardBox()
-                .onTapGesture {
-                  communityPageManager.push(.detail)
-                }
-              divider()
-              CommunityBoardBox()
-                .onTapGesture {
-                  communityPageManager.push(.detail)
-                }
-              divider()
-              CommunityBoardBox()
-                .onTapGesture {
-                  communityPageManager.push(.detail)
-                }
+        VStack(spacing: 0) {
+          title()
+            .padding(.top, 10)
+          
+          ScrollView {
+            LazyVStack(spacing: 0) {
+              ForEach(communityDataManager.articleList?.posts ?? []) { article in
+                divider()
+                CommunityBoardBox(article: article)
+              }
               divider()
             }
-            
           }
         }
-        .padding(.top, 10)
         
         writeButton()
       }
       .onAppear {
-        communityDataManager.fetchPost()
-        communityDataManager.createPost(title: "test", content: "Test")
+        communityDataManager.action(.mainViewAppear)
       }
       .background(
         Color.main1
@@ -59,6 +41,21 @@ public struct CommunityMainView: View {
         communityPageDestination(pageState)
       }
     }
+    .failureAlert(
+      isAlert: Binding(
+        get: {
+          if case .failure(_) = communityDataManager.viewState {
+            return true
+          } else {
+            return false
+          }
+        }, set: { value in
+          communityDataManager.viewState = .success
+        }
+      ),
+      description: communityDataManager.errorMsg,
+      action: { }
+    )
   }
 }
 

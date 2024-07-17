@@ -23,8 +23,8 @@ final class DefaultPostRepository: BaseService, PostRepository {
         guard let statusCode = response.response?.statusCode else { return }
         guard let data = response.data else { return }
         
-        // TODO: DTO Setting
-        let networkResult = self.judgeStatus(by: statusCode, data, type: TeamListDTO.self)
+        let networkResult = self.judgeStatus(by: statusCode, data, type: ArticleListDTO.self)
+        print(networkResult)
         completion(networkResult)
         
       case .failure(let err):

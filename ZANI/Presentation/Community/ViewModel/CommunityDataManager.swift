@@ -10,26 +10,56 @@ import Foundation
 
 final class CommunityDataManager: ObservableObject {
   
-  @Published private(set) var isSuccessTask: Bool = false
+  // MARK: Variables
+  @Published var viewState: ViewState = .success
   
+  public private(set) var articleList: ArticleListDTO? = nil
+  public private(set) var errorMsg: String = ""
+  
+  // MARK: UseCases
   private var postUseCase: PostUseCaseImpl = PostUseCaseImpl(postRepository: DefaultPostRepository())
+  
+  public enum Action {
+    case mainViewAppear
+    case tappedWriting
+  }
+  
+  public func action(_ action: Action) {
+    switch action {
+    case .mainViewAppear:
+      self.fetchPost()
+      
+    default:
+      return
+    }
+  }
 }
 
-extension CommunityDataManager {
+private extension CommunityDataManager {
 
-  public func fetchPost() {
+  func fetchPost() {
     postUseCase.read(page: 0, size: 10, keyword: "") { response in
       switch(response) {
-      case .success:
-        print("good!")
+      case .success(let data):
+        if let data = data as? ArticleListDTO {
+          self.articleList = data
+          self.viewState = .success
+        } else {
+          self.viewState = .failure(errorDescription: "데이터 오류")
+        }
+        
+      case .requestErr(let error):
+        if let error = error as? ErrorModel {
+          self.viewState = .failure(errorDescription: error.message)
+        }
         
       default:
-        print("data fetch Error")
+        self.viewState = .failure(errorDescription: "error")
       }
     }
   }
   
-  public func createPost(title: String, content: String) {
+  func createPost(title: String, content: String) {
     postUseCase.create(title: title, content: content) { response in
       switch(response) {
       case .success:

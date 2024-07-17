@@ -12,6 +12,7 @@
 		CD09B4B12BC1BB1600A0CD68 /* NightMissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD09B4B02BC1BB1600A0CD68 /* NightMissionView.swift */; };
 		CD09B4B32BC1BE9C00A0CD68 /* NightMissionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD09B4B22BC1BE9C00A0CD68 /* NightMissionDetailView.swift */; };
 		CD09B4B52BC4373500A0CD68 /* MyPageBadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD09B4B42BC4373500A0CD68 /* MyPageBadgeView.swift */; };
+		CD162D2E2C47F46200F0F9E9 /* ArticleDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD162D2D2C47F46200F0F9E9 /* ArticleDTO.swift */; };
 		CD25EBD22BA8A70300A36B3A /* FilterCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD25EBD12BA8A70300A36B3A /* FilterCategory.swift */; };
 		CD25EBD52BA951B500A36B3A /* AuthMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD25EBD42BA951B500A36B3A /* AuthMainView.swift */; };
 		CD25EBD92BA958E600A36B3A /* LoginType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD25EBD82BA958E600A36B3A /* LoginType.swift */; };
@@ -148,6 +149,7 @@
 		CD09B4B02BC1BB1600A0CD68 /* NightMissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NightMissionView.swift; sourceTree = "<group>"; };
 		CD09B4B22BC1BE9C00A0CD68 /* NightMissionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NightMissionDetailView.swift; sourceTree = "<group>"; };
 		CD09B4B42BC4373500A0CD68 /* MyPageBadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageBadgeView.swift; sourceTree = "<group>"; };
+		CD162D2D2C47F46200F0F9E9 /* ArticleDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDTO.swift; sourceTree = "<group>"; };
 		CD25EBD12BA8A70300A36B3A /* FilterCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCategory.swift; sourceTree = "<group>"; };
 		CD25EBD42BA951B500A36B3A /* AuthMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthMainView.swift; sourceTree = "<group>"; };
 		CD25EBD82BA958E600A36B3A /* LoginType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginType.swift; sourceTree = "<group>"; };
@@ -487,6 +489,7 @@
 				CDBB96F12BF89C8D005BD03B /* RequestTeamListDTO.swift */,
 				CDBB96F32BF89CCB005BD03B /* RequestCreateTeamDTO.swift */,
 				CD9297732C466C7E00ABB14B /* RegisterTeamDTO.swift */,
+				CD162D2D2C47F46200F0F9E9 /* ArticleDTO.swift */,
 			);
 			path = DTO;
 			sourceTree = "<group>";
@@ -904,6 +907,7 @@
 				CD25EBEC2BAB02C200A36B3A /* ChangeNicknameView.swift in Sources */,
 				CDCB74F52BAF6B93008D6B63 /* ChatDTO.swift in Sources */,
 				CD6AAE572BAD885700862A46 /* TeamListDTO.swift in Sources */,
+				CD162D2E2C47F46200F0F9E9 /* ArticleDTO.swift in Sources */,
 				CDCB74EF2BAF6619008D6B63 /* NightChattingView.swift in Sources */,
 				CDC065002BA4809000E24F70 /* SectionListView.swift in Sources */,
 				CDBB96E72BF7DD46005BD03B /* RequestNicknameDuplicateUseCase.swift in Sources */,
