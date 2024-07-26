@@ -8,11 +8,12 @@
 import SwiftUI
 
 public struct CommunityMainView: View {
-  @StateObject private var communityPageManager = CommunityPageManager()
   @StateObject private var communityDataManager = CommunityDataManager()
   
   public var body: some View {
-    NavigationStack(path: $communityPageManager.route) {
+    NavigationStack(
+      path: $communityDataManager.pageController.route
+    ) {
       ZStack {
         VStack(spacing: 0) {
           title()
@@ -20,10 +21,15 @@ public struct CommunityMainView: View {
           
           ScrollView {
             LazyVStack(spacing: 0) {
-              ForEach(communityDataManager.articleList?.posts ?? []) { article in
+              ForEach(communityDataManager.postList?.posts ?? []) { article in
                 divider()
+                
                 CommunityBoardBox(article: article)
+                  .onTapGesture {
+                    communityDataManager.action(.tappedArticle(id: article.postId))
+                  }
               }
+              
               divider()
             }
           }
@@ -64,16 +70,17 @@ extension CommunityMainView {
   @ViewBuilder
   private func communityPageDestination(_ type: CommunityPageState) -> some View {
     switch type {
+    case .main:
+      CommunityMainView()
+      
     case .writing:
       CommunityWritingView()
         .toolbar(.hidden, for: .tabBar)
-        .environmentObject(communityPageManager)
         .environmentObject(communityDataManager)
       
     case .detail:
       CommunityDetailView()
         .toolbar(.hidden, for: .tabBar)
-        .environmentObject(communityPageManager)
         .environmentObject(communityDataManager)
       
     default:
@@ -106,7 +113,7 @@ extension CommunityMainView {
         Spacer()
         
         Button(action: {
-          communityPageManager.push(.writing)
+          communityDataManager.action(.tappedWritingButton)
         }, label: {
           Image("pencilIcon")
             .padding(18)

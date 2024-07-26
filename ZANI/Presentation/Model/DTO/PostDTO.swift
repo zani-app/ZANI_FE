@@ -7,12 +7,12 @@
 
 import Foundation
 
-public struct ArticleListDTO: Codable, Hashable {
+public struct PostListDTO: Codable, Hashable {
   let hasNext: Bool
-  let posts: [ArticleDTO]
+  let posts: [PostDTO]
 }
 
-public struct ArticleDTO: Codable, Hashable, Identifiable {
+public struct PostDTO: Codable, Hashable, Identifiable {
   public var id: Int {
     return self.postId
   }

@@ -7,6 +7,7 @@
 
 import Alamofire
 import Foundation
+import UIKit
 
 final class DefaultPostRepository: BaseService, PostRepository {
   func requestPost(
@@ -23,7 +24,7 @@ final class DefaultPostRepository: BaseService, PostRepository {
         guard let statusCode = response.response?.statusCode else { return }
         guard let data = response.data else { return }
         
-        let networkResult = self.judgeStatus(by: statusCode, data, type: ArticleListDTO.self)
+        let networkResult = self.judgeStatus(by: statusCode, data, type: PostListDTO.self)
         print(networkResult)
         completion(networkResult)
         
@@ -36,17 +37,18 @@ final class DefaultPostRepository: BaseService, PostRepository {
   func createPost(
     title: String,
     content: String,
+    images: [UIImage],
     completion: @escaping (NetworkResult<Any>) -> Void
   ) {
-    AFManager.request(
-      PostRouter.createPost(title: title, content: content)
+    AFManager.upload(
+      multipartFormData: PostRouter.createPost(title: title, content: content, images: images).multipart,
+      with: PostRouter.createPost(title: title, content: content, images: images)
     ).responseData { response in
       switch response.result {
       case .success:
         guard let statusCode = response.response?.statusCode else { return }
         guard let data = response.data else { return }
         
-        // TODO: DTO Setting
         let networkResult = self.judgeStatus(by: statusCode, data, type: Bool.self)
         completion(networkResult)
         
@@ -67,6 +69,25 @@ final class DefaultPostRepository: BaseService, PostRepository {
         
         // TODO: DTO Setting
         let networkResult = self.judgeStatus(by: statusCode, data, type: TeamListDTO.self)
+        completion(networkResult)
+        
+      case .failure(let err):
+        print(err.localizedDescription)
+      }
+    }
+  }
+  
+  func readDetail(postId: Int, completion: @escaping (NetworkResult<Any>) -> Void) {
+    AFManager.request(
+      PostRouter.fetchDetailPost(postId: postId)
+    ).responseData { response in
+      switch response.result {
+      case .success:
+        guard let statusCode = response.response?.statusCode else { return }
+        guard let data = response.data else { return }
+        
+        let networkResult = self.judgeStatus(by: statusCode, data, type: PostDetailDTO.self)
+        print(networkResult)
         completion(networkResult)
         
       case .failure(let err):

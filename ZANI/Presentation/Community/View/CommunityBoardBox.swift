@@ -8,9 +8,9 @@
 import SwiftUI
 
 public struct CommunityBoardBox: View {
-  public let article: ArticleDTO
+  public let article: PostDTO
   
-  public init(article: ArticleDTO) {
+  public init(article: PostDTO) {
     self.article = article
   }
   
@@ -53,7 +53,7 @@ public struct CommunityBoardBox: View {
 
 #Preview {
   CommunityBoardBox(
-    article: ArticleDTO(
+    article: PostDTO(
       postId: 1,
       postTitle: "test",
       likeCount: 1,

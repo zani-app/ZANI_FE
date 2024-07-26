@@ -9,7 +9,6 @@ import PhotosUI
 import SwiftUI
 
 public struct CommunityWritingView: View {
-  @EnvironmentObject private var communityPageManager: CommunityPageManager
   @EnvironmentObject private var communityDataManager: CommunityDataManager
   
   @State private var title: String = ""
@@ -22,7 +21,7 @@ public struct CommunityWritingView: View {
   
   public var body: some View {
     VStack(spacing: 0) {
-      ZaniNavigationBar(title: "글쓰기", leftAction: { communityPageManager.pop() })
+      ZaniNavigationBar(title: "글쓰기", leftAction: { communityDataManager.action(.tappedBackButton) })
         .padding(.bottom, 22)
       
       contents()
@@ -144,7 +143,7 @@ extension CommunityWritingView {
     ZaniMainButton(
       title: "글 등록하기",
       isValid: true,
-      action: { }
+      action: { communityDataManager.action(.tappedCreateArticle) }
     )
     .padding(.horizontal, 20)
     .padding(.vertical, 10)
@@ -153,6 +152,5 @@ extension CommunityWritingView {
 
 #Preview {
   CommunityWritingView()
-    .environmentObject(CommunityPageManager())
     .environmentObject(CommunityDataManager())
 }

@@ -17,14 +17,18 @@ final class CommunityPageManager: ObservableObject {
   @Published public var route: [CommunityPageState] = []
   
   func push(_ page: CommunityPageState) {
-    route.append(page)
+    self.route.append(page)
+    print(self.route)
   }
   
   func pop() {
-    route.removeLast()
+    print(self.route)
+    if !self.route.isEmpty {
+      self.route.removeLast()
+    }
   }
   
   func popToRoot() {
-    route.removeAll()
+    self.route.removeAll()
   }
 }
