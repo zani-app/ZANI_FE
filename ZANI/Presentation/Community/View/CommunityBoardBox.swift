@@ -8,11 +8,17 @@
 import SwiftUI
 
 public struct CommunityBoardBox: View {
+  public let article: PostDTO
+  
+  public init(article: PostDTO) {
+    self.article = article
+  }
+  
   public var body: some View {
     VStack(spacing: 8) {
       HStack(alignment: .top, spacing: 0) {
         VStack(alignment: .leading, spacing: 16) {
-          Text("게시글 제목")
+          Text(article.postTitle)
             .zaniFont(.title2)
           
           Text("게시글 내용 한 줄 미리보기")
@@ -31,7 +37,7 @@ public struct CommunityBoardBox: View {
       HStack(spacing: 4) {
         Image("heartIcon")
         
-        Text("50")
+        Text(article.likeCount.description)
           .zaniFont(.body2)
         
         Spacer()
@@ -46,5 +52,15 @@ public struct CommunityBoardBox: View {
 }
 
 #Preview {
-  CommunityBoardBox()
+  CommunityBoardBox(
+    article: PostDTO(
+      postId: 1,
+      postTitle: "test",
+      likeCount: 1,
+      userId: 1,
+      nickname: "Test",
+      profileImageUrl: "tset",
+      createdAt: "TESTSTEST"
+    )
+  )
 }

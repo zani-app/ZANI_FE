@@ -8,22 +8,23 @@
 import SwiftUI
 
 public struct CommunityDetailView: View {
-  @EnvironmentObject private var communityPageManager: CommunityPageManager
   @EnvironmentObject private var communityDataManager: CommunityDataManager
   
   @State private var isShowDeleteIcon: Bool = false
   
   public var body: some View {
     VStack(spacing: 0) {
-      ZaniNavigationBar(title: "글 상세", leftAction: { communityPageManager.pop() })
+      ZaniNavigationBar(title: "글 상세", leftAction: { communityDataManager.action(.tappedBackButton) })
       
-      ScrollView {
-        LazyVStack(spacing: 0) {
-          content()
-          
-          divider()
-          
-          likeButton()
+      if let postDetail = communityDataManager.postDetail {
+        ScrollView {
+          LazyVStack(spacing: 0) {
+            content()
+            
+            divider()
+            
+            likeButton()
+          }
         }
       }
     }
@@ -155,6 +156,5 @@ extension CommunityDetailView {
 
 #Preview {
   CommunityDetailView()
-    .environmentObject(CommunityPageManager())
     .environmentObject(CommunityDataManager())
 }

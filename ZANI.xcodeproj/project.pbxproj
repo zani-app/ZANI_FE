@@ -12,6 +12,7 @@
 		CD09B4B12BC1BB1600A0CD68 /* NightMissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD09B4B02BC1BB1600A0CD68 /* NightMissionView.swift */; };
 		CD09B4B32BC1BE9C00A0CD68 /* NightMissionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD09B4B22BC1BE9C00A0CD68 /* NightMissionDetailView.swift */; };
 		CD09B4B52BC4373500A0CD68 /* MyPageBadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD09B4B42BC4373500A0CD68 /* MyPageBadgeView.swift */; };
+		CD162D2E2C47F46200F0F9E9 /* PostDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD162D2D2C47F46200F0F9E9 /* PostDTO.swift */; };
 		CD25EBD22BA8A70300A36B3A /* FilterCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD25EBD12BA8A70300A36B3A /* FilterCategory.swift */; };
 		CD25EBD52BA951B500A36B3A /* AuthMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD25EBD42BA951B500A36B3A /* AuthMainView.swift */; };
 		CD25EBD92BA958E600A36B3A /* LoginType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD25EBD82BA958E600A36B3A /* LoginType.swift */; };
@@ -83,6 +84,8 @@
 		CD6AAE572BAD885700862A46 /* TeamListDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6AAE562BAD885700862A46 /* TeamListDTO.swift */; };
 		CD6AAE592BAD88FB00862A46 /* RecruitmentDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6AAE582BAD88FB00862A46 /* RecruitmentDataManager.swift */; };
 		CD6AAE5F2BADC93700862A46 /* TeamDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6AAE5E2BADC93700862A46 /* TeamDetailView.swift */; };
+		CD6CE05E2C538BF10063A81C /* PostDetailDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6CE05D2C538BF10063A81C /* PostDetailDTO.swift */; };
+		CD6CE0602C538C700063A81C /* PostCommentDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6CE05F2C538C700063A81C /* PostCommentDTO.swift */; };
 		CD75956F2C0C921B00E04595 /* AchievementRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD75956E2C0C921B00E04595 /* AchievementRouter.swift */; };
 		CD7595712C0C92A400E04595 /* RequestAchievementUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7595702C0C92A400E04595 /* RequestAchievementUseCase.swift */; };
 		CD8CD0732C0EC0B6002C6129 /* PostRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8CD0722C0EC0B6002C6129 /* PostRouter.swift */; };
@@ -148,6 +151,7 @@
 		CD09B4B02BC1BB1600A0CD68 /* NightMissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NightMissionView.swift; sourceTree = "<group>"; };
 		CD09B4B22BC1BE9C00A0CD68 /* NightMissionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NightMissionDetailView.swift; sourceTree = "<group>"; };
 		CD09B4B42BC4373500A0CD68 /* MyPageBadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageBadgeView.swift; sourceTree = "<group>"; };
+		CD162D2D2C47F46200F0F9E9 /* PostDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDTO.swift; sourceTree = "<group>"; };
 		CD25EBD12BA8A70300A36B3A /* FilterCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCategory.swift; sourceTree = "<group>"; };
 		CD25EBD42BA951B500A36B3A /* AuthMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthMainView.swift; sourceTree = "<group>"; };
 		CD25EBD82BA958E600A36B3A /* LoginType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginType.swift; sourceTree = "<group>"; };
@@ -207,6 +211,8 @@
 		CD6AAE562BAD885700862A46 /* TeamListDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamListDTO.swift; sourceTree = "<group>"; };
 		CD6AAE582BAD88FB00862A46 /* RecruitmentDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecruitmentDataManager.swift; sourceTree = "<group>"; };
 		CD6AAE5E2BADC93700862A46 /* TeamDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamDetailView.swift; sourceTree = "<group>"; };
+		CD6CE05D2C538BF10063A81C /* PostDetailDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailDTO.swift; sourceTree = "<group>"; };
+		CD6CE05F2C538C700063A81C /* PostCommentDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCommentDTO.swift; sourceTree = "<group>"; };
 		CD75956E2C0C921B00E04595 /* AchievementRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementRouter.swift; sourceTree = "<group>"; };
 		CD7595702C0C92A400E04595 /* RequestAchievementUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestAchievementUseCase.swift; sourceTree = "<group>"; };
 		CD8CD0722C0EC0B6002C6129 /* PostRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRouter.swift; sourceTree = "<group>"; };
@@ -487,6 +493,9 @@
 				CDBB96F12BF89C8D005BD03B /* RequestTeamListDTO.swift */,
 				CDBB96F32BF89CCB005BD03B /* RequestCreateTeamDTO.swift */,
 				CD9297732C466C7E00ABB14B /* RegisterTeamDTO.swift */,
+				CD162D2D2C47F46200F0F9E9 /* PostDTO.swift */,
+				CD6CE05D2C538BF10063A81C /* PostDetailDTO.swift */,
+				CD6CE05F2C538C700063A81C /* PostCommentDTO.swift */,
 			);
 			path = DTO;
 			sourceTree = "<group>";
@@ -856,6 +865,7 @@
 				CD25EBF42BAB166100A36B3A /* MoonLevel.swift in Sources */,
 				CD3AA6CC2BB6B06300C589B8 /* NightDisplayType.swift in Sources */,
 				CDBB96DE2BF7BDD4005BD03B /* DefaultUserRepository.swift in Sources */,
+				CD6CE05E2C538BF10063A81C /* PostDetailDTO.swift in Sources */,
 				CD3AA6CA2BB6A88B00C589B8 /* NightWaitingView.swift in Sources */,
 				CD3AA6CE2BB6B76C00C589B8 /* NightMateListView.swift in Sources */,
 				CD3AA6D92BB8855800C589B8 /* CommunityBoardBox.swift in Sources */,
@@ -904,9 +914,11 @@
 				CD25EBEC2BAB02C200A36B3A /* ChangeNicknameView.swift in Sources */,
 				CDCB74F52BAF6B93008D6B63 /* ChatDTO.swift in Sources */,
 				CD6AAE572BAD885700862A46 /* TeamListDTO.swift in Sources */,
+				CD162D2E2C47F46200F0F9E9 /* PostDTO.swift in Sources */,
 				CDCB74EF2BAF6619008D6B63 /* NightChattingView.swift in Sources */,
 				CDC065002BA4809000E24F70 /* SectionListView.swift in Sources */,
 				CDBB96E72BF7DD46005BD03B /* RequestNicknameDuplicateUseCase.swift in Sources */,
+				CD6CE0602C538C700063A81C /* PostCommentDTO.swift in Sources */,
 				CD8CD0732C0EC0B6002C6129 /* PostRouter.swift in Sources */,
 				CD25EC302BAC9CD900A36B3A /* AppDelegate.swift in Sources */,
 				CD25EC342BACA05100A36B3A /* AuthDataManager.swift in Sources */,

@@ -6,9 +6,10 @@
 //
 
 import Foundation
+import UIKit
 
 protocol PostRepository {
-  
+
   /// 게시글 리스트 불러오기
   func requestPost(
     page: Int,
@@ -21,6 +22,13 @@ protocol PostRepository {
   func createPost(
     title: String,
     content: String,
+    images: [UIImage],
+    completion: @escaping (NetworkResult<Any>) -> Void
+  ) -> Void
+  
+  /// 게시글 상세보기
+  func readDetail(
+    postId: Int,
     completion: @escaping (NetworkResult<Any>) -> Void
   ) -> Void
   

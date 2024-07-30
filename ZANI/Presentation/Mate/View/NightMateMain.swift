@@ -163,13 +163,13 @@ extension NightMateMain {
         .padding(.leading, 20)
         .padding(.bottom, 16)
       
-      divider()
-      CommunityBoardBox()
-      divider()
-      CommunityBoardBox()
-      divider()
-      CommunityBoardBox()
-      divider()
+//      divider()
+//      CommunityBoardBox()
+//      divider()
+//      CommunityBoardBox()
+//      divider()
+//      CommunityBoardBox()
+//      divider()
     }
   }
   

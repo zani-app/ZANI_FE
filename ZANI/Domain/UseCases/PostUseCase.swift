@@ -6,12 +6,14 @@
 //
 
 import Foundation
+import UIKit
 
 protocol PostUseCase {
   
   func create(
     title: String,
     content: String,
+    images: [UIImage],
     completion: @escaping (NetworkResult<Any>) -> Void
   ) -> Void
   
@@ -19,6 +21,11 @@ protocol PostUseCase {
     page: Int,
     size: Int,
     keyword: String,
+    completion: @escaping (NetworkResult<Any>) -> Void
+  ) -> Void
+  
+  func readDetail(
+    postId: Int,
     completion: @escaping (NetworkResult<Any>) -> Void
   ) -> Void
   
@@ -46,11 +53,13 @@ final class PostUseCaseImpl: PostUseCase {
   func create(
     title: String, 
     content: String,
+    images: [UIImage],
     completion: @escaping (NetworkResult<Any>) -> Void
   ) {
     postRepository.createPost(
       title: title,
       content: content,
+      images: images,
       completion: completion
     )
   }
@@ -65,6 +74,16 @@ final class PostUseCaseImpl: PostUseCase {
       page: page,
       size: size,
       keyword: keyword,
+      completion: completion
+    )
+  }
+  
+  func readDetail(
+    postId: Int,
+    completion: @escaping (NetworkResult<Any>) -> Void
+  ) {
+    postRepository.readDetail(
+      postId: postId,
       completion: completion
     )
   }

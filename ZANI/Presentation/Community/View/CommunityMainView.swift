@@ -8,49 +8,37 @@
 import SwiftUI
 
 public struct CommunityMainView: View {
-  @StateObject private var communityPageManager = CommunityPageManager()
   @StateObject private var communityDataManager = CommunityDataManager()
   
   public var body: some View {
-    NavigationStack(path: $communityPageManager.route) {
+    NavigationStack(
+      path: $communityDataManager.pageController.route
+    ) {
       ZStack {
-        ScrollView {
-          LazyVStack(spacing: 0) {
-            title()
-            
-            VStack(spacing: 0) {
-              divider()
-              CommunityBoardBox()
-                .onTapGesture {
-                  communityPageManager.push(.detail)
-                }
-              divider()
-              CommunityBoardBox()
-                .onTapGesture {
-                  communityPageManager.push(.detail)
-                }
-              divider()
-              CommunityBoardBox()
-                .onTapGesture {
-                  communityPageManager.push(.detail)
-                }
-              divider()
-              CommunityBoardBox()
-                .onTapGesture {
-                  communityPageManager.push(.detail)
-                }
+        VStack(spacing: 0) {
+          title()
+            .padding(.top, 10)
+          
+          ScrollView {
+            LazyVStack(spacing: 0) {
+              ForEach(communityDataManager.postList?.posts ?? []) { article in
+                divider()
+                
+                CommunityBoardBox(article: article)
+                  .onTapGesture {
+                    communityDataManager.action(.tappedArticle(id: article.postId))
+                  }
+              }
+              
               divider()
             }
-            
           }
         }
-        .padding(.top, 10)
         
         writeButton()
       }
       .onAppear {
-        communityDataManager.fetchPost()
-        communityDataManager.createPost(title: "test", content: "Test")
+        communityDataManager.action(.mainViewAppear)
       }
       .background(
         Color.main1
@@ -59,6 +47,21 @@ public struct CommunityMainView: View {
         communityPageDestination(pageState)
       }
     }
+    .failureAlert(
+      isAlert: Binding(
+        get: {
+          if case .failure(_) = communityDataManager.viewState {
+            return true
+          } else {
+            return false
+          }
+        }, set: { value in
+          communityDataManager.viewState = .success
+        }
+      ),
+      description: communityDataManager.errorMsg,
+      action: { }
+    )
   }
 }
 
@@ -67,16 +70,17 @@ extension CommunityMainView {
   @ViewBuilder
   private func communityPageDestination(_ type: CommunityPageState) -> some View {
     switch type {
+    case .main:
+      CommunityMainView()
+      
     case .writing:
       CommunityWritingView()
         .toolbar(.hidden, for: .tabBar)
-        .environmentObject(communityPageManager)
         .environmentObject(communityDataManager)
       
     case .detail:
       CommunityDetailView()
         .toolbar(.hidden, for: .tabBar)
-        .environmentObject(communityPageManager)
         .environmentObject(communityDataManager)
       
     default:
@@ -109,7 +113,7 @@ extension CommunityMainView {
         Spacer()
         
         Button(action: {
-          communityPageManager.push(.writing)
+          communityDataManager.action(.tappedWritingButton)
         }, label: {
           Image("pencilIcon")
             .padding(18)
